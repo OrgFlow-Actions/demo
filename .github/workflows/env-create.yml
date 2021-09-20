@@ -1,0 +1,100 @@
+# Add a new environment to this repo's stack
+
+name: Create an environment
+on:
+  # This action is always manually executed.
+  workflow_dispatch:
+    inputs:
+      environmentName:
+        description: > 
+          Name of environment to create.
+
+          This must be a unique name within your stack.
+        required: true
+      sandboxName:
+        description: >
+          Environment sandbox name.
+
+          The metadata in this repository will be deployed to this sandbox, so make sure that you don't have any changes in this sandbox that you wouldn't want to lose.
+
+          OrgFlow will create the sandbox for you (if it doesn't already exist), but we recommend creating it manually before running this workflow (to save on build minutes).
+        required: true
+      branchName:
+        description: > 
+          Name of Git branch to back the environment.
+
+          The metadata in your sandbox will be kept in sync with the metadata in this branch. 
+          
+          OrgFlow will create the branch from the head of `main` (if not already created). Make sure that the branch you provide is not already being used by another environment.
+        required: true
+        
+# The env:create command needs to be able to push changes back to the repo.
+permissions:
+  contents: write  
+
+jobs:
+  env-create:
+    name: Create Environment
+    runs-on: ubuntu-latest    
+    container: 
+      image: orgflow/cli:latest
+    env:
+      ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
+      ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
+      ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
+      SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
+      SALESFORCE_PASSWORD: ${{ secrets.SALESFORCE_PASSWORD }}
+    
+    steps:
+      # Verify input:
+      - name: Verify stack name
+        id: verifyStackName
+        if: ${{ always() && env.ORGFLOW_STACKNAME == '' }}
+        run: |
+          echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.'
+          #exit 1
+      - name: Verify license key
+        id: verifyLicenseKey
+        if: ${{ always() && env.ORGFLOW_LICENSEKEY == '' }}
+        run: |
+          echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.'
+          exit 
+      - name: Verify Salesforce username
+        id: verifySalesforceUsername
+        if: ${{always() && env.SALESFORCE_USERNAME == '' }}
+        run: |
+          echo 'Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details.'
+          exit 1
+      - name: Verify Salesforce password
+        id: verifySalesforcePassword
+        if: ${{always() && env.SALESFORCE_PASSWORD == '' }}
+        run: |
+          echo 'Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details.'
+          exit 1
+          
+      # Configure Git:
+      - uses: orgflow-actions/configure-git@v0.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Configure auth:
+      - uses: orgflow-actions/set-salesforce-auth@v0.2
+        with:
+          username: ${{ secrets.SALESFORCE_USERNAME }}
+          password: ${{ secrets.SALESFORCE_PASSWORD }}       
+          
+      # Run OrgFlow command:
+      - name: env:create
+        run: |
+          orgflow env:create -e="${{ github.event.inputs.environmentName }}" -sb="${{ github.event.inputs.sandboxName }}" -b="${{ github.event.inputs.branchName }}" --useExistingSandbox --useExistingBranch      
+      
+      # Publish diagnostic bundles to artifacts (if any):
+      - name: Publish diagnostic bundle as artifact
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Diagnostic Bundles
+          path: |
+            /tmp/OrgFlow_Diagnostics_*.zip
+          retention-days: 3
+          if-no-files-found: ignore

@@ -1,0 +1,53 @@
+# Unlock an environment in the event that it gets into a state where it is permanently locked.
+# TIP- this can happen if a GitHub workflow gets cancelled, as the cancellation token does not get correctly forwarded to OrgFlow, so OrgFlow will not unlock the environment before exiting.
+
+name: Unlock an environment
+
+on:
+  # This action is always manually executed.
+  workflow_dispatch:
+    inputs:
+      environmentName:
+        description: 'Name of environment to unlock.'
+        required: true
+
+jobs:
+  env-unlock:
+    name: Unlock Environment
+    runs-on: ubuntu-latest    
+    container: 
+      image: orgflow/cli:latest
+    env:
+      ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
+      ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
+      ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
+
+    steps:
+      # Verify input:
+      - name: Verify stack name
+        id: verifyStackName
+        if: ${{ always() && env.ORGFLOW_STACKNAME == '' }}
+        run: |
+          echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.'
+          #exit 1
+      - name: Verify license key
+        id: verifyLicenseKey
+        if: ${{ always() && env.ORGFLOW_LICENSEKEY == '' }}
+        run: |
+          echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.'
+          exit 
+      
+      # Run OrgFlow command:
+      - name: env:unlock
+        run: orgflow env:unlock -e="${{ github.event.inputs.environmentName }}"      
+      
+      # Publish diagnostic bundles to artifacts (if any):
+      - name: Publish diagnostic bundle as artifact
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Diagnostic Bundles
+          path: |
+            /tmp/OrgFlow_Diagnostics_*.zip
+          retention-days: 3
+          if-no-files-found: ignore
