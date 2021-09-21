@@ -35,10 +35,7 @@ jobs:
     needs: create-matrix
     runs-on: ubuntu-latest    
     container: 
-      image: orgflow/cli-private:latest
-      credentials:
-        username: paynecrl97
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}  
+      image: orgflow/cli
     env:
       ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
       ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
