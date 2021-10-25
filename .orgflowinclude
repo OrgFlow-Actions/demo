@@ -1,0 +1,17 @@
+# This is an include file used by OrgFlow. Edit this file to control which metadata types and components
+# are included in the flow of changes between Salesforce and the Git repository, and between the different
+# environments in your stack.
+# Please refer to https://docs.orgflow.io/reference/glossary/orgflow-include-file.html for details.
+
+# Rules added by stack initialization 10/25/2021 11:40:31:
+
+!unpackaged/~/ApexClass
+!unpackaged/~/ApexComponent
+!unpackaged/~/ApexPage
+!unpackaged/~/ApexTestSuite
+!unpackaged/~/ApexTrigger
+!unpackaged/~/AuraDefinitionBundle
+!unpackaged/~/FlexiPage
+!unpackaged/~/LightningComponentBundle
+!unpackaged/~/StaticResource
+
