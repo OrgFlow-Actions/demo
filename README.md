@@ -7,8 +7,6 @@ This repository contains a few sample workflows to quickly get you up and runnin
 ## First things first
 This is a template repository, and you'll need to create a new repository (using this repository as a template) to be able to follow this guide.
 
-![image](https://user-images.githubusercontent.com/2872984/133998220-1a4e6ec7-2400-43f1-9acd-4782a5ee219a.png)
-
 Click the big, green, `Use this template` button near the top of this page, and follow the instructions. **Make sure that you create a private repository** because we'll be committing your Salesforce metadata to it.
 
 ## Getting started
