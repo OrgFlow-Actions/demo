@@ -34,12 +34,14 @@ A stack is a link between Salesforce and a Git repository.
 
 Go to the `Actions` tab in this repo, and run the workflow called `Create the stack`.
 
+When OrgFlow creates your stack, it will also create your first environment (called `Production`). This environment is connected to the production Salesforce org that you provided the username and password for. You will see that a git branch called 'production' has been created too, and that the metadata from your salesforce org has been committed to this branch.
+
 ### 3. Add another environment
 Environments are a link between a specific Salesforce org and a branch within the Git repository. You already created an environment for your production org when you created the stack, but now we are going to create an environment for a sandbox org.
 
 Go to the `Actions` tab in this repo, and run the workflow called `Create an environment`.
 
-Pick a unique name for this environment (your stack only contains a single environment at the moment, and it is called `Production`, so just pick anything other than `Production`). We recommend simply `A`.
+Pick a unique name for this environment (your stack only contains a single environment at the moment, and it is called `Production`, so just pick anything other than `Production`). For the purposes of this demo, we recommend simply `A`.
 
 Provide sandbox and Git branch names (we recommend `OrgFlowA` and `sb/orgflowa` respectively).
 
