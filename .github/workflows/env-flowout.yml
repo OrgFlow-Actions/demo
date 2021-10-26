@@ -3,7 +3,7 @@
 name: Flow out an environment
 on:
   push:
-    branches-ignore: [ main ] # Remove this line to enable deployments to production. Note- we assume that the production environment is backed by a branch called `main`; if this is not the case, then you'll need to update this value.
+    branches-ignore: [ production ] # Remove this line to enable deployments to production. Note- we assume that the production environment is backed by a branch called `production`; if this is not the case, then you'll need to update this value.
         
 jobs:
   flow-out:

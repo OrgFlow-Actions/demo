@@ -58,7 +58,7 @@ jobs:
       # Run OrgFlow command:
       - name: stack:create
         run: |
-          orgflow stack:create -n="${{ secrets.ORGFLOW_STACKNAME }}" -r="$GITHUB_SERVER_URL/${{ github.repository }}.git" -b=main -u="${{ secrets.SALESFORCE_USERNAME }}" -p="${{ secrets.SALESFORCE_PASSWORD }}" -i=UseExisting -e=Production      
+          orgflow stack:create -n="${{ secrets.ORGFLOW_STACKNAME }}" -r="$GITHUB_SERVER_URL/${{ github.repository }}.git" -b=production -u="${{ secrets.SALESFORCE_USERNAME }}" -p="${{ secrets.SALESFORCE_PASSWORD }}" -e=Production      
       
       # Publish diagnostic bundles to artifacts (if any):
       - name: Publish diagnostic bundle as artifact
