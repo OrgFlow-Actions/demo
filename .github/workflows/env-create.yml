@@ -25,7 +25,7 @@ on:
 
           The metadata in your sandbox will be kept in sync with the metadata in this branch. 
           
-          OrgFlow will create the branch from the head of `main` (if not already created). Make sure that the branch you provide is not already being used by another environment.
+          OrgFlow will create the branch from the head of `production` (if not already created). Make sure that the branch you provide is not already being used by another environment.
         required: true
         
 # The env:create command needs to be able to push changes back to the repo.
