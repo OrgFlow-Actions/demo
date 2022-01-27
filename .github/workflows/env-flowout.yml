@@ -89,7 +89,7 @@ jobs:
       - name: env:flowout
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         run: |
-          orgflow env:flowout -e="$ORGFLOW_ENVIRONMENT" --checkOnly     
+          orgflow env:flowout -e="$ORGFLOW_ENVIRONMENT"
         env:
           ORGFLOW_ENCRYPTIONKEY: ${{ steps.set-salesforce-auth.outputs.encryption-key }} 
       

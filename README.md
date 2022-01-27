@@ -43,7 +43,7 @@ A stack is a link between Salesforce and a Git repository.
 
 Go to the `Actions` tab in this repo, and run the workflow called `Create the stack`.
 
-When OrgFlow creates your stack, it will also create your first environment (called `Production`). This environment is connected to the production Salesforce org that you provided the username and password for. You will see that a git branch called 'production' has been created too, and that the metadata from your salesforce org has been committed to this branch.
+When OrgFlow creates your stack, it will also create your first environment (called `Production`). This environment is connected to the production Salesforce org that you provided the username and password for. You will see that a git branch called `production` has been created too, and that the metadata from your salesforce org has been committed to this branch.
 
 ### 3. Add another environment
 
@@ -69,9 +69,9 @@ But first- let's change some metadata in one of the sandboxes that you created i
 
 We'll keep things simple and start with Custom Objects (if you changed the `.orgflowinclude` file (see step 1b), then you may need to pick another metadata type). Log into the `OFQA` sandbox, and add an object called `Car` (you can configure it how you please).
 
-Next, got to the `Actions` tab in this repo, and run the workflow called `Flow in an environment`. Enter the environment name `A` (because this is the environment name that we chose when adding the `OFQA` sandbox as an environment), and optionally add a commit message (maybe `Adds Car object`). Run the workflow and wait for it to complete.
+Next, got to the `Actions` tab in this repo, and run the workflow called `Flow in an environment`. Enter the environment name `QA` (because this is the environment name that we chose when adding the `OFQA` sandbox as an environment), and optionally add a commit message (maybe `Adds Car object`). Run the workflow and wait for it to complete.
 
-You'll notice that the car object is now in your repo.
+You'll notice that the car object is now in your repo (in the `sandbox/qa` branch, or whatever branch name you assigned to your `QA` environment).
 
 ### 5. Move your change to another Salesforce org
 
