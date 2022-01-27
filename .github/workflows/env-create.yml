@@ -87,7 +87,7 @@ jobs:
       # Run OrgFlow command:
       - name: env:create
         run: |
-          orgflow env:create -e="${{ github.event.inputs.environmentName }}" -sb="${{ github.event.inputs.sandboxName }}" -b="${{ github.event.inputs.branchName }}" --useExistingSandbox --useExistingBranch      
+          orgflow env:create -e="${{ github.event.inputs.environmentName }}" -sb="${{ github.event.inputs.sandboxName }}" -b="${{ github.event.inputs.branchName }}" --useExistingSandbox --useExistingBranch --noConfirm   
       
       # Publish diagnostic bundles to artifacts (if any):
       - name: Publish diagnostic bundle as artifact
