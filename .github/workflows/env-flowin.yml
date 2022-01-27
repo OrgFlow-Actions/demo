@@ -61,12 +61,12 @@ jobs:
           exit 1
           
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v0.4
+      - uses: orgflow-actions/configure-git@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Configure auth:
-      - uses: orgflow-actions/set-salesforce-auth@v0.2
+      - uses: orgflow-actions/set-salesforce-auth@v1
         with:
           username: ${{ secrets.SALESFORCE_USERNAME }}
           password: ${{ secrets.SALESFORCE_PASSWORD }}   
