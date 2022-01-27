@@ -81,7 +81,8 @@ jobs:
       - uses: orgflow-actions/set-salesforce-auth@v1
         with:
           username: ${{ secrets.SALESFORCE_USERNAME }}
-          password: ${{ secrets.SALESFORCE_PASSWORD }}       
+          password: ${{ secrets.SALESFORCE_PASSWORD }} 
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }} 
           
       # Run OrgFlow command:
       - name: env:create

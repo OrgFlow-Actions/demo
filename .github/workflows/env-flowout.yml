@@ -72,7 +72,8 @@ jobs:
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         with:
           username: ${{ secrets.SALESFORCE_USERNAME }}
-          password: ${{ secrets.SALESFORCE_PASSWORD }}        
+          password: ${{ secrets.SALESFORCE_PASSWORD }}  
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}       
           
       # It's good practice flow in before you flow out, to avoid loss of data in the Salesforce org:
       - name: env:flowin

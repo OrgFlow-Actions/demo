@@ -62,14 +62,13 @@ jobs:
       # The test results publisher requires that the repository is checked out:
       - uses: actions/checkout@v2 
         name: Checkout at hash for environment
-        # with:
-        #   ref: $ORGFLOW_SHA
 
       # Configure auth:
       - uses: orgflow-actions/set-salesforce-auth@v1
         with:
           username: ${{ secrets.SALESFORCE_USERNAME }}
           password: ${{ secrets.SALESFORCE_PASSWORD }} 
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }} 
       
       # Run OrgFlow command:
       - name: env:test
