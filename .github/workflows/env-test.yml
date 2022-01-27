@@ -66,6 +66,7 @@ jobs:
       # Configure auth:
       - uses: orgflow-actions/set-salesforce-auth@v1
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           username: ${{ secrets.SALESFORCE_USERNAME }}
           password: ${{ secrets.SALESFORCE_PASSWORD }} 
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }} 

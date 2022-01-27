@@ -71,6 +71,7 @@ jobs:
       - uses: orgflow-actions/set-salesforce-auth@v1
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           username: ${{ secrets.SALESFORCE_USERNAME }}
           password: ${{ secrets.SALESFORCE_PASSWORD }}  
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}       
