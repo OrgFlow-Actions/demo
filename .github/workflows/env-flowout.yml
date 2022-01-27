@@ -69,6 +69,7 @@ jobs:
 
       # Configure auth:
       - uses: orgflow-actions/set-salesforce-auth@v1
+        id: set-salesforce-auth
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         with:
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
@@ -81,12 +82,16 @@ jobs:
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         run: |
           orgflow env:flowin -e="$ORGFLOW_ENVIRONMENT"
+        env:
+          ORGFLOW_ENCRYPTIONKEY: ${{ steps.set-salesforce-auth.outputs.encryption-key }}
           
       # Flow out to deploy the changes from Git to Salesforce:
       - name: env:flowout
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         run: |
-          orgflow env:flowout -e="$ORGFLOW_ENVIRONMENT" --checkOnly      
+          orgflow env:flowout -e="$ORGFLOW_ENVIRONMENT" --checkOnly     
+        env:
+          ORGFLOW_ENCRYPTIONKEY: ${{ steps.set-salesforce-auth.outputs.encryption-key }} 
       
       # Publish diagnostic bundles to artifacts (if any):
       - name: Publish diagnostic bundle as artifact
