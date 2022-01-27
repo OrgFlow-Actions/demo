@@ -62,13 +62,13 @@ jobs:
         run: echo "Branch '$BRANCHNAME' does not belong to any environment on this stack."      
           
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v0.4
+      - uses: orgflow-actions/configure-git@v1
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Configure auth:
-      - uses: orgflow-actions/set-salesforce-auth@v0.2
+      - uses: orgflow-actions/set-salesforce-auth@v1
         if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         with:
           username: ${{ secrets.SALESFORCE_USERNAME }}
