@@ -1,0 +1,178 @@
+<apex:page standardController="Order" docType="html-5.0" renderAs="pdf" standardStylesheets="false" extensions="Order_PDF_USC_TeleSales_extension">
+    <head>
+        <style type="text/css">
+            TH {font-size: 13px; font-face: arial; background: #edeaea; border-width: 0; text-align: center; margin: 0;padding-left:10px; padding-right:10px;}
+            TD {padding-left:10px;padding-right:10px;}
+            TABLE {border: solid #FFFFFF; border-width: 0;font-size: 13px; font-face: arial;}
+            p {font-size: 14px; font-face: arial; text-align: left;}
+        </style>
+    </head>
+    
+    <body>
+        
+        <img src="https://dentsplysirona.my.salesforce.com/servlet/servlet.ImageServer?id=0150J0000045Oy8&oid=00D200000001dDc" width="100%" /><br/><br/>
+        <img src="https://dentsplysirona.my.salesforce.com/servlet/servlet.ImageServer?id=0150J000004JEYR&oid=00D200000001dDc" width="170" /><br/><br/>
+        
+        <table>
+            <tr>            
+                <td width="150px">
+                    Order number:</td> 
+                <td width="250px">{!Order.OrderNumber}</td>
+                <td>Order taken by:</td>
+                <td>{!Order.CreatedBy.Name}</td>
+            </tr>
+            <tr>
+                <td>Order date:</td> 
+                <td><apex:outputText value=" {0,date,MMM d, yyyy}"><apex:param value="{!Order.EffectiveDate}"/></apex:outputText></td>
+            </tr>
+            <tr>
+                <td>Customer name:</td> 
+                <td>{!Order.Account.Name}</td>
+                <td> </td></tr>
+            <tr><td>Customer Phone Number:</td> 
+                <td>{!Order.Account.Phone}</td>
+            </tr>
+            <tr><td valign="top">Ship to address: </td>
+                <td valign="top">{!Order.ShippingStreet},<br/> {!Order.ShippingCity}, {!Order.ShippingPostalCode} <br/>{!Order.ShippingState}, {!Order.ShippingCountry}</td>
+            </tr>
+        </table>
+        <br/>
+        <table>
+            <tr>
+                <td width="150px">{!$ObjectType.Order.fields.Distributor__c.Label}:</td></tr>
+            <td width="250px">{!Order.Distributor__r.Name}</td>
+            <tr><td>Order given by:</td>
+                <td>________________________________</td>
+            </tr>
+            
+            <tr>
+                <td>Invoice #: </td>
+                <td>________________________________</td></tr>
+            <tr><td>Invoice date:</td>
+                <td>________________________________</td></tr>
+            
+            <tr>
+                <td>Confirmation #: </td>
+                <td>________________________________</td>
+            </tr>
+            
+            
+        </table>
+        
+        <br/><br/>
+        <apex:outputPanel rendered="{!payprod.size>0}">
+        <table style="border:0px;">
+            <tr>
+                <th width="150px"><font face="arial" size="1"> Campaign Code </font></th>
+                <th width="120px"><font face="arial" size="1"> Item </font></th>
+                <th width="50px"><font face="arial" size="1"> Qty  </font></th>
+                <th width="300px"><font face="arial" size="1"> Description </font></th>
+                <th width="100px"><font face="arial" size="1"> Unit price </font></th>
+                <th><font face="arial" size="1"> Total price</font></th>
+            </tr>
+            <apex:repeat var="ox" value="{!payprod}">
+                <tr>
+                    <td><font face="arial" size="1"> </font></td>
+                    <td><font face="arial" size="1">{!ox.Article_Number__c}</font></td>
+                    <td><font face="arial" size="1">{!ROUND(ox.Quantity,0)}</font></td>
+                    <td><font face="arial" size="1">{!ox.PriceBookEntry.Product2.Name}</font></td>
+                    <td><font face="arial" size="1">{!ox.UnitPrice}</font></td>   
+                    <td><font face="arial" size="1">{!ox.Total_Line_Item_Price__c} {!ox.Order.CurrencyIsoCode}</font></td>
+                    
+                </tr>
+            </apex:repeat>
+            
+            <tr>
+                <th colspan="4"><c:OrderPdfBOMs /></th>
+            </tr>
+            
+        </table>
+        
+        <table>
+            <tr>
+                <td width="650px">  </td>
+                <td> <b> Order Total Amount: </b></td>
+                <td><b>{!Order.Order_Amount_global__c} {!Order.CurrencyIsoCode}</b></td>
+                
+            </tr>
+        </table>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!freeprod.size>0}">
+        <br><h3>Free Goods</h3>    </br>
+    <table style="border:0.8px;">
+        <tr>
+            <td width="150px" ><b> </b></td>
+            <td width="120px"><b>Item #</b></td>
+            <td width="100px"><b>Qty</b></td>
+            <td width="250px"><b>Description</b></td>
+            <td><b>Offer code</b></td>
+            
+        </tr>
+        <tr>
+            <apex:repeat var="ox" value="{!freeprod}">
+                <tr>
+                    
+                    <td><font face="arial" size="1"> </font></td>
+                    <td><font face="arial" size="1">{!ox.Article_Number__c}</font></td>
+                    <td><font face="arial" size="1">{!ROUND(ox.Quantity,0)}</font></td>
+                    <td><font face="arial" size="1">{!ox.PriceBookEntry.Product2.Name}</font></td>
+                    <td><font face="arial" size="1">{!ox.Offer_Code_dna__r.Name}</font></td>   
+                    
+                    
+                </tr>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <th colspan="4"><c:OrderPdfBOMs /></th>
+        </tr>
+        
+    </table>
+    </apex:outputPanel>
+    
+    <br/>
+    <table>
+        <tr></tr>
+        <tr>
+            <td>{!Order.Pricebook2.Order_pdf_comments__c}</td>
+        </tr>
+    </table>
+    
+    <br/>
+    <br/>
+    <br><h3>Add on information</h3></br>
+
+<table>
+    <th>
+        <td width="50px">INV. DATE</td>
+    <td width="150px">_____________________________         </td>
+    <td>   QTY</td>
+    <td> __________</td>
+    <td width="50px">PRODUCT NAME</td>
+    <td width="150px">_____________________________         </td>  
+</th>
+</table>
+
+<table>
+    <th>
+        <td width="50px">INV. DATE</td>
+    <td width="150px">_____________________________         </td>
+    <td>   QTY</td>
+    <td> __________</td>
+    <td width="50px">PRODUCT NAME</td>
+    <td width="150px">_____________________________         </td>  
+</th>
+</table>
+<table>
+    <th>
+        <td width="50px">INV. DATE</td>
+    <td width="150px">_____________________________         </td>
+    <td>   QTY</td>
+    <td> __________</td>
+    <td width="50px">PRODUCT NAME</td>
+    <td width="150px">_____________________________         </td>  
+</th>
+</table>
+
+</body>
+
+</apex:page>
