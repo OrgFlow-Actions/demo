@@ -1,5 +1,0 @@
-<design:component>
-    <design:attribute name="multiselectString" label="Multiselect string" />
-    <design:attribute name="literalCheck" label="Literal check" />
-    <design:attribute name="checkOutput" label="Result" />
-</design:component>

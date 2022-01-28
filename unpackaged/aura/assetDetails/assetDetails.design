@@ -1,3 +1,0 @@
-<design:component label="Asset Details">
-    <design:attribute name="objectType" label="Object Type" datasource="Case, WorkOrder" default="Case"/>
-</design:component>

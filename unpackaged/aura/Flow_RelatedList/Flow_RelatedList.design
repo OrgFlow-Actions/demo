@@ -1,4 +1,0 @@
-<design:component>
-	 <design:attribute name="articles" label="Article list" />
-     <design:attribute name="recordId" label="Record Id" />
-</design:component>

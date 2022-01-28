@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-  <customSettingsType>List</customSettingsType>
-  <enableFeeds>false</enableFeeds>
-  <label>Hide Mass email from view all activities</label>
-  <visibility>Public</visibility>
-</CustomObject>

@@ -1,4 +1,0 @@
-<design:component>
-        <design:attribute name="url" label="URL" />
-        <design:attribute name="recordId" label="Record Id" />    
-</design:component>

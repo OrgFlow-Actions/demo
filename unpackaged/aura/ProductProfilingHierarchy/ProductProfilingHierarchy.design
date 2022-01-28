@@ -1,5 +1,0 @@
-<design:component>
-	<design:attribute name="recordId" label="Contact Id" />
-    <design:attribute name="currentSelectedRows" label="Selected products" />
-    <design:attribute name="currentSelectedRowWrapper" label="Selected products wrapper" />
-</design:component>
