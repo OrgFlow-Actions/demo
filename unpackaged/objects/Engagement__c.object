@@ -1,0 +1,1169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>Speaker Engagements and Requests, Moderator Engagements &amp; Requests</description>
+  <enableActivities>true</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>Private</externalSharingModel>
+  <fields>
+    <fullName>Airport__c</fullName>
+    <description>No relation to Airport on Members</description>
+    <externalId>false</externalId>
+    <label>Airport</label>
+    <length>50</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Approved_travel_exception__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox ticked when travel exception (from travel policy) is applicable this has been approved.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checkbox ticked when travel exception (from travel policy) is applicable this has been approved.</inlineHelpText>
+    <label>Approved travel exception</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Arrival_Date_and_time__c</fullName>
+    <description>Add information regarding arrival date and time for speakers</description>
+    <externalId>false</externalId>
+    <label>Arrival Date and time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>Arrival_Flight__c</fullName>
+    <description>No relation to Arrival Flight on Memebers</description>
+    <externalId>false</externalId>
+    <label>Arrival Flight#</label>
+    <length>50</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_City__c</fullName>
+    <description>Used in Email Templates</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Parent_Event__r.Campaign_City__c</formula>
+    <inlineHelpText>Used in Email Templates</inlineHelpText>
+    <label>Campaign City</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Country__c</fullName>
+    <description>Used in Email Templates</description>
+    <externalId>false</externalId>
+    <formula>TEXT (Session__r.Parent_Event__r.Campaign_Country__c )</formula>
+    <inlineHelpText>Used in Email Templates</inlineHelpText>
+    <label>Campaign Country</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_End_Date__c</fullName>
+    <description>Used in Email Templates</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Parent_Event__r.EndDate</formula>
+    <inlineHelpText>Used in Email Templates</inlineHelpText>
+    <label>Campaign End Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Campaign_Est_Participants__c</fullName>
+    <description>Used in E-mail Templates</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Parent_Event__r.Est_of_participants__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Used in E-mail Templates</inlineHelpText>
+    <label>Campaign Est # Participants</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Member_ID__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Use to sync Speaker Requests and Campaign Members. Should not be visible to users, but only used for APEX triggers etc</description>
+    <externalId>false</externalId>
+    <label>Campaign Member ID</label>
+    <length>30</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Member_Prio__c</fullName>
+    <description>This field set the priority for updating the Campaign Member record. Used whena speaker is engaged in more than one speaker session on the same campaign. The higher number the higher priority. This field should not appear in any page lyouts</description>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Request_Status__c, "Confidential") , 
+0, 
+(
+ IF( Multiple_Sessions_Logistics_Details__c =True, 100, 0)+ 
+CASE( Request_Status__c , 
+"Declined", 10,
+"Cancelled (By DI)",20, 
+"Suggested", 30,
+"Pending",40,
+"Confirmed", 50,
+0) 
++ CASE( Request_Type__c , 
+"Other", 1, 
+"Moderator", 2,
+"Speaker",3,
+"Speaker &amp; Moderator",4,
+0))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Campaign Member Prio</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Name__c</fullName>
+    <description>Used in E-mail Templates</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Parent_Event__r.Name</formula>
+    <inlineHelpText>Used in E-mail Templates</inlineHelpText>
+    <label>Campaign Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Start_Date__c</fullName>
+    <description>Used in Email Templates</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Parent_Event__r.StartDate</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Used in Email Templates</inlineHelpText>
+    <label>Campaign Start Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Campaign_Target_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(  Session__r.Parent.Status  )</formula>
+    <label>Campaign Target Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Type_Category__c</fullName>
+    <description>Collects and concatenate the Campaign Type and Campaign Category of the Campaign (not session) that the speaker engagement belongs to - used for reports</description>
+    <externalId>false</externalId>
+    <formula>TEXT( Session__r.Parent_Event__r.Type ) &amp; " - " &amp; TEXT( Session__r.Parent_Event__r.Campaign_Category__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Campaign Type &amp; Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Venue__c</fullName>
+    <externalId>false</externalId>
+    <formula>Session__r.Venue__r.Name</formula>
+    <label>Campaign Venue</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Charitable_contribution__c</fullName>
+    <externalId>false</externalId>
+    <label>Charitable contribution</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Compensation_for_services_other_than_c__c</fullName>
+    <externalId>false</externalId>
+    <label>Compensation for services &lt;&gt; Consulting</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Consulting_Services__c</fullName>
+    <externalId>false</externalId>
+    <label>Consulting Services</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Contract_Signed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Contract Signed?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Count_HQ__c</fullName>
+    <description>Only for analysis to summarize e.g. Contacts with speaker engagements</description>
+    <externalId>false</externalId>
+    <formula>1</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Only for analysis to summarize e.g. Contacts with speaker engagements</inlineHelpText>
+    <label># Count (HQ)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Current_User__c</fullName>
+    <description>Describes the full name of the current user. Used primarily for mail merge</description>
+    <externalId>false</externalId>
+    <formula>$User.Full_Name__c</formula>
+    <inlineHelpText>Describes the full name of the current user. Used primarily for mail merge</inlineHelpText>
+    <label>Current User</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Departure_Flight__c</fullName>
+    <description>No relation to Departure Flight on Members</description>
+    <externalId>false</externalId>
+    <label>Departure Flight#</label>
+    <length>50</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Direct_compensation_as_faculty_speaker__c</fullName>
+    <description>Delete Q3 2017 if not used</description>
+    <externalId>false</externalId>
+    <label>Direct compensation as faculty/sp TBD</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Emergency_Contact_Details__c</fullName>
+    <externalId>false</externalId>
+    <label>Emergency Contact Details</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Flight_Arranged_by_DI__c</fullName>
+    <externalId>false</externalId>
+    <label>Flight Arranged by DI</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No</fullName>
+          <default>false</default>
+          <label>No</label>
+        </value>
+        <value>
+          <fullName>Yes</fullName>
+          <default>false</default>
+          <label>Yes</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Gifts__c</fullName>
+    <externalId>false</externalId>
+    <label>Gifts</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Honorarium__c</fullName>
+    <externalId>false</externalId>
+    <label>Honorarium</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Hotel_Arrangement_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Hotel Arrangement Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Not Yet Arranged</fullName>
+          <default>false</default>
+          <label>Not Yet Arranged</label>
+        </value>
+        <value>
+          <fullName>Arranged</fullName>
+          <default>false</default>
+          <label>Arranged</label>
+        </value>
+        <value>
+          <fullName>No Accomodation Needed</fullName>
+          <default>false</default>
+          <label>No Accomodation Needed</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Hotel_Check_In_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Hotel Check-In</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Hotel_Check_Out_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Hotel Check-Out</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Hotel_Information__c</fullName>
+    <externalId>false</externalId>
+    <label>Hotel Information</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Hotel__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Hotel</label>
+    <lookupFilter>
+      <active>false</active>
+      <filterItems>
+        <field>Account.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Competitor (D)</value>
+      </filterItems>
+      <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Speaker_Moderator_Requests</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Internal_Speaker__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Internal Speaker</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Invoice_Address__c</fullName>
+    <externalId>false</externalId>
+    <label>Invoice Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>KolInformation__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>KOL information</label>
+    <referenceTo>Expert__c</referenceTo>
+    <relationshipLabel>Speaker Engagements</relationshipLabel>
+    <relationshipName>SpeakerEngagements</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Local_or_International__c</fullName>
+    <description>Checks if the speaker engagement is owned by someone with user country HQ or not. Used in reports to check if KOLs are engaged locally or internationally within Implants.</description>
+    <externalId>false</externalId>
+    <formula>IF( CONTAINS( Owner:User.User_Country_Text__c , "HQ") , "International", "Local")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Shows if the owner of the Speaker Engagement belongs to HQ (international) or a Country Organisation (Local)</inlineHelpText>
+    <label>Local or International?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Meals_Included__c</fullName>
+    <externalId>false</externalId>
+    <label>Meals Included</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Breakfast</fullName>
+          <default>false</default>
+          <label>Breakfast</label>
+        </value>
+        <value>
+          <fullName>Lunch</fullName>
+          <default>false</default>
+          <label>Lunch</label>
+        </value>
+        <value>
+          <fullName>Dinner</fullName>
+          <default>false</default>
+          <label>Dinner</label>
+        </value>
+        <value>
+          <fullName>Breakfast &amp; Lunch</fullName>
+          <default>false</default>
+          <label>Breakfast &amp; Lunch</label>
+        </value>
+        <value>
+          <fullName>Lunch &amp; Dinner</fullName>
+          <default>false</default>
+          <label>Lunch &amp; Dinner</label>
+        </value>
+        <value>
+          <fullName>Breakfast, Lunch &amp; Dinner</fullName>
+          <default>false</default>
+          <label>Breakfast, Lunch &amp; Dinner</label>
+        </value>
+        <value>
+          <fullName>None</fullName>
+          <default>false</default>
+          <label>None</label>
+        </value>
+        <value>
+          <fullName>All meals included</fullName>
+          <default>false</default>
+          <label>All meals included</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Multiple_Sessions_Logistics_Details__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked if speaker is engaged at several sessions at this event - means that logistics details are captured in the data of this session.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check if speaker is engaged at several sessions and the logistics details in this engagement is the one that should be used on transfer lists etc.</inlineHelpText>
+    <label>Multiple Sessions - Logistics Details</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>NPI_Number__c</fullName>
+    <externalId>false</externalId>
+    <label>NPI Number</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Name_of_Campaign__c</fullName>
+    <description>Delete Q3 2017 if not used</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Parent_Event__r.Name</formula>
+    <label>Name of Campaign TBD</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Other__c</fullName>
+    <externalId>false</externalId>
+    <label>Other</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Overall_Agreement__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Overall Agreement</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Planning_Hours_to_be_compensated__c</fullName>
+    <defaultValue>0</defaultValue>
+    <externalId>false</externalId>
+    <label># of Planning Hours to be compensated</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Practioner_ID_NPI_number__c</fullName>
+    <externalId>false</externalId>
+    <formula>Speaker__r.Practitioner_ID_NPI_in_US__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Practioner ID/NPI number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Products__c</fullName>
+    <externalId>false</externalId>
+    <label>Products</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Program_Date_s__c</fullName>
+    <description>Please be as specific as you can. Dates should not be seen as confirmed until confirmation received.</description>
+    <externalId>false</externalId>
+    <label>Program Date/s</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Reference_Person_at_Market_Company__c</fullName>
+    <externalId>false</externalId>
+    <label>Reference Person at Market Company</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Request_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Request Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Suggested</fullName>
+          <default>true</default>
+          <label>Suggested</label>
+        </value>
+        <value>
+          <fullName>Confidential</fullName>
+          <default>false</default>
+          <label>Confidential</label>
+        </value>
+        <value>
+          <fullName>Pending</fullName>
+          <default>false</default>
+          <label>Pending</label>
+        </value>
+        <value>
+          <fullName>Confirmed</fullName>
+          <default>false</default>
+          <label>Confirmed</label>
+        </value>
+        <value>
+          <fullName>Speaker Declined</fullName>
+          <default>false</default>
+          <label>Speaker Declined</label>
+        </value>
+        <value>
+          <fullName>Cancelled by DI</fullName>
+          <default>false</default>
+          <label>Cancelled by DI</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Request_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Request Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Speaker</fullName>
+          <default>true</default>
+          <label>Speaker</label>
+        </value>
+        <value>
+          <fullName>Moderator</fullName>
+          <default>false</default>
+          <label>Moderator</label>
+        </value>
+        <value>
+          <fullName>Speaker &amp; Moderator</fullName>
+          <default>false</default>
+          <label>Speaker &amp; Moderator</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Session_End_Date_Time__c</fullName>
+    <description>This field mirrors the Sessions EndDate &amp; Time. The field is used in E-mail templates. To change the End Date &amp; Time, update the Campaign Session where this Engagement is connected.</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Session_End_Date_Time__c</formula>
+    <inlineHelpText>This field mirrors the Sessions EndDate &amp; Time. The field is used in E-mail templates. To change the End Date &amp; Time, update the Campaign Session where this Engagement is connected.</inlineHelpText>
+    <label>Session End Date &amp; Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>Session_Length__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(Session__r.Session_Length__c)  &amp; " "  &amp;  TEXT(Session__r.Session_Length_Unit__c)</formula>
+    <label>Session Length</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Session_Name__c</fullName>
+    <externalId>false</externalId>
+    <formula>Session__r.Name</formula>
+    <label>Session Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Session_Start_Date_Time__c</fullName>
+    <description>This field mirrors the Sessions Start Date &amp; Time. The field is used in E-mail templates. To change the Start Date &amp; Time, update the Campaign Session where this Engagement is connected.</description>
+    <externalId>false</externalId>
+    <formula>Session__r.Session_Start_Date_Time__c</formula>
+    <inlineHelpText>This field mirrors the Sessions Start Date &amp; Time. The field is used in E-mail templates. To change the Start Date &amp; Time, update the Campaign Session where this Engagement is connected.</inlineHelpText>
+    <label>Session Start Date &amp; Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>Session_Topic__c</fullName>
+    <description>The Suggested Session Topic - By default the same as the Session name, but can be changed. Used in invitation to Speakers/Moderators</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Suggested Session Topic - By default the same as the Session name, but can be changed. Used in invitation to Speakers/Moderators</inlineHelpText>
+    <label>Session Topic</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Session__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Session</label>
+    <lookupFilter>
+      <active>true</active>
+      <filterItems>
+        <field>Campaign.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>DI: Campaign Session</value>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Campaign</referenceTo>
+    <relationshipLabel>Speaker Engagements</relationshipLabel>
+    <relationshipName>SpeakerRequests</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Simultaneous_Translation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Simultaneous Translation?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Speaker_Contract__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Speaker Contract</label>
+    <lookupFilter>
+      <active>true</active>
+      <filterItems>
+        <field>$Source.Speaker__c</field>
+        <operation>equals</operation>
+        <valueField>KOL_Contract__c.Contact__c</valueField>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>KOL_Contract__c</referenceTo>
+    <relationshipLabel>Speaker Engagements</relationshipLabel>
+    <relationshipName>Speaker_Engagements</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Speaker__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Speaker</label>
+    <lookupFilter>
+      <active>true</active>
+      <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+      <filterItems>
+        <field>Contact.Speaker__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+      </filterItems>
+      <filterItems>
+        <field>Contact.Local_Speaker__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+      </filterItems>
+      <filterItems>
+        <field>Contact.National_Speaker__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+      </filterItems>
+      <filterItems>
+        <field>Contact.International_Speaker__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+      </filterItems>
+      <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Speaker Engagements</relationshipLabel>
+    <relationshipName>Requets</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Transfer_Details__c</fullName>
+    <externalId>false</externalId>
+    <label>Transfer Details</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Travel_Expenses__c</fullName>
+    <externalId>false</externalId>
+    <label>Travel Expenses</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Travel_Expenses_covered_by_DI__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Travel Expenses covered by DS?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Travel_Hours_to_be_compensated__c</fullName>
+    <defaultValue>0</defaultValue>
+    <externalId>false</externalId>
+    <label># of Travel Hours to be compensated</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Work_hours__c</fullName>
+    <defaultValue>0</defaultValue>
+    <externalId>false</externalId>
+    <label># of hours of work</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <label>Speaker Engagement</label>
+  <listViews>
+    <fullName>All_Speaker_Engagements</fullName>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>NAME</columns>
+    <columns>Campaign_Name__c</columns>
+    <columns>Campaign_City__c</columns>
+    <columns>Session__c</columns>
+    <columns>Campaign_Start_Date__c</columns>
+    <columns>Campaign_End_Date__c</columns>
+    <columns>Campaign_Country__c</columns>
+    <columns>Speaker__c</columns>
+    <columns>Internal_Speaker__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Speaker Engagements</label>
+    <language>en_US</language>
+  </listViews>
+  <listViews>
+    <fullName>HQ_My_Speaker_Engagement</fullName>
+    <columns>Campaign_Name__c</columns>
+    <columns>Campaign_City__c</columns>
+    <columns>Campaign_Venue__c</columns>
+    <columns>Session_Start_Date_Time__c</columns>
+    <columns>Speaker__c</columns>
+    <columns>Arrival_Date_and_time__c</columns>
+    <columns>Departure_Flight__c</columns>
+    <columns>Hotel_Check_In_Date__c</columns>
+    <columns>Hotel_Information__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>HQ: My Speaker Engagement</label>
+    <language>en_US</language>
+  </listViews>
+  <listViews>
+    <fullName>JP_All_Speaker_Engagments</fullName>
+    <columns>NAME</columns>
+    <columns>Campaign_Name__c</columns>
+    <columns>Campaign_Start_Date__c</columns>
+    <columns>Speaker__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+      <field>Campaign_Country__c</field>
+      <operation>equals</operation>
+      <value>Japan</value>
+    </filters>
+    <label>JP: All Speaker Engagments</label>
+    <language>en_US</language>
+    <sharedTo>
+      <roleAndSubordinates>JP_Managing_Director1</roleAndSubordinates>
+    </sharedTo>
+  </listViews>
+  <nameField>
+    <label>Request Title</label>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+  </nameField>
+  <pluralLabel>Speaker Engagements</pluralLabel>
+  <searchLayouts />
+  <sharingModel>Private</sharingModel>
+  <visibility>Public</visibility>
+  <webLinks>
+    <fullName>New_Speaker_Engagement</fullName>
+    <availability>online</availability>
+    <description>Poplulates Speaker Engagement with informtion from the Session</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>New Speaker Engagement 2</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/a0f/e?00N20000003jCuw={!Campaign.Session_Topic__c}&amp;CF00N20000003jCux={!Campaign.Name }&amp;CF00N20000003jCux_lkid=70120000001AKyN&amp;retURL=%2F70120000001AKyN</url>
+  </webLinks>
+</CustomObject>
