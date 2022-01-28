@@ -1,0 +1,66 @@
+<aura:component controller="OpportunityStageGuidanceClass"
+    implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:appHostable"
+    access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:dependency resource="markup://force:recordSaveSuccess" type="EVENT" />
+    <aura:handler event="force:refreshView" action="{!c.init}" />
+    <aura:handler event="force:showToast" action="{!c.init}" />
+
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="objectType" type="String" default="Opportunity" />
+    <aura:attribute name="stageField" type="String" default="StageName" />
+    <aura:attribute name="countryField" type="String" default="Account.Country__c" />
+    <aura:attribute name="categoryField" type="String" default="NA_Category__c" />
+    <aura:attribute name="recordType" type="String" />
+    <aura:attribute name="recordTypeDeveloperName" type="String" />
+
+    <aura:attribute name="stageGuidances" type="Object[]" />
+    <aura:attribute name="stageGuidance" type="String" />
+    <aura:attribute name="stageGuidanceDescr" type="String" />
+    <aura:attribute name="currentStage" type="String" />
+    <aura:attribute name="num" type="Integer" />
+    <aura:attribute name="fieldCheck" type="Boolean[]" default="false,false,false,false" />
+
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="fields" type="String[]" default="['Name','StageName']" />
+
+    <aura:attribute name="error" type="Object" />
+    <aura:attribute name="modalSuccess" type="Boolean" default="false" />
+
+    
+    <div class="slds-is-relative">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner alternativeText="Loading" size="small"></lightning:spinner>
+        </aura:if>
+
+        <lightning:card>
+            <aura:if isTrue="{!v.error}">
+                <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                    <h2>{!v.error.message}</h2>
+                </div>
+                <p class="slds-text-title slds-text-color_error slds-p-around_x-small">{!v.error.detail}</p>
+            </aura:if>
+            <lightning:picklistPath aura:id="findableAuraId" recordId="{!v.recordId}" variant="linear"
+                picklistFieldApiName="{!v.stageField}" onselect="{!c.updateStage}" />
+            <div class="slds-p-horizontal_small slds-text-body_regular">
+                <div class="slds-grid slds-gutters slds-wrap slds-p-around--x-small slds-grow-none">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <span class="slds-text-heading--medium slds-top_small slds-p-bottom_large">
+                            {!v.stageGuidance} <br></br>
+                        </span>
+                        <span class="slds-text--x-small">
+                            <lightning:formattedText value="{!v.stageGuidanceDescr}" />
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <lightning:recordForm aura:id="recordForm" recordId="{!v.recordId}" objectApiName="{!v.objectType}"
+                            fields="{!v.fields}" columns="1" mode="view" onsubmit="{!c.handleSubmit}" onsuccess="{!c.handleSuccess}" />
+                    </div>
+                </div>
+            </div>
+        </lightning:card>
+    </div>
+
+    <lightning:overlayLibrary aura:id="overlayLib" />
+</aura:component>

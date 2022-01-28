@@ -1,0 +1,16 @@
+<!--Author:     Nisreen Al-Saleh (support@avity.com) 2021-04-13   
+Description:    List views auto refresh component’s definition  -->
+
+<aura:component implements="lightning:utilityItem" controller = "SC_AutoRefresh">  
+  <aura:attribute name="refreshInterval" type="Integer" default="60" /> 
+  <aura:attribute name="refreshing" type="Boolean" default="false" access="private" />
+  <aura:attribute name="intervalId" type="String" access="private" />
+      
+    <!-- Needed to refresh the list -->
+ <lightning:navigationItemAPI aura:id="navigationItemAPI"/> 
+     <div class = "refreshAction"> 
+    <p class="refreshStatement"> By enabling auto refresh, the view lists will be refreshed automatically every 60 seconds</p>
+    <lightning:buttonIcon iconName= "{!if(v.refreshing, 'utility:stop', 'utility:play')}"  onclick="{!c.toggleAutoRefresh}"/>
+     </div>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+</aura:component>

@@ -1,0 +1,135 @@
+<!--
+ - Created by kdoruibin on 22/11/2019.
+ -->
+
+<aura:component
+        description="createRecordWithPopulatedFields_FLOW"
+        access="global"
+        controller="CreateRecordWithPopulatedFields_CC"
+        implements="lightning:availableForFlowScreens,lightning:availableForFlowActions,lightning:actionOverride">
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler event="force:showToast" action="{!c.toastInfo}" />
+    <!--Attributes with input from Flow-->
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="objectToCreate" type="String" default="Object__c"/>
+    <aura:attribute name="defaultFieldMapString" type="String" default="{}"/>
+    <aura:attribute name="fieldMapString" type="String" default="{}"/>
+    <aura:attribute name="recordTypeLabel" type="String"/>
+    <!--Attributes used within the component-->
+    <aura:attribute name="defaultFieldMap" type="Object"/>
+    <aura:attribute name="fieldMap" type="Object"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <aura:attribute name="fieldsToCreate" type="String[]" default="['Id', 'Name']"/>
+    <!-- New attributes for combobox -->
+    <aura:attribute name="recordTypeOptions" type="List" default="[]"/>
+    <aura:attribute name="recordTypeDefaultOption" type="Object"/>
+    <!-- State attributes -->
+    <aura:attribute name="isLoaded" type="Boolean" default="false"/>
+    <aura:attribute name="isCreateRecord" type="Boolean" default="false"/>
+    <!-- Device attribute -->
+    <aura:attribute name="isPhone" type="Boolean" default="false"/>
+
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="{!v.fieldsToCreate}"
+                      targetFields="{!v.record}"
+                      targetError="{!v.recordLoadError}"/>
+
+    <aura:html tag="style">
+        .cuf-content {
+            padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+            padding: 0rem !important;
+        }
+        .slds-modal__content{
+            height:unset !important;
+            max-height:unset !important;
+            overflow: initial;
+        }
+        .slds-modal__container{
+            width: 50% !important;
+        }
+        .flowruntimeBody {
+            padding: 0 0rem !important;
+            margin: 0 !important;
+        }
+    </aura:html>
+
+    <aura:renderIf isTrue="{!v.isLoaded}">
+        <aura:if isTrue="{!v.isCreateRecord}">
+            <div class="slds-align_absolute-center slds-p-around_medium">
+                <p>Please press <b>Cancel</b> again to close the window</p>
+            </div>
+            <aura:set attribute="else">
+                <div class="slds-form slds-form_stacked">
+                    <aura:if isTrue="{!v.isPhone}">
+                        <div class="slds-p-vertical_medium">
+                            <!-- <lightning:select aura:id="rtSelectId"
+                                              name="recordTypeSelect2"
+                                              label="Select a Record Type"
+                                              value=""
+                                              onchange="{!c.createRecord}">
+                                <aura:iteration items="{!v.recordTypeOptions}" var="item">
+                                    <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+                                </aura:iteration>
+                            </lightning:select> -->
+                            <!-- test -->
+                            <aura:iteration items="{!v.recordTypeOptions}" var="item">
+                                <div class="slds-visual-picker slds-visual-picker_vertical" style="width: inherit">
+                                    <input type="radio" id="{!item.value}" value="{!item.value}" name="options" onclick="{!c.handleMobileCreateRecord}"/>
+                                    <label for="{!item.value}">
+                                        <span class="slds-visual-picker__figure slds-visual-picker__text" style="width: inherit;">
+                                            <span>
+                                                <span class="slds-text-heading_small slds-m-bottom_x-small">{!item.label}</span>
+                                                <span class="slds-text-title">{!item.description}</span>
+                                            </span>
+                                        </span>
+                                        <span class="slds-icon_container slds-visual-picker__text-check">
+                                            <lightning:icon iconName="utility:check" size="x-small" variant="inverse">
+                                            </lightning:icon>
+                                        </span>
+                                    </label>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                        <!-- test end -->
+                        <aura:set attribute="else">
+                            <div class="slds-modal__content slds-p-around_medium">
+                                <!-- new lightning:combobox -->
+                                <lightning:combobox aura:id="rtSelectId"
+                                                    name="recordTypeSelect"
+                                                    label="Select a Record Type"
+                                                    value="{!v.recordTypeDefaultOption}"
+                                                    options="{!v.recordTypeOptions}"
+                                                    placeholder="Select a Record Type"
+                                                    disabled="false"/>
+                            </div>
+                            <div class="modal-footer slds-modal__footer">
+                                <lightning:button class="slds-button slds-button--brand" onclick="{!c.handleDesktopCreateRecord}">Next</lightning:button>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </aura:set>
+        </aura:if>
+        <aura:set attribute="else">
+            <!-- <div class="slds-modal__content slds-p-around_medium"> -->
+                <aura:if isTrue="{!v.isCreateRecord}">
+                    <div class="slds-align_absolute-center slds-p-around_medium">
+                        <p>Please press <b>Cancel</b> again to close the window</p>
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="slds-spinner_container slds-align_absolute-center slds-is-relative slds-p-around_xx-large">
+                            <lightning:spinner alternativeText="Loading" variant="brand"/>
+                        </div>
+                    </aura:set>
+                </aura:if>
+            <!-- </div> -->
+        </aura:set>
+    </aura:renderIf>
+
+
+</aura:component>

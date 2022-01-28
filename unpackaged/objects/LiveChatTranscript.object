@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <compactLayoutAssignment>Service_Cloud</compactLayoutAssignment>
+  <compactLayouts>
+    <fullName>Service_Cloud</fullName>
+    <fields>Visitor_First_Name__c</fields>
+    <fields>Visitor_Last_Name__c</fields>
+    <fields>email__c</fields>
+    <fields>Location</fields>
+    <label>Service Cloud</label>
+  </compactLayouts>
+  <enableFeeds>false</enableFeeds>
+  <externalSharingModel>Private</externalSharingModel>
+  <fields>
+    <fullName>Abandoned</fullName>
+  </fields>
+  <fields>
+    <fullName>AccountId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Auto_Matched__c</fullName>
+    <description>Will set the value to Yes if the incoming chat was matched automatically with existing contact in SFDC</description>
+    <externalId>false</externalId>
+    <label>Auto Matched</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Yes</fullName>
+          <default>false</default>
+          <label>Yes</label>
+        </value>
+        <value>
+          <fullName>No</fullName>
+          <default>true</default>
+          <label>No</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>AverageResponseTimeOperator</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>AverageResponseTimeVisitor</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>Body</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>Browser</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>BrowserLanguage</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>CaseId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Case_assigned__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Case assigned</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>ChatDuration</fullName>
+  </fields>
+  <fields>
+    <fullName>Chat_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Chat Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+      <controllingField>Case_assigned__c</controllingField>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Academy/Loyalty</fullName>
+          <default>false</default>
+          <label>Academy/Loyalty</label>
+        </value>
+        <value>
+          <fullName>Account maintenance</fullName>
+          <default>false</default>
+          <label>Account maintenance</label>
+        </value>
+        <value>
+          <fullName>Assist with order placement</fullName>
+          <default>false</default>
+          <label>Assist with order placement</label>
+        </value>
+        <value>
+          <fullName>Backorder follow up</fullName>
+          <default>false</default>
+          <label>Backorder follow up</label>
+        </value>
+        <value>
+          <fullName>Credit</fullName>
+          <default>false</default>
+          <label>Credit</label>
+        </value>
+        <value>
+          <fullName>Customer Complaint</fullName>
+          <default>false</default>
+          <label>Customer Complaint</label>
+        </value>
+        <value>
+          <fullName>Customer payment</fullName>
+          <default>false</default>
+          <label>Customer payment</label>
+        </value>
+        <value>
+          <fullName>Customer training</fullName>
+          <default>false</default>
+          <label>Customer training</label>
+        </value>
+        <value>
+          <fullName>General inquiry</fullName>
+          <default>false</default>
+          <label>General inquiry</label>
+        </value>
+        <value>
+          <fullName>Hardware</fullName>
+          <default>false</default>
+          <label>Hardware</label>
+        </value>
+        <value>
+          <fullName>Information requested</fullName>
+          <default>false</default>
+          <label>Information requested</label>
+        </value>
+        <value>
+          <fullName>Invoice/Statement</fullName>
+          <default>false</default>
+          <label>Invoice/Statement</label>
+        </value>
+        <value>
+          <fullName>Lead generation/upsell/cross sell</fullName>
+          <default>false</default>
+          <label>Lead generation/upsell/cross sell</label>
+        </value>
+        <value>
+          <fullName>Open case status</fullName>
+          <default>false</default>
+          <label>Open case status</label>
+        </value>
+        <value>
+          <fullName>Order follow up &amp; tracking</fullName>
+          <default>false</default>
+          <label>Order follow up &amp; tracking</label>
+        </value>
+        <value>
+          <fullName>Pickup Service</fullName>
+          <default>false</default>
+          <label>Pickup Service</label>
+        </value>
+        <value>
+          <fullName>Place order</fullName>
+          <default>false</default>
+          <label>Place order</label>
+        </value>
+        <value>
+          <fullName>Product Info</fullName>
+          <default>false</default>
+          <label>Product Info</label>
+        </value>
+        <value>
+          <fullName>Quote &amp; Price inquiry </fullName>
+          <default>false</default>
+          <label>Quote &amp; Price inquiry </label>
+        </value>
+        <value>
+          <fullName>Remote session</fullName>
+          <default>false</default>
+          <label>Remote session</label>
+        </value>
+        <value>
+          <fullName>Repair</fullName>
+          <default>false</default>
+          <label>Repair</label>
+        </value>
+        <value>
+          <fullName>Replacement Order</fullName>
+          <default>false</default>
+          <label>Replacement Order</label>
+        </value>
+        <value>
+          <fullName>Return/Exchange</fullName>
+          <default>false</default>
+          <label>Return/Exchange</label>
+        </value>
+        <value>
+          <fullName>SalesRep Info</fullName>
+          <default>false</default>
+          <label>SalesRep Info</label>
+        </value>
+        <value>
+          <fullName>Shipping delay notification</fullName>
+          <default>false</default>
+          <label>Shipping delay notification</label>
+        </value>
+        <value>
+          <fullName>Software</fullName>
+          <default>false</default>
+          <label>Software</label>
+        </value>
+        <value>
+          <fullName>Technical support</fullName>
+          <default>false</default>
+          <label>Technical support</label>
+        </value>
+        <value>
+          <fullName>Transfer</fullName>
+          <default>false</default>
+          <label>Transfer</label>
+        </value>
+        <value>
+          <fullName>Troubleshooting</fullName>
+          <default>false</default>
+          <label>Troubleshooting</label>
+        </value>
+        <value>
+          <fullName>Warrantee</fullName>
+          <default>false</default>
+          <label>Warrantee</label>
+        </value>
+        <value>
+          <fullName>Web support</fullName>
+          <default>false</default>
+          <label>Web support</label>
+        </value>
+      </valueSetDefinition>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Academy/Loyalty</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Account maintenance</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Assist with order placement</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Backorder follow up</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Credit</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Customer Complaint</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Customer payment</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Customer training</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>General inquiry</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Hardware</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Information requested</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Invoice/Statement</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Lead generation/upsell/cross sell</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Open case status</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Order follow up &amp; tracking</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Pickup Service</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Place order</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Product Info</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Quote &amp; Price inquiry </valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Remote session</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Repair</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Replacement Order</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Return/Exchange</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>SalesRep Info</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Shipping delay notification</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Software</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Technical support</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Transfer</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Troubleshooting</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Warrantee</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>unchecked</controllingFieldValue>
+        <valueName>Web support</valueName>
+      </valueSettings>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ContactId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Contact_Assigned__c</fullName>
+    <description>A workaround to know if the contact is assigned or not. Populated through a process. 
+
+ContactID is not available directly in formula and filter criteria</description>
+    <externalId>false</externalId>
+    <label>Contact Assigned</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>True</fullName>
+          <default>false</default>
+          <label>True</label>
+        </value>
+        <value>
+          <fullName>False</fullName>
+          <default>true</default>
+          <label>False</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>EndTime</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>EndedBy</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>IpAddress</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>LeadId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>LiveChatButtonId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>LiveChatDeploymentId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>LiveChatVisitorId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Location</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>MaxResponseTimeOperator</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>MaxResponseTimeVisitor</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>OperatorMessageCount</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>OwnerId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Platform</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>ReferrerUri</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>RequestTime</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>ScreenResolution</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>SkillId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>StartTime</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>Status</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>SupervisorTranscriptBody</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>UserAgent</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>VisitorMessageCount</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>VisitorNetwork</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>Visitor_First_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>Visitor First Name</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Visitor_Last_Name__c</fullName>
+    <description>Populated with the Last Name from the website backend or prechat form</description>
+    <externalId>false</externalId>
+    <label>Visitor Last Name</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>WaitTime</fullName>
+  </fields>
+  <fields>
+    <fullName>email__c</fullName>
+    <description>Populated with the Contact email from the Website backend or Prechat form</description>
+    <externalId>false</externalId>
+    <label>Source Email</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+  </fields>
+  <listViews>
+    <fullName>All_Chat_Transcripts</fullName>
+    <columns>Name</columns>
+    <columns>CreatedDate</columns>
+    <columns>Account</columns>
+    <columns>Contact</columns>
+    <columns>Case</columns>
+    <columns>LiveChatVisitor</columns>
+    <columns>StartTime</columns>
+    <columns>EndTime</columns>
+    <columns>Status</columns>
+    <columns>Owner</columns>
+    <columns>LiveChatButton</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Chat Transcripts</label>
+    <language>en_US</language>
+  </listViews>
+  <listViews>
+    <fullName>NA_DT_Chat_support_LiveChatTranscript</fullName>
+    <filterScope>Queue</filterScope>
+    <label>NA: DT Chat support</label>
+    <queue>NA_DT_Chat_support</queue>
+    <sharedTo>
+      <allInternalUsers></allInternalUsers>
+    </sharedTo>
+  </listViews>
+  <listViews>
+    <fullName>US_Azento_Agent_LiveChatTranscript</fullName>
+    <columns>Name</columns>
+    <columns>CreatedDate</columns>
+    <columns>Account</columns>
+    <columns>Contact</columns>
+    <columns>Case</columns>
+    <columns>LiveChatVisitor</columns>
+    <columns>StartTime</columns>
+    <columns>EndTime</columns>
+    <columns>Status</columns>
+    <filterScope>Queue</filterScope>
+    <label>US: Azento Chat Agent</label>
+    <queue>US_Azento_Agent</queue>
+    <sharedTo>
+      <allInternalUsers></allInternalUsers>
+    </sharedTo>
+  </listViews>
+  <searchLayouts>
+    <customTabListAdditionalFields>LiveChatVisitor</customTabListAdditionalFields>
+    <customTabListAdditionalFields>StartTime</customTabListAdditionalFields>
+    <customTabListAdditionalFields>EndTime</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Status</customTabListAdditionalFields>
+    <lookupDialogsAdditionalFields>LiveChatVisitor</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>StartTime</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>EndTime</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Status</lookupDialogsAdditionalFields>
+    <lookupPhoneDialogsAdditionalFields>LiveChatVisitor</lookupPhoneDialogsAdditionalFields>
+    <lookupPhoneDialogsAdditionalFields>StartTime</lookupPhoneDialogsAdditionalFields>
+    <lookupPhoneDialogsAdditionalFields>EndTime</lookupPhoneDialogsAdditionalFields>
+    <lookupPhoneDialogsAdditionalFields>Status</lookupPhoneDialogsAdditionalFields>
+    <searchResultsAdditionalFields>LiveChatVisitor</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>StartTime</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>EndTime</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Status</searchResultsAdditionalFields>
+  </searchLayouts>
+  <sharingModel>Private</sharingModel>
+</CustomObject>

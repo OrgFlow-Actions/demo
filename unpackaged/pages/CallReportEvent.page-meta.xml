@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>36.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Create/ edit Event page with additional fields and logic to create a Call Report custom object and tie the custom object to the event</description>
+    <label>Call Report Event</label>
+</ApexPage>

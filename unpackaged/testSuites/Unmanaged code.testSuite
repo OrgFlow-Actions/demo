@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApexTestSuite xmlns="http://soap.sforce.com/2006/04/metadata">
+  <testClassName>CampMgmtCampaignMemberTriggerTest</testClassName>
+  <testClassName>CampMgmtCampaignTriggerTest</testClassName>
+  <testClassName>CampMgmtEngagementTriggerTest</testClassName>
+  <testClassName>CampMgmtParticipantTriggerTest</testClassName>
+  <testClassName>CampMgmtSessionExtensionTest</testClassName>
+  <testClassName>DC_UT_ContentBuildersForEvent</testClassName>
+  <testClassName>DC_UT_DataAccessLevel</testClassName>
+  <testClassName>DC_UT_DataHelpers</testClassName>
+  <testClassName>DC_UT_DataUtils</testClassName>
+  <testClassName>DC_UT_DateTimeUtils</testClassName>
+  <testClassName>DC_UT_EventNoticesManagement</testClassName>
+  <testClassName>DC_UT_ICalendarResponseHandling</testClassName>
+  <testClassName>DC_UT_SetUtils</testClassName>
+  <testClassName>DC_UT_SoqlUtils</testClassName>
+  <testClassName>DC_UT_StringUtils</testClassName>
+  <testClassName>DC_UT_SystemUtils</testClassName>
+  <testClassName>DC_UT_TestManager</testClassName>
+  <testClassName>OrderSetAccountOwnerTest</testClassName>
+  <testClassName>SalesHistorySetPayerLookupTest</testClassName>
+  <testClassName>Test_PushAmountToOpportunities</testClassName>
+  <testClassName>Test_UpdOppStageOnLABGETOpps</testClassName>
+  <testClassName>unsubscribe</testClassName>
+</ApexTestSuite>

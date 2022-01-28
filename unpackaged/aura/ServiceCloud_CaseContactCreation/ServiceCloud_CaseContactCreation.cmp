@@ -1,0 +1,45 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" >
+	    <aura:attribute name="case" type="Object" access="global" />
+		<aura:attribute name="contactId" type="String" access="global" />
+    	<aura:attribute name="fieldN" type="Boolean" access="global" default="false" />
+    	<aura:attribute name="defaultVal" type="String" access="global"/>
+   		<aura:attribute name="objType" type="String" access="global" />
+    	<aura:attribute name="resId" type="String" access="global" />
+    	
+    	<aura:attribute name="createContact" type="Boolean" access="global" />
+    
+    	<aura:attribute name="firstName" type="String" access="global"/>
+    	<aura:attribute name="lastName" type="String" access="global"/>
+    	<aura:attribute name="email" type="String" access="global"/>
+    	<aura:attribute name="phone" type="String" access="global"/>
+    
+    	<aura:attribute name="accountId" type="String" access="global" />
+    
+    	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+        	
+        <lightning:recordEditForm aura:id="recordViewForm" 
+                                     recordId="{!v.contactId}"
+                                     objectApiName="Contact"
+                                  	 >
+           <lightning:messages />
+            
+            <lightning:input aura:id="createContact" name="createContact" type="toggle" label="{!$Label.c.Create_contact}" onchange="{!c.createContact}"/>
+            
+           	<aura:if isTrue="{!v.fieldN == true}">
+                <br/>
+                <lightning:inputField aura:id="firstName" fieldName="FirstName" onchange="{!c.updateVal}"/>
+                <br/>
+                <lightning:inputField aura:id="lastName" fieldName="LastName" onchange="{!c.updateVal}"/>
+                <br/>
+                <lightning:inputField aura:id="email" fieldName="Email" onchange="{!c.updateVal}"/>
+                <br/>
+                <lightning:inputField aura:id="phone" fieldName="Phone" onchange="{!c.updateVal}"/>
+                <br/>
+
+            </aura:if>
+            
+            
+    </lightning:recordEditForm>
+          
+    <br/>
+</aura:component>

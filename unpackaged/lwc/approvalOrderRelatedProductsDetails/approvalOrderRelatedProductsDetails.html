@@ -1,0 +1,38 @@
+<template>
+    <div>
+        <template if:true={showComponent}>
+            <lightning-card title={customLabel.orderProductsLabel} icon-name="standard:orders"
+                class="slds-card__header slds-size--1-of-1">
+                <template for:each={orderItemsToShow} for:item="oI">
+                    <lightning-layout-item key={oI.Id}>
+                        <lightning-tile label={oI.Product2.Name} class="slds-tile_board slds-box" type="Media">
+                            <span slot="media">
+                                <lightning-avatar fallback-icon-name="standard:order_item">
+                                </lightning-avatar>
+                            </span>
+                            <ul class="slds-list_horizontal slds-has-dividers_right">
+                                <li class="slds-item_label slds-text-color_weak slds-truncate">
+                                    {orderItemInfo.fields.Article_Number__c.label}:</li>
+                                <li class="slds-item_detail slds-truncate">{oI.Article_Number__c}</li>
+                            </ul>
+                            <ul class="slds-list_horizontal slds-has-dividers_right">
+                                <li class="slds-item_label slds-text-color_weak slds-truncate">
+                                    {orderItemInfo.fields.Article_Number__c.label}:</li>
+                                <li class="slds-item_detail slds-truncate">{oI.Quantity}</li>
+                            </ul>
+                            <ul class="slds-list_horizontal slds-has-dividers_right">
+                                <li class="slds-item_label slds-text-color_weak slds-truncate">
+                                    {orderItemInfo.fields.Discount_Percent__c.label}:</li>
+                                <li class="slds-item_detail slds-truncate">{oI.Discount_Percent__c}</li>
+                            </ul>
+                        </lightning-tile>
+                    </lightning-layout-item>
+                </template>
+                <template if:true={showButton}>
+                    <lightning-button variant="brand" label={customLabel.showAllRecordsLabel} onclick={showAllRecords}
+                        class="slds-align_absolute-center"></lightning-button>
+                </template>
+            </lightning-card>
+        </template>
+    </div>
+</template>

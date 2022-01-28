@@ -1,0 +1,7 @@
+<design:component>
+	<design:attribute name="recordId" label="Account Id" />
+    <design:attribute name="questionnaireId" label="Questionnaire ID" />
+    <design:attribute name="category" label="Category/product line" />
+    <design:attribute name="responses" label="Responses" default="[]" />
+    <design:attribute name="requiredQuestionsAnswered" label="Required questions answered?" default="false"/>
+</design:component>

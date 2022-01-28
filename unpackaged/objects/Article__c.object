@@ -1,0 +1,952 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>Used to add multiple articles to a Case</description>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>Account_Billing_Address__c</fullName>
+    <description>Used in Approval Processes</description>
+    <externalId>false</externalId>
+    <formula>Related_Case__r.Account.BillingStreet &amp; BR() &amp;
+Related_Case__r.Account.BillingCity &amp; " " &amp;
+Related_Case__r.Account.BillingState &amp; " " &amp;
+Related_Case__r.Account.BillingPostalCode &amp; BR() &amp;
+Related_Case__r.Account.BillingCountry</formula>
+    <label>Account Billing Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account_Name__c</fullName>
+    <description>Used to display Account Name to Approval</description>
+    <externalId>false</externalId>
+    <formula>Related_Case__r.Account.Name</formula>
+    <label>Account Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account_OneSF_Id__c</fullName>
+    <description>Used to display OneSF ID to Approval Processes</description>
+    <externalId>false</externalId>
+    <formula>Related_Case__r.Account.OneSF_Id__c</formula>
+    <label>Account OneSF Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account_Phone_Number__c</fullName>
+    <description>Used to display Phone number to Approval Processes</description>
+    <externalId>false</externalId>
+    <formula>Related_Case__r.Account.Phone</formula>
+    <label>Account Phone Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Amount_Paid_each__c</fullName>
+    <externalId>false</externalId>
+    <label>Amount(each)</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Article_Approval_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Article Approval Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Issued</fullName>
+          <default>false</default>
+          <label>Issued</label>
+        </value>
+        <value>
+          <fullName>Received</fullName>
+          <default>false</default>
+          <label>Received</label>
+        </value>
+        <value>
+          <fullName>In Process</fullName>
+          <default>false</default>
+          <label>In Process</label>
+        </value>
+        <value>
+          <fullName>Exception Request</fullName>
+          <default>false</default>
+          <label>Exception Request</label>
+        </value>
+        <value>
+          <fullName>Approved</fullName>
+          <default>false</default>
+          <label>Approved</label>
+        </value>
+        <value>
+          <fullName>Denied</fullName>
+          <default>false</default>
+          <label>Denied</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Article_Description__c</fullName>
+    <externalId>false</externalId>
+    <label>Article Description</label>
+    <length>254</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Article_Number__c</fullName>
+    <externalId>false</externalId>
+    <label>Article Number</label>
+    <length>254</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>CS_Agent_Processing_Return__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>CS Agent Processing Return</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Article_Numbers</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Customer_Name_and_Number__c</fullName>
+    <externalId>false</externalId>
+    <formula>Related_Case__r.Account.Name &amp;" - "&amp; Related_Case__r.Account.Movex__c &amp; " - "&amp;  Related_Case__r.Account.OneSF_Id__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Customer Name and Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Finance_Approved__c</fullName>
+    <externalId>false</externalId>
+    <label>Finance Approved</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Approved</fullName>
+          <default>false</default>
+          <label>Approved</label>
+        </value>
+        <value>
+          <fullName>Rejected</fullName>
+          <default>false</default>
+          <label>Rejected</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Last_Modified_Time__c</fullName>
+    <externalId>false</externalId>
+    <formula>LastModifiedDate</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Last Modified Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>Lot_Number__c</fullName>
+    <externalId>false</externalId>
+    <label>Lot Number</label>
+    <length>40</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Manager_Approval_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Manager Approval Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Approved</fullName>
+          <default>false</default>
+          <label>Approved</label>
+        </value>
+        <value>
+          <fullName>Rejected</fullName>
+          <default>false</default>
+          <label>Rejected</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Manager_Assigned__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Manager Assigned</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Article_Numbers2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Note_Optional__c</fullName>
+    <externalId>false</externalId>
+    <label>Note (Optional)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Original_Order_Discount_Percent__c</fullName>
+    <defaultValue>0</defaultValue>
+    <externalId>false</externalId>
+    <label>Original Order Discount Percent</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+  </fields>
+  <fields>
+    <fullName>Original_Order_Number__c</fullName>
+    <externalId>false</externalId>
+    <label>Original Order Number</label>
+    <length>254</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Name__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Product Name</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipName>Articles</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Purchase_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Purchase Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Quantity__c</fullName>
+    <externalId>false</externalId>
+    <label>Quantity</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Related_Case__c</fullName>
+    <externalId>false</externalId>
+    <label>Related Case</label>
+    <referenceTo>Case</referenceTo>
+    <relationshipName>Articles</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Rep_Approval_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Rep Approval Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Approved</fullName>
+          <default>false</default>
+          <label>Approved</label>
+        </value>
+        <value>
+          <fullName>Rejected</fullName>
+          <default>false</default>
+          <label>Rejected</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Rep_Assigned__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Rep Assigned</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Article_Numbers1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Return_Exception_Requested__c</fullName>
+    <externalId>false</externalId>
+    <label>Return Exception Requested</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Exception</fullName>
+          <default>true</default>
+          <label>No Exception</label>
+        </value>
+        <value>
+          <fullName>No record of purchase</fullName>
+          <default>false</default>
+          <label>No record of purchase</label>
+        </value>
+        <value>
+          <fullName>Shelf life &lt; 1 yr</fullName>
+          <default>false</default>
+          <label>Shelf life &lt; 1 yr</label>
+        </value>
+        <value>
+          <fullName>Purchased &gt; 180 days</fullName>
+          <default>false</default>
+          <label>Purchased &gt; 180 days - No Exchange</label>
+        </value>
+        <value>
+          <fullName>Not a DS Product</fullName>
+          <default>false</default>
+          <label>Not a DS Product</label>
+        </value>
+        <value>
+          <fullName>Product Opened</fullName>
+          <default>false</default>
+          <label>Product Opened</label>
+        </value>
+        <value>
+          <fullName>Writing on Product</fullName>
+          <default>false</default>
+          <label>Writing on Product</label>
+        </value>
+        <value>
+          <fullName>Product Crushed</fullName>
+          <default>false</default>
+          <label>Product Crushed</label>
+        </value>
+        <value>
+          <fullName>Expired</fullName>
+          <default>false</default>
+          <label>Expired</label>
+        </value>
+        <value>
+          <fullName>Damaged Product</fullName>
+          <default>false</default>
+          <label>Damaged Product</label>
+        </value>
+        <value>
+          <fullName>Ripped label</fullName>
+          <default>false</default>
+          <label>Ripped label</label>
+        </value>
+        <value>
+          <fullName>Blood/Residue Stain</fullName>
+          <default>false</default>
+          <label>Blood/Residue Stain</label>
+        </value>
+        <value>
+          <fullName>Staples</fullName>
+          <default>false</default>
+          <label>Staples</label>
+        </value>
+        <value>
+          <fullName>Missing TX Sticker</fullName>
+          <default>false</default>
+          <label>Missing TX Sticker</label>
+        </value>
+        <value>
+          <fullName>Tape Damage</fullName>
+          <default>false</default>
+          <label>Tape Damage</label>
+        </value>
+        <value>
+          <fullName>Discolored Labels</fullName>
+          <default>false</default>
+          <label>Discolored Labels</label>
+        </value>
+        <value>
+          <fullName>Additional Item Not Part of Exchange</fullName>
+          <default>false</default>
+          <label>Additional Item Not Part of Exchange</label>
+        </value>
+        <value>
+          <fullName>No Product In Package</fullName>
+          <default>false</default>
+          <label>No Product In Package</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Sales_Director__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Sales Director</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Article_Numbers3</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>SubmitForApproval__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used by the Articles:Default process to submit specific articles for approvals through the Update Return Case flow TFUS-000003107</description>
+    <externalId>false</externalId>
+    <label>Submit For Approval</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Total_Original_Purchase_Amount__c</fullName>
+    <externalId>false</externalId>
+    <formula>( Quantity__c * Amount_Paid_each__c )* (1-Original_Order_Discount_Percent__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Original Purchase Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>of_Approved_Article_Numbers__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case( TEXT( Article_Approval_Status__c),"Approved",1,
+"Denied",1,
+
+
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label># of Completed Article Numbers</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <label>Article Number</label>
+  <listViews>
+    <fullName>All</fullName>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+  </listViews>
+  <listViews>
+    <fullName>Open_Box</fullName>
+    <columns>NAME</columns>
+    <columns>Return_Exception_Requested__c</columns>
+    <columns>CS_Agent_Processing_Return__c</columns>
+    <columns>Article_Approval_Status__c</columns>
+    <columns>Rep_Assigned__c</columns>
+    <columns>Rep_Approval_Status__c</columns>
+    <columns>Manager_Assigned__c</columns>
+    <columns>Manager_Approval_Status__c</columns>
+    <columns>Finance_Approved__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+      <field>Return_Exception_Requested__c</field>
+      <operation>equals</operation>
+      <value>Product Opened,Product Crushed</value>
+    </filters>
+    <label>Product Open, Product Crushed</label>
+    <language>en_US</language>
+    <sharedTo>
+      <role>Dentsply_IH_CEO</role>
+    </sharedTo>
+  </listViews>
+  <nameField>
+    <displayFormat>A-{000000}</displayFormat>
+    <label>Article Id</label>
+    <trackHistory>false</trackHistory>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Article Numbers</pluralLabel>
+  <recordTypeTrackHistory>false</recordTypeTrackHistory>
+  <recordTypes>
+    <active>true</active>
+    <description>Used by North American Implants to gain approval on returning items</description>
+    <fullName>Return_Authorization</fullName>
+    <label>Return Authorization</label>
+    <picklistValues>
+      <picklist>Article_Approval_Status__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Denied</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Exception Request</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>In Process</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Issued</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Received</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Finance_Approved__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Manager_Approval_Status__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Rep_Approval_Status__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Return_Exception_Requested__c</picklist>
+      <values>
+        <fullName>Additional Item Not Part of Exchange</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Blood%2FResidue Stain</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Damaged Product</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Discolored Labels</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Expired</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Missing TX Sticker</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>No Exception</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>No Product In Package</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>No record of purchase</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Not a DS Product</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Product Crushed</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Product Opened</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Purchased %3E 180 days</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Ripped label</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Shelf life %3C 1 yr</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Staples</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Tape Damage</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Writing on Product</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <description>Used for the Service Complaints</description>
+    <fullName>Service_Complaints</fullName>
+    <label>Service Complaints</label>
+    <picklistValues>
+      <picklist>Article_Approval_Status__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Denied</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Exception Request</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>In Process</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Issued</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Finance_Approved__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Manager_Approval_Status__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Rep_Approval_Status__c</picklist>
+      <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Return_Exception_Requested__c</picklist>
+      <values>
+        <fullName>No record of purchase</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Purchased %3E 180 days</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Shelf life %3C 1 yr</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <searchLayouts />
+  <sharingModel>ControlledByParent</sharingModel>
+  <startsWith>Vowel</startsWith>
+  <visibility>Public</visibility>
+  <webLinks>
+    <fullName>Add_Article</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Add Article</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>/flow/Multiple_Articles_in_Cases?RelatedCase={!Case.Id}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>Add_Return_Item</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Add Return Item</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>/a0j/e?RecordType=0120J000000cmqR&amp;CF00N2000000A0Cpp={!Case.CaseNumber}&amp;CF00N2000000A0Cpp_likd={!Case.Id}&amp;CF00N0J000003rd7e={!$User.FirstName} {!$User.LastName}&amp;CF00N0J000003rd7e_lkid={!User.User_ID_18_digit__c}&amp;CF00N0J000003rdBv={!Case.Rep__c}&amp;CF00N0J000003rdBv_lkid={!Case.RepId__c}&amp;CF00N0J000003rdC0={!Case.Manager__c}&amp;CF00N0J000003rdC0_lkid={!Case.ManagerId__c}&amp;CF00N0J00000AMM6F={!Case.Area_Sales_Director__c}&amp;CF00N0J00000AMM6F_lkid={!Case.Area_Sales_DirectorId__c}</url>
+  </webLinks>
+</CustomObject>

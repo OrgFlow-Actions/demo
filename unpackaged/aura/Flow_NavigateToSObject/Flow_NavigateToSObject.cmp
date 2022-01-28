@@ -1,0 +1,7 @@
+<aura:component implements="lightning:availableForFlowActions">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="objectType" type="String" default="Account"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <lightning:navigation aura:id="navService"/>
+	<a href="{!v.url}">Link</a>
+</aura:component>

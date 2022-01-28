@@ -1,0 +1,22 @@
+<aura:component controller="OrderPath_CC">
+    <aura:handler event="c:ModalEventOm" action="{!c.handleSubmit}" />
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <!-- external attributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="mode" type="String" />
+    <!-- internal attributes -->
+    <aura:attribute name="isLoading" type="Boolean" />
+
+    <div class="slds-is-relative">
+        <aura:if isTrue="{!v.mode == 'cancel'}">
+            <lightning:textarea aura:id="textareacomment" name="Cancellation Reason" label="Cancellation Reason" />
+        </aura:if>
+        <aura:if isTrue="{!v.mode == 'submit'}">
+            <lightning:textarea aura:id="textareacomment" name="comments" label="Comments" />
+        </aura:if>
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="loading"></lightning:spinner>
+        </aura:if>
+    </div>
+
+</aura:component>

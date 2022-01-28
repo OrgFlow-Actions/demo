@@ -1,0 +1,8 @@
+.slds-is-absolute  {
+    position: fixed;
+}
+
+.slds-table tbody tr {
+    counter-increment: row-number;
+    height: 100px;
+}

@@ -1,0 +1,1947 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Advanced_Profiling_Record_Page</content>
+    <formFactor>Large</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Advanced_Profiling_Record_Page</content>
+    <formFactor>Small</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <allowInChatterGroups>true</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>Account__c</fullName>
+    <externalId>false</externalId>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Account Advanced Profiling</relationshipLabel>
+    <relationshipName>Advanced_Profiling</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Adhesive__c</fullName>
+    <externalId>false</externalId>
+    <label>Adhesive</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Prime &amp; Bond / Xeno IV)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Prime &amp; Bond / Xeno IV)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Anesthetic__c</fullName>
+    <externalId>false</externalId>
+    <label>Anesthetic</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Astracaine / Polycaine / Xylocaine / Topex Gel / Oraqix)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Astracaine / Polycaine / Xylocaine / Topex Gel / Oraqix)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Appliances__c</fullName>
+    <externalId>false</externalId>
+    <label>Appliances -Night/Sportsguards/Retainers</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>No Digital (Traditional impression taken, sent to lab for fabrication)</fullName>
+          <default>false</default>
+          <label>No Digital (Traditional impression taken, sent to lab for fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner Only (Digital impression taken, sent to lab for fabrication)</fullName>
+          <default>false</default>
+          <label>Scanner Only (Digital impression taken, sent to lab for fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner &amp; Mill (Digital scan taken, sent to lab for fabrication)</fullName>
+          <default>false</default>
+          <label>Scanner &amp; Mill (Digital scan taken, sent to lab for fabrication)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>AstraRestorativeProsthoKit__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Do you currently have an Astra Restorative / Prostho Kit?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Do you currently have an Astra Restorative / Prostho Kit?</inlineHelpText>
+    <label>Astra Restorative / Prostho Kit?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>BoneRegenerative__c</fullName>
+    <externalId>false</externalId>
+    <label>Bone / Regenerative</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (Ossix)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (Ossix)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Dentsply Sirona</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Dentsply Sirona</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>BracketSystemUsed__c</fullName>
+    <externalId>false</externalId>
+    <label>Bracket System Used</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>GAC / Orametrix (Dentsply Sirona)</fullName>
+          <default>false</default>
+          <label>GAC / Orametrix (Dentsply Sirona)</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Bridges__c</fullName>
+    <externalId>false</externalId>
+    <label>Bridges</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>No Digital (Traditional impression taken, sent to lab to bridge fabrication)</fullName>
+          <default>false</default>
+          <label>No Digital (Traditional impression taken, sent to lab to bridge fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner Only (Digital scan taken, sent to lab for bridge fabrication)</fullName>
+          <default>false</default>
+          <label>Scanner Only (Digital scan taken, sent to lab for bridge fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner &amp; Mill (Digital scan taken, bridge designed and milled in house with CAD/CAM)</fullName>
+          <default>false</default>
+          <label>Scanner &amp; Mill (Digital scan taken, bridge designed and milled in house with CAD/CAM)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>CADCAMBlocks__c</fullName>
+    <externalId>false</externalId>
+    <label>CAD/CAM Blocks</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Celtra / Cerec Zirconia)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Celtra / Cerec Zirconia)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>CavitronInserts__c</fullName>
+    <externalId>false</externalId>
+    <label>Cavitron Inserts</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Fitgrip / Hardgrip / Diamoncoat)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Fitgrip / Hardgrip / Diamoncoat)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Cement__c</fullName>
+    <externalId>false</externalId>
+    <label>Cement</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Calibra / Integrity)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Calibra / Integrity)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ClearAlignerBrandUsed__c</fullName>
+    <externalId>false</externalId>
+    <label>Clear Aligner Brand Used</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>SureSmile (Dentsply Sirona)</fullName>
+          <default>false</default>
+          <label>SureSmile (Dentsply Sirona)</label>
+        </value>
+        <value>
+          <fullName>Invisalign</fullName>
+          <default>false</default>
+          <label>Invisalign</label>
+        </value>
+        <value>
+          <fullName>Clear Correct</fullName>
+          <default>false</default>
+          <label>Clear Correct</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ClearAlignerTherapyOrtho__c</fullName>
+    <externalId>false</externalId>
+    <label>Clear Aligner Therapy (ortho)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>We do not provide clear aligner services.</fullName>
+          <default>false</default>
+          <label>We do not provide clear aligner services.</label>
+        </value>
+        <value>
+          <fullName>No Digital (Traditional impression taken, sent to lab for scan (STL), sent to provider for case planning and aligner fabrication)</fullName>
+          <default>false</default>
+          <label>No Digital (Traditional impression taken, sent to lab for scan (STL), sent to provider for case planning and aligner fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner Only (Digital scan taken, sent to provider for case planning and aligner fabrication)</fullName>
+          <default>false</default>
+          <label>Scanner Only (Digital scan taken, sent to provider for case planning and aligner fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner &amp; Mill (Digital scan taken, sent to provider for case planning and aligner fabrication)</fullName>
+          <default>false</default>
+          <label>Scanner &amp; Mill (Digital scan taken, sent to provider for case planning and aligner fabrication)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Composite__c</fullName>
+    <externalId>false</externalId>
+    <label>Composite</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Esthetx Flow / Surefil SDR+ / TPH Spectra)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Esthetx Flow / Surefil SDR+ / TPH Spectra)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>CoreBuildUpMaterials__c</fullName>
+    <externalId>false</externalId>
+    <label>Core Build-Up Materials</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Fluorocore 2+)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Fluorocore 2+)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Crowns__c</fullName>
+    <externalId>false</externalId>
+    <label>Crowns</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Digital (Traditional impression taken, sent to lab for corwn fabrication)</fullName>
+          <default>false</default>
+          <label>No Digital (Traditional impression taken, sent to lab for corwn fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner Only (Digital scan taken, sent to lab for crown fabrication)</fullName>
+          <default>false</default>
+          <label>Scanner Only (Digital scan taken, sent to lab for crown fabrication)</label>
+        </value>
+        <value>
+          <fullName>Scanner &amp; Mill (Digital scan taken, crown designed and milled in house with CAD/CAM)</fullName>
+          <default>false</default>
+          <label>Scanner &amp; Mill (Digital scan taken, crown designed and milled in house with CAD/CAM)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>DigitalScanner__c</fullName>
+    <externalId>false</externalId>
+    <label>Digital Scanner</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>DS Primescan</fullName>
+          <default>false</default>
+          <label>DS Primescan</label>
+        </value>
+        <value>
+          <fullName>DS Omnicam</fullName>
+          <default>false</default>
+          <label>DS Omnicam</label>
+        </value>
+        <value>
+          <fullName>DS Bluecam</fullName>
+          <default>false</default>
+          <label>DS Bluecam</label>
+        </value>
+        <value>
+          <fullName>3Shape</fullName>
+          <default>false</default>
+          <label>3Shape</label>
+        </value>
+        <value>
+          <fullName>Itero</fullName>
+          <default>false</default>
+          <label>Itero</label>
+        </value>
+        <value>
+          <fullName>Medit</fullName>
+          <default>false</default>
+          <label>Medit</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>EndoEstimatedCaseAcceptance__c</fullName>
+    <defaultValue>0</defaultValue>
+    <externalId>false</externalId>
+    <label>Endo: Estimated Case Acceptance %</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+  </fields>
+  <fields>
+    <fullName>EndoSpecialistRefTo__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Endo: Specialist Ref. To (Primary)</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Advanced_Profiling4</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>EssixMachine__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Essix provides the ability to make all sorts of guards/retainers</inlineHelpText>
+    <label>Essix Machine</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>DS Drufomat</fullName>
+          <default>false</default>
+          <label>DS Drufomat</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>FamiliarRestorativeOptions__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Are you familiar with the Astra Implant / Restorative Options available to your practice?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Are you familiar with the Astra Implant / Restorative Options available to your practice?</inlineHelpText>
+    <label>Familiar w/ Restorative Options ?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>FileSystem__c</fullName>
+    <externalId>false</externalId>
+    <label>File System</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona ( Protaper, Waveone, Vortex..)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona ( Protaper, Waveone, Vortex..)</label>
+        </value>
+        <value>
+          <fullName>SybronEndo ( K3 , TF adaptive, Twisted Files)</fullName>
+          <default>false</default>
+          <label>SybronEndo ( K3 , TF adaptive, Twisted Files)</label>
+        </value>
+        <value>
+          <fullName>Brasseler ( EndoSequence, Scout, ESX)</fullName>
+          <default>false</default>
+          <label>Brasseler ( EndoSequence, Scout, ESX)</label>
+        </value>
+        <value>
+          <fullName>EdgeEndo (EdgeOne, EdgeFile, EdgeTaper..)</fullName>
+          <default>false</default>
+          <label>EdgeEndo (EdgeOne, EdgeFile, EdgeTaper..)</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Brassler</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Brassler</label>
+        </value>
+        <value>
+          <fullName>Dentsply Sirona (i.e. WaveOne Gold, ProTaper, ProFile)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Dentsply Sirona (i.e. WaveOne Gold, ProTaper, ProFile)</label>
+        </value>
+        <value>
+          <fullName>Edge Endo (Henry Schein)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Edge Endo (Henry Schein)</label>
+        </value>
+        <value>
+          <fullName>Twisted Files (Sybron Endo)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Twisted Files (Sybron Endo)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>FinishingPolishing__c</fullName>
+    <externalId>false</externalId>
+    <label>Finishing &amp; Polishing</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Enhance / Pogo)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Enhance / Pogo)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>FluorideVarnish__c</fullName>
+    <externalId>false</externalId>
+    <label>Fluoride Varnish</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Nupro Varnish)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Nupro Varnish)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>FutureEquipmentAcquisitionPlan__c</fullName>
+    <description>TFUS-000003190: New field replacing 'Irrigation Needles'</description>
+    <externalId>false</externalId>
+    <inlineHelpText>0-12 months</inlineHelpText>
+    <label>Future Equipment Acquisition Plan</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>New Torq Control Motor</fullName>
+          <default>false</default>
+          <label>New Torq Control Motor</label>
+        </value>
+        <value>
+          <fullName>New Obturation Device</fullName>
+          <default>false</default>
+          <label>New Obturation Device</label>
+        </value>
+        <value>
+          <fullName>New Apex Locator Device</fullName>
+          <default>false</default>
+          <label>New Apex Locator Device</label>
+        </value>
+        <value>
+          <fullName>New Piezo Ultrasonic</fullName>
+          <default>false</default>
+          <label>New Piezo Ultrasonic</label>
+        </value>
+        <value>
+          <fullName>New Irrigation Device</fullName>
+          <default>false</default>
+          <label>New Irrigation Device</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>GuidedImplantPlacement__c</fullName>
+    <externalId>false</externalId>
+    <label>Guided Implant Placement</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>We do not perform guided implant placement</fullName>
+          <default>false</default>
+          <label>We do not perform guided implant placement</label>
+        </value>
+        <value>
+          <fullName>No Digital (Traditional impression taken, sent to lab for guide design and creation)</fullName>
+          <default>false</default>
+          <label>No Digital (Traditional impression taken, sent to lab for guide design and creation)</label>
+        </value>
+        <value>
+          <fullName>Scanner Only (Digital scan taken, sent to lab for guide design and creation)</fullName>
+          <default>false</default>
+          <label>Scanner Only (Digital scan taken, sent to lab for guide design and creation)</label>
+        </value>
+        <value>
+          <fullName>Scanner &amp; Mill (Digital scan taken, guide designed in house, sent to lab for printed guide)</fullName>
+          <default>false</default>
+          <label>Scanner &amp; Mill (Digital scan taken, guide designed in house, sent to lab for printed guide)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>GuttaPercha__c</fullName>
+    <description>TFUS-000003190: field label changed from 'Gutta Percha' to 'Obturation Technique'</description>
+    <externalId>false</externalId>
+    <label>Obturation Technique</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona ( Calamus, GuttaSmart, Obturator oven)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona ( Calamus, GuttaSmart, Obturator oven)</label>
+        </value>
+        <value>
+          <fullName>SybronEndo (Elements, Elements Free)</fullName>
+          <default>false</default>
+          <label>SybronEndo (Elements, Elements Free)</label>
+        </value>
+        <value>
+          <fullName>Brasseler (Single cone with Bioceramic sealer)</fullName>
+          <default>false</default>
+          <label>Brasseler (Single cone with Bioceramic sealer)</label>
+        </value>
+        <value>
+          <fullName>EdgeEndo (Edgecore, Edgefill)</fullName>
+          <default>false</default>
+          <label>EdgeEndo (Edgecore, Edgefill)</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Brassler</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Brassler</label>
+        </value>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Guttacore)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Dentsply Sirona (i.e. Guttacore)</label>
+        </value>
+        <value>
+          <fullName>Edge Endo (Henry Schein)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Edge Endo (Henry Schein)</label>
+        </value>
+        <value>
+          <fullName>Twisted Files (Sybron Endo)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Twisted Files (Sybron Endo)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>HandFiles__c</fullName>
+    <externalId>false</externalId>
+    <label>Hand Files</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona Lexicon (K-files, C-Files, FlexSSK)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona Lexicon (K-files, C-Files, FlexSSK)</label>
+        </value>
+        <value>
+          <fullName>Dentsply Sirona Maillefer (Flexofiles, K-files, C-Plus)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona Maillefer (Flexofiles, K-files, C-Plus)</label>
+        </value>
+        <value>
+          <fullName>SybronEndo (K-files, F-flex)</fullName>
+          <default>false</default>
+          <label>SybronEndo (K-files, F-flex)</label>
+        </value>
+        <value>
+          <fullName>Brasseler (KontrolFlex, K-files, Stiff K-Files)</fullName>
+          <default>false</default>
+          <label>Brasseler (KontrolFlex, K-files, Stiff K-Files)</label>
+        </value>
+        <value>
+          <fullName>Mani Files</fullName>
+          <default>false</default>
+          <label>Mani Files</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Lexicon Pre Sterile Hand Files)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Dentsply Sirona (i.e. Lexicon Pre Sterile Hand Files)</label>
+        </value>
+        <value>
+          <fullName>Henry Schein</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Henry Schein</label>
+        </value>
+        <value>
+          <fullName>Patterson</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Patterson</label>
+        </value>
+        <value>
+          <fullName>Sinclair</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Sinclair</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ImplantAbutmentsCoverScrews__c</fullName>
+    <externalId>false</externalId>
+    <label>Implant Abutments / Cover Screws</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Tybase / Atlantis)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Tybase / Atlantis)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ImplantRestoration__c</fullName>
+    <externalId>false</externalId>
+    <label>Implant Restoration</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>We do not restore implants.</fullName>
+          <default>false</default>
+          <label>We do not restore implants.</label>
+        </value>
+        <value>
+          <fullName>No Digital (traditional impression taken, sent to lab for implant abutment and crown)</fullName>
+          <default>false</default>
+          <label>No Digital (traditional impression taken, sent to lab for implant abutment and crown)</label>
+        </value>
+        <value>
+          <fullName>Scanner Only (Digital scan taken, sent to lab for implant crown fabrication</fullName>
+          <default>false</default>
+          <label>Scanner Only (Digital scan taken, sent to lab for implant crown fabrication</label>
+        </value>
+        <value>
+          <fullName>Scanner &amp; Mill (Digital scan taken, implant crown designed with in house software, implant crown milled in house)</fullName>
+          <default>false</default>
+          <label>Scanner &amp; Mill (Digital scan taken, implant crown designed with in house software, implant crown milled in house)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ImplantsEstimatedCaseAcceptance__c</fullName>
+    <description>Estimated case acceptance % for implant placement?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Estimated case acceptance % for implant placement?</inlineHelpText>
+    <label>Implants: Estimated Case Acceptance %</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+  </fields>
+  <fields>
+    <fullName>ImplantsPrimaryLabUsed__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Implants: Primary Lab Used</label>
+    <lookupFilter>
+      <active>true</active>
+      <errorMessage>Value does not exist or does not match filter criteria. (Account must be a Lab)</errorMessage>
+      <filterItems>
+        <field>Account.Sub_Account_Type__c</field>
+        <operation>equals</operation>
+        <value>Lab, Lab Group</value>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Advanced_Profiling2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>ImplantsSpecialistRefTo__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Implants: Specialist Ref. To (Primary)</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Advanced_Profiling3</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>ImpressionMaterials__c</fullName>
+    <externalId>false</externalId>
+    <label>Impression Materials</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Align / Aquasil / Jeltrate / Regisil / Reprosil)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Align / Aquasil / Jeltrate / Regisil / Reprosil)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>IrrigationNeedles__c</fullName>
+    <externalId>false</externalId>
+    <label>Irrigation Needles</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. ProRinse, EndoActivator Tips, Qmix)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. ProRinse, EndoActivator Tips, Qmix)</label>
+        </value>
+        <value>
+          <fullName>Henry Schein</fullName>
+          <default>false</default>
+          <label>Henry Schein</label>
+        </value>
+        <value>
+          <fullName>Sinclair</fullName>
+          <default>false</default>
+          <label>Sinclair</label>
+        </value>
+        <value>
+          <fullName>Patterson</fullName>
+          <default>false</default>
+          <label>Patterson</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>LabUsedforAppliance__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Lab Used for Appliance(s)</label>
+    <lookupFilter>
+      <active>true</active>
+      <errorMessage>Value does not exist or does not match filter criteria. (you must select a Lab)</errorMessage>
+      <filterItems>
+        <field>Account.Sub_Account_Type__c</field>
+        <operation>equals</operation>
+        <value>Lab, Lab Group</value>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Advanced_Profiling5</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>LabUsedforCrownBridge__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Lab Used for Crown &amp; Bridge</label>
+    <lookupFilter>
+      <active>true</active>
+      <filterItems>
+        <field>Account.Sub_Account_Type__c</field>
+        <operation>equals</operation>
+        <value>Lab, Lab Group</value>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Advanced_Profiling7</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>MatrixMaterials__c</fullName>
+    <externalId>false</externalId>
+    <label>MatrixMaterials</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Palodent 360 / Palodent Plus)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Palodent 360 / Palodent Plus)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Mill__c</fullName>
+    <externalId>false</externalId>
+    <label>Mill</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>DS Primemill</fullName>
+          <default>false</default>
+          <label>DS Primemill</label>
+        </value>
+        <value>
+          <fullName>DS CEREC</fullName>
+          <default>false</default>
+          <label>DS CEREC</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>NrOfCBCTScansPerformedEachMonth__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Only fill this field out if the Doctor owns a CBCT (3D Extraoral Imaging unit)</inlineHelpText>
+    <label># of CBCT Scans performed/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>OfBridgesMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Bridges/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>OfCBCTScansReferredMonth__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Only fill this field out if the doctor does NOT own a CBCT (3D Extraoral Imaging unit)</inlineHelpText>
+    <label># of CBCT Scans Referred/Month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>OfCrownsMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Crowns/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>OrthoEstimatedCase__c</fullName>
+    <description>What is your estimated case acceptance % for orthodontic treatment?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is your estimated case acceptance % for orthodontic treatment?</inlineHelpText>
+    <label>Ortho: Estimated Case %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+  </fields>
+  <fields>
+    <fullName>OrthoSpecialistRefTo__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Ortho: Specialist Ref. To (Primary)</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Advanced_Profiling6</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Oven__c</fullName>
+    <externalId>false</externalId>
+    <label>Oven</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Speedfire</fullName>
+          <default>false</default>
+          <label>Speedfire</label>
+        </value>
+        <value>
+          <fullName>Competitor</fullName>
+          <default>false</default>
+          <label>Competitor</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>PlasticsForAppliances__c</fullName>
+    <externalId>false</externalId>
+    <label>Plastics (for Appliances)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (Essix Plastics)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (Essix Plastics)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>PreferredImplantSystem__c</fullName>
+    <externalId>false</externalId>
+    <label>Preferred Implant System</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Astra, Ankylos)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Astra, Ankylos)</label>
+        </value>
+        <value>
+          <fullName>Hiossen</fullName>
+          <default>false</default>
+          <label>Hiossen</label>
+        </value>
+        <value>
+          <fullName>Implant Direct</fullName>
+          <default>false</default>
+          <label>Implant Direct</label>
+        </value>
+        <value>
+          <fullName>MIS Product</fullName>
+          <default>false</default>
+          <label>MIS Product</label>
+        </value>
+        <value>
+          <fullName>Neodent</fullName>
+          <default>false</default>
+          <label>Neodent</label>
+        </value>
+        <value>
+          <fullName>Nobel</fullName>
+          <default>false</default>
+          <label>Nobel</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Straumann</fullName>
+          <default>false</default>
+          <label>Straumann</label>
+        </value>
+        <value>
+          <fullName>Zimmer/3i</fullName>
+          <default>false</default>
+          <label>Zimmer/3i</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>PreferredRestorativeImplantSystem__c</fullName>
+    <externalId>false</externalId>
+    <label>Preferred Restorative Implant System</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Astra, Ankylos)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Astra, Ankylos)</label>
+        </value>
+        <value>
+          <fullName>Straumann</fullName>
+          <default>false</default>
+          <label>Straumann</label>
+        </value>
+        <value>
+          <fullName>Neodent</fullName>
+          <default>false</default>
+          <label>Neodent</label>
+        </value>
+        <value>
+          <fullName>Nobel</fullName>
+          <default>false</default>
+          <label>Nobel</label>
+        </value>
+        <value>
+          <fullName>Implant Direct</fullName>
+          <default>false</default>
+          <label>Implant Direct</label>
+        </value>
+        <value>
+          <fullName>Hiossen</fullName>
+          <default>false</default>
+          <label>Hiossen</label>
+        </value>
+        <value>
+          <fullName>Zimmer/3i</fullName>
+          <default>false</default>
+          <label>Zimmer/3i</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ProphyPaste__c</fullName>
+    <externalId>false</externalId>
+    <label>Prophy Paste</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Crescent Cups / Nupro)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Crescent Cups / Nupro)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ReferredTo__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Please Select a Lab.</inlineHelpText>
+    <label>CBCT Scans Referred To</label>
+    <lookupFilter>
+      <active>true</active>
+      <errorMessage>Value does not exist or does not match filter criteria. (Account's specialty must be a "Lab")</errorMessage>
+      <filterItems>
+        <field>Account.Sub_Account_Type__c</field>
+        <operation>equals</operation>
+        <value>Lab</value>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Advanced_Profiling1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>TemporaryFillingMaterials__c</fullName>
+    <externalId>false</externalId>
+    <label>Temporary Filling Materials</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dentsply Sirona (i.e. Integrity)</fullName>
+          <default>false</default>
+          <label>Dentsply Sirona (i.e. Integrity)</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>UniqueRecordIdentifier__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Used to prevent duplicate records per Account. Only one record is allowed per Account. Set by process builder.</description>
+    <externalId>true</externalId>
+    <label>Unique Record Identifier</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>ofClearAlignersNewStartsMonth__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText># of new patients starting a Clear Aligner treatment</inlineHelpText>
+    <label># of Clear Aligners (New Starts)/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofFillingsClassIIIIVVMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Fillings (Class III, IV, V)/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofFillingsClassIIMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Fillings (Class II)/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofFillingsClassIMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Fillings (Class I)/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofImplantPlacementsMonthFreehand__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The Doctor performs Implant treatments manually</inlineHelpText>
+    <label># of Implant Placements/month - Freehand</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofImplantPlacementsMonthGuided__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Implant Treatment using technology to plan &amp;guide the doctor through the surgical process for better surgical and prosthetic outcomes</inlineHelpText>
+    <label># of Implant Placements/month- Guided</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofImplantRestorationsMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Implant Restorations/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofNightguardsMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Nightguards/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofOrthoReferredOutMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Ortho Referred Out (to spec.)/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofRCTReferredOutMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of RCT Referred Out (to spec.)/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofRetainersMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Retainers/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofRootCanalTreatmentsMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Root Canal Treatment</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofSportsguardsMonth__c</fullName>
+    <externalId>false</externalId>
+    <label># of Sportsguards/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ofTraditionalOrthoBracketsMonth__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText># of new patients starting a braces treatment</inlineHelpText>
+    <label># of Traditional Ortho - Brackets/month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <label>Account Advanced Profiling</label>
+  <nameField>
+    <displayFormat>AP{0000}</displayFormat>
+    <label>Advanced Profiling Name</label>
+    <trackHistory>false</trackHistory>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Account Advanced Profiling</pluralLabel>
+  <searchLayouts />
+  <sharingModel>ControlledByParent</sharingModel>
+  <visibility>Public</visibility>
+</CustomObject>

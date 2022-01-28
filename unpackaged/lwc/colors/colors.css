@@ -1,0 +1,37 @@
+.color-box {
+    height: 100px;
+    width: 100px;
+}
+
+.edited {
+    background-color: yellow;
+}
+
+/* :host {
+    --sds-c-textarea-sizing-min-height: 200px;
+} */
+
+
+:host lightning-combobox {
+    width: calc(100% - 38px);
+    position: absolute;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 5%;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.iconStatus {
+    padding-left: 58px;
+    position: absolute;
+}
+
+.text {
+    padding-top: 10px;
+}

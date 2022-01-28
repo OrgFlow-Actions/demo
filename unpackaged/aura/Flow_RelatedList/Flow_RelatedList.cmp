@@ -1,0 +1,60 @@
+<aura:component controller="ServiceCloud_FlowLookupController_ver2" implements="lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="articles" type="Article__c[]" access="global"/>
+    <aura:attribute name="recordId" type="String" access="global"/>
+    <aura:attribute name="articleList" type="sObject[]" access="global"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <lightning:card  title="Added articles">
+    	<p class="slds-p-horizontal_small">
+
+            <!-- <lightning:datatable
+                                 keyField="val"
+                                 data="{!v.articleList}"
+                                 columns="[{label:'Article number', fieldName: 'val', type: 'text'}]"                                 
+                                 /> -->       			
+            	<table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped"> 
+            	<thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate">Article Number</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate">Article Description</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate">Quantity</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate">Amount</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate">Purchase date</div>
+                        </th>                         
+                    </tr>
+                    
+                </thead>    
+                <tbody>    
+                    	<aura:iteration items="{!v.articleList}" var="a">
+        				<tr class="slds-hint-parent">
+                            <th scope="row">
+                                <div class="slds-truncate"><a href="{!'/'+a.Id}" >{!a.Article_Number__c}</a></div>
+                            </th> 
+                            <td>
+                                <div class="slds-truncate">{!a.Article_Description__c}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">{!a.Quantity__c}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">{!a.Amount_Paid_each__c}</div>
+                            </td> 
+                            <td>
+                                <div class="slds-truncate">{!a.Purchase_Date__c}</div>
+                            </td>                             
+                        </tr>
+    					</aura:iteration>
+               	</tbody>    
+                </table>    
+        </p>    
+    </lightning:card>
+</aura:component>

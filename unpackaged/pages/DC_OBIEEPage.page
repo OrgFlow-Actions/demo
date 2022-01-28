@@ -1,0 +1,9 @@
+<apex:page >
+    <apex:pageBlock >
+        <h1> You are being redirected to the OBIEE page in another tab/window</h1>
+        <script>
+            window.open('https://usrcobi.dentsplysirona.com/analytics/saw.dll?bieehome','_blank');
+        </script>
+    </apex:pageBlock>
+
+</apex:page>

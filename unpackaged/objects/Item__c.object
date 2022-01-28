@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>true</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>SBU: PREP &amp; ORTHO; Counrty: Japan - Used in Japan as a parallell structure to the global product structure. It's a copy from their previous CRM system with product images and related FAQs.</description>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>false</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>Private</externalSharingModel>
+  <fields>
+    <fullName>Additional_Name__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Additional Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Catch_Phrase__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Catch Phrase</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Category__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan - Controls Sub-Category</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan - Controls Sub-Category</inlineHelpText>
+    <label>Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Preventive</fullName>
+          <default>false</default>
+          <label>Preventive</label>
+        </value>
+        <value>
+          <fullName>Restorative</fullName>
+          <default>false</default>
+          <label>Restorative</label>
+        </value>
+        <value>
+          <fullName>Prosthetics</fullName>
+          <default>false</default>
+          <label>Prosthetics</label>
+        </value>
+        <value>
+          <fullName>Orthodontics</fullName>
+          <default>false</default>
+          <label>Orthodontics</label>
+        </value>
+        <value>
+          <fullName>Endodontics</fullName>
+          <default>false</default>
+          <label>Endodontics</label>
+        </value>
+        <value>
+          <fullName>LA</fullName>
+          <default>false</default>
+          <label>LA</label>
+        </value>
+        <value>
+          <fullName>X-ray</fullName>
+          <default>false</default>
+          <label>X-ray</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Dealer_Name__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Dealer Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Details__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Details</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+  </fields>
+  <fields>
+    <fullName>End_Date__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>End Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Hidden_From_Users__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SBU: PREP, ORTH, Country Japan, This field controls the sharing rule and makes sure records with this field ticked is not shared with users. Example of use case is a new product that has not yet been launched but added to the system.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>IF this checkbox is ticked this Item will not be visible to the users.</inlineHelpText>
+    <label>Hidden From Users?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Kana__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Kana</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Legacy_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Stores the old ID number - used for mapping when importing the data</description>
+    <externalId>true</externalId>
+    <label>Legacy ID</label>
+    <length>30</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>Old_Product_ID__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Old Product ID</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Product_Image_1__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Product Image 1</label>
+    <length>131072</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>50</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Product_Image_2__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Product Image 2</label>
+    <length>131072</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Product_Image_3__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Product Image 3</label>
+    <length>131072</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Replacements__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Replacements</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Search_Keyword__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Search Keyword</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Serial_Number_Management__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Serial Number Management</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Status__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Not in use</fullName>
+          <default>false</default>
+          <label>Not in use</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Stock_Status_Icon__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan - Need to update when images are in the system!</description>
+    <externalId>false</externalId>
+    <formula>if( ISPICKVAL(  Stock_Status__c , "Stock Only") , 
+IMAGE("/servlet/servlet.FileDownload?file=01520000001F4GO", "Stock Only") 
+,if( ISPICKVAL( Stock_Status__c, "End of Sales") , 
+IMAGE("/servlet/servlet.FileDownload?file=01520000001F4G9", "End of Sales") 
+,if( ISPICKVAL( Stock_Status__c, "Stock Only(Part)") , 
+IMAGE("/servlet/servlet.FileDownload?file=01520000001F4GY", "Stock Only(Part)") 
+,if( ISPICKVAL( Stock_Status__c, "End of Sales(Part)") , 
+IMAGE("/servlet/servlet.FileDownload?file=01520000001F4G4", "End of Sales(Part)") 
+,""))))</formula>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan - Need to update when images are in the system!</inlineHelpText>
+    <label>Stock Status Icon</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Stock_Status__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan</inlineHelpText>
+    <label>Stock Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Stock Only(Part)</fullName>
+          <default>false</default>
+          <label>Stock Only(Part)</label>
+        </value>
+        <value>
+          <fullName>Stock Only</fullName>
+          <default>false</default>
+          <label>Stock Only</label>
+        </value>
+        <value>
+          <fullName>End of Sales(Part)</fullName>
+          <default>false</default>
+          <label>End of Sales(Part)</label>
+        </value>
+        <value>
+          <fullName>End of Sales</fullName>
+          <default>false</default>
+          <label>End of Sales</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Sub_Category__c</fullName>
+    <description>SBU: PREP &amp; ORTHO; Country: Japan - Dependent on Category - Not defined yet - might be used in future</description>
+    <externalId>false</externalId>
+    <inlineHelpText>SBU: PREP &amp; ORTHO; Country: Japan - Dependent on Category</inlineHelpText>
+    <label>Sub Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Not defined yet - might be used in future</fullName>
+          <default>false</default>
+          <label>Not defined yet - might be used in future</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Item</label>
+  <listViews>
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>Category__c</columns>
+    <columns>Kana__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+  </listViews>
+  <nameField>
+    <label>Item Name</label>
+    <type>Text</type>
+  </nameField>
+  <pluralLabel>Items</pluralLabel>
+  <searchLayouts>
+    <searchResultsAdditionalFields>Category__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Stock_Status__c</searchResultsAdditionalFields>
+  </searchLayouts>
+  <sharingModel>Private</sharingModel>
+  <startsWith>Vowel</startsWith>
+  <visibility>Public</visibility>
+</CustomObject>

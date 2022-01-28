@@ -1,0 +1,41 @@
+<aura:component controller="KOLInfoController" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="eventList" type="Object[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <lightning:card title="Speaker events" class="slds-card_boundary" iconName="custom:custom50">
+        <p class="slds-p-horizontal_small">
+        <!--<aura:iteration items="{!v.eventList}" var="item">
+            <lightning:tile label="{!item.Name}" href="{!'/lightning/r/CVENT__Cvent_Event__c/' + item.Id + '/view/'}">
+            	<dl class="slds-dl_horizontal">
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">Contract: </p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{!item.Contract}</p>
+                    </dd>
+                    <dt class="slds-dl_horizontal__label">
+                        <p class="slds-truncate">Contracted speaker: </p>
+                    </dt>
+                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                        <p class="slds-truncate">{!item.Speaker}</p>
+                    </dd>
+                </dl>    
+            </lightning:tile>
+            
+        </aura:iteration> -->
+        
+            <lightning:datatable
+        		keyField="id"
+        		columns="{!v.columns}"
+        		data="{!v.eventList}"
+        		hideCheckboxColumn="true"
+                enableInfiniteLoading = "true"                 
+                                 />
+        </p>
+        <!--<aura:set attribute="footer">
+            <lightning:button title="View All" label="View All"/>
+        </aura:set>  -->  
+    </lightning:card>     
+</aura:component>

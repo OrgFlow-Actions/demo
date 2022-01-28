@@ -1,0 +1,26 @@
+<apex:page lightningStylesheets="true" Action="{!if(
+    
+    (
+
+$Profile.Id  == CASESAFEID('00e20000001Ygwu') ||
+$Profile.Id  == CASESAFEID('00e20000000kVxk')
+    )
+|| (
+Account.RecordTypeId != CASESAFEID('01220000000DiSB')&&
+Account.RecordTypeId != CASESAFEID('01220000000ckjZ')&&
+Account.RecordTypeId != CASESAFEID('01220000000ckja')&&
+Account.RecordTypeId != CASESAFEID('01220000000ckjb')&&
+Account.RecordTypeId != CASESAFEID('01220000000DZSL')
+   ),
+    urlFor($Action.Account.Delete, $CurrentPage.Parameters.id, [retURL='/001/o'], true),
+    null
+       )
+}"
+  standardController="Account">
+     <apex:pageBlock >
+        <apex:PageMessage summary="You are not allowed to delete ERP Accounts"
+            severity="Warning"
+            strength="3"/>
+        <apex:pageMessages />
+    </apex:pageBlock>
+</apex:page>

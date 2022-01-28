@@ -1,0 +1,32 @@
+<aura:component implements="lightning:availableForFlowScreens">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="objectToCreate" type="String"/>
+    
+    <aura:attribute name="recordTypeLabel" type="String"/>
+    <aura:attribute name="recordTypeId" type="String"/>
+    <aura:attribute name="sObjectName" type="String" />
+
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__content{
+        height:unset !important;
+        max-height:unset !important;
+        overflow: initial;
+        }
+        .slds-modal__container{
+        width: 50% !important;
+        }
+        .flowruntimeBody {
+        padding: 0 0rem !important;
+        margin: 0 !important;
+        }
+    </aura:html>
+    <c:recordTypePicker recordId="{!v.recordId}" objectApiName="{!v.objectToCreate}" recordTypeLabel="{!v.recordTypeLabel}"
+        onnavigatenext="{!c.navigateNext}">
+    </c:recordTypePicker>
+</aura:component>

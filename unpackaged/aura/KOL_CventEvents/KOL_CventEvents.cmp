@@ -1,0 +1,19 @@
+<aura:component controller="KOLInfoController" implements="flexipage:availableForRecordHome,flexipage:availableForAllPageTypes,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="eventList" type="Object[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <lightning:card title="My Cvent Events" class="slds-card_boundary" iconName="custom:custom50">
+        <p class="slds-p-horizontal_small">
+        
+            <lightning:datatable
+        		keyField="id"
+        		columns="{!v.columns}"
+        		data="{!v.eventList}"
+        		hideCheckboxColumn="true"
+                enableInfiniteLoading = "true"                 
+                                 />
+        </p> 
+    </lightning:card>     
+</aura:component>

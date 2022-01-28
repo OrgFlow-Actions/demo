@@ -1,0 +1,27 @@
+<aura:component implements="lightning:availableForFlowScreens,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:availableForFlowActions" >
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="docConfigId" type="String" />
+    <aura:attribute name="alternativeName" type="String" />
+    <aura:attribute name="locale" type="String" />
+    <!--aura:attribute name="packId" type="String" /-->
+    <c:PDFButler_LightningConvert
+                          recordId="{!v.recordId}"
+                          docConfigId="{!v.docConfigId}"
+                          doShowPreviewAfterGenerate="true"
+                          doDownloadAfterGenerate="true"
+                          boxHeight="550"
+                          deliveryOverwrite="FILES"
+                          alternativeName="{!v.alternativeName}"
+                          locale="locale"
+                                  
+                          
+    />
+                                  <!--
+                                  docConfigIds=""
+                                  targetType=""
+                                  
+                                  
+                                  pdfActionType=""
+                                  -->
+
+</aura:component>

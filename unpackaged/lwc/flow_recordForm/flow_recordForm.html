@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title={title} icon-name={icon} variant={variant}>
+        <div class="slds-card__body_inner slds-is-relative">
+            <template if:true={isLoading}>
+                <lightning-spinner size="small" variant={spinnerVariant} alternative-text="Loading"></lightning-spinner>
+            </template>
+            <lightning-record-form
+                record-id={recordId}
+                object-api-name={sObjectName}
+                columns={columns}
+                fields={_fields}
+                mode={mode}
+                onload={handleLoad}
+                onsubmit={handleSubmit}
+                onsuccess={handleSuccess}>
+            </lightning-record-form>
+        </div>
+    </lightning-card>
+</template>

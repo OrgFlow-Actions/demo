@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <fields>
+    <fullName>Record_Type_Id__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Record Type Id</label>
+    <length>50</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <label>DI Contract Record Type</label>
+  <pluralLabel>DI Contract Record Types</pluralLabel>
+  <visibility>Public</visibility>
+</CustomObject>

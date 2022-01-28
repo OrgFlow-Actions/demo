@@ -1,0 +1,88 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="OrderDealerSearchBoxCopy">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="showPage" type="boolean" default="false"/>
+    <aura:attribute name="dealerId" type="Id" />
+    <aura:attribute name="order" type="Order" default="{'sobjectType':'Order', 'Distributor__c' : '', 'Distributor_email__c' : '', 'Dealer__c' : ''}" access="global" />
+    <aura:attribute name="distributorlist" type="List"/>
+   <!-- <aura:handler event="force:refreshView" action="{!c.updateOrd}" />-->
+    
+    <aura:attribute name="orderObj" type="Object"/>
+	<!--<aura:attribute name="orderRecord" type="Object" default="{'sobjectType':'Order', 'Distributor__c' : '', 'Distributor_email__c' : '', 'Dealer__c' : ''}"/>
+
+	-->
+    <aura:attribute name="recordSaveError" type="String" description="An error message found"/>
+
+	<aura:handler name="change" value="{!v.order}" action="{!c.handleClick}"/>
+
+	<force:recordData aura:id="ordRec" 
+                  fields="Distributor__c"
+                  recordId="{!v.recordId}"  
+                  targetError="{!v.recordSaveError}"
+                  targetRecord="{!v.orderObj}"
+                  targetFields="{!v.order}"
+                  mode="EDIT"
+
+                  />
+    
+    
+    <aura:if isTrue="{!v.showPage}">
+        <div class="slds-p-around--large" >
+            <h1>Distributors</h1>
+            <br/>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffe">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">           
+                            <div class="slds-truncate" title="RadioButton"></div>
+                        </th>
+                        <!--<th scope="col">
+                            <div class="slds-truncate" title="No">Serial</div>
+                        </th>-->
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Billing Address ">Billing Address </div>
+                        </th>
+                    </tr>
+                </thead>
+                <!--table body start-->
+                <tbody>
+                    <aura:iteration items="{!v.distributorlist}" var="dist" indexVar="index">
+                        <tr>
+                            <th scope="row">
+                                <div class="slds-truncate" >
+                                    
+                                    <lightning:input  type="radio" onchange="{!c.selectedDealerRecord}"
+                                                     name="imd-box-radio" checked="false" id="{!dist.Id}" value="{!dist.Id}"/>
+                                </div>   
+                            </th>
+                            <!--<th scope="row">
+                                <div class="slds-truncate" >
+                                    <ui:outputText value="{!index +1}" />
+                                </div>
+                            </th>-->
+                            <th scope="row">
+                                <div class="slds-truncate">
+                                    <ui:outputText value="{!dist.Dealer__r.Name}" />
+                                </div>
+                            </th>
+                            <th scope="row">
+                                <div class="slds-truncate" >
+                                    <ui:outputText value="{!dist.Dealer__r.ShippingCity+' '+dist.Dealer__r.ShippingState+' '+dist.Dealer__r.ShippingPostalCode}" />
+                                </div>
+                            </th>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <br/>
+            <a href="{!'/'+v.recordId}"><lightning:button variant="brand" label="Select Dealer" onclick="{!c.SaveDealerInfo}"/></a> 
+        </div>
+        <br/>
+        <aura:set attribute="else">
+            <p style="color:#e69900;font-size:20px;">You do not have sufficient permission to see this page</p>
+            
+        </aura:set>
+    </aura:if>
+</aura:component>

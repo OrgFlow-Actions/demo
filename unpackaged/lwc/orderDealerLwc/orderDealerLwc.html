@@ -1,0 +1,130 @@
+<template>
+    <div class="slds-is-relative">
+        <div class="sticky-header slds-theme_default">
+            <header class="slds-p-around_small slds-border_bottom">
+                <h2 class="slds-text-heading_medium">{labels.title}</h2>
+                <p class="slds-m-top_x-small">{labels.subTitle}</p>
+            </header>
+        </div>
+        <div class={bodyClass}>
+            <table aria-multiselectable="true"
+                class="slds-is-relative slds-table slds-no-row-hover slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols"
+                role="grid">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col" style="width:3.75rem"></th>
+                        <th aria-label={labels.accountCol} aria-sort="none" class="slds-is-resizable slds-is-sortable"
+                            scope="col">
+                            <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button"
+                                tabindex="-1">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                    <span class="slds-truncate" title={labels.accountCol}>{labels.accountCol}</span>
+                                </div>
+                            </a>
+                        </th>
+                        <!-- <th aria-label={labels.typeCol} aria-sort="none" class="slds-is-resizable slds-is-sortable"
+                            scope="col">
+                            <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button"
+                                tabindex="-1">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                    <span class="slds-truncate" title={labels.typeCol}>{labels.typeCol}</span>
+                                </div>
+                            </a>
+                        </th> -->
+                        <th aria-label={labels.cityCol} aria-sort="none" class="slds-is-resizable slds-is-sortable"
+                            scope="col">
+                            <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button"
+                                tabindex="-1">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                    <span class="slds-truncate" title={labels.cityCol}>{labels.cityCol}</span>
+                                </div>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="slds-align_absolute-center">
+                            <!-- <lightning-input type="checkbox-button" onchange={handleShowAddDealer}>
+                            </lightning-input> -->
+                            <lightning-button-icon-stateful icon-name="utility:add" selected={showAddNewDealer}
+                                data-index={index} onclick={handleShowAddDealer} size="small">
+                            </lightning-button-icon-stateful>
+                        </td>
+                        <td colspan="2">
+                            <template if:true={showAddNewDealer}>
+                                <div class="slds-form-element">
+                                    <div class="slds-grid slds-grid_vertical-align-center">
+                                        <div class="slds-col">
+                                            <c-lookup onsearch={handleSearch} placeholder={labels.searchPlaceHolder}
+                                                onselectionchange={handleLookupSelectionChange}>
+                                            </c-lookup>
+                                        </div>
+                                        <div class="slds-col slds-no-flex">
+                                            <!-- <div class="slds-show_medium">
+                                                <lightning-button variant="brand" class="slds-m-left_xx-small"
+                                                    label={labels.addDealer} onclick={addDealerHandler}
+                                                    icon-name="utility:add" disabled={addDealerDisabled}>
+                                                </lightning-button>
+                                            </div> -->
+                                            <div class="">
+                                                <lightning-button-icon variant="brand"
+                                                    alternative-text={labels.addDealer} class="slds-m-left_xx-small slds-m-right_medium"
+                                                    onclick={addDealerHandler} icon-name="utility:check"
+                                                    disabled={addDealerDisabled}></lightning-button-icon>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            <template if:false={showAddNewDealer}>
+                                <div style="color: var(--lwc-brandDisabled);">
+                                    {labels.addDealer}
+                                </div>
+                            </template>
+                        </td>
+                    </tr>
+                    <template for:each={dealers} for:item="dealer" for:index="index">
+                        <tr key={dealer.Id}>
+                            <td class="slds-align_absolute-center">
+                                <div class="slds-form-element__control">
+                                    <span class="slds-radio">
+                                        <input type="radio" id={index} value={dealer.isSelected} name="distributor-radio"
+                                            checked={dealer.isSelected} onchange={handleSelectDealer}
+                                            data-index={index} />
+                                        <label class="slds-radio__label" for={index}>
+                                            <span class="slds-radio_faux"></span>
+                                        </label>
+                                    </span>
+                                </div>
+                            </td>
+                            <td role="gridcell">
+                                <div class="slds-truncate" title={dealer.Dealer__r.Name}>{dealer.Dealer__r.Name}</div>
+                            </td>
+                            <!-- <td role="gridcell">
+                                <div class="slds-truncate" title={dealer.Dealer__r.OneAccount_Type__c}>
+                                    {dealer.Dealer__r.OneAccount_Type__c}</div>
+                            </td> -->
+                            <td role="gridcell">
+                                <div class="slds-truncate" title={dealer.Dealer__r.ETM2_State_City__c}>
+                                    {dealer.Dealer__r.ETM2_State_City__c}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <div class="slds-clearfix slds-p-top_x-small slds-p-bottom_medium slds-theme_default slds-border_top sticky-footer">
+            <div class="slds-float_right slds-p-horizontal_small">
+                <lightning-button class="slds-m-right_xx-small" label={labels.cancel} onclick={closeQuickAction}>
+                </lightning-button>
+                <lightning-button variant="brand" label={labels.selectDealer} onclick={updateDealerInfo}
+                    disabled={enableSelectDealerButton}>
+                </lightning-button>
+            </div>
+        </div>
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+    </div>
+</template>

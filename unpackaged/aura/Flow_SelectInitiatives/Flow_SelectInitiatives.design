@@ -1,0 +1,6 @@
+<design:component>
+    
+    <design:attribute name="recordId" label="Record Id" /> 
+    <design:attribute name="selectedInitiative" label="Initiative" />
+	
+</design:component>

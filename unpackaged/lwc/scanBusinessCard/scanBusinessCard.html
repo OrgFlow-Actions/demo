@@ -1,0 +1,311 @@
+<template>
+    <lightning-card  variant="Narrow"  
+        title="Scan Business Card" icon-name="standard:contact">
+        <template if:true={isLoading}>
+            <lightning-spinner variant="brand" alternative-text="Loading" size="small">
+            </lightning-spinner>
+        </template>
+        <lightning-layout multiple-rows>
+            <template if:false={scanningComplete}>
+            <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-input accept="image/png,image/jpg,image/jpeg" type="file"
+                    onchange={handleFilesChange} 
+                    label={fileLabel}></lightning-input>
+                </div>
+                <div>
+
+                </div>
+            </lightning-layout-item>
+            </template>
+            <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
+
+                    <template if:false={recordSuccess}>    
+                        <template if:false={duplicatesExist}>
+                            <template if:true={contact}>
+
+                                <h2 class="slds-text-heading_small slds-m-bottom_medium">Would you like to create the following Contact?</h2>
+
+                                <lightning-record-edit-form object-api-name="Contact" onsubmit={showSpinner} onsuccess={handleSuccess}>
+                                    <lightning-messages>
+                                    </lightning-messages>
+                                    <lightning-input-field field-name="FirstName" value={contact.FirstName}></lightning-input-field>
+                                    <lightning-input-field required field-name="LastName" value={contact.LastName}></lightning-input-field>
+                                    <lightning-input-field required field-name="Profession__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Email" value={contact.Email}></lightning-input-field>
+                                    <lightning-input-field field-name="Phone" value={contact.Phone}></lightning-input-field>
+                                    <lightning-input-field field-name="InsertEmailMarketingConsentCollected__c" value="No" onchange={collectMarketingConsent}></lightning-input-field>
+                                    
+                                    <template if:true={marketingConsent}>
+                                        <lightning-input-field field-name="WhenCollected__c"></lightning-input-field>
+                                        <lightning-input-field field-name="WhereCollected__c"></lightning-input-field>  
+                                        <lightning-input-field field-name="HowCollected__c"></lightning-input-field>
+                                        <lightning-input-field field-name="HasOptedOutOfEmail"></lightning-input-field>      
+                                    </template>
+                                    
+                                    <lightning-input-field required field-name="AccountId" value={contact.AccountId}></lightning-input-field>    
+                                    <lightning-input type="toggle" label="Log an activity" name="logActivity" checked={logActivity} onchange={handleActivity}></lightning-input>
+
+                                    <button type="submit" class="slds-button slds-button_brand slds-button_stretch">Create Contact</button>
+                                    <!--<br/>
+                                    <button onclick={scanAgain} class="slds-button slds-button_brand slds-button_stretch">Cancel</button> -->
+                                </lightning-record-edit-form>
+
+                            </template>
+                        </template>
+                        <template if:true={duplicatesExist}>
+                                
+                                <template if:true={objectIsContact}>
+                                
+                                <template for:each={duplicates} for:item="dup">    
+                                <lightning-record-edit-form key={dup.Id} object-api-name="Contact" record-id={dup.Id} onsubmit={showSpinner} onsuccess={handleSuccess}>
+                                    <lightning-messages>
+                                    </lightning-messages>
+                                    <h2 class="slds-text-heading_medium slds-m-bottom_medium">Duplicate found</h2>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <lightning-input-field field-name="FirstName" value={dup.FirstName}></lightning-input-field>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="text" value={contact.FirstName} readonly></lightning-input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <lightning-input-field field-name="LastName" value={dup.LastName}></lightning-input-field>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="text" value={contact.LastName} readonly></lightning-input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <lightning-input-field field-name="Email" value={dup.Email}></lightning-input-field>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="text" value={contact.Email} readonly></lightning-input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <lightning-input-field field-name="Phone" value={dup.Phone}></lightning-input-field>
+                                            </td>
+                                            <td>
+                                                <lightning-input type="text" value={contact.Phone} readonly></lightning-input>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <lightning-input-field field-name="AccountId"></lightning-input-field>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <lightning-input type="toggle" label="Log an activity" name="logActivity" checked={logActivity} onchange={handleActivity}></lightning-input> 
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br/>
+                                        
+                                    <button type="submit" class="slds-button slds-button_brand slds-button_stretch">Update</button>
+                                    <!--<br/>
+                                    <button onclick={scanAgain} class="slds-button slds-button_brand slds-button_stretch">Cancel</button> -->
+                                </lightning-record-edit-form>
+                            </template>
+                            </template>
+
+                            <!-- Display list of found duplicate records-->
+                            <template if:false={objectIsContact}>
+                                <template if:false={recordSelected}>
+                                <h2 class="slds-text-heading_small slds-m-bottom_medium">We found the following {dupObject}(s) that seem to match this business card:</h2>
+                                <template for:each={duplicates} for:item="dup">
+                                
+                                            
+                                        <div key={dup.Id} class="slds-visual-picker slds-visual-picker_vertical" style="width: inherit">
+                                            <input type="radio" id={dup.Id} value={dup.Name} name="options" onclick={handleDupSelected}/>
+
+                                            <label for={dup.Id}>
+                                                
+                                                <lightning-record-view-form key={dup.Id} record-id={dup.Id} object-api-name={dupObject}>
+                                                <span class="slds-visual-picker__figure slds-visual-picker__text"
+                                                    style="width: inherit; height: auto;">
+                                                    <span>
+                                                        <span class="slds-text-heading_small slds-m-bottom_x-small">{dup.Name}</span>
+                                                        <span class="slds-text-title slds-truncate">
+                                                            <lightning-accordion allow-multiple-sections-open active-section-name="A" >
+                                                                <lightning-accordion-section label="Details">
+                                                                    <lightning-output-field variant="label-hidden" field-name="Name"></lightning-output-field>
+                                                                    <lightning-output-field variant="label-hidden" field-name="Account_Type_Specialty__c"></lightning-output-field>
+                                                                    <lightning-output-field variant="label-hidden" field-name="BillingAddress"></lightning-output-field>
+                                                                    <lightning-output-field variant="label-hidden" field-name="MailingAddress"></lightning-output-field>
+                                                                    <lightning-output-field variant="label-hidden" field-name="Email"></lightning-output-field>
+                                                                </lightning-accordion-section>
+                                                            </lightning-accordion>
+                                                            
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                                <span class="slds-icon_container slds-visual-picker__text-check">
+                                                    <lightning-icon icon-name="utility:check" size="x-small" variant="inverse">
+                                                    </lightning-icon>
+                                                </span>
+                                            </lightning-record-view-form>
+                                            </label> 
+
+                                        </div>
+                                </template>
+                                </template>
+                                <template if:true={recordSelected}>
+                                 
+                                <!-- In case the found duplicates are Accounts-->    
+                                <template if:false={dupObjectIsContact}>   
+                                <h2 class="slds-text-heading_small slds-m-bottom_medium">Would you like to create the following Contact?</h2>
+                                <lightning-record-edit-form object-api-name="Contact" onsubmit={showSpinner} onsuccess={handleSuccess}>
+                                        <lightning-messages>
+                                        </lightning-messages>
+                                        <lightning-input-field field-name="FirstName" value={contact.FirstName}></lightning-input-field>
+                                        <lightning-input-field required field-name="LastName" value={contact.LastName}></lightning-input-field>
+                                        <lightning-input-field required field-name="Profession__c"></lightning-input-field>
+                                        <lightning-input-field field-name="Email" value={contact.Email}></lightning-input-field>
+                                        <lightning-input-field field-name="Phone" value={contact.Phone}></lightning-input-field>
+                                        <lightning-input-field field-name="InsertEmailMarketingConsentCollected__c" value="No" onchange={collectMarketingConsent}></lightning-input-field>
+                                        
+                                        <template if:true={marketingConsent}>
+                                            <lightning-input-field field-name="WhenCollected__c"></lightning-input-field>
+                                            <lightning-input-field field-name="WhereCollected__c"></lightning-input-field>  
+                                            <lightning-input-field field-name="HowCollected__c"></lightning-input-field>
+                                            <lightning-input-field field-name="HasOptedOutOfEmail"></lightning-input-field>      
+                                        </template>
+                                        
+                                        <lightning-input-field required field-name="AccountId" value={contact.AccountId}></lightning-input-field>    
+                                            
+                                        <lightning-input type="toggle" label="Log an activity" name="logActivity" checked={logActivity} onchange={handleActivity}></lightning-input>
+
+                                        <button type="submit" class="slds-button slds-button_brand slds-button_stretch">Create Contact</button>
+                                        <!--<br/>
+                                        <button onclick={scanAgain} class="slds-button slds-button_brand slds-button_stretch">Cancel</button> -->
+                                    </lightning-record-edit-form>
+                                </template>
+
+                                <!-- In case the found duplicates are Contacts-->
+                                <template if:true={dupObjectIsContact}>
+                                    <h2 class="slds-text-heading_small slds-m-bottom_medium">Would you like to update the matched Contact?</h2>
+                                    
+                                    <lightning-record-edit-form record-id={selectedAccountId} object-api-name="Contact" onsubmit={showSpinner} onsuccess={handleSuccess}>
+                                            <lightning-messages>
+                                            </lightning-messages>
+
+                                            
+                                            <table>
+                                                <tr>
+                                                    <td>Scanned details</td>
+                                                    <td>Existing Contact</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <lightning-input-field field-name="FirstName" value={contact.FirstName}></lightning-input-field>
+                                                    </td>
+                                                    <td>
+                                                        <lightning-output-field field-name="FirstName"></lightning-output-field>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <lightning-input-field field-name="LastName" value={contact.LastName}></lightning-input-field>
+                                                    </td>
+                                                    <td>
+                                                        <lightning-output-field field-name="LastName"></lightning-output-field>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <lightning-input-field field-name="Email" value={contact.Email}></lightning-input-field>
+                                                    </td>
+                                                    <td>
+                                                        <lightning-output-field field-name="Email"></lightning-output-field>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <lightning-input-field field-name="Phone" value={contact.Phone}></lightning-input-field>
+                                                    </td>
+                                                    <td>
+                                                        <lightning-output-field field-name="Phone"></lightning-output-field>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <lightning-input-field field-name="AccountId"></lightning-input-field>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <lightning-input type="toggle" label="Log an activity" name="logActivity" checked={logActivity} onchange={handleActivity}></lightning-input>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <button type="submit" class="slds-button slds-button_brand slds-button_stretch">Update Contact</button>
+                                            <!--<br/>
+                                            <button onclick={scanAgain} class="slds-button slds-button_brand slds-button_stretch">Cancel</button> -->
+                                        </lightning-record-edit-form>
+
+
+                                </template>
+                                </template>
+                            </template>
+
+
+                            </template>
+                   </template>     
+                <template if:true={recordSuccess}>
+                        <h3> Congratulations! The record has been created/updated. How would you like to proceed?</h3>
+                        <fieldset class="slds-form-element">
+                            <legend class="slds-form-element__legend slds-form-element__label"></legend>
+                            <div class="slds-form-element__control">
+                              <div class="slds-visual-picker slds-visual-picker_vertical" onclick={goToRecord}>
+                                <input type="radio" id="visual-picker-94" value="visual-picker-94" name="example-unique-name-36"/>
+                                <label for="visual-picker-94">
+                                  <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                                    <span>
+                                      <span class="slds-text-heading_medium">Go to Contact</span>
+                                      <span class="slds-text-title">To update related actions</span>
+                                    </span>
+                                  </span>
+
+                                </label>
+                              </div>
+
+                              <div class="slds-visual-picker slds-visual-picker_vertical" onclick={scanAgain}>
+                                <input type="radio" id="visual-picker-96" value="visual-picker-96" name="example-unique-name-36" />
+                                <label for="visual-picker-96">
+                                  <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                                    <span>
+                                      <span class="slds-text-heading_medium">Scan again</span>
+                                      <span class="slds-text-title">Scan another business card</span>
+                                    </span>
+                                  </span>
+
+                                </label>
+                              </div>
+                            </div>
+                          </fieldset>
+
+
+
+
+                </template>    
+
+
+
+                <template if:true={errors}>
+                    <div class="slds-scrollable" style="height:5rem;width:24rem">
+                        <lightning-formatted-rich-text title="Error from API" value={errors}  >
+                        </lightning-formatted-rich-text>
+                    </div>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

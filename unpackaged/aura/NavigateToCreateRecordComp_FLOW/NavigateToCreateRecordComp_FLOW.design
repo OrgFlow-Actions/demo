@@ -1,0 +1,26 @@
+<design:component >
+    <design:attribute
+        name="recordId"
+        label="Record ID"
+        description="Record ID of the source record"
+        required="true"/>
+    <design:attribute
+        name="objectToCreate"
+        label="Object to Create"
+        description="API Name of the object to create"
+        required="true"/>
+    <design:attribute
+        name="defaultFieldValues"
+        label="Default field values"
+        description="JSON formatted object string"
+        required="true"/>
+    <design:attribute
+        name="recordTypeId"
+        label="Record Type Id"
+        description="The selected record type of the object to create"
+        required="true"/>
+    <design:attribute
+        name="hasNavigated"
+        label="Has Navigated"
+        description="Used to set conditional visibility of the finish screen. True when create record event has fired"/>
+</design:component>

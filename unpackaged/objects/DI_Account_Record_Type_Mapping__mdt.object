@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <fields>
+    <fullName>Account_Type__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Account Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Dental Clinic</fullName>
+          <default>true</default>
+          <label>Dental Clinic</label>
+        </value>
+        <value>
+          <fullName>Dental Laboratory</fullName>
+          <default>false</default>
+          <label>Dental Laboratory</label>
+        </value>
+        <value>
+          <fullName>Distributor</fullName>
+          <default>false</default>
+          <label>Distributor</label>
+        </value>
+        <value>
+          <fullName>Hospital</fullName>
+          <default>false</default>
+          <label>Hospital</label>
+        </value>
+        <value>
+          <fullName>University</fullName>
+          <default>false</default>
+          <label>University</label>
+        </value>
+        <value>
+          <fullName>Wholesaler</fullName>
+          <default>false</default>
+          <label>Wholesaler</label>
+        </value>
+        <value>
+          <fullName>Purchasing Group</fullName>
+          <default>false</default>
+          <label>Purchasing Group</label>
+        </value>
+        <value>
+          <fullName>Government</fullName>
+          <default>false</default>
+          <label>Government</label>
+        </value>
+        <value>
+          <fullName>DENTSPLY</fullName>
+          <default>false</default>
+          <label>DENTSPLY</label>
+        </value>
+        <value>
+          <fullName>Competitor</fullName>
+          <default>false</default>
+          <label>Competitor</label>
+        </value>
+        <value>
+          <fullName>Partner</fullName>
+          <default>false</default>
+          <label>Partner</label>
+        </value>
+        <value>
+          <fullName>Non-Dental</fullName>
+          <default>false</default>
+          <label>Non-Dental</label>
+        </value>
+        <value>
+          <fullName>Dealer Sell Out Data Region</fullName>
+          <default>false</default>
+          <label>Dealer Sell Out Data Region</label>
+        </value>
+        <value>
+          <fullName>Insurance Care Center</fullName>
+          <default>false</default>
+          <label>Insurance Care Center</label>
+        </value>
+        <value>
+          <fullName>Student</fullName>
+          <default>false</default>
+          <label>Student</label>
+        </value>
+        <value>
+          <fullName>Zip/Postal Code</fullName>
+          <default>false</default>
+          <label>Zip/Postal Code</label>
+        </value>
+        <value>
+          <fullName>First letters of Zip/Postal Code</fullName>
+          <default>false</default>
+          <label>First letters of Zip/Postal Code</label>
+        </value>
+        <value>
+          <fullName>Region</fullName>
+          <default>false</default>
+          <label>Region</label>
+        </value>
+        <value>
+          <fullName>Country</fullName>
+          <default>false</default>
+          <label>Country</label>
+        </value>
+        <value>
+          <fullName>Unknown/Other</fullName>
+          <default>false</default>
+          <label>Unknown/Other</label>
+        </value>
+        <value>
+          <fullName>End User</fullName>
+          <default>false</default>
+          <label>End User</label>
+        </value>
+        <value>
+          <fullName>Events</fullName>
+          <default>false</default>
+          <label>Events</label>
+        </value>
+        <value>
+          <fullName>Internal</fullName>
+          <default>false</default>
+          <label>Internal</label>
+        </value>
+        <value>
+          <fullName>DNA Distributor</fullName>
+          <default>false</default>
+          <label>DNA Distributor</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Country__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Country</label>
+    <referenceTo>Country_Configuration__mdt</referenceTo>
+    <relationshipLabel>DI Account Record Type Mappings</relationshipLabel>
+    <relationshipName>DI_Account_Record_Type_Mappings</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Customer_Type__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Customer Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Clinic</fullName>
+          <default>true</default>
+          <label>Clinic</label>
+        </value>
+        <value>
+          <fullName>Lab</fullName>
+          <default>false</default>
+          <label>Lab</label>
+        </value>
+        <value>
+          <fullName>Distributor</fullName>
+          <default>false</default>
+          <label>Distributor</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Record_Type_ID__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Record Type ID</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <label>DI Account Record Type Mapping</label>
+  <pluralLabel>DI Account Record Type Mappings</pluralLabel>
+  <visibility>Public</visibility>
+</CustomObject>

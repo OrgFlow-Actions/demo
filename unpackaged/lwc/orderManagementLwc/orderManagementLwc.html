@@ -1,0 +1,67 @@
+<template>
+    <div class={containerClass}>
+        <div class="slds-grid slds-wrap">
+            <template if:true={isMobile}>
+                <div class="slds-size_6-of-6">
+                    <lightning-button-icon class="slds-float_right" icon-name="utility:close" variant="bare"
+                        onclick={closeQuickAction} alternative-text="Close"></lightning-button-icon>
+                </div>
+            </template>
+            <div class="slds-size_6-of-6">
+                <div class="slds-show_medium slds-float_left">
+                    <template if:true={order}>
+                        <lightning-button variant="base"
+                            label={orderNumber} 
+                            icon-name="standard:return_order"
+                            onclick={goToOrder}
+                            icon-position="right"
+                            class="slds-m-left_x-small">
+                        </lightning-button>
+                    </template>
+                </div>
+                <template if:true={order}>
+                    <!-- <div class={navigationButtonGroupClass}> -->
+                        <lightning-button-group class="slds-float_right slds-p-around_xxx-small">
+                            <template if:false={showOrderItems}>
+                                <lightning-button label={labels.showOrderItems} onclick={switchDisplay}>
+                                </lightning-button>
+                            </template>
+                            <template if:false={showSelectProducts}>
+                                <lightning-button label={labels.addMoreProducts} onclick={switchDisplay}>
+                                </lightning-button>
+                            </template>
+                            <div class="slds-show_medium">
+                                <lightning-button label={labels.goToOrder} onclick={goToOrder}></lightning-button>
+                            </div>
+                            <div class="slds-hide_medium">
+                                <template if:true={order}>
+                                    <lightning-button label={orderNumber} icon-position="right"
+                                        icon-name="utility:forward_up" onclick={goToOrder}>
+                                    </lightning-button>
+                                </template>
+                            </div>
+                        </lightning-button-group>
+                    <!-- </div> -->
+                </template>
+            </div>
+            <div class="slds-size_6-of-6 slds-p-horizontal_xxx-small">
+                <template if:true={displayOrderCreation}>
+                    <c-create-order-om-lwc user-ui-theme={userUiTheme} oncancel={closeQuickAction} oncreateorder={handleOrderCreation} parent-id={recordId}></c-create-order-om-lwc>
+                </template>
+            </div>
+            <div class="slds-size_6-of-6 slds-p-horizontal_xxx-small">
+                <template if:true={order}>
+                    <template if:true={showSelectProducts}>
+                        <c-select-products-om-lwc ongotoorderitems={switchDisplay} user-ui-theme={userUiTheme} oncancel={closeQuickAction} order={order} parent-id={recordId}></c-select-products-om-lwc>
+                    </template>
+                    <template if:true={showOrderItems}>
+                        <c-order-items-om-lwc user-ui-theme={userUiTheme} oncancel={closeQuickAction} order={order}></c-order-items-om-lwc>
+                    </template>
+                </template>
+            </div>
+        </div>
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+    </div>
+</template>

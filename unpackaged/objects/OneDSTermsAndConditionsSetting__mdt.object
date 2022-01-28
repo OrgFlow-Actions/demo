@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <description>Localization settings for the OneDS Terms and Conditions public site.</description>
+  <fields>
+    <fullName>ConsentStatement__c</fullName>
+    <description>Consent statement in localized language</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>ConsentStatement</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Country__c</fullName>
+    <description>Country matching Contact.Country__c value</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Country</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>DocumentPublicLink__c</fullName>
+    <description>Public link to the Terms and Conditions document</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>DocumentPublicLink</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>InfoText__c</fullName>
+    <description>Info text in locaized language</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>InfoText</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelConsent__c</fullName>
+    <description>Consent label in localized language</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>LabelConsent</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelEmail__c</fullName>
+    <description>Label for the Email field</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>LabelEmail</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelFirstName__c</fullName>
+    <description>Label for the First Name field</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>LabelFirstName</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelLastName__c</fullName>
+    <description>Label for the Last Name field</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>LabelLastName</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelPaymentPreference__c</fullName>
+    <description>TFUS-000002998</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Label Payment Preference</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelPracticeName__c</fullName>
+    <description>Label for the Practice Name field</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>LabelPracticeName</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelSubmit__c</fullName>
+    <description>Submit label in localized language</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>LabelSubmit</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LabelTermsAndConditions__c</fullName>
+    <description>Label for Terms and Conditions Link in localized language</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>LabelTermsAndConditions</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Language__c</fullName>
+    <description>Language matching Contact.Preferred_Language__c value</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Language</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ProgramName__c</fullName>
+    <description>TFUS-000002698 Used in OneDsCanadaTermsAndConditions_CC to find relevant mtd record in SOQL query by matching `LoyaltyProgramParticipant__c.LoyaltyProgram__r.Name`</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Program Name</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>SuccessMessage__c</fullName>
+    <description>Success Message in localized language</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>SuccessMessage</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Title__c</fullName>
+    <description>Title in localized language</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Title</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <label>OneDS Terms and Conditions Setting</label>
+  <pluralLabel>OneDS Terms and Conditions Settings</pluralLabel>
+  <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="fieldName" label="Mdt Fieldname" description="'EA Dashboard By Country' Mdt Fieldname" required = "true"/>
+    <design:attribute name="showHeader" label="showHeader" description="show Dashboard Header" />
+    <design:attribute name="filterFieldName" label="Mdt Filter Fieldname" description="'EA Dashboard By Country' Mdt Field Name" required = "true"/>
+    <design:attribute name="height" label="Height (px)" description="Component Height" />
+    <design:attribute name="sObjectFieldName" label="SObject Country Fieldname" description="The Country FieldName of the SObject(e.g. Country__c)" />
+</design:component>

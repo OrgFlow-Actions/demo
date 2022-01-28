@@ -1,0 +1,29 @@
+<apex:page standardController="Product_Profiling__c" extensions="Product_profilling_new_override" lightningStylesheets="true" showHeader="{! $User.UITheme == 'Theme3'}">
+    <apex:sectionHeader subtitle="{!$Label.product_profiling_New_Product_Profiling}" title="{!$Label.product_profiling_New_Product_Profiling}"/>
+    <apex:form >
+        <apex:pageBlock title="{!$Label.product_profiling_New_Product_Profiling}">
+            <apex:pageMessages id="pageErrors"/>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!save1}" value="Save"/>
+                <apex:commandButton action="{!cancel1}" immediate="true" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="{!$Label.Product_Profiling_PROFILING_INFO}" columns="2">
+                
+                <apex:inputField value="{!Product_Profiling__c.Product_Name__c}" required="true"/>
+                <apex:inputField value="{!Product_Profiling__c.Account__c}" required="true"/>
+                <apex:inputField value="{!Product_Profiling__c.Status__c}" />
+                <apex:inputField value="{!Product_Profiling__c.Contact__c}" />
+                
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="{!$Label.Product_Profiling_PRODUCT_INFO}" columns="2">
+                <apex:inputField value="{!Product_Profiling__c.Date_of_purchase__c}" />
+                <apex:inputField value="{!Product_Profiling__c.Quantity__c}" />
+                <apex:inputField value="{!Product_Profiling__c.Intention_to_buy_date__c}" />
+                <apex:inputField value="{!Product_Profiling__c.Opportunity__c}" />
+                <apex:inputField value="{!Product_Profiling__c.Notes__c}" />
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

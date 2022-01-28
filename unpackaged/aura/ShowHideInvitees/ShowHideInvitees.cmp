@@ -1,0 +1,52 @@
+<aura:component controller="EventRelationDetails" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="eventList" type="AttendeesWrapperClass.DisplayAttendeesRecords[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:card title="Invitees Details">
+        <aura:if isTrue="{!not(empty(v.eventList))}">
+
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                <thead>
+                    <tr class="slds-text-title--caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Invitees Status">Invitees Status</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <aura:iteration items="{!v.eventList}" var="ct" indexVar="i">
+                        <tr>
+
+                            <th scope="row" data-label="Name">
+                                <div class="slds-truncate" title="{! ct.AttendeesName }">{! ct.AttendeesName }</div>
+                            </th>
+
+                            <td data-label="Invitees Status">
+                                <aura:if isTrue="{!ct.status == 'New'}">
+
+                                    <div class="slds-truncate" title="{! ct.status }">Hasn't Responded</div>
+
+                                    <aura:set attribute="else">
+                                        <div class="slds-truncate" title="{! ct.status }">{!ct.status}</div>
+                                    </aura:set>
+                                </aura:if>
+
+                                <aura:if isTrue="{!not(empty(ct.AttendeesName))}">
+
+                                </aura:if>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else">
+                No Invitees Available
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+
+</aura:component>

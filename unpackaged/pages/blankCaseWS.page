@@ -1,0 +1,23 @@
+<apex:page standardController="Case" 
+           extensions="CaseExtension"
+           >
+    <script 
+        type="text/javascript" 
+        src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    
+    <apex:form >
+        <apex:actionFunction name="getDetails"
+                             action="{!doLogEventCallout}"
+                             reRender="activityTable"/>    
+    </apex:form>
+    <apex:outputPanel id="activitytable">
+        <apex:outputText value="{}"></apex:outputText>
+    </apex:outputPanel>
+    <script>
+    $(document).ready(
+        function() {
+            getDetails();
+        });
+    </script>   
+</apex:page>

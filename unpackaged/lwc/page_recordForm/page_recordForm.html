@@ -1,0 +1,53 @@
+<template>
+    <template if:true={record}>
+
+    <c-lightning-card card-title={title} card-icon-name={icon} enable-edit-mode=true is-edit-mode={isEditMode}
+        onmodechange={editMode} onmysubmit={submitChange}>    
+        <div class="slds-card__body_inner">       
+        
+        <template if:false={isEditMode}>
+            <lightning-record-form
+                record-id={fieldId}
+                object-api-name={sObjectName}
+                columns={columns}
+                fields={_fields}
+                mode="readonly">
+            </lightning-record-form>
+        
+        </template>
+
+        <template if:true={isEditMode}>
+
+            <div if:true={isLoading} class="slds-is-relative">
+                <lightning-spinner alternative-text="Loading..." variant="brand">
+                </lightning-spinner>
+            </div>
+
+            <div if:false={isLoading}>
+                <lightning-record-edit-form record-id={fieldId} object-api-name={sObjectName} onsubmit={submitHandler}
+                    onsuccess={successHandler}>
+                    <lightning-messages></lightning-messages>
+
+                    <div class="slds-grid slds-wrap">
+
+                        <template for:each={_editFields} for:item="field">
+                            <div key={field.fieldName} class="slds-col slds-large-size_1-of-2 slds-size_1-of-1">
+                                <lightning-input-field field-name={field.fieldName} required={field.required}>
+                                </lightning-input-field>
+                            </div>
+                        </template>
+
+                    </div>
+
+                    <lightning-button class="slds-hide" type="submit" label="Submit"></lightning-button>
+                </lightning-record-edit-form>
+            </div>
+
+        </template>
+
+
+        </div> 
+    </c-lightning-card>
+    
+    </template>
+</template>

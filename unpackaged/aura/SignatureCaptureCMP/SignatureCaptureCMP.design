@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="recordId" label="Record Id" 
+                      description="Enter the record Id where you want to attach this signature." />
+    <design:attribute name="contentDocumentID" label="ContentDocument Id" 
+                      description="ID of the saved signature image." />
+</design:component>

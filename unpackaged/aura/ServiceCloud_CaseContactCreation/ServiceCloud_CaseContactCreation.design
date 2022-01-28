@@ -1,0 +1,8 @@
+<design:component>
+	<design:attribute name="firstName" label="First name" />
+    <design:attribute name="lastName" label="Last name" />
+    <design:attribute name="phone" label="Phone" />
+    <design:attribute name="email" label="Email address" />    
+    <design:attribute name="accountId" label="Account ID" />
+    <design:attribute name="createContact" label="Create contact?" />
+</design:component>

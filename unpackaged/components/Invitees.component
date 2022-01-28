@@ -1,0 +1,231 @@
+<apex:component controller="InviteesController">
+    <apex:attribute name="ForId" type="string" assignTo="{!EventId}" required="true" description="The ID of the event that this control relates to." />
+    <apex:attribute name="Callback" type="string" required="true" description="The name of a Javascript finction that will get called into whenever the selected invitees changes." />
+    <apex:attribute name="SeedValues" type="string" assignTo="{!SeedIDs}" required="false" description="A comma separated list of invitee IDs to include in the list of invitees. Pass null or an empty string to seed values from the database." />
+    
+    <select id="ddl_invitee_type">
+        <option value="user">Users</option>
+        <option value="lead">Leads</option>
+        <option value="contact">Contacts</option>
+        <!--<option value="resource">Resources</option>-->
+    </select><input type="text" id="txt_invitees_name" onkeyup="searchForInvitee(this.value)" placeholder="{!$Label.Invitee_search_prompt}"  />
+    
+    
+    <script type="text/javascript">
+    	var __sfdcSessionId = '{!GETSESSIONID()}';
+    </script>
+    <script src="../../soap/ajax/36.0/connection.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">        
+        j$ = jQuery.noConflict();
+        j$(document).ready(function() {            
+            j$("#chosenAttendees li")
+                        .on("click", function() {
+                            j$(this).remove();
+                            
+                            selectedInviteesHasChanged(getSelectedInviteeIds());
+                        });
+            
+            selectedInviteesHasChanged(getSelectedInviteeIds());
+        });
+    
+    	function searchForInvitee(query){    
+            var state = {
+                output : document.getElementById("availableAttendees"),
+                startTime : new Date().getTime(),
+                type : j$("#ddl_invitee_type").val()
+            };
+            
+            var callback = {
+                onSuccess: displayResults,
+                onFailure: queryFailed,
+                source: state
+            };
+            
+            var soqlTableName = j$("#ddl_invitee_type").val();
+            
+            var soqlWhereClause = "";
+            
+            getSelectedInviteeIds().forEach(function(inviteeId, index){
+            	soqlWhereClause += " and id != '" + inviteeId + "'";
+            });
+			            
+            sforce.connection.query("Select Id, Name From " + soqlTableName + " where name like '%" + query + "%' " + soqlWhereClause + " order by Name Limit 200", callback);
+        }
+        
+        function queryFailed(error, source) {
+            source.output.innerHTML = "An error has occurred: " + error;
+        }    
+    
+        function displayResults(queryResult, source) {
+            j$(source.output).empty();
+            
+            //get the records array
+            var records = queryResult.getArray('records');
+            
+            //loop through the records andappend the results to the container
+            for (var i = 0; i < records.length; i++) {
+                var result = records[i];
+                
+                var element = buildResultElement(result.Id, source.type, result.Name);
+                j$(source.output).append(element); 
+                
+                if(source.autoSelect){
+                    j$(element).click();
+                }
+            }
+        }
+    
+    	function buildResultElement(id, type, name){
+            var imageElement = j$("<img/>")
+                    .attr("src", "/s.gif")
+                    .addClass(type + "Icon");
+                
+            var resultElement = j$("<li/>")
+                .attr("data-id", id) // need to use attr because data won't clone
+                .append(imageElement)
+                .append(name)
+                .on("click", function(){           
+                    var chosenAttendeeElement = j$(this)
+                    .clone()
+                    .on("click", function() {
+                        j$("#availableAttendees li[data-id='"+ j$(this).data("id") +"']").show();
+                        j$(this).remove();
+                        
+                        valueHasChanged(getSelectedInviteeIds());
+                    });
+                    
+                    j$("#chosenAttendees").append(chosenAttendeeElement);
+                    j$(this).hide();
+                    
+                    selectedInviteesHasChanged(getSelectedInviteeIds());
+                });
+            
+            return resultElement;
+        }
+    
+    	function getSelectedInviteeIds(){
+            var ids = [];
+            
+            j$("#chosenAttendees li").each(function(){
+                ids.push(j$(this).data("id"));
+            });
+            
+            return ids;
+        }
+    
+    	function selectedInviteesHasChanged(ids){
+            {!Callback}(ids);
+        }
+    
+    	function addInvitee(id, type){            
+            var state = {
+                output : document.getElementById("availableAttendees"),
+                startTime : new Date().getTime(),
+                type : type,
+                autoSelect : true
+            };
+            
+            var callback = {
+                onSuccess: displayResults,
+                onFailure: queryFailed,
+                source: state
+            };
+            
+            sforce.connection.query("Select Id, Name From " + type + " where id = '" + id + "'", callback);
+        }
+    </script>
+
+    <div>
+        <div class="searchResultList availableAttendees">
+            <p>
+                {!$Label.Invitee_available}
+            </p>
+            <ul id="availableAttendees"> </ul>        
+        </div>
+        
+        <div class="searchResultList chosenAttendees">
+            <p>
+                {!$Label.Invitee_selected}
+            </p>
+            <ul id="chosenAttendees"> 
+                <apex:repeat value="{!Invitees}" var="invitee">
+                    <li data-id="{!invitee.Id}">
+                        <img src="/s.gif" class="{!invitee.Type}Icon" />
+                        {!invitee.Name}
+                    </li>
+                </apex:repeat>      	
+            </ul>
+        </div>        
+    </div>
+    <style>
+        #ddl_invitee_type {
+        	width:100px;
+        }
+        
+        #txt_invitees_name {
+        	margin-left:5px;
+        	width:411px;
+        }
+        
+    	.searchResultList {
+        	float:left;
+        	width: 250px;
+        }
+        
+        .searchResultList p {
+        	font-weight: bold;
+        }
+        
+    	.searchResultList ul {
+        	display: block;
+        	overflow-y: auto;
+        	overflow-x: hidden;
+        	height: 200px;
+        	list-style-type: none;
+        	background-color: #fff;
+        
+        	-webkit-padding-start: 0px;
+        }
+        
+        .searchResultList li {
+        	margin-left:0px;
+        	padding: 5px;
+        }
+        
+        .searchResultList li:hover {
+        	cursor: pointer;
+        	background-color: #C2DFFF;
+        }
+        
+        .chosenAttendees {
+        	margin-left: 20px;
+        }
+        
+        img.userIcon, img.contactIcon, img.leadIcon, img.resourceIcon {
+        	height: 16px;
+            width: 16px;
+            margin: 3px 3px -3px 0;
+        }
+        
+        img.userIcon {
+        	background-image: url(/img/icon/alohaProfile16.png);
+        }
+        
+        img.contactIcon {
+        	background-position: 0 -82px;
+        	background-image: url(/img/sprites/master.gif);
+        }
+        
+        img.leadIcon {
+        	background-position: 0 -200px;
+        	background-image: url(/img/sprites/master.gif);
+        }
+        
+        img.resourceIcon {
+        	background-position: 0 -82px;
+        	background-image: url(/img/sprites/master.gif);
+        }
+    </style>
+    
+</apex:component>

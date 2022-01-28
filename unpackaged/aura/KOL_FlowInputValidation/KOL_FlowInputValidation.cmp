@@ -1,0 +1,30 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" >
+	    <aura:attribute name="case" type="Object" access="global"/>
+		<aura:attribute name="recordId" type="String" access="global" />
+    	<aura:attribute name="fieldN" type="String" access="global"/>
+    	<aura:attribute name="fieldVal" type="String" access="global"/>
+   		<aura:attribute name="objType" type="String" access="global" />
+    	<aura:attribute name="resId" type="Integer" access="global" />
+        <aura:attribute name="maxVal" type="Integer" access="global" />
+        <aura:attribute name="minVal" type="Integer" access="global" />
+        <aura:attribute name="modelCurrency" type="String" access="global" />
+		<aura:attribute name="contractCurrency" type="String" access="global" />     
+		<aura:attribute name="invalidRes" type="Boolean" access="global" default="false" />      
+  
+    	<aura:attribute name="accountId" type="String" access="global" />
+    
+    	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    	
+        <!--<lightning:recordEditForm aura:id="recordViewForm" 
+                                     objectApiName="{!v.objType}"
+                                     recordId="{!v.recordId}">
+            <lightning:inputField aura:id="fieldValue" fieldName="{!v.fieldN}" onchange="{!c.update}"/> 
+    </lightning:recordEditForm> -->
+                               
+    <lightning:input aura:id="fieldValue" onchange="{!c.update}" label="{!'Hourly rate (' + v.modelCurrency + ')'}" type="number" value="{!v.fieldVal}" required="true"/> 
+    <br/>
+    <aura:if isTrue="{!v.invalidRes}">
+    <p><lightning:icon iconName="utility:warning" alternativeText="Warning!" variant="warning"/> Warning! The hourly rate is not within the allowed range.</p>
+    <br/></aura:if>
+    
+</aura:component>

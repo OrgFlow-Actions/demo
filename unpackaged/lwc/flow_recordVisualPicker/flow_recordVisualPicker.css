@@ -1,0 +1,12 @@
+.desktop-modal-backgrop {
+    margin-left: -100vh !important;
+    width: 300% !important;
+    opacity: 0.5 !important;
+}
+
+.list-container {}
+
+.list-container-scrollable {
+    max-height: calc(var(--visibleRows) * (var(--lwc-spacingMedium) + var(--lwc-sizeXxSmall)));
+    overflow: scroll;
+}

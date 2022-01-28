@@ -1,0 +1,1865 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Decline</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Decline</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Decline</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>DeleteSeries</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>DeleteSeries</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>DeleteSeries</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>NewEvent</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>NewEvent</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>NewEvent</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>NewSfdcEvent</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>NewSfdcEvent</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>NewSfdcEvent</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Today</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Today</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Today</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Event_Record_Page1</content>
+    <formFactor>Large</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Event_Record_Page1</content>
+    <formFactor>Small</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <compactLayoutAssignment>Dentsply_Layout</compactLayoutAssignment>
+  <compactLayouts>
+    <fullName>Dentsply_Layout</fullName>
+    <fields>Subject</fields>
+    <fields>WhatId</fields>
+    <fields>WhoId</fields>
+    <fields>StartDateTime</fields>
+    <fields>EndDateTime</fields>
+    <fields>Astra_Tech_Type__c</fields>
+    <fields>Activity_Subtype__c</fields>
+    <label>Dentsply Layout</label>
+  </compactLayouts>
+  <compactLayouts>
+    <fullName>Global_Demo</fullName>
+    <fields>WhoId</fields>
+    <fields>Subject</fields>
+    <fields>Related_to_Account_Opportunity__c</fields>
+    <fields>WhatId</fields>
+    <fields>Event_Status__c</fields>
+    <fields>StartDateTime</fields>
+    <fields>EndDateTime</fields>
+    <fields>Astra_Tech_Type__c</fields>
+    <fields>Co_travel__c</fields>
+    <fields>Location</fields>
+    <label>Global Demo</label>
+  </compactLayouts>
+  <enableFeeds>false</enableFeeds>
+  <fields>
+    <fullName>ActivityDate</fullName>
+  </fields>
+  <fields>
+    <fullName>ActivityDateTime</fullName>
+  </fields>
+  <fields>
+    <fullName>Attendees</fullName>
+  </fields>
+  <fields>
+    <fullName>ClientGuid</fullName>
+  </fields>
+  <fields>
+    <fullName>Description</fullName>
+  </fields>
+  <fields>
+    <fullName>DurationInMinutes</fullName>
+  </fields>
+  <fields>
+    <fullName>Email</fullName>
+  </fields>
+  <fields>
+    <fullName>EndDateTime</fullName>
+  </fields>
+  <fields>
+    <fullName>EventSubtype</fullName>
+  </fields>
+  <fields>
+    <fullName>IsAllDayEvent</fullName>
+  </fields>
+  <fields>
+    <fullName>IsException</fullName>
+  </fields>
+  <fields>
+    <fullName>IsPrivate</fullName>
+  </fields>
+  <fields>
+    <fullName>IsRecurrence2</fullName>
+  </fields>
+  <fields>
+    <fullName>IsReminderSet</fullName>
+  </fields>
+  <fields>
+    <fullName>IsVisibleInSelfService</fullName>
+  </fields>
+  <fields>
+    <fullName>Location</fullName>
+  </fields>
+  <fields>
+    <fullName>OriginalInstanceDateTime</fullName>
+  </fields>
+  <fields>
+    <fullName>OwnerId</fullName>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Phone</fullName>
+  </fields>
+  <fields>
+    <fullName>ShowAs</fullName>
+  </fields>
+  <fields>
+    <fullName>StartDateTime</fullName>
+  </fields>
+  <fields>
+    <fullName>Subject</fullName>
+    <type>Picklist</type>
+  </fields>
+  <fields>
+    <fullName>Type</fullName>
+    <type>Picklist</type>
+  </fields>
+  <fields>
+    <fullName>WhatId</fullName>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>WhoId</fullName>
+    <type>Lookup</type>
+  </fields>
+  <listViews>
+    <fullName>MyRecentEvents</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ALL_DAY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+      <field>DUE_DATE</field>
+      <operation>equals</operation>
+      <value>LAST_N_DAYS:60</value>
+    </filters>
+    <label>My Recent Events</label>
+  </listViews>
+  <listViews>
+    <fullName>MyTeamsRecentEvents</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ALL_DAY</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+      <field>DUE_DATE</field>
+      <operation>equals</operation>
+      <value>LAST_N_DAYS:30</value>
+    </filters>
+    <label>My Team's Recent Events</label>
+  </listViews>
+  <listViews>
+    <fullName>MyTeamsUpcomingEvents</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ALL_DAY</columns>
+    <filterScope>Team</filterScope>
+    <filters>
+      <field>DUE_DATE</field>
+      <operation>equals</operation>
+      <value>TODAY,NEXT_N_DAYS:30</value>
+    </filters>
+    <label>My Team's Upcoming Events</label>
+  </listViews>
+  <listViews>
+    <fullName>MyUpcomingEvents</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ALL_DAY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+      <field>DUE_DATE</field>
+      <operation>equals</operation>
+      <value>TODAY,NEXT_N_DAYS:365</value>
+    </filters>
+    <label>My Upcoming Events</label>
+  </listViews>
+  <listViews>
+    <fullName>Nordics_My_Reported_Events</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>ALL_DAY</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+      <field>Event_Status__c</field>
+      <operation>equals</operation>
+      <value>Completed</value>
+    </filters>
+    <label>Nordics: My Reported Events</label>
+    <sharedTo>
+      <roleAndSubordinates>Nordics_CRM_Analyst</roleAndSubordinates>
+    </sharedTo>
+  </listViews>
+  <listViews>
+    <fullName>Nordics_My_Upcoming_Events</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ALL_DAY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+      <field>DUE_DATE</field>
+      <operation>equals</operation>
+      <value>TODAY,NEXT_N_DAYS:365</value>
+    </filters>
+    <label>Nordics: My Upcoming Events</label>
+    <sharedTo>
+      <roleAndSubordinates>Nordics_CRM_Analyst</roleAndSubordinates>
+    </sharedTo>
+  </listViews>
+  <listViews>
+    <fullName>Nordics_My_unReported_Events</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>ALL_DAY</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+      <field>Event_Status__c</field>
+      <operation>equals</operation>
+      <value>Not Started</value>
+    </filters>
+    <filters>
+      <field>DUE_DATE</field>
+      <operation>lessThan</operation>
+      <value>TODAY</value>
+    </filters>
+    <label>Nordics: My unReported Events</label>
+    <sharedTo>
+      <roleAndSubordinates>Nordics_CRM_Analyst</roleAndSubordinates>
+    </sharedTo>
+  </listViews>
+  <listViews>
+    <fullName>TodaysAgenda</fullName>
+    <columns>START_DATE_TIME</columns>
+    <columns>END_DATE_TIME</columns>
+    <columns>SUBJECT</columns>
+    <columns>WHO_NAME</columns>
+    <columns>WHAT_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ALL_DAY</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+      <field>DUE_DATE</field>
+      <operation>lessOrEqual</operation>
+      <value>TODAY</value>
+    </filters>
+    <filters>
+      <field>END_DATE</field>
+      <operation>greaterOrEqual</operation>
+      <value>TODAY</value>
+    </filters>
+    <label>Today's Agenda</label>
+  </listViews>
+  <recordTypes>
+    <active>true</active>
+    <description>Use this event type when creating a Dental Event</description>
+    <fullName>EventD</fullName>
+    <label>Event (D)</label>
+    <picklistValues>
+      <picklist>Activity_Result__c</picklist>
+      <values>
+        <fullName>*No Result*</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Left Message</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Placed Reorder</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Scheduled Appointment</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Sent email%2Ffax</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Shared Insight</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Unavailable</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Business_Initiative__c</picklist>
+      <values>
+        <fullName>Atlantis</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>CEREC GP%2FRestorative</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Clinical Base Business</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Competitive Specialist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>GP</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Base Business</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>New Lab</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>New Specialist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Call_Type__c</picklist>
+      <values>
+        <fullName>Inbound</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Internal</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Outbound</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Co_travel__c</picklist>
+      <values>
+        <fullName>Colleague%2FPeer</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Dealer%2FDistributor</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Manager</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Contact_Type__c</picklist>
+      <values>
+        <fullName>Dental Assistant</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Doctor</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Hygienist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Office Manager</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Owner</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Receptionist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Technician</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Unclassified Response</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>End_User_Activity__c</picklist>
+      <values>
+        <fullName>Complaints Management</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Freelancer Activity</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Product Information</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>EventOrigin__c</picklist>
+      <values>
+        <fullName>Classic</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lightning</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Mobile</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Outlook</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Event_Status__c</picklist>
+      <values>
+        <fullName>Cancelled</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Completed</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Not Started</fullName>
+        <default>true</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>FSL__Event_Type__c</picklist>
+      <values>
+        <fullName>Resource Absence</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Service Appointment</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>First_Call_Resolution__c</picklist>
+      <values>
+        <fullName>No</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Yes</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Product_Area__c</picklist>
+      <values>
+        <fullName>Dental</fullName>
+        <default>true</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subject</picklist>
+      <values>
+        <fullName>Type Subject here%21</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Type</picklist>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>User_Country__c</picklist>
+      <values>
+        <fullName>Australia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Austria</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Belgium</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Canada</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>DEX</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Denmark</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Finland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>France</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Germany</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>HQ</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Holland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Hong Kong</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Indonesia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Italy</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Japan</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Luxembourg</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Malaysia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Norway</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Poland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Portugal</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Singapore</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Spain</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Sweden</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Switzerland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Thailand</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>UK</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>USA</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Vietnam</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <description>The new global record type used for ONE SFDC - new record type required to keep old record type page layouts to still be able to see old fields on those records</description>
+    <fullName>Event_Global</fullName>
+    <label>Event Global</label>
+    <picklistValues>
+      <picklist>Activity_Result__c</picklist>
+      <values>
+        <fullName>*No Result*</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Left Message</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Placed Reorder</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Scheduled Appointment</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Sent email%2Ffax</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Shared Insight</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Unavailable</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Business_Initiative__c</picklist>
+      <values>
+        <fullName>Atlantis</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>CEREC GP%2FRestorative</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Clinical Base Business</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Competitive Specialist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>GP</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Base Business</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>New Lab</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>New Specialist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Call_Type__c</picklist>
+      <values>
+        <fullName>Inbound</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Internal</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Outbound</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Co_travel__c</picklist>
+      <values>
+        <fullName>Colleague%2FPeer</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Dealer%2FDistributor</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Manager</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Contact_Type__c</picklist>
+      <values>
+        <fullName>Dental Assistant</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Doctor</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Hygienist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Office Manager</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Owner</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Receptionist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Technician</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Unclassified Response</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>End_User_Activity__c</picklist>
+      <values>
+        <fullName>Complaints Management</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Freelancer Activity</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Product Information</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>EventOrigin__c</picklist>
+      <values>
+        <fullName>Classic</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lightning</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Mobile</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Outlook</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Event_Status__c</picklist>
+      <values>
+        <fullName>Cancelled</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Completed</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Not Started</fullName>
+        <default>true</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>FSL__Event_Type__c</picklist>
+      <values>
+        <fullName>Resource Absence</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Service Appointment</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>First_Call_Resolution__c</picklist>
+      <values>
+        <fullName>No</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Yes</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Product_Area__c</picklist>
+      <values>
+        <fullName>Dental</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Surgery</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Urology</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subject</picklist>
+      <values>
+        <fullName>Type Subject here%21</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Type</picklist>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Service Appointment</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>User_Country__c</picklist>
+      <values>
+        <fullName>Australia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Austria</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Belgium</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Canada</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>DEX</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Denmark</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Finland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>France</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Germany</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>HQ</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Holland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Hong Kong</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Indonesia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Italy</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Japan</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Luxembourg</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Malaysia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>New Zealand</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Norway</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Poland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Portugal</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Singapore</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Spain</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Sweden</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Switzerland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Thailand</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>UK</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>USA</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Vietnam</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <description>Different Record Type to separate from Implants</description>
+    <fullName>Ortho_implementation</fullName>
+    <label>Ortho implementation</label>
+    <picklistValues>
+      <picklist>Activity_Result__c</picklist>
+      <values>
+        <fullName>*No Result*</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Left Message</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Placed Reorder</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Scheduled Appointment</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Shared Insight</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Unavailable</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Business_Initiative__c</picklist>
+      <values>
+        <fullName>Atlantis</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>CEREC GP%2FRestorative</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Clinical Base Business</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Competitive Specialist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>GP</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Base Business</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>New Lab</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>New Specialist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Call_Type__c</picklist>
+      <values>
+        <fullName>Inbound</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Internal</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Outbound</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Co_travel__c</picklist>
+      <values>
+        <fullName>Colleague%2FPeer</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Dealer%2FDistributor</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Manager</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Contact_Type__c</picklist>
+      <values>
+        <fullName>Dental Assistant</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Doctor</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Hygienist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Office Manager</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Owner</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Receptionist</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Technician</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Unclassified Response</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>End_User_Activity__c</picklist>
+      <values>
+        <fullName>Complaints Management</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Freelancer Activity</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Product Information</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>EventOrigin__c</picklist>
+      <values>
+        <fullName>Classic</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lightning</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Mobile</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Outlook</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Event_Status__c</picklist>
+      <values>
+        <fullName>-</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Cancelled</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Completed</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Not Started</fullName>
+        <default>true</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>FSL__Event_Type__c</picklist>
+      <values>
+        <fullName>Resource Absence</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Service Appointment</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>First_Call_Resolution__c</picklist>
+      <values>
+        <fullName>No</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Yes</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Product_Area__c</picklist>
+      <values>
+        <fullName>Dental</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subject</picklist>
+      <values>
+        <fullName>No Order Received - Check Status</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Product Service Review</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Type Subject here%21</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Type</picklist>
+      <values>
+        <fullName>Call</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Email</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Meeting</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>User_Country__c</picklist>
+      <values>
+        <fullName>Austria</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Belgium</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Denmark</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Finland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>France</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Germany</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Holland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Hong Kong</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Indonesia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Italy</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Luxembourg</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Malaysia</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Norway</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Poland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Portugal</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Singapore</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Spain</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Sweden</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Switzerland</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Thailand</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>UK</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Vietnam</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <searchLayouts />
+  <sharingModel>Private</sharingModel>
+  <validationRules>
+    <fullName>Associate_w_Contact_Lead_AND_Acc_Opptie</fullName>
+    <active>false</active>
+    <description>Used by BeNeLux, since they want all CFEs to be associated with both a Contact and an Account/Oppty.</description>
+    <errorConditionFormula>AND( Customer_Facing_Event__c = TRUE ,Creator_Market__c = "Benelux", LEFT(WhoId, 3) &lt;&gt; "003",OR( LEFT(WhatId,3) &lt;&gt;"001", LEFT(WhatId,3) &lt;&gt;"006", LEFT(WhatId,3) &lt;&gt;"a01" ))</errorConditionFormula>
+    <errorMessage>Please associate your event with both a Contact/Lead or an Account/Opportunity</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>Associate_w_Contact_Lead_or_Acc_Opptie</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( Customer_Facing_Event__c= TRUE, LEN(WhoId )&lt;3,LEN(WhatId)&lt;3)</errorConditionFormula>
+    <errorMessage>Please associate your event with either a Contact/Lead or an Account/Opportunity</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>Can_not_mark_future_CFEs_as_completed</fullName>
+    <active>true</active>
+    <errorConditionFormula>Customer_Facing_Event__c = True  &amp;&amp;   ActivityDateTime   &gt; NOW()  &amp;&amp;   ISPICKVAL(Event_Status__c, "Completed")</errorConditionFormula>
+    <errorDisplayField>Event_Status__c</errorDisplayField>
+    <errorMessage>You can not mark a future Event as Completed. If the CFE is in fact completed, update the Date before saving</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>IN_Not_possible_to_change_passed_CFE</fullName>
+    <active>false</active>
+    <description>The users should not be able to make changes to any events in the backdate older then 5 days.
+
+Case no : 00487797  // Case: 00627926</description>
+    <errorConditionFormula>ActivityDate +5 &lt; Today() &amp;&amp;   ISPICKVAL($User.User_Country__c,"India") &amp;&amp;  $UserRole.Id &lt;&gt;"00E200000015hlC" &amp;&amp;  $UserRole.Id &lt;&gt;"00E20000000qSiH"</errorConditionFormula>
+    <errorMessage>You are not allowed to modify your events occurring 5 days before today. Please contact your CRM Analyst for support.</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>NA_Activity_TypeSubtype_at_Complete</fullName>
+    <active>true</active>
+    <description>For North America, Activity Type and subtype must be completed when an Event is set to Completed</description>
+    <errorConditionFormula>AND(   Customer_Facing_Event__c =TRUE,
+TEXT( Event_Status__c )= "Completed",
+
+OR(
+TEXT( $User.Market__c) ="NA",
+TEXT( $User.Market__c) ="Japan"
+),
+
+OR(
+ISBLANK(TEXT(Astra_Tech_Type__c )),
+ISBLANK(TEXT(Activity_Subtype__c))
+)
+
+)</errorConditionFormula>
+    <errorDisplayField>Astra_Tech_Type__c</errorDisplayField>
+    <errorMessage>Please add an Activity Type and Activity Subtype to this Event to complete it.</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>NA_Associate_w_Contact_Lead_AND_Acc_OptY</fullName>
+    <active>false</active>
+    <description>Used by NA, since they want all CFEs to be associated with both a Contact and an Account/Oppty.</description>
+    <errorConditionFormula>AND( LEN( WhoId) = 0, Customer_Facing_Event__c = TRUE ,Creator_Market__c = "NA", OR( LEFT(WhatId,3) &lt;&gt;"001", LEFT(WhatId,3) &lt;&gt;"006", LEFT(WhatId,3) &lt;&gt;"a01"))</errorConditionFormula>
+    <errorDisplayField>WhoId</errorDisplayField>
+    <errorMessage>Please associate your event with both a Contact AND an Account/Opportunity/Network!
+Name = Contact
+Related To = Account OR Opportunity OR Network!</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>NA_Contact_Required_For_CFE_Completion</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( LEN(WhoId)=0,  Customer_Facing_Event__c =TRUE,  TEXT( $User.Market__c) ="NA", $User.User_SBU__c ="IMPL",  ISPICKVAL( Event_Status__c ,"Completed") )</errorConditionFormula>
+    <errorDisplayField>WhoId</errorDisplayField>
+    <errorMessage>Please add the contact that you met with!</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>NA_IMP_BUSINESS_INITIATIVE_REQUIRED</fullName>
+    <active>false</active>
+    <description>If the CFE is completed, business initiative must be filled out</description>
+    <errorConditionFormula>AND( $User.User_SBU__c ="IMPL", 
+OR(TEXT($User.User_Country__c)="Canada",TEXT($User.User_Country__c)="USA"), 
+Customer_Facing_Event__c =TRUE, 
+ISPICKVAL(Event_Status__c , "Completed"), 
+AND(INCLUDES(SBU__c,"Implants"), ISBLANK(TEXT(  Business_Initiative__c)  ) ) 
+)</errorConditionFormula>
+    <errorMessage>Please Select the appropriate Business Initiative for this CFE</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>NA_IMP_CFE_Validation_requires_products</fullName>
+    <active>false</active>
+    <description>The NA IMPL group requires that all CFEs have a "products discussed" filled out for each COMPLETED CFE.</description>
+    <errorConditionFormula>AND( $User.User_SBU__c ="IMPL", 
+OR(TEXT($User.User_Country__c)="Canada",TEXT($User.User_Country__c)="USA"), 
+Customer_Facing_Event__c =TRUE, 
+ISPICKVAL(Event_Status__c , "Completed"), 
+AND(INCLUDES(SBU__c,"Implants"), ISBLANK( Call_Report__r.Products_discussed_IMPL__c ) )
+ )</errorConditionFormula>
+    <errorMessage>PLEASE SELECT "PRODUCTS DISCUSSED"</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>Prevent_editing_of_recurring_event</fullName>
+    <active>false</active>
+    <description>Prevent editing of recurring events in salesforce which are created in outlook</description>
+    <errorConditionFormula>AND( ISCHANGED(Customer_Facing_Event__c) ,Customer_Facing_Event__c = true, isPickVal(EventOrigin__c,'Outlook') )</errorConditionFormula>
+    <errorMessage>Please update the recurring event from outlook</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>SBU_required_for_CFEs</fullName>
+    <active>false</active>
+    <description>Validation rule to ensure that at least one SBU is entered for a Customer Facing Event</description>
+    <errorConditionFormula>AND(Customer_Facing_Event__c =TRUE,  ISBLANK(SBU__c), ISPICKVAL( Event_Status__c ,"Completed") ,
+$Profile.Name &lt;&gt; 'System Administrator',
+$Profile.Name &lt;&gt; 'Lightning Sales Rep',
+$Profile.Name &lt;&gt; 'Lightning Sales Rep Without Sync',
+$Profile.Name &lt;&gt; 'Lightning Inside Sales Rep'
+)</errorConditionFormula>
+    <errorMessage>When you create a Customer Facing Event you must select a value in the SBU field</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>Subject_validation</fullName>
+    <active>false</active>
+    <description>Subject must be filled</description>
+    <errorConditionFormula>Subject  = "Type Subject here!"
+||
+ISBLANK(Subject)</errorConditionFormula>
+    <errorMessage>Please enter a valid Subject!</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>UserCountry</fullName>
+    <active>false</active>
+    <description>make sure user selected proper country</description>
+    <errorConditionFormula>AND(
+CASE( $RecordType.Name,
+'Event (U)', 'true',
+'false') = 'true',
+NOT(CONTAINS($Profile.Name, 'Administrator'))
+,
+CASE( User_Country__c ,
+'Australia','Australia',
+'Austria','Austria',
+'Belgium','Belgium',
+'Canada','Canada',
+'Denmark','Denmark',
+'Finland','Finland',
+'France','France',
+'Germany','Germany',
+'Holland','Holland',
+'HQ','HQ',
+'Italy','Italy',
+'Luxembourg','Luxembourg',
+'New Zealand','New Zealand',
+'Norway','Norway',
+'Portugal','Portugal',
+'Spain','Spain',
+'Sweden','Sweden',
+'Sweden-HQ','Sweden-HQ',
+'Switzerland','Switzerland',
+'UK','UK',
+'USA','USA',
+'') &lt;&gt; CASE( $User.User_Country__c ,
+'Australia','Australia',
+'Austria','Austria',
+'Belgium','Belgium',
+'Canada','Canada',
+'Denmark','Denmark',
+'Finland','Finland',
+'France','France',
+'Germany','Germany',
+'Holland','Holland',
+'HQ','HQ',
+'Italy','Italy',
+'Luxembourg','Luxembourg',
+'New Zealand','New Zealand',
+'Norway','Norway',
+'Portugal','Portugal',
+'Spain','Spain',
+'Sweden','Sweden',
+'Sweden-HQ','Sweden-HQ',
+'Switzerland','Switzerland',
+'UK','UK',
+'USA','USA',
+'#dummy#')
+)</errorConditionFormula>
+    <errorDisplayField>User_Country__c</errorDisplayField>
+    <errorMessage>Selected User Country does not correspond to your User profile</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>You_must_record_call_notes</fullName>
+    <active>true</active>
+    <description>Checks if the user has entered any call notes before completing the event. Added exception for Lightning profiles as the same logic is build on lightning controllers.</description>
+    <errorConditionFormula>AND(
+    Customer_Facing_Event__c = TRUE,
+    ISPICKVAL(Event_Status__c, "Completed"),
+    OR(
+        AND(ISBLANK(SBU__c), ISBLANK(Call_Report__r.Call_Notes__c)),
+        AND(INCLUDES(SBU__c, "Endodontics"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_ENDO__c)),
+        AND(INCLUDES(SBU__c, "Implants"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_IMPL__c)),
+        AND(INCLUDES(SBU__c, "Prostethics"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_PROS__c)),
+        AND(INCLUDES(SBU__c, "Restorative"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_REST__c)),
+        AND(INCLUDES(SBU__c, "Preventive"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_PREV__c)),
+        AND(INCLUDES(SBU__c, "Orthodontics"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_ORTH__c)),
+        AND(INCLUDES(SBU__c, "CAD/CAM"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_CDCM__c)),
+        AND(INCLUDES(SBU__c, "Imaging Systems"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_IMAG__c)),
+        AND(INCLUDES(SBU__c, "Instruments"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_INST__c)),
+        AND(INCLUDES(SBU__c, "Treatment Centers"), ISBLANK(Call_Report__r.Call_Notes__c), ISBLANK(Call_Report__r.Products_discussed_TRCE__c))
+    )
+)</errorConditionFormula>
+    <errorMessage>Please enter information about your Customer Facing Event either in call notes or what products were discussed.</errorMessage>
+  </validationRules>
+  <webLinks>
+    <fullName>Edit_Classic</fullName>
+    <availability>online</availability>
+    <description>New button (2021) for Classic Users to Use the CallReportEvent when editing an existing event</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Edit*</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/apex/CallReportEvent?id={!Event.Id}&amp;retUrl=/{!Event.Id}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>IRS_report</fullName>
+    <availability>online</availability>
+    <description>List button for report event from Implant Rescue Object</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>IRS report</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/callreportevent?what_id={!Implant_Rescue_Service__c.Id}&amp;retUrl=%2f{!Implant_Rescue_Service__c.Id}&amp;{!Event.Customer_Facing_Event__c}=0&amp;{!Event.Astra_Tech_Type__c}="Implant Rescue Service"&amp;{!Event.Event_Status__c}="completed"</url>
+  </webLinks>
+  <webLinks>
+    <fullName>New_CFE_with_Account_Plan</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New CFE with Account Plan</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/00U/e?what_id=!Opportunity.Id}&amp;retURL=%2F!Opportunity.Id}&amp;RecordType=012200000000DPo&amp;ent=Event&amp;nooverride=1&amp;00N200000099K2s=1&amp;00N200000017G4H=1&amp;evt2_lktp=003&amp;00N20000000zD70="Confirmed Sales Visit"&amp;00N20000003hqT4=1&amp;evt2={!Opportunity.Primary_Contact__c}&amp;evt2_lkid={!Opportunity.Primary_ContactId__c}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>New_Event_Opportunity</fullName>
+    <availability>online</availability>
+    <description>New Event button from opportunity</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New Event</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/callreportevent?what_id={!Opportunity.Id}&amp;retUrl=%2f{!Opportunity.Id}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>Report_Event</fullName>
+    <availability>online</availability>
+    <description>List button for report event from Contact Open Activity related list</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Report Event</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/callreportevent?who_id={!Contact.Id}&amp;retUrl=%2f{!Contact.Id}&amp;unplannedEvent=1</url>
+  </webLinks>
+  <webLinks>
+    <fullName>Report_Event_Account</fullName>
+    <availability>online</availability>
+    <description>List button for report event from Account</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Report Event</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/callreportevent?what_id={!Account.Id}&amp;retUrl=%2f{!Account.Id}&amp;unplannedEvent=1</url>
+  </webLinks>
+  <webLinks>
+    <fullName>Report_Event_Contract</fullName>
+    <availability>online</availability>
+    <description>List button for report event from contract
+(case: 00165764)</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Report Event</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/callreportevent?what_id={!Contract.Id}&amp;retUrl=%2f{!Contract.Id}&amp;unplannedEvent=1</url>
+  </webLinks>
+  <webLinks>
+    <fullName>Report_Event_Network</fullName>
+    <availability>online</availability>
+    <description>List button for open activity related list on Network pages</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Report Event</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/callreportevent?what_id={!Network__c.Id}&amp;retUrl=%2f{!Network__c.Id}&amp;unplannedEvent=1</url>
+  </webLinks>
+  <webLinks>
+    <fullName>Report_Event_Opportunity</fullName>
+    <availability>online</availability>
+    <description>List button for th eopen activity related list on opportunity pages</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Report Event</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/callreportevent?what_id={!Opportunity.Id}&amp;retUrl=%2f{!Opportunity.Id}&amp;unplannedEvent=1</url>
+  </webLinks>
+  <webLinks>
+    <fullName>View_All</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>View All</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>/apex/ViewAllActivityHistory?id={!Account.Id}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>Webcast_Training_on_Co_Travel</fullName>
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Webcast Training on Co-Travel</masterLabel>
+    <openType>newWindow</openType>
+    <position>topLeft</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://astratech.webex.com/astratech/servicenbrshared.php?action=playback&amp;recordID=14875897&amp;recordKey=8AD8E84307BAD794C42593DB7BC39841E595EDDE47A21420AD40981CBF151E79</url>
+  </webLinks>
+</CustomObject>

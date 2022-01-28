@@ -1,0 +1,5 @@
+<aura:component implements="lightning:availableForFlowActions,lightning:isUrlAddressable">
+	<aura:attribute name="multiselectString" type="String" />
+    <aura:attribute name="literalCheck" type="String" />
+    <aura:attribute name="checkOutput" type="Boolean" default="false" />
+</aura:component>
