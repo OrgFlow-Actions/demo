@@ -1,0 +1,16 @@
+<apex:page Action="{!if(
+   
+Case.RecordTypeId != CASESAFEID('0120J000000cmlW')
+   ,
+    urlFor($Action.Case.Delete, $CurrentPage.Parameters.id, [retURL='/001/o'], true),
+    null
+       )
+}"
+  standardController="Case">
+     <apex:pageBlock >
+        <apex:PageMessage summary="You can not delete CR! Just change the Case Status to Cancelled&Closed"
+            severity="Warning"
+            strength="3"/>
+        <apex:pageMessages />
+    </apex:pageBlock>
+</apex:page>

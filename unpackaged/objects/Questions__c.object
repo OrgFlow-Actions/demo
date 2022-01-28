@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>false</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>false</enableReports>
+  <enableSearch>false</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>Product_Line2__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Line</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetName>Product_Line</valueSetName>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Product_Line__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Line</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Not SBU-Specific</fullName>
+          <default>true</default>
+          <label>Not SBU-Specific</label>
+        </value>
+        <value>
+          <fullName>CAD/CAM</fullName>
+          <default>false</default>
+          <label>CAD/CAM</label>
+        </value>
+        <value>
+          <fullName>CAD/CAM - Nazaré</fullName>
+          <default>false</default>
+          <label>CAD/CAM - Nazaré</label>
+        </value>
+        <value>
+          <fullName>CAD/CAM - CEREC</fullName>
+          <default>false</default>
+          <label>CAD/CAM - CEREC</label>
+        </value>
+        <value>
+          <fullName>CAD/CAM - InLab</fullName>
+          <default>false</default>
+          <label>CAD/CAM - InLab</label>
+        </value>
+        <value>
+          <fullName>Imaging</fullName>
+          <default>false</default>
+          <label>Imaging</label>
+        </value>
+        <value>
+          <fullName>Imaging - Extra Oral</fullName>
+          <default>false</default>
+          <label>Imaging - Extra Oral</label>
+        </value>
+        <value>
+          <fullName>Imaging - Intra Oral</fullName>
+          <default>false</default>
+          <label>Imaging - Intra Oral</label>
+        </value>
+        <value>
+          <fullName>Instruments</fullName>
+          <default>false</default>
+          <label>Instruments</label>
+        </value>
+        <value>
+          <fullName>Treatment Centers</fullName>
+          <default>false</default>
+          <label>Treatment Centers</label>
+        </value>
+        <value>
+          <fullName>Endodontics</fullName>
+          <default>false</default>
+          <label>Endodontics</label>
+        </value>
+        <value>
+          <fullName>Restorative</fullName>
+          <default>false</default>
+          <label>Restorative</label>
+        </value>
+        <value>
+          <fullName>Implants</fullName>
+          <default>false</default>
+          <label>Implants</label>
+        </value>
+        <value>
+          <fullName>Prosthetics</fullName>
+          <default>false</default>
+          <label>Prosthetics</label>
+        </value>
+        <value>
+          <fullName>PREP</fullName>
+          <default>false</default>
+          <label>PREP</label>
+        </value>
+        <value>
+          <fullName>Orthodontics</fullName>
+          <default>false</default>
+          <label>Orthodontics</label>
+        </value>
+        <value>
+          <fullName>Preventive</fullName>
+          <default>false</default>
+          <label>Preventive</label>
+        </value>
+        <value>
+          <fullName>Imaging - 2D</fullName>
+          <default>false</default>
+          <label>Imaging - 2D</label>
+        </value>
+        <value>
+          <fullName>Imaging - 3D</fullName>
+          <default>false</default>
+          <label>Imaging - 3D</label>
+        </value>
+        <value>
+          <fullName>Laboratory</fullName>
+          <default>false</default>
+          <label>Laboratory</label>
+        </value>
+        <value>
+          <fullName>Consumables</fullName>
+          <default>false</default>
+          <label>Consumables</label>
+        </value>
+        <value>
+          <fullName>Digital</fullName>
+          <default>false</default>
+          <label>Digital</label>
+        </value>
+        <value>
+          <fullName>Digital Group</fullName>
+          <default>false</default>
+          <label>Digital Group</label>
+        </value>
+        <value>
+          <fullName>Equipment</fullName>
+          <default>false</default>
+          <label>Equipment</label>
+        </value>
+        <value>
+          <fullName>Equipment &amp; Imaging</fullName>
+          <default>false</default>
+          <label>Equipment &amp; Imaging</label>
+        </value>
+        <value>
+          <fullName>Class II</fullName>
+          <default>false</default>
+          <label>Class II</label>
+        </value>
+        <value>
+          <fullName>Single Unit Crown</fullName>
+          <default>false</default>
+          <label>Single Unit Crown</label>
+        </value>
+        <value>
+          <fullName>Root To Crown</fullName>
+          <default>false</default>
+          <label>Root To Crown</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Question_Body__c</fullName>
+    <externalId>false</externalId>
+    <label>Question Body</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Question_Order__c</fullName>
+    <externalId>false</externalId>
+    <label>Question Order</label>
+    <precision>3</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Question_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Question Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Multiselect Checkbox</fullName>
+          <default>false</default>
+          <label>Multiselect Checkbox</label>
+        </value>
+        <value>
+          <fullName>Picklist</fullName>
+          <default>false</default>
+          <label>Picklist</label>
+        </value>
+        <value>
+          <fullName>Yes/No Radio Buttons</fullName>
+          <default>false</default>
+          <label>Radio Buttons</label>
+        </value>
+        <value>
+          <fullName>Free Text</fullName>
+          <default>false</default>
+          <label>Free Text</label>
+        </value>
+        <value>
+          <fullName>Yes/No/Other</fullName>
+          <default>false</default>
+          <label>Choice 1/Choice 2/Other</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Questionnaire_Setup__c</fullName>
+    <externalId>false</externalId>
+    <label>Questionnaire Setup</label>
+    <referenceTo>Questionnaire_Setup__c</referenceTo>
+    <relationshipLabel>Questions List</relationshipLabel>
+    <relationshipName>Questions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Required_Question__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Required Question</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Responses__c</fullName>
+    <externalId>false</externalId>
+    <label>Responses</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Active</fullName>
+          <default>false</default>
+          <label>Active</label>
+        </value>
+        <value>
+          <fullName>Inactive</fullName>
+          <default>false</default>
+          <label>Inactive</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Question</label>
+  <nameField>
+    <displayFormat>Q{00000}</displayFormat>
+    <label>Questions Id</label>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Questions</pluralLabel>
+  <searchLayouts />
+  <sharingModel>ControlledByParent</sharingModel>
+  <validationRules>
+    <fullName>Is_the_Product_Line_Available</fullName>
+    <active>true</active>
+    <errorConditionFormula>(Ispickval(Product_Line__c,"Not SBU-Specific") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Not SBU-Specific" ))) ||
+(Ispickval(Product_Line__c,"CAD/CAM") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"CAD/CAM" ))) ||
+(Ispickval(Product_Line__c,"CAD/CAM - CEREC") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"CAD/CAM - CEREC" ))) ||
+(Ispickval(Product_Line__c,"CAD/CAM - InLab") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"CAD/CAM - InLab" ))) ||
+(Ispickval(Product_Line__c,"Imaging") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Imaging" ))) ||
+(Ispickval(Product_Line__c,"Imaging - Extra Oral") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Imaging - Extra Oral" ))) ||
+(Ispickval(Product_Line__c,"Imaging - Intra Oral") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Imaging - Intra Oral" ))) ||
+(Ispickval(Product_Line__c,"Instruments") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Instruments" ))) ||
+(Ispickval(Product_Line__c,"Treatment Centers") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Treatment Centers" ))) ||
+(Ispickval(Product_Line__c,"Endodontics") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Endodontics" ))) ||
+(Ispickval(Product_Line__c,"Prosthetics") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Prosthetics" ))) ||
+(Ispickval(Product_Line__c,"Preventive") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Preventive" ))) ||
+(Ispickval(Product_Line__c,"Implants") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Implants" ))) ||
+(Ispickval(Product_Line__c,"Restorative") &amp;&amp; NOT(Includes(Questionnaire_Setup__r.Product_Line__c,"Restorative" )))</errorConditionFormula>
+    <errorDisplayField>Product_Line__c</errorDisplayField>
+    <errorMessage>This Product Line wasn't selected in the Questionnaire Setup</errorMessage>
+  </validationRules>
+  <visibility>Public</visibility>
+</CustomObject>
