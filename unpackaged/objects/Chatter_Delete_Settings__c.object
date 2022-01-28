@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <customSettingsType>Hierarchy</customSettingsType>
+  <description>Allows for org-wide, profile, and user based settings for Disable Chatter Delete application.</description>
+  <enableEnhancedLookup>false</enableEnhancedLookup>
+  <enableFeeds>false</enableFeeds>
+  <fields>
+    <fullName>Allow_Feed_Post_and_Comment_deletes__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Allows users specified in this hierarchy to delete Feed Posts and Comments.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This may be set at org-wide, profile, or user level.  If it is checked for a particular hierarchy, all users specific to that hierarchy will be able to delete Feed Posts and Comments.</inlineHelpText>
+    <label>Allow Feed Post and Comment deletes</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <label>Chatter Delete Settings</label>
+  <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,100 @@
+<!--
+  @description       : 
+  @author            : kdoruibin@salesforce.com
+  @group             : 
+  @last modified on  : 07-16-2021
+  @last modified by  : kdoruibin@salesforce.com
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   07-16-2021   kdoruibin@salesforce.com   Added lightningStylesheets="true"
+-->
+<apex:page lightningStylesheets="true" controller="BulkCFEsController" docType="html-5.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/latest/jquery.js"></script>
+    <script>
+        
+        function buttonsEnabled(enabled) {
+        // retrieve all of the buttons or links on the page
+        // with the css class of btn
+        var $buttons = jQuery('.btn');
+        if (enabled === false) {
+            // add the btnDisabled class to give it the look of being disabled
+            // add the disabled attribute to actually disable interactability
+            $buttons.toggleClass('btnDisabled', true).attr('disabled', 'disabled');
+        } else {
+            // remove the css class and the disabled attribute
+            $buttons.toggleClass('btnDisabled', false).attr('disabled', null);
+        } 
+    }
+    
+    function doSomeWork() {
+        // first, call the action function to post the form
+        doSomeWorkActionFunction();
+        
+        // second, disable the buttons
+        buttonsEnabled(false);
+        
+        // third, return false to prevent the click from
+        // posting the form a second time
+        return false;
+    }
+    
+    </script>
+    
+    
+    <apex:includeScript value="https://maps.googleapis.com/maps/api/js?v=3.30&libraries=geometry,drawing,visualization,weather,places&client=gme-arrowpointecorp&channel=DentsplySi-00D4E0000004bifUAA&language=en_US"/>
+    <apex:pageBlock title="Bulk CFEs" id="bulk_cfes">
+        <apex:pageMessages />
+        <apex:form >
+            <apex:includeScript value="https://code.jquery.com/jquery-1.12.2.min.js" />
+            <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"/>
+            <apex:includeScript value="/jslibrary/1460765816000/sfdc/Activity.js"/>           
+            
+            <script type="text/javascript">
+            j$ = jQuery.noConflict();
+            </script>
+            
+            <apex:actionRegion immediate="true">
+                <apex:variable value="{!0}" var="index" />
+                <apex:pageBlockTable value="{!Model.RouteEntries}" var="entry">
+                    <apex:column headerValue="Customer">
+                        <apex:outputLink value="/{!entry.Id}">{!entry.Name}</apex:outputLink>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Address">
+                        {!entry.Address}
+                    </apex:column>
+                    
+                    <apex:column headerValue="Start Time">
+                        <c:DateTimePicker id="StartTimePicker" Model="{!entry.StartTimePicker}" />                    
+                    </apex:column>
+                    
+                    <apex:column headerValue="Duration">
+                        <apex:selectList value="{!entry.VisitDuration}" size="1">
+                            <apex:selectOptions value="{!VisitDurations}"/>
+                        </apex:selectList>
+                        
+                        <apex:variable var="index" value="{!index + 1}"/>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:actionRegion>
+            
+            <!--apex:commandButton action="{!saveRecords}" value="Save"/-->
+            <apex:actionFunction name="doSomeWorkActionFunction" 
+                                 action="{!saveRecords}" 
+                                 oncomplete="buttonsEnabled(true);"
+                                 rerender="whateverYouNeedToRerender"></apex:actionFunction>
+            
+            <apex:commandButton action="{!saveRecords}" 
+                              value="Save" 
+                              id="theCommandLink" 
+                              onclick="return doSomeWork();" />
+            
+            <div style="display:none;">
+                <!-- This is require in order to ensure that the #datePicker div is rendered -->
+                <apex:inputField value="{!Model.Event.StartDateTime}" />       
+            </div>   
+        </apex:form>
+    </apex:pageBlock>  
+    
+</apex:page>

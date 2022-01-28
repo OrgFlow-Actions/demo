@@ -1,0 +1,79 @@
+<!--	
+Author: 	Richard Trum (Glimt) 2019-11-20 	
+Description:   	Lightning component for assigning users related to an account through ETM
+ -->
+
+<aura:component implements="lightning:availableForFlowScreens" controller="UsersInAccountTerritories">
+    <!--Declare Event Handlers--> 
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+     
+    <!--Declare Attributes-->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="dealerId" type="String" />
+    <aura:attribute name="category" type="String" />
+    <aura:attribute name="brand" type="String" />    
+    <aura:attribute name="userList" type="List" />   
+    <aura:attribute name="selectedUsers" type="User" />
+     
+    <!-- User interface -->
+    <div> 
+        <!--<h1 class="slds-text-heading_medium">Please select an owner</h1> -->
+        <br/>
+        <!--Contact List Table-->
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer" role="grid">      
+            <thead>  
+                <tr class="slds-text-title--caps">
+                    <th>           
+                        <label class="slds-checkbox">
+                            
+                            <span class="slds-checkbox_faux" />
+                            <span class="slds-form-element__label"></span>
+                        </label>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="User">User</div>
+                    </th>
+                    
+                    <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Role">Role</div>
+                    </th>
+                    </aura:if> 
+                </tr>
+            </thead>
+            <tbody>        
+                <aura:iteration items="{!v.userList}" var="con">
+                    <tr>
+                        <th>
+                            <div class="slds-checkbox_add-button">
+  								<input type="checkbox" class="slds-assistive-text" aura:id="checkContact" id="{!con.UserId}" value="false" name="checkbox" disabled="false" onchange="{!c.handleSelectedContacts}" />
+  								<label for="{!con.UserId}" class="slds-checkbox_faux">
+    									<span class="slds-assistive-text">Add user</span>
+  								</label>
+							</div>
+                        
+                        </th>
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!con.User.Name}">{!con.User.Name}</div>
+                        
+                            <aura:if isTrue="{!$Browser.formFactor != 'DESKTOP'}">
+                                        <div class="slds-text-body_small">{!(con.RoleInTerritory2)}</div>
+                            </aura:if>
+                        
+                        </th>
+                        
+                        <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                        <td>
+                            <div class="slds-truncate" title="">{!con.RoleInTerritory2}</div>
+                        </td>
+                        </aura:if>
+                            
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <div>
+            <br/>
+        </div>
+    </div>
+</aura:component>

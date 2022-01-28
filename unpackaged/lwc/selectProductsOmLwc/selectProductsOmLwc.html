@@ -1,0 +1,342 @@
+<template>
+    <div class={selectProductBoxClass}>
+        <div class="slds-size_6-of-6 slds-large-size_6-of-6">
+            <div class="slds-grid slds-wrap sticky-header slds-theme_shade">
+                <div class="slds-size_6-of-6 slds-large-size_6-of-6 slds-p-around_xx-small">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-large-size_5-of-8">
+                            <lightning-input
+                                name="product-search"
+                                variant="label-hidden"
+                                label="Search"
+                                placeholder={labels.productSearchPlaceHolder}
+                                onchange={handleSearchTermChange}
+                                type="search"
+                                value={keywordSearch}>
+                            </lightning-input>
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-8">
+                            <template if:false={isMobile}>
+                                <lightning-combobox name="pageSize" label="Records per Page" variant="label-hidden"
+                                    class="inline-combobox slds-var-p-left_xx-small" value={pageSizeValue}
+                                    options={pageSizeOptions} onchange={handlePageSizeChange}>
+                                </lightning-combobox>
+                            </template>
+                            <lightning-button-icon-stateful icon-name="utility:filterList" variant="border-filled" selected={filterButtonSelected} onclick={handleShowFilter} alternative-text="Filter" class="slds-m-left_xx-small slds-float_left"></lightning-button-icon-stateful>
+                            <template if:true={orderItemSelected}>
+                                <div class="slds-hide_medium slds-float_left">
+                                    <lightning-button-icon alternative-text={labels.addProducts} variant="brand"
+                                        icon-name="utility:add" onclick={handleSave}
+                                        class="slds-m-left_xx-small"></lightning-button-icon>
+                                </div>
+                                <div class="slds-show_medium slds-float_right">
+                                    <lightning-button label={labels.addProducts} variant="brand" icon-name="utility:add"
+                                        onclick={handleSave} class="slds-m-left_xx-small"></lightning-button>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-size_6-of-6" hidden={hideFilter}>
+                    <lightning-input
+                        type="checkbox"
+                        label={labels.showMoreOrdredProducts}
+                        data-index={index}
+                        class="slds-p-around_xx-small"
+                        checked={superProducts}
+                        onchange={handleSuperProductsChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-size_6-of-6 slds-large-size_1-of-4 slds-p-left_xx-small slds-p-right_xxx-small description-picklist" hidden={hideFilter}>
+                    <lightning-combobox
+                        name="pricebook"
+                        value={valueDesc1}
+                        placeholder={labels.productGroupOneDescription}
+                        options={optionsDesc1}
+                        onchange={handleChangeDescriptionsCombo1}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-size_6-of-6 slds-large-size_1-of-4 slds-p-horizontal_xxx-small description-picklist" hidden={hideFilter}>
+                    <lightning-combobox
+                        name="pricebook"
+                        value={valueDesc2}
+                        placeholder={labels.productGroupTwoDescription}
+                        options={optionsDesc2}
+                        hidden={valueDesc1}
+                        onchange={handleChangeDescriptionsCombo2}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-size_6-of-6 slds-large-size_1-of-4 slds-p-horizontal_xxx-small description-picklist" hidden={hideFilter}>
+                    <lightning-combobox
+                        name="pricebook"
+                        value={valueDesc3}
+                        placeholder={labels.productGroupThreeDescription}
+                        options={optionsDesc3}
+                        onchange={handleChangeDescriptionsCombo3}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-size_6-of-6 slds-large-size_1-of-4 slds-p-horizontal_xxx-small description-picklist" hidden={hideFilter}>
+                    <lightning-combobox
+                        name="pricebook"
+                        value={valueDesc4}
+                        placeholder={labels.productGroupFourDescription}
+                        options={optionsDesc4}
+                        onchange={handleChangeDescriptionsCombo4}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-size_6-of-6 slds-p-around_xxx-small slds-m-top_x-small">
+                    <div class={selectAllCheckboxClass}>
+                        <template if:true={isMobile}>
+                            <template if:true={selectAll}>
+                                <lightning-button-icon title="Select all" alternative-text="select all" size="large"
+                                    icon-name="utility:multi_select_checkbox" variant="bare"
+                                    onclick={handleSelectAllChange} class="slds-float_left">
+                                </lightning-button-icon>
+                            </template>
+                            <template if:false={selectAll}>
+                                <lightning-button-icon title="Select all" alternative-text="select all" size="large"
+                                    icon-name="utility:layers" variant="bare"
+                                    onclick={handleSelectAllChange} class="slds-float_left">
+                                </lightning-button-icon>
+                            </template>
+                            <div for="select-all-checkbox-button" class="slds-float_left slds-m-top_small compact-label slds-checkbox_button__label">
+                                <span class="slds-text-title_caps">{productsCounter}</span>
+                            </div>
+                        </template>
+                        <template if:false={isMobile}>
+                            <lightning-input type="checkbox" id="select-all-checkbox"
+                                name="select-all-checkbox" label="select-all-checkbox"
+                                checked={selectAll} variant="label-hidden"
+                                onchange={handleSelectAllChange} class="slds-float_left">
+                            </lightning-input>
+                            <label for="select-all-checkbox" class="slds-checkbox__label compact-label">
+                                <span class="slds-text-title_caps">{productsCounter} </span>
+                            </label>
+                        </template>
+                        <!-- <div class="slds-text-title_caps slds-text-title slds-m-left_xx-small">{totalProducts} {labels.productsFound}</div> -->
+                    </div>
+                </div>
+                <template if:true={paginationTablet}>
+                    <div class="slds-size_2-of-6 slds-large-size_2-of-6 slds-p-vertical_xxx-small">
+                        <lightning-button label={labels.previous} icon-name="utility:chevronleft"
+                            onclick={handlePrevious} disabled={showFirstButton} class="slds-m-left_xx-small">
+                        </lightning-button>
+                    </div>
+                    <div class="slds-size_2-of-6 slds-large-size_2-of-6 slds-p-vertical_xxx-small">
+                        <div class="slds-align_absolute-center">{pageNumber} / {getTotalPages}</div>
+                    </div>
+                    <div class="slds-size_2-of-6 slds-large-size_2-of-6 slds-p-vertical_xxx-small">
+                        <lightning-button label={labels.next} class="slds-float_right slds-m-right_xx-small"
+                            icon-name="utility:chevronright"
+                            icon-position="right" onclick={handleNext} disabled={showLastButton}>
+                        </lightning-button>
+                    </div>
+                </template>
+            </div>
+            <template if:true={orderItems}>
+                <div class={selectProductInnerBoxClass}>
+                    <div class="slds-grid slds-wrap">
+                        <template for:each={orderItems} for:item="orderItem" for:index="index">
+                            <!-- original -->
+                            <div class={orderItemCardClass} key={key}>
+                                <article class="slds-card slds-p-around_xx-small" key={key}>
+                                    <lightning-tile data-index={index}
+                                        type="media" class="slds-card slds-text-align_left">
+                                        <span slot="media">
+                                            <template if:true={isMobile}>
+                                                <lightning-input type="checkbox-button" data-index={index} variant="label-hidden"
+                                                    class="slds-m-left_xx-small slds-float_left" checked={orderItem.isSelected}
+                                                    onchange={handleSelectChange} disabled={orderItem.disableSelectedAndQuantityBox}>
+                                                </lightning-input>
+                                            </template>
+                                            <template if:false={isMobile}>
+                                                <lightning-input type="checkbox" data-index={index}
+                                                    variant="label-hidden" class="slds-m-left_xx-small slds-float_left"
+                                                    checked={orderItem.isSelected} onchange={handleSelectChange} 
+                                                    disabled={orderItem.disableSelectedAndQuantityBox}>
+                                                </lightning-input>
+                                                <lightning-input type="number" min="0" data-index={index}
+                                                    variant="label-hidden" value={orderItem.Quantity} class="slds-float_left"
+                                                    onchange={handleQuantityChange} placeholder={labels.quantity} disabled={orderItem.disableSelectedAndQuantityBox}
+                                                    >
+                                                </lightning-input>
+                                            </template>
+                                            
+                                            <template if:true={isMobile}>
+                                                <div class="slds-show_medium slds-float_left">
+                                                    <div class="slds-form-element">
+                                                        <div class="slds-form-element__control">
+                                                            <div class="slds-slider slds-m-left_xx-small slds-m-top_none">
+                                                                <input type="range" class="slds-slider__range" min=0
+                                                                    max=10 step=1 data-index={index}
+                                                                    oninput={handleQuantityChange}
+                                                                    value={orderItem.Quantity} disabled={orderItem.disableSelectedAndQuantityBox}/>
+                                                                <lightning-input type="number" min="0"
+                                                                    data-index={index} variant="label-hidden"
+                                                                    value={orderItem.Quantity} class="slds-float_left slds-slider__value"
+                                                                    onchange={handleQuantityChange}
+                                                                    placeholder={labels.quantity} disabled={orderItem.disableSelectedAndQuantityBox}>
+                                                                </lightning-input>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </template >
+                                        </span>
+                                        <div class="slds-clearfix">
+                                            <a class="slds-float_left" onmouseenter={handleOrderItemMouseOver}
+                                                onmouseleave={handleOrderItemMouseLeave} data-index={index}
+                                                href="javascript:void(0);">
+                                                {orderItem.Name} 
+                                                <template if:false={isMobile}>
+                                                    <template if:true={orderItem.isMouseOver}>
+                                                        <div class="slds-is-relative slds-float_right">
+                                                            <c-popover-record-info
+                                                                record-id={orderItem.GlobalSKUMapping__c} fields={popOverFields}
+                                                                title={orderItem.Name} object-api-name="Product2"
+                                                                url={orderItem.Product2Id}
+                                                                icon-name="standard:product"></c-popover-record-info>
+                                                        </div>
+                                                    </template>
+                                                </template>
+                                            </a>
+                                        </div>
+                                        <template if:true={orderItem.LocalProductDescription__c}>
+                                            <!-- <template if:true={isMobile}> -->
+                                                <div class="slds-text-body_small slds-truncate slds-text-color_weak">
+                                                    {orderItem.LocalProductDescription__c}
+                                                </div>
+                                            <!-- </template> -->
+                                        </template>
+                                        <div class="slds-hide_medium">
+                                            <div class="slds-region_narrow">
+                                                <template if:true={isMobile}>
+                                                    <div class="slds-form-element slds-hide_medium">
+                                                        <div class="slds-form-element__control">
+                                                            <div class="slds-slider">
+                                                                <input type="range" class="slds-slider__range" min=0 max=10
+                                                                    step=1 data-index={index} oninput={handleQuantityChange}
+                                                                    value={orderItem.Quantity} disabled={orderItem.disableSelectedAndQuantityBox}/>
+                                                                <span style="width:40%;">
+                                                                    <lightning-input type="number" min="0"
+                                                                        data-index={index} variant="label-hidden"
+                                                                        value={orderItem.Quantity} class="slds-float_left slds-slider__value"
+                                                                        onchange={handleQuantityChange}
+                                                                        placeholder={labels.quantity} disabled={orderItem.disableSelectedAndQuantityBox}>
+                                                                    </lightning-input>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                                <dl class="slds-dl_horizontal">
+                                                    <dt class="slds-dl_horizontal__label">
+                                                        <p class="slds-truncate">{productArticleNumberLabel}:</p>
+                                                    </dt>
+                                                    <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                        {orderItem.Article__c}</dd>
+                                                    <template if:false={orderItem.disableSelectedAndQuantityBox}> 
+                                                        <template if:false={order.Pricebook2.ShowPricingfromMicroServiceOM__c}>
+                                                            <dt class="slds-dl_horizontal__label">
+                                                                <p class="slds-truncate">{priceBookEntryUnitPriceLabel}:</p>
+                                                            </dt>
+                                                            <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                                {orderItem.UnitPrice} {orderItem.Currency}</dd>
+                                                        </template>  
+                                                    
+                                                    <template if:true={order.Pricebook2.ShowPricingfromMicroServiceOM__c}>
+                                                        <dt class="slds-dl_horizontal__label">
+                                                            <p class="slds-truncate">{orderItemRetailPriceLabel}:</p>
+                                                        </dt>
+                                                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                            {orderItem.AXRetailPrice__c} {orderItem.Currency}</dd>
+                                                        <dt class="slds-dl_horizontal__label">
+                                                            <p class="slds-truncate">{priceBookEntryUnitPriceLabel}:</p>
+                                                        </dt>
+                                                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                            {orderItem.UnitPrice} {orderItem.Currency} ({orderItem.AXDiscount__c}  %)</dd>
+                                                    </template>
+                                                    </template>
+                                                    <template if:true={orderItem.disableSelectedAndQuantityBox}>
+                                                        <p style="color:red"> {orderItem.AXRetailPrice__c} </p>                                                        
+                                                    </template>
+                                                    <!-- <template if:true={orderItem.LocalProductDescription__c}>
+                                                        <dt class="slds-dl_horizontal__label">
+                                                            <p class="slds-truncate">Description:</p>
+                                                        </dt>
+                                                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                            {orderItem.LocalProductDescription__c}</dd>
+                                                    </template> -->
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <div class="slds-show_medium">
+                                            <!-- <template if:true={orderItem.LocalProductDescription__c}>
+                                                <template if:true={isMobile}>
+                                                    <div class="slds-text-body_small slds-truncate slds-text-color_weak">
+                                                        {orderItem.LocalProductDescription__c})
+                                                    </div>
+                                                </template>
+                                            </template> -->
+                                            <ul class="slds-list_horizontal slds-has-dividers_right">
+                                                <li class="slds-item">{orderItem.Article__c}</li>
+                                                <template if:false={orderItem.disableSelectedAndQuantityBox}>
+                                                    <template if:false={order.Pricebook2.ShowPricingfromMicroServiceOM__c}>
+                                                        <template if:true={order.Pricebook2.Show_Price_OM__c}>
+                                                            <li class="slds-item"> {orderItemUnitPriceLabel}:
+                                                                {orderItem.UnitPrice}
+                                                                {orderItem.Currency}</li>
+                                                        </template>
+                                                            
+                                                    </template>
+                                                    
+                                                    <template if:true={order.Pricebook2.ShowPricingfromMicroServiceOM__c}>
+                                                        <li class="slds-item">{orderItemRetailPriceLabel}: {orderItem.AXRetailPrice__c} {orderItem.Currency}
+                                                        </li>
+                                                        <li class="slds-item"> {orderItemUnitPriceLabel}:
+                                                            {orderItem.UnitPrice}
+                                                            {orderItem.Currency} ({orderItem.AXDiscount__c}  %)</li>                                         
+                                                    </template>
+                                                </template>
+                                                <template if:true={orderItem.disableSelectedAndQuantityBox}>
+                                                    <li class="slds-item" style="color:red"> {orderItem.AXRetailPrice__c} 
+                                                    </li>  
+                                                </template>
+                                                <!-- <template if:true={orderItem.LocalProductDescription__c}>
+                                                    <template if:false={isMobile}>
+                                                        <li class="slds-item">{orderItem.LocalProductDescription__c}</li>
+                                                    </template>
+                                                </template> -->
+                                            </ul>
+                                        </div>
+                                    </lightning-tile>
+                                </article>
+                            </div>
+                            <!-- original end -->
+                        </template>
+                    </div>
+                </div>
+                <template if:true={pagination}>
+                    <div class="slds-grid slds-wrap slds-theme_shade sticky-footer slds-p-bottom_xx-small">
+                        <div class="slds-size_2-of-6 slds-large-size_2-of-6 slds-p-vertical_xxx-small">
+                            <lightning-button label={labels.previous} icon-name="utility:chevronleft" onclick={handlePrevious}  
+                                disabled={showFirstButton}>
+                            </lightning-button>  
+                        </div>
+                        <div class="slds-size_2-of-6 slds-large-size_2-of-6 slds-p-vertical_xxx-small">
+                            <div class="slds-align_absolute-center">{pageNumber} / {getTotalPages}</div>
+                        </div>
+                        <div class="slds-size_2-of-6 slds-large-size_2-of-6 slds-p-vertical_xxx-small">
+                            <lightning-button label={labels.next} class="slds-float_right" icon-name="utility:chevronright" icon-position="right" onclick={handleNext}  
+                                disabled={showLastButton}>
+                            </lightning-button>  
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={loading}>
+                    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+        </div>
+    </div>
+</template>

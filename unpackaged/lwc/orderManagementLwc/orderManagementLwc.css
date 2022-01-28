@@ -1,0 +1,16 @@
+.slds-box {
+    padding: 0.1rem !important;
+}
+.modal-container_desktop-height {
+    height: 80vh;
+}
+.modal-container_vf-desktop-height-max {
+    height: 100vh;
+}
+.modal-container_vf-desktop-height {
+    height: 78vh;
+}
+.modal_container_vh-vertical_padding {
+    padding-left: 20vw;
+    padding-right: 20vw;
+}

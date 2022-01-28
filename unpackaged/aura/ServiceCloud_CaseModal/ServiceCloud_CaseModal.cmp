@@ -1,0 +1,59 @@
+<aura:component implements="force:hasRecordId" access="global" >
+    <aura:attribute name="CaseInst" type="Case"/>
+    <section aria-labelledby="panel-heading-id" class="slds-popover slds-popover--panel slds-nubbin--left"  role="dialog">
+                                                      <!-- style="position: absolute" slds-popover slds-popover-'-panel slds-nubbin-'-bottom slds-popover-'-small" role="dialog"> -->
+     
+                              <div class="slds-popover__header">
+   								 <header class="slds-media slds-media_center slds-m-bottom_small">
+      								<span class="slds-icon_container slds-icon-standard-account slds-media__figure">
+                                        <lightning:icon iconName="standard:case"/>
+          							</span>
+      									<div class="slds-media__body">
+                                            <h2 class="slds-text-heading_medium slds-hyphenate" id="panel-heading-id"><a href="{!'/'+v.CaseInst.Id}">{!v.CaseInst.CaseNumber}                                                
+                                               </a></h2>
+      									</div>
+   								 </header>                            
+                            
+    							<footer class="slds-grid slds-wrap slds-grid_pull-padded">
+                                      <div class="slds-p-horizontal_small slds-size_1-of-1 slds-p-bottom_x-small">
+                                        <dl>
+                                          <dt>
+                                            <p class="slds-text-title_caps slds-truncate" title="Subject">Subject</p>
+                                          </dt>
+                                          <dd>
+                                              <p>{!v.CaseInst.Subject}</p>
+                                          </dd>
+                                        </dl>
+                                      </div>
+                                      <div class="slds-p-horizontal_small slds-size_1-of-1 slds-p-bottom_x-small">
+                                        <dl>
+                                          <dt>
+                                            <p class="slds-text-title_caps slds-truncate" title="Description">Description</p>
+                                          </dt>
+                                            <dd><lightning:formattedText value="{!v.CaseInst.Description}"/></dd>
+                                        </dl>
+                                      </div>
+                                      <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small">
+                                        <dl>
+                                          <dt>
+                                            <p class="slds-text-title_caps slds-truncate" title="Created by">Created by</p>
+                                          </dt>
+                                          <dd><p>{!v.CaseInst.Owner.FirstName + ' ' +v.CaseInst.Owner.LastName }</p></dd>
+                                        </dl>
+                                      </div>
+                                      <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small">
+                                        <dl>
+                                          <dt>
+                                            <p class="slds-text-title_caps slds-truncate" title="Created date">Created date</p>
+                                          </dt>
+                                            <dd><lightning:formattedDateTime value="{!v.CaseInst.CreatedDate}"/></dd>
+                                        </dl>
+                                      </div>
+                                </footer>
+                                </div>
+                                <!-- <d_zh_lt:LocalTimeWidget recordId="{!v.CaseInst.AccountId}"/> -->    
+							</section>
+    
+    
+    
+</aura:component>

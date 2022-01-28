@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowScreens" access="global" >
+    <aura:attribute name="label" type="String" access="global"/>
+       
+<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+  <span class="slds-assistive-text">warning</span>
+  <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small">
+       <lightning:icon iconName="utility:warning" alternativeText="Warning!" variant="warning"/>      
+  </span>
+    <h2>{!v.label}</h2>
+  <div class="slds-notify__close">
+  </div>
+</div>    
+    
+    
+</aura:component>

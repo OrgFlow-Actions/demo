@@ -1,0 +1,47 @@
+<apex:page controller="CimAccountController" action="{!redirectToAccount}" >
+    <apex:form id="Form">
+        <apex:pageMessages id="msg"/>
+        <apex:pageBlock title="Create Account From CIM....." mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Account Information" columns="2" id="Main">
+                <apex:inputField value="{!account.name}"/>
+                <apex:inputField value="{!account.CimId__c}"/>
+                <apex:inputField value="{!account.Phone}"/>
+                <apex:inputField value="{!account.Fax}"/>
+                
+                <apex:pageBlockSectionItem >
+	                <apex:outputLabel value="Record Type" for="Recordtype"/>
+                	<apex:actionRegion >
+                		<apex:inputField value="{!account.RecordTypeId}" required="true" id="Recordtype">
+							<apex:actionSupport event="onchange" rerender="AccountType, AccountSubType"/>                
+                		</apex:inputField>
+					</apex:actionRegion>                    
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Account Type" for="AccountType"/>
+	                <apex:inputField value="{!account.OneAccount_Type__c}" required="true" id="AccountType" />
+                </apex:pageBlockSectionItem>
+
+                <apex:inputField value="{!account.Country__c}" required="true" />
+                <apex:inputField value="{!account.Sub_Account_Type__c}" required="true" id="AccountSubType"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Billing Address" columns="2">
+                <apex:inputField value="{!account.ShippingStreet}"/>
+                <apex:inputField value="{!account.ShippingPostalCode}"/>
+                <apex:inputField value="{!account.ShippingCity}"/>
+                <apex:inputField value="{!account.ShippingState}"/>
+                <apex:inputField value="{!account.ShippingCountry}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Visiting Address" columns="2">
+                <apex:inputField value="{!account.BillingStreet}"/>
+                <apex:inputField value="{!account.BillingPostalCode}"/>
+                <apex:inputField value="{!account.BillingCity}"/>
+                <apex:inputField value="{!account.BillingState}"/>
+                <apex:inputField value="{!account.BillingCountry}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

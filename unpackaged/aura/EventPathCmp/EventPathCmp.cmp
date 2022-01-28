@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+    controller="EventPathController">
+    <aura:attribute name="error" type="Object" />
+    <aura:attribute name="loading" type="Boolean" />
+    <div class="slds-is-relative">
+        <aura:if isTrue="{!v.error}">
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                <h2>{!v.error.message}</h2>
+            </div>
+            <p class="slds-text-title slds-text-color_error slds-p-around_x-small">{!v.error.detail}</p>
+        </aura:if>
+        <lightning:picklistPath aura:id="picklistPath" recordId="{!v.recordId}" variant="linear"
+            picklistFieldApiName="Event_Status__c" onselect="{!c.handleSelect}">
+        </lightning:picklistPath>
+        <aura:if isTrue="{!v.loading}">
+            <lightning:spinner alternativeText="Loading" size="small"></lightning:spinner>
+        </aura:if>
+    </div>
+</aura:component>

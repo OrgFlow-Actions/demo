@@ -1,0 +1,57 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:availableForFlowScreens" 
+                controller="cadmus_core.ConvertComponentController" access="global">
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="recordId" type="String" required="true" default="Variable for the recordId" />
+    <aura:attribute name="docConfigId" type="String" />
+    <aura:attribute name="docConfigIds" type="String" />
+    <aura:attribute name="targetType" type="String" />
+    <aura:attribute name="alternativeName" type="String" />
+    <aura:attribute name="locale" type="String" />
+    <aura:attribute name="packId" type="String" />
+    <aura:attribute name="actionPackIds" type="String" />
+    <aura:attribute name="pdfActionType" type="String" />
+    <aura:attribute name="deliveryOverwrite" type="String" />
+    <aura:attribute name="doDownloadAfterGenerate" type="Boolean" />
+    <aura:attribute name="doShowPreviewAfterGenerate" type="Boolean" />
+    <aura:attribute name="boxHeight" type="Integer" default="600"/>
+    
+    <aura:attribute name="packs" type="List" access="global"/>
+        
+    <aura:attribute name="showPreview" type="Boolean" access="global" default="false"/>
+	<aura:attribute access="global" name="pdfData" type="String" description="PDF data in base64 encoded format"/>
+
+    <lightning:navigation aura:id="navigationService" />
+    <lightning:spinner variant="brand" size="large" aura:id="mySpinner" />      
+    <a name="fileDownload" id="fileDownload" download="pdfbutler.pdf" aura:id="fileDownload"/>
+    <!--
+	<aura:attribute name="pdfContainer" type="Aura.Component[]"/>
+    <div style="box;height:600px;">
+            {!v.pdfContainer}
+    </div>
+    -->
+    
+    <aura:if isTrue="{!v.showPreview}">
+    
+        <lightning:card title="PDF Butler Lightning Previewer">
+            <aura:set attribute="actions">
+                <aura:iteration items="{! v.packs }" var="pack">
+                    <lightning:button variant="brand" 
+                                      label="{! pack.Name }"
+                                      title="{! pack.Name }"
+                                      onclick="{! c.runPack }"
+                                      value="{! pack.Id }"/>
+                </aura:iteration>
+                <lightning:button variant="brand" 
+                                  label="{!$Label.cadmus_core.butler_close}"
+                                  title="{!$Label.cadmus_core.butler_close}"
+                                  onclick="{! c.closePreview }"/>
+            </aura:set>
+            <p class="slds-p-horizontal_small">
+                <div style="{!'box;height:' + v.boxHeight + 'px;'}">
+                    <iframe aura:id="pdfFrame" src="/resource/PdfButlerPdfPreviewer/web/viewer.html" class="pdfFrame" onload="{!c.loadpdf}"  
+                            width="100%" height="100%" style="height: 100%; border: none"></iframe> <!--#zoom=page-fit-->
+                </div>
+            </p>
+        </lightning:card>
+    </aura:if>
+</aura:component>

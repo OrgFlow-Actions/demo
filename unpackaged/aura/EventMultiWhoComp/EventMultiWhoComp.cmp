@@ -1,0 +1,5 @@
+<aura:component
+    implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,force:hasSObjectName,flexipage:availableForAllPageTypes">
+    <aura:handler event="force:refreshView" action="{!c.refreshContacts}"></aura:handler>
+    <c:eventMultiWhoLwc aura:id="eventMultiWhoLwc" recordId="{!v.recordId}" onrefreshview="{!c.refresh}"></c:eventMultiWhoLwc>
+</aura:component>

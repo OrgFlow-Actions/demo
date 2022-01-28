@@ -1,0 +1,4 @@
+<apex:page standardController="Account" extensions="BulkCFEsListController" recordSetVar="records" action="{!Redirect}">
+    <!-- This page facilitates linking from List Action Buttons to the Bulk CFE page -->
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

@@ -1,0 +1,26 @@
+<template>
+    <c-lightning-card card-title="Event Contacts" card-icon-name="standard:contact_list"
+        spinner-variant={spinnerVariant} enable-edit-mode={enableEditMode} is-loading={isLoading} is-edit-mode={isEditMode} error={error}
+        onmodechange={handleCardAction} onmysubmit={handleUserSubmit}>
+        <div class="slds-form slds-form_stacked slds-p-horizontal_medium">
+            <template if:true={isEditMode}>
+                <c-lookup-lwc selection={_selection} errors={errors} onsearch={handleSearch}
+                    onselectionchange={handleSelectionChange} label="Related To: Name" placeholder="Search Contacts..."
+                    is-multi-entry=false hide-selection=true is-tile-format=true>
+                </c-lookup-lwc>
+            </template>
+            <ul class="slds-has-dividers_bottom-space">
+                <template if:true={getSelection}>
+                    <template for:each={getSelection} for:item="item">
+                        <li key={item.id} class="slds-item">
+                            <lightning-tile label={item.label} href={item.href} type="media" actions={item.tileActions} onactiontriggered={handleTileAction}>
+                                <lightning-icon slot="media" icon-name="standard:contact"></lightning-icon>
+                                <p class="slds-truncate" title={item.subtitle}>{item.subtitle}</p>
+                            </lightning-tile>
+                        </li>
+                    </template>
+                </template>
+            </ul>
+        </div>
+    </c-lightning-card>
+</template>

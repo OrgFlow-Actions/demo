@@ -1,0 +1,90 @@
+<!--	
+Author: 	Richard Trum (Glimt) 2020-12-17 	
+Description:   	Lightning component for assigning a value from a list
+ -->
+
+<aura:component implements="lightning:availableForFlowScreens">
+    <!--Declare Event Handlers--> 
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+     
+    <!--Declare Attributes-->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="listInput" type="String[]" />   
+    <aura:attribute name="selectedRecord" type="String" />
+     
+    <!-- User interface -->
+    <div>
+        <!--<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_resizable-cols" role="grid">      
+            <tbody>        
+                <aura:iteration items="{!v.listInput}" var="con">
+                    <tr>
+                        <th>
+                            <div class="slds-checkbox_add-button">
+  								<input type="checkbox" class="slds-assistive-text" aura:id="checkContact" id="{!con.Id}" value="false" name="checkbox" disabled="false" />
+  								<label for="{!con.Id}" class="slds-checkbox_faux">
+    									<span class="slds-assistive-text">Add user</span>
+  								</label>
+							</div>
+                        
+                        </th>
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!con.Title__c}">{!con}</div>
+                        </th>
+                        
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table> -->
+        
+       <aura:iteration items="{!v.listInput}" var="con">
+          <div class="slds-visual-picker slds-visual-picker_vertical" style="width: inherit">
+              <input type="radio" id="{!con}" value="{!con}" name="options" onclick="{!c.handleSelection}"/>
+                    <label>
+                        <span class="slds-visual-picker__figure slds-visual-picker__text" style="width: inherit;">
+                            <span>
+                            	<div class="slds-media">
+                                    <div class="slds-media__figure">
+                                        <lightning:icon size="small" iconName="standard:account"></lightning:icon>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h3 class="slds-text-heading_small slds-truncate">{!con}</h3>
+                                        <div class="slds-tile__detail">
+                                            <!--<template if:false={isPhoneFormFactor}>
+                                                <div class="slds-region_narrow" style="width:50%">
+                                                    <dl class="slds-dl_horizontal">
+                                                        <dt class="slds-dl_horizontal__label">
+                                                            <p class="slds-truncate" title="Title">Title:</p>
+                                                        </dt>
+                                                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                            <p class="slds-truncate" title="{!v.recordId}">{!con}</p>
+                                                        </dd>
+                                                        <dt class="slds-dl_horizontal__label">
+                                                            <p class="slds-truncate" title="Email">Email:</p>
+                                                        </dt>
+                                                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                                            <p class="slds-truncate" title="{!v.recordId}">
+                                                                {!con}</p>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </template>
+                                            <template if:true={isPhoneFormFactor}>
+                                                <p class="slds-text-title slds-truncate">{contact.Title}</p>
+                                                <p class="slds-text-title slds-truncate">{contact.Email}</p>
+                                            </template>-->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
+                        <span class="slds-icon_container slds-visual-picker__text-check">
+                            <lightning:icon iconName="utility:check" size="x-small" variant="inverse">
+                            </lightning:icon>
+                        </span>
+                    </label>
+                </div>
+    	</aura:iteration>
+
+    </div>
+</aura:component>

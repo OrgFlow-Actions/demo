@@ -1,0 +1,22 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" >
+	    <aura:attribute name="case" type="Object" access="global"/>
+		<aura:attribute name="caseId" type="String" access="global" />
+    	<aura:attribute name="fieldN" type="String" access="global"/>
+    	<aura:attribute name="fieldVal" type="String" access="global"/>
+   		<aura:attribute name="objType" type="String" access="global" />
+    	<aura:attribute name="resId" type="String" access="global" />
+  
+    	<aura:attribute name="accountId" type="String" access="global" />
+    
+    	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    	
+        <lightning:recordEditForm aura:id="recordViewForm" 
+                                     objectApiName="{!v.objType}"
+                                     recordId="{!v.caseId}"
+                                     >
+            
+            <lightning:inputField aura:id="fieldValue" fieldName="{!v.fieldN}" onchange="{!c.update}"/>
+            <br/>
+    </lightning:recordEditForm>
+    
+</aura:component>

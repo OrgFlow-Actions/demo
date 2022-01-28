@@ -1,0 +1,3 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="global">
+    <iframe src="{! 'https://dentsplysirona--magnet.lightning.force.com/apex/Order_Direct_Account?Id=' + v.recordId }" width="100%" height="500px;" frameBorder="0"/>
+</aura:component>

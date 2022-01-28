@@ -1,0 +1,56 @@
+<apex:page standardController="Preferred_dealer_item__c" recordSetVar="Preferred_dealer_items" extensions="getPreferredDealers" standardStylesheets="true" action="{!fetchRecords}">
+        
+        <script type="text/javascript">
+        function navToOrder(){       
+        var orderURL = "/{!acc.Id}"
+        window.location.href = orderURL;
+        sforce.one.navigateToURL(orderURL);
+               
+        }
+        </script>
+        
+        <apex:form >
+        <apex:PageBlock title="Distributors connected to {!acc.Name}">
+        <apex:pageBlockTable value="{!acc}" var="bundl" id="bundlesTable">
+                
+                
+                <apex:column >
+                <apex:selectRadio layout="pagedirection" value="{!getRadioValue}">
+                <apex:selectOptions value="{!DealerOptions}">
+                </apex:selectOptions>
+                </apex:selectRadio>
+                </apex:column>
+                
+                <!--<apex:column width="10%">
+                <apex:facet name="header">Dealer</apex:facet>
+                <a href="/{!bundl.pde.Dealer__r.Id}" target="_blank">{!bundl.pde.Name}</a>
+                </apex:column>
+                
+                <apex:column width="10%">
+                <apex:facet name="header">Default?</apex:facet>
+                <apex:inputCheckbox value="{!bundl.pde.Default_dealer__c}"/>                
+                </apex:column>-->
+                
+                
+        </apex:PageBlockTable>
+        <br/>
+        <div style="text-align: center;">
+        <apex:commandLink styleClass="btn" style="padding: 5px; text-decoration: none; font-family: salesforce sans, sans-serif;font-size:16px; display: block; min-width: 100px;" action="{!saveDealer}" value="Go back to account" onComplete="navToOrder()"/>
+        </div>
+        
+        </apex:pageBlock>       
+        <br/><br/>
+        <apex:pageBlock title="Add new distributor">
+        <apex:pageBlockTable value="{!dealerList}" var="deals">
+        <apex:column width="2%"><apex:inputCheckbox value="{!deals.selected_pd}"/></apex:column>
+        <apex:column ><a href="/{!deals.pde.Id}" target="_blank">{!deals.pde.Name}</a></apex:column>
+        </apex:pageBlockTable>
+        <br/>
+        <div style="text-align: center;">
+        <apex:commandLink styleClass="btn" style="padding: 5px; text-decoration: none; font-family: salesforce sans, sans-serif;font-size:16px; display: block; min-width: 100px;" action="{!addDealer}" value="Add distributor" />
+        </div>
+        </apex:pageBlock>
+        
+        </apex:form>
+        
+</apex:page>

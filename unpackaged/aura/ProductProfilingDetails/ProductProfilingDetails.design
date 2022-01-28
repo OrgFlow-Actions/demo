@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="selectedProducts" label="Selected products" />
+    <design:attribute name="selectedProductsWrapper" label="Selected products wrapper" />
+    <design:attribute name="outputProducts" label="Products with details" />
+</design:component>

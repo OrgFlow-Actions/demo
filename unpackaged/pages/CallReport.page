@@ -1,0 +1,29 @@
+<apex:page lightningStylesheets="true" standardStylesheets="true" standardController="Event" extensions="CallReportExtension">
+    <apex:pageBlock >
+        
+        <apex:pageBlockSection rendered="{!Ev.Call_Report__c == null}">
+            <h1>{!$Label.CallReport_NoneAvailable}</h1>
+        </apex:pageBlockSection>        
+        <apex:pageBlockSection rendered="{!Ev.Call_Report__c != null}">
+            <apex:outputField value="{!Ev.Call_Report__r.Call_Notes__c}" />   
+            <apex:outputField value="{!Ev.Call_Report__r.Met_with_Decision_Maker__c}"/>   
+            <apex:outputField value="{!Ev.Call_Report__r.Met_with_Assistant__c}"/>   
+            <apex:outputField value="{!Ev.Call_Report__r.Placed_Order__c}"/>   
+            <apex:outputField value="{!Ev.Call_Report__r.Left_Sample__c}"/>   
+            <apex:outputField value="{!Ev.Call_Report__r.Courses__c}"/>
+            <apex:outputField value="{!Ev.Call_Report__r.track_event__c}"/>                         
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_ENDO__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Endodontics')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_IMPL__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Implants')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_ORTH__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Orthodontics')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_PREV__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Preventive')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_PROS__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Prosthetics')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_REST__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Restorative')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_CDCM__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'CAD/CAM')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_INST__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Instruments')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_TRCE__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Treatment Centers')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Products_discussed_IMAG__c}" rendered="{!Ev.SBU__c != null && CONTAINS(Ev.SBU__c, 'Imaging Systems')}" />
+            <apex:outputField value="{!Ev.Call_Report__r.Other_SBU_discussed__c}"/>
+            <apex:outputField value="{!Ev.Call_Report__r.Other_SBU_notes__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,51 @@
+<template>
+    <section id="modal" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_small">
+        <div class="slds-modal__container">
+            <div class="slds-box slds-modal__content slds-theme_shade slds-is-relative" id="modal-content-id-1">
+                <lightning-record-edit-form record-id={itemToUpdate.Id} object-api-name="OrderItem"
+                    onsuccess={handleSuccessUpdateOrderItem} onerror={handleErrorUpdateOrderItem} onsubmit={handleSubmit}
+                    onload={handleLoadUpdateOrderItem} density="comfy">
+                    <lightning-messages></lightning-messages>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size_6-of-6 slds-var-p-around_xx-small">
+                            <div class="slds-text-heading_small slds-text-align_center slds-p-around_xx-small">
+                                <template if:true={isEditMode}>
+                                    {labels.editTitle}
+                                </template>
+                                <template if:true={isCloneMode}>
+                                    {labels.cloneTitle}
+                                </template>
+                            </div>
+                            <div class="slds-text-align_center">{itemToUpdate.Name}
+                                ({itemToUpdate.Article__c})</div>
+                            <template if:true={order.Pricebook2.Show_Discount_OM__c}>
+                                <lightning-input-field field-name="Discount_Percent__c"></lightning-input-field>
+                            </template>
+                            <template if:true={order.Pricebook2.Show_FOC_OM__c}>
+                                <lightning-input-field field-name="Free_of_Charge_Delivery__c"></lightning-input-field>
+                            </template>
+                            <lightning-input-field field-name="Quantity"></lightning-input-field>
+                            <template if:true={order.Pricebook2.Show_OfferCode_OM__c}>
+                                <lightning-input-field field-name="Offer_Code_dna__c"></lightning-input-field>
+                            </template>
+                            <template if:true={order.Pricebook2.Show_Description_OM__c}>
+                                <lightning-input-field field-name="Description"></lightning-input-field>
+                            </template>
+                        </div>
+                        <div
+                            class="slds-size_6-of-6 slds-p-bottom_x-small slds-p-horizontal_xx-small slds-align_absolute-center">
+                            <lightning-button label={labels.cancel} onclick={goToOrderItems}
+                                class="slds-m-horizontal_xx-small"></lightning-button>
+                            <lightning-button label={labels.save} variant="brand" type="submit"
+                                class="slds-m-horizontal_xx-small"></lightning-button>
+                        </div>
+                    </div>
+                </lightning-record-edit-form>
+                <template if:true={loading}>
+                    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                </template>
+            </div>
+        </div>
+    </section>
+</template>

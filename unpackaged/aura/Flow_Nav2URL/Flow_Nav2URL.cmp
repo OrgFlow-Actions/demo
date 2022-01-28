@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,lightning:availableForFlowActions,lightning:isUrlAddressable">
+	<aura:attribute name="url" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <lightning:navigation aura:id="navigationService" />
+</aura:component>

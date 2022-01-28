@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="EaDashboardCountryBased_CC">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="fieldName" type="String" access="global" default= ''/>
+    <aura:attribute name="showHeader" type="Boolean" access="global" default= 'false'/>
+    <aura:attribute name="filterFieldName" type="String" access="global" default= '' />
+    <aura:attribute name="height" type="Integer" access="global" default = '500'/>
+    <aura:attribute name="sObjectFieldName" type="String" access="global" default = ''/>
+    <aura:attribute name="dashBoardFilter" type="String" access="global" default = ''/>
+    <aura:attribute name="dashboardName" type="String" default = ''/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="displayDashboard" type="Boolean" default="false" />
+    <aura:if isTrue="{! v.displayDashboard}">
+        <wave:waveDashboard height = "{! v.height}" developerName = "{!v.dashboardName}"
+                            filter="{!v.dashBoardFilter}" showHeader="{!v.showHeader}" showTitle="false" openLinksInNewWindow="true"/>
+    </aura:if>
+</aura:component>

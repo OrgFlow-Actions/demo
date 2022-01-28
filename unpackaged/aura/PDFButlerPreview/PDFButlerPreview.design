@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="recordId" label="Record Id" />
+    <design:attribute name="docConfigId" label="DOC Config Id" /> 
+    <design:attribute name="alternativeName" label="DOC Alternative Name" /> 
+    <design:attribute name="locale" label="DOC locale" /> 
+</design:component>

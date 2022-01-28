@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-form slds-form_stacked slds-is-relative">
+        <div if:true={isLoading} class="slds-spinner_container slds-align_absolute-center slds-is-relative slds-p-around_xx-large">
+            <lightning-spinner variant="brand" alternative-text="Loading"></lightning-spinner>
+        </div>
+        <!-- Hide record type picker if record type label is already provided -->
+        <template if:false={isLoading}>
+            <!-- SLDS visual picker shown on mobile  -->
+            <template if:false={isDesktopFormFactor}>
+                <div class="slds-p-vertical_medium">
+                    <template if:true={recordTypes} for:each={recordTypes} for:item="recordType">
+                        <div key={recordType.value} class="slds-visual-picker slds-visual-picker_vertical"
+                            style="width: inherit">
+                            <input type="radio" id={recordType.value} value={recordType.value} name="options"
+                                onclick={handleRecordTypeSelected} />
+                            <label for={recordType.value}>
+                                <span class="slds-visual-picker__figure slds-visual-picker__text"
+                                    style="width: inherit;">
+                                    <span>
+                                        <span
+                                            class="slds-text-heading_small slds-m-bottom_x-small">{recordType.label}</span>
+                                        <span class="slds-text-title">{recordType.description}</span>
+                                    </span>
+                                </span>
+                                <span class="slds-icon_container slds-visual-picker__text-check">
+                                    <lightning-icon icon-name="utility:check" size="x-small" variant="inverse">
+                                    </lightning-icon>
+                                </span>
+                            </label>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <!-- Standard combobox shown on desktop -->
+            <template if:true={isDesktopFormFactor}>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-combobox name="recordTypeSelect" label="Select a Record Type" value={defaultRecordType}
+                        options={recordTypes} placeholder="Select a Record Type" onchange={handleComboboxChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="modal-footer slds-modal__footer">
+                    <lightning-button variant="Brand" title="Next" label="Next" onclick={handleDesktopNext}>
+                    </lightning-button>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

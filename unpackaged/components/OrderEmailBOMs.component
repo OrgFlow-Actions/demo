@@ -1,0 +1,33 @@
+<apex:component controller="OrderEmailBOM" access="global">
+  
+        <apex:repeat value="{!OrdrBundList}" var="bundl">       
+   
+        <table style="background: #ffffff" cellpadding="0" cellspacing="0" border="0">        
+        <tr>
+        <td style="width:145px; font-size:10px"><apex:outputLink value="/{!bundl.Product_Bundle__r.Id}">{!bundl.Product_Bundle__r.Name}</apex:outputLink></td>
+        <td style="width:35px; font-size:10px"><apex:outputField value="{!bundl.Quantity__c}" /></td>
+        
+        <apex:outputPanel rendered="{!OR(AND(pb.Indirect_orders_Show_prices__c = true, ordr.RecordType.Id = '0120J000000cn31'), AND(pb.Direct_orders_Show_prices__c = true, ordr.RecordType.Id = '0120J000000cn2w'))}">
+        <td style="width:25px; font-size:10px">{!ROUND(bundl.Total_price__c,1)} {!bundl.Order__r.CurrencyIsoCode}</td>
+        </apex:outputPanel>
+        
+        <td style="width:45px; font-size:10px"></td>
+        
+        <apex:outputPanel rendered="{!OR(AND(pb.Indirect_orders_Show_prices__c = true, ordr.RecordType.Id = '0120J000000cn31'), AND(pb.Direct_orders_Show_prices__c = true, ordr.RecordType.Id = '0120J000000cn2w'))}">
+        <td style="width:30px; font-size:10px">{!ROUND(bundl.Total_price__c * bundl.Quantity__c,1)} {!bundl.Order__r.CurrencyIsoCode}</td>
+        </apex:outputPanel>
+        
+        </tr>
+  
+               <apex:repeat value="{!EmailBOM}" var="s_BOM">
+                   <tr>
+                   <td width="100px" style="border-size:0"> <i><apex:outputText style="font-size:8px;text-align: left" value="{!s_BOM.Name}" rendered="{!s_BOM.Product_bundle__r.Id = bundl.Product_Bundle__r.Id}"/></i> </td>
+                   <td><apex:outputText style="font-size:8px; padding:0px; text-align: left" value="{!s_BOM.Quantity__c}" rendered="{!s_BOM.Product_bundle__r.Id = bundl.Product_Bundle__r.Id}"/> </td>
+                   </tr>                
+               </apex:repeat>
+        
+        </table>
+     
+        </apex:repeat>   
+
+</apex:component>

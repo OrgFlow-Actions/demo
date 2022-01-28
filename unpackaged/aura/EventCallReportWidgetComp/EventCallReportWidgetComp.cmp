@@ -1,0 +1,4 @@
+<aura:component
+    implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <c:eventCallReportWidget aura:id="eventCallReportLwc" recordId="{!v.recordId}" onrefreshview="{!c.refresh}"></c:eventCallReportWidget>
+</aura:component>

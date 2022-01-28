@@ -1,0 +1,11 @@
+.selected {
+    border: 3px solid rgb(0, 112, 210);
+  }
+.slds-box {
+    padding: 0.1rem !important;
+}
+.sticky-button_bottom-container {
+  background: rgba(255, 255, 255, 0.9);
+  position: sticky;
+  bottom: 40px;
+}

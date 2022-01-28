@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>true</allowInChatterGroups>
+  <compactLayoutAssignment>Segment_Layout</compactLayoutAssignment>
+  <compactLayouts>
+    <fullName>Segment_Layout</fullName>
+    <fields>OwnerId</fields>
+    <fields>Segment_Division__c</fields>
+    <fields>Name</fields>
+    <fields>Account_Segment_Name__c</fields>
+    <label>Segment Layout</label>
+  </compactLayouts>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>Private</externalSharingModel>
+  <fields>
+    <fullName>Account_Segment_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Segment Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>A</fullName>
+          <default>false</default>
+          <label>A</label>
+        </value>
+        <value>
+          <fullName>ARMY</fullName>
+          <default>false</default>
+          <label>ARMY</label>
+        </value>
+        <value>
+          <fullName>B</fullName>
+          <default>false</default>
+          <label>B</label>
+        </value>
+        <value>
+          <fullName>C</fullName>
+          <default>false</default>
+          <label>C</label>
+        </value>
+        <value>
+          <fullName>CC</fullName>
+          <default>false</default>
+          <label>CC</label>
+        </value>
+        <value>
+          <fullName>Class II</fullName>
+          <default>false</default>
+          <label>Class II</label>
+        </value>
+        <value>
+          <fullName>Class II Member</fullName>
+          <default>false</default>
+          <label>Class II Member</label>
+        </value>
+        <value>
+          <fullName>Club Rewards Enrolled</fullName>
+          <default>false</default>
+          <label>Club Rewards Enrolled</label>
+        </value>
+        <value>
+          <fullName>CORE</fullName>
+          <default>false</default>
+          <label>CORE</label>
+        </value>
+        <value>
+          <fullName>D</fullName>
+          <default>false</default>
+          <label>D</label>
+        </value>
+        <value>
+          <fullName>DDS w/ Lab</fullName>
+          <default>false</default>
+          <label>DDS w/ Lab</label>
+        </value>
+        <value>
+          <fullName>DDS w/out Lab</fullName>
+          <default>false</default>
+          <label>DDS w/out Lab</label>
+        </value>
+        <value>
+          <fullName>Denturist</fullName>
+          <default>false</default>
+          <label>Denturist</label>
+        </value>
+        <value>
+          <fullName>DEPOT</fullName>
+          <default>false</default>
+          <label>DEPOT</label>
+        </value>
+        <value>
+          <fullName>Digital</fullName>
+          <default>false</default>
+          <label>Digital</label>
+        </value>
+        <value>
+          <fullName>DSO w/ Lab</fullName>
+          <default>false</default>
+          <label>DSO w/ Lab</label>
+        </value>
+        <value>
+          <fullName>DSO w/out Lab</fullName>
+          <default>false</default>
+          <label>DSO w/out Lab</label>
+        </value>
+        <value>
+          <fullName>Elite</fullName>
+          <default>false</default>
+          <label>Elite</label>
+        </value>
+        <value>
+          <fullName>F_Classics</fullName>
+          <default>false</default>
+          <label>F_Classics</label>
+        </value>
+        <value>
+          <fullName>F_Loyalty</fullName>
+          <default>false</default>
+          <label>F_Loyalty</label>
+        </value>
+        <value>
+          <fullName>F_Strategic</fullName>
+          <default>false</default>
+          <label>F_Strategic</label>
+        </value>
+        <value>
+          <fullName>Focus350</fullName>
+          <default>false</default>
+          <label>Focus350</label>
+        </value>
+        <value>
+          <fullName>Foundation</fullName>
+          <default>false</default>
+          <label>Foundation</label>
+        </value>
+        <value>
+          <fullName>Gov</fullName>
+          <default>false</default>
+          <label>Gov</label>
+        </value>
+        <value>
+          <fullName>Government</fullName>
+          <default>false</default>
+          <label>Government</label>
+        </value>
+        <value>
+          <fullName>Government - Local</fullName>
+          <default>false</default>
+          <label>Government - Local</label>
+        </value>
+        <value>
+          <fullName>HART Member</fullName>
+          <default>false</default>
+          <label>HART Member</label>
+        </value>
+        <value>
+          <fullName>Hosp</fullName>
+          <default>false</default>
+          <label>Hosp</label>
+        </value>
+        <value>
+          <fullName>Hospital</fullName>
+          <default>false</default>
+          <label>Hospital</label>
+        </value>
+        <value>
+          <fullName>House</fullName>
+          <default>false</default>
+          <label>House</label>
+        </value>
+        <value>
+          <fullName>Hyg</fullName>
+          <default>false</default>
+          <label>Hyg</label>
+        </value>
+        <value>
+          <fullName>Hygiene</fullName>
+          <default>false</default>
+          <label>Hygiene</label>
+        </value>
+        <value>
+          <fullName>IHS/PHS</fullName>
+          <default>false</default>
+          <label>IHS/PHS</label>
+        </value>
+        <value>
+          <fullName>Industrial</fullName>
+          <default>false</default>
+          <label>Industrial</label>
+        </value>
+        <value>
+          <fullName>ISR</fullName>
+          <default>false</default>
+          <label>ISR</label>
+        </value>
+        <value>
+          <fullName>JOB CORP</fullName>
+          <default>false</default>
+          <label>JOB CORP</label>
+        </value>
+        <value>
+          <fullName>Lab</fullName>
+          <default>false</default>
+          <label>Lab</label>
+        </value>
+        <value>
+          <fullName>Large Lab Group</fullName>
+          <default>false</default>
+          <label>Large Lab Group</label>
+        </value>
+        <value>
+          <fullName>MCXL</fullName>
+          <default>false</default>
+          <label>MCXL</label>
+        </value>
+        <value>
+          <fullName>Med</fullName>
+          <default>false</default>
+          <label>Med</label>
+        </value>
+        <value>
+          <fullName>Mid Lab Group</fullName>
+          <default>false</default>
+          <label>Mid Lab Group</label>
+        </value>
+        <value>
+          <fullName>MISC</fullName>
+          <default>false</default>
+          <label>MISC</label>
+        </value>
+        <value>
+          <fullName>Nat'l Accts</fullName>
+          <default>false</default>
+          <label>Nat'l Accts</label>
+        </value>
+        <value>
+          <fullName>Natl</fullName>
+          <default>false</default>
+          <label>Natl</label>
+        </value>
+        <value>
+          <fullName>Natl Accts</fullName>
+          <default>false</default>
+          <label>Natl Accts</label>
+        </value>
+        <value>
+          <fullName>NAVY</fullName>
+          <default>false</default>
+          <label>NAVY</label>
+        </value>
+        <value>
+          <fullName>NDC</fullName>
+          <default>false</default>
+          <label>NDC</label>
+        </value>
+        <value>
+          <fullName>New</fullName>
+          <default>false</default>
+          <label>New</label>
+        </value>
+        <value>
+          <fullName>NISC</fullName>
+          <default>false</default>
+          <label>NISC</label>
+        </value>
+        <value>
+          <fullName>NOT Eligible</fullName>
+          <default>false</default>
+          <label>NOT Eligible</label>
+        </value>
+        <value>
+          <fullName>Not Enrolled</fullName>
+          <default>false</default>
+          <label>Not Enrolled</label>
+        </value>
+        <value>
+          <fullName>O</fullName>
+          <default>false</default>
+          <label>O</label>
+        </value>
+        <value>
+          <fullName>Oppty</fullName>
+          <default>false</default>
+          <label>Oppty</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Owner</fullName>
+          <default>false</default>
+          <label>Owner</label>
+        </value>
+        <value>
+          <fullName>PRISON</fullName>
+          <default>false</default>
+          <label>PRISON</label>
+        </value>
+        <value>
+          <fullName>Profits Member</fullName>
+          <default>false</default>
+          <label>Profits Member</label>
+        </value>
+        <value>
+          <fullName>Restorative</fullName>
+          <default>false</default>
+          <label>Restorative</label>
+        </value>
+        <value>
+          <fullName>RET</fullName>
+          <default>false</default>
+          <label>RET</label>
+        </value>
+        <value>
+          <fullName>Single Unit</fullName>
+          <default>false</default>
+          <label>Single Unit</label>
+        </value>
+        <value>
+          <fullName>Single Unit Member</fullName>
+          <default>false</default>
+          <label>Single Unit Member</label>
+        </value>
+        <value>
+          <fullName>Small Lab Group</fullName>
+          <default>false</default>
+          <label>Small Lab Group</label>
+        </value>
+        <value>
+          <fullName>Spec</fullName>
+          <default>false</default>
+          <label>Spec</label>
+        </value>
+        <value>
+          <fullName>Tier I</fullName>
+          <default>false</default>
+          <label>Tier I</label>
+        </value>
+        <value>
+          <fullName>Tier II</fullName>
+          <default>false</default>
+          <label>Tier II</label>
+        </value>
+        <value>
+          <fullName>Tier III</fullName>
+          <default>false</default>
+          <label>Tier III</label>
+        </value>
+        <value>
+          <fullName>Trans</fullName>
+          <default>false</default>
+          <label>Trans</label>
+        </value>
+        <value>
+          <fullName>Univ</fullName>
+          <default>false</default>
+          <label>Univ</label>
+        </value>
+        <value>
+          <fullName>University</fullName>
+          <default>false</default>
+          <label>University</label>
+        </value>
+        <value>
+          <fullName>USAF</fullName>
+          <default>false</default>
+          <label>USAF</label>
+        </value>
+        <value>
+          <fullName>USCG</fullName>
+          <default>false</default>
+          <label>USCG</label>
+        </value>
+        <value>
+          <fullName>VA</fullName>
+          <default>false</default>
+          <label>VA</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Account__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Account Segments</relationshipLabel>
+    <relationshipName>Account_Segments</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Integration_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <externalId>true</externalId>
+    <label>Integration ID</label>
+    <length>50</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>Segment_Division__c</fullName>
+    <externalId>false</externalId>
+    <label>Segment Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>Alliance</fullName>
+          <default>false</default>
+          <label>Alliance</label>
+        </value>
+        <value>
+          <fullName>Canada CHR</fullName>
+          <default>false</default>
+          <label>Canada CHR</label>
+        </value>
+        <value>
+          <fullName>Canada CHR 2013</fullName>
+          <default>false</default>
+          <label>Canada CHR 2013</label>
+        </value>
+        <value>
+          <fullName>Canada CHR Ranking</fullName>
+          <default>false</default>
+          <label>Canada CHR Ranking</label>
+        </value>
+        <value>
+          <fullName>Canada LS</fullName>
+          <default>false</default>
+          <label>Canada LS</label>
+        </value>
+        <value>
+          <fullName>Canada LS 2013</fullName>
+          <default>false</default>
+          <label>Canada LS 2013</label>
+        </value>
+        <value>
+          <fullName>Canada RMV</fullName>
+          <default>false</default>
+          <label>Canada RMV</label>
+        </value>
+        <value>
+          <fullName>Canada RMV 2013</fullName>
+          <default>false</default>
+          <label>Canada RMV 2013</label>
+        </value>
+        <value>
+          <fullName>Canada RMV Ranking</fullName>
+          <default>false</default>
+          <label>Canada RMV Ranking</label>
+        </value>
+        <value>
+          <fullName>CAN CHR Ranking</fullName>
+          <default>false</default>
+          <label>CAN CHR Ranking</label>
+        </value>
+        <value>
+          <fullName>CAN CHR Ranking 2016</fullName>
+          <default>false</default>
+          <label>CAN CHR Ranking 2016</label>
+        </value>
+        <value>
+          <fullName>CAN CHR Ranking 2017</fullName>
+          <default>false</default>
+          <label>CAN CHR Ranking 2017</label>
+        </value>
+        <value>
+          <fullName>CAN RMV Ranking 2016</fullName>
+          <default>false</default>
+          <label>CAN RMV Ranking 2016</label>
+        </value>
+        <value>
+          <fullName>CAN RMV Ranking 2017</fullName>
+          <default>false</default>
+          <label>CAN RMV Ranking 2017</label>
+        </value>
+        <value>
+          <fullName>Caulk</fullName>
+          <default>false</default>
+          <label>Caulk</label>
+        </value>
+        <value>
+          <fullName>CCS</fullName>
+          <default>false</default>
+          <label>CCS</label>
+        </value>
+        <value>
+          <fullName>Class II</fullName>
+          <default>false</default>
+          <label>Class II</label>
+        </value>
+        <value>
+          <fullName>Class II Member</fullName>
+          <default>false</default>
+          <label>Class II Member</label>
+        </value>
+        <value>
+          <fullName>Club Rewards</fullName>
+          <default>false</default>
+          <label>Club Rewards</label>
+        </value>
+        <value>
+          <fullName>DNA</fullName>
+          <default>false</default>
+          <label>DNA</label>
+        </value>
+        <value>
+          <fullName>Emerging Markets</fullName>
+          <default>false</default>
+          <label>Emerging Markets</label>
+        </value>
+        <value>
+          <fullName>Gov</fullName>
+          <default>false</default>
+          <label>Gov</label>
+        </value>
+        <value>
+          <fullName>Gov Branches</fullName>
+          <default>false</default>
+          <label>Gov Branches</label>
+        </value>
+        <value>
+          <fullName>HART</fullName>
+          <default>false</default>
+          <label>HART</label>
+        </value>
+        <value>
+          <fullName>Hosp</fullName>
+          <default>false</default>
+          <label>Hosp</label>
+        </value>
+        <value>
+          <fullName>Hyg</fullName>
+          <default>false</default>
+          <label>Hyg</label>
+        </value>
+        <value>
+          <fullName>Hygiene</fullName>
+          <default>false</default>
+          <label>Hygiene</label>
+        </value>
+        <value>
+          <fullName>Lab</fullName>
+          <default>false</default>
+          <label>Lab</label>
+        </value>
+        <value>
+          <fullName>LGP CONTRACT</fullName>
+          <default>false</default>
+          <label>LGP CONTRACT</label>
+        </value>
+        <value>
+          <fullName>Med</fullName>
+          <default>false</default>
+          <label>Med</label>
+        </value>
+        <value>
+          <fullName>National Accounts</fullName>
+          <default>false</default>
+          <label>National Accounts</label>
+        </value>
+        <value>
+          <fullName>NDC</fullName>
+          <default>false</default>
+          <label>NDC</label>
+        </value>
+        <value>
+          <fullName>Not Enrolled</fullName>
+          <default>false</default>
+          <label>Not Enrolled</label>
+        </value>
+        <value>
+          <fullName>Other</fullName>
+          <default>false</default>
+          <label>Other</label>
+        </value>
+        <value>
+          <fullName>Professional</fullName>
+          <default>false</default>
+          <label>Professional</label>
+        </value>
+        <value>
+          <fullName>Profits</fullName>
+          <default>false</default>
+          <label>Profits</label>
+        </value>
+        <value>
+          <fullName>Prosthetics</fullName>
+          <default>false</default>
+          <label>Prosthetics</label>
+        </value>
+        <value>
+          <fullName>Prosthetics Class 2017</fullName>
+          <default>false</default>
+          <label>Prosthetics Class 2017</label>
+        </value>
+        <value>
+          <fullName>Prosthetics-MCXL</fullName>
+          <default>false</default>
+          <label>Prosthetics-MCXL</label>
+        </value>
+        <value>
+          <fullName>Prosthetics Segment 2017</fullName>
+          <default>false</default>
+          <label>Prosthetics Segment 2017</label>
+        </value>
+        <value>
+          <fullName>Restorative</fullName>
+          <default>false</default>
+          <label>Restorative</label>
+        </value>
+        <value>
+          <fullName>Rinn</fullName>
+          <default>false</default>
+          <label>Rinn</label>
+        </value>
+        <value>
+          <fullName>Single Unit</fullName>
+          <default>false</default>
+          <label>Single Unit</label>
+        </value>
+        <value>
+          <fullName>Spec</fullName>
+          <default>false</default>
+          <label>Spec</label>
+        </value>
+        <value>
+          <fullName>Trans</fullName>
+          <default>false</default>
+          <label>Trans</label>
+        </value>
+        <value>
+          <fullName>Univ</fullName>
+          <default>false</default>
+          <label>Univ</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Account Segmentation</label>
+  <listViews>
+    <fullName>All</fullName>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+  </listViews>
+  <listViews>
+    <fullName>US_Consumable_Account_Setments</fullName>
+    <columns>Segment_Division__c</columns>
+    <columns>Account_Segment_Name__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>US Consumable Account Segments</label>
+    <language>en_US</language>
+  </listViews>
+  <nameField>
+    <displayFormat>SEG-{000000}</displayFormat>
+    <label>Account Segment Name</label>
+    <trackHistory>false</trackHistory>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Account Segments</pluralLabel>
+  <searchLayouts>
+    <lookupDialogsAdditionalFields>Account_Segment_Name__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Segment_Division__c</lookupDialogsAdditionalFields>
+  </searchLayouts>
+  <sharingModel>Read</sharingModel>
+  <visibility>Public</visibility>
+</CustomObject>

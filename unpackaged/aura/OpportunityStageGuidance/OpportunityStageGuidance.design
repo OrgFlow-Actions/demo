@@ -1,0 +1,15 @@
+<design:component>
+    
+    <design:supportedFormFactors>
+        <design:supportedFormFactor type="Large"/>
+        <design:supportedFormFactor type="Small"/>
+    </design:supportedFormFactors>
+    
+    <design:attribute name="objectType" label="Object type"/>
+    <design:attribute name="recordType" label="Record Type Id"/>
+    <design:attribute name="recordTypeDeveloperName" label="Record Type Developer Name"/>
+    <design:attribute name="stageField" label="Stage field (API Name)"/>
+    <design:attribute name="countryField" label="Country field (API Name)"/>
+    <design:attribute name="categoryField" label="Category field (API Name)"/> 
+    
+</design:component>

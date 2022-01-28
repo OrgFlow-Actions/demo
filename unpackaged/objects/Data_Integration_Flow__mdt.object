@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <fields>
+    <fullName>AcceptableFailureRate__c</fullName>
+    <defaultValue>0.75</defaultValue>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Acceptable Failure Rate</label>
+    <precision>2</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <type>Percent</type>
+  </fields>
+  <fields>
+    <fullName>BatchSize__c</fullName>
+    <defaultValue>2500</defaultValue>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Batch Size</label>
+    <precision>18</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>DownloadMode__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Download Mode</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Disabled</fullName>
+          <default>true</default>
+          <label>Disabled</label>
+        </value>
+        <value>
+          <fullName>Incremental</fullName>
+          <default>false</default>
+          <label>Incremental</label>
+        </value>
+        <value>
+          <fullName>Bulk</fullName>
+          <default>false</default>
+          <label>Bulk</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>UploadMode__c</fullName>
+    <defaultValue>"Disabled"</defaultValue>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Upload Mode</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Disabled</fullName>
+          <default>true</default>
+          <label>Disabled</label>
+        </value>
+        <value>
+          <fullName>Incremental</fullName>
+          <default>false</default>
+          <label>Incremental</label>
+        </value>
+        <value>
+          <fullName>Bulk</fullName>
+          <default>false</default>
+          <label>Bulk</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Data Integration Flow</label>
+  <pluralLabel>Data Integration Flows</pluralLabel>
+  <visibility>Public</visibility>
+</CustomObject>

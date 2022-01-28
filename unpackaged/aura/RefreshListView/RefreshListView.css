@@ -1,0 +1,25 @@
+.THIS .refreshAction{
+    display: flex;
+    flex-direction: column;
+}
+.THIS .refreshStatement{
+    padding: 1rem;
+    padding-top: 2rem;
+    color: #1b5297;
+    font-style: oblique;
+    font-size : 114%;
+}
+.THIS .slds-button__icon{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 26%;
+    left: 27%;
+}
+
+.THIS .slds-button{
+    padding: 2rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+}

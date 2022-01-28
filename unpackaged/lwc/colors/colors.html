@@ -1,0 +1,23 @@
+<template>
+    <!-- <div class={statusClassName}> -->
+    <div >
+        <div if:false={isEditMode}>
+           <div class="iconStatus">
+                <lightning-icon  icon-name={icon}  title="status" size="small"  ></lightning-icon>
+            </div>
+            <div class="slds-float_right text">{_value}</div>
+            
+        </div>
+        <lightning-combobox 
+            if:true={isEditMode}
+            value={_value}
+            placeholder={_value}
+            options={options}
+            onchange={handlePicklistChange}
+        ></lightning-combobox>
+    
+        <div if:true={editable}>
+            <lightning-icon class="icon" icon-name="utility:edit" alternative-text="edit" title="edit" onclick={onclickHandle} size="xx-small"></lightning-icon>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,39 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" >
+	    <aura:attribute name="case" type="Object" access="global" />
+		<aura:attribute name="recordId" type="String" access="global" />
+    	<aura:attribute name="fieldN" type="String" access="global" />
+    	<aura:attribute name="defaultVal" type="String" access="global"/>
+    	<aura:attribute name="defaultDepVal" type="String" access="global"/>
+    	<aura:attribute name="defaultSecondDepVal" type="String" access="global"/>
+    	<aura:attribute name="defaultThirdDepVal" type="String" access="global"/>
+    	<aura:attribute name="fieldDisabled" type="Boolean" access="global" default="false"/>
+    	<aura:attribute name="disableFirstField" type="Boolean" access="global" default="false"/>    
+   		<aura:attribute name="objType" type="String" access="global" />
+    	<aura:attribute name="resId" type="String" access="global" />
+    	<aura:attribute name="depField" type="String" access="global" />
+    	<aura:attribute name="depresId" type="String" access="global"/>
+    	<aura:attribute name="depField2" type="String" access="global" />
+    	<aura:attribute name="depresId2" type="String" access="global"/>    
+    	<aura:attribute name="depField3" type="String" access="global" />
+    	<aura:attribute name="depresId3" type="String" access="global"/>
+    	<aura:attribute name="field1req" type="Boolean" access="global" default="false" />
+    	<aura:attribute name="field2req" type="Boolean" access="global" default="false"/>
+    	<aura:attribute name="field3req" type="Boolean" access="global" default="false"/>
+    	<aura:attribute name="field4req" type="Boolean" access="global" default="false"/>
+        <aura:attribute name="recordTypeId" type="String" access="global"/>
+    
+    	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+        	
+        <lightning:recordEditForm aura:id="recordViewForm" 
+                                  objectApiName="{!v.objType}"
+                                  recordTypeId="{!v.recordTypeId}"
+                                  >
+
+            <lightning:inputField aura:id="fieldValue" disabled="{!v.fieldDisabled}" required="{!v.field1req}" fieldName="{!v.fieldN}" onchange="{!c.updateVal}"/>
+            <lightning:inputField aura:id="depfieldValue" value="{!v.defaultDepVal}" fieldName="{!v.depField}" required="{!v.field2req}" onchange="{!c.updateDepVal}"/>          
+            <lightning:inputField aura:id="depfieldValue2" value="{!v.defaultSecondDepVal}" fieldName="{!v.depField2}" required="{!v.field3req}" onchange="{!c.updateDepVal}"/>            
+			<lightning:inputField aura:id="depfieldValue3" value = "{!v.defaultThirdDepVal}" fieldName="{!v.depField3}" required="{!v.field4req}" onchange="{!c.updateDepVal}"/>          
+                
+    </lightning:recordEditForm>
+    <br/>
+</aura:component>

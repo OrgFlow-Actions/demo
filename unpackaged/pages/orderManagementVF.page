@@ -1,0 +1,22 @@
+<apex:page >
+    <style>
+        .sfdcBody {
+            padding: 0 0 0 0 !important
+        }
+    </style>
+    <apex:includeLightning />
+	<div id="auraLightning"></div>
+    <script>
+    $Lightning.use("c:orderManagementLightningOutApp", function () {
+        $Lightning.createComponent(
+            "c:orderManagementCmp", {
+                sObjectName: "{!$CurrentPage.parameters.sObjectName}",
+                recordId: "{!$CurrentPage.parameters.recordId}",
+                lightningOut: true
+            },
+            "auraLightning",
+            function (cmp) {}
+        );
+    });
+    </script>
+</apex:page>

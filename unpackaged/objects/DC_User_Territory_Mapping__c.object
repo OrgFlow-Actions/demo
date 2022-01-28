@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <customSettingsType>List</customSettingsType>
+  <enableFeeds>false</enableFeeds>
+  <fields>
+    <fullName>User_Territory_10__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 10</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_11__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 11</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_12__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 12</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_13__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 13</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_14__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 14</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_15__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 15</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_16__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 16</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_17__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 17</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_18__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 18</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_19__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 19</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_1__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 1</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_20__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 20</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_21__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 21</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_22__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 22</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_23__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 23</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_24__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 24</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_25__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 25</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_2__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 2</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_3__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 3</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_4__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 4</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_5__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 5</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_6__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 6</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_7__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 7</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_8__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 8</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>User_Territory_9__c</fullName>
+    <externalId>false</externalId>
+    <label>User Territory 9</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <label>DC User Territory Mapping</label>
+  <visibility>Public</visibility>
+</CustomObject>

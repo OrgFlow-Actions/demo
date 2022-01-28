@@ -1,0 +1,44 @@
+<apex:page standardController="User" extensions="UserToReportPackage" action="{!fetchRecords}">
+<br/>
+<apex:pageBlock title="Current selection">
+<table>
+<tr>
+<td>User:</td>
+<td><a href="/{!UsName.Id}">{!UsName.Name}</a></td>
+</tr>
+<tr>
+<td width="200px">
+Selected report package: 
+</td>
+<td>
+<a href="/{!CurrentReportPackage.Id}" target="_blank">{!CurrentReportPackage.Name}</a>
+</td>
+</tr>
+<tr><td/><td/></tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+</apex:pageBlock>
+
+<apex:pageBlock title="Update report package">
+<apex:form >
+<table>
+<tr>
+<td>
+
+<apex:selectRadio layout="pagedirection" value="{!getRadioValue}">
+                <apex:selectOptions value="{!DealerOptions}">                
+                </apex:selectOptions>
+</apex:selectRadio>
+
+</td>
+</tr>
+</table>
+<apex:commandButton action="{!saveReport}" value="Save changes" />
+</apex:form>
+</apex:PageBlock>
+
+</apex:page>

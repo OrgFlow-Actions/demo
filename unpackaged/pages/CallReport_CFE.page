@@ -1,0 +1,20 @@
+<apex:page lightningStylesheets="true" standardStylesheets="true" standardController="Event">
+    <apex:pageBlock >
+        <apex:pageBlockSection rendered="{!Event.Call_Report__r.Call_Notes__c == null}">
+            <h3>{!$Label.CallReport_NoneAvailable}</h3>
+        </apex:pageBlockSection>        
+        <apex:pageBlockSection rendered="{!Event.Call_Report__r.Call_Notes__c != null}">
+            <apex:outputField value="{!Event.Call_Report__r.Call_Notes__c}" />                
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_ENDO__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Endodontics')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_IMPL__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Implants')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_ORTH__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Orthodontics')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_PREV__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Preventive')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_PROS__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Prosthetics')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_REST__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Restorative')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_CDCM__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'CAD/CAM')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_INST__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Instruments')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_TRCE__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Treatment Centers')}" />
+            <apex:outputField value="{!Event.Call_Report__r.Products_discussed_IMAG__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Imaging Systems')}" />
+           </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

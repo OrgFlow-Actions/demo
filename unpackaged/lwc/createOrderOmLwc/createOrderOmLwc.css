@@ -1,0 +1,6 @@
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .slds-grid_vertical-align-center {
+        padding-left: var(--lwc-spacingMedium);
+        padding-right: var(--lwc-spacingMedium);
+    }
+}

@@ -1,0 +1,7 @@
+<design:component >
+    <design:attribute name="nextLabel" label="Next button label"/>
+    <design:attribute name="finishLabel" label="Finish button label"/>
+    <design:attribute name="canBackCustom" label="Custom Previous button"/>
+    <design:attribute name="backCustomLabel" label="Previous button label"/>
+    <design:attribute name="nextChoice" label="Selected action"/>
+</design:component>

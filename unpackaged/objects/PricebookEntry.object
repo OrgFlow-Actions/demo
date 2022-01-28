@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>AddPricebookEntryOnPricebook</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddPricebookEntryOnPricebook</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddPricebookEntryOnPricebook</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddPricebookEntryOnProduct</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddPricebookEntryOnProduct</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddPricebookEntryOnProduct</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddStandardPrice</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddStandardPrice</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>AddStandardPrice</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <enableFeeds>false</enableFeeds>
+  <fields>
+    <fullName>Distributor_price__c</fullName>
+    <externalId>false</externalId>
+    <label>Distributor price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Dummy_Field__c</fullName>
+    <externalId>false</externalId>
+    <label>Dummy Field</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IsActive</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>LocalProductDescription__c</fullName>
+    <description>TFUS-000001282</description>
+    <externalId>false</externalId>
+    <label>Local Product Description</label>
+    <length>120</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>No_Contract__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>No Contract</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Pricebook2Id</fullName>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Product2Id</fullName>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>ProductCode</fullName>
+  </fields>
+  <fields>
+    <fullName>Retail_Price__c</fullName>
+    <description>To be filled with the retail price if the Pricebook has wholesale prices</description>
+    <externalId>false</externalId>
+    <label>Retail Price</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>StandardPrice</fullName>
+  </fields>
+  <fields>
+    <fullName>UnitPrice</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>UseStandardPrice</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>Wholesale_Price__c</fullName>
+    <externalId>false</externalId>
+    <label>Wholesale Price</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+  </fields>
+  <listViews>
+    <fullName>Iberia_Implant_Pricebook_sku</fullName>
+    <columns>PRODUCT.NAME</columns>
+    <columns>PRODUCT.DEFAULT_PRICE</columns>
+    <columns>PRODUCT.ACTIVE</columns>
+    <columns>Product2.Article__c</columns>
+    <filterScope>Queue</filterScope>
+    <label>Iberia Implant Pricebook with sku</label>
+    <language>en_US</language>
+    <queue>Iberia Implant Price Book</queue>
+    <sharedTo>
+      <role>IB_CRM_Analyst</role>
+    </sharedTo>
+  </listViews>
+  <listViews>
+    <fullName>Iberia_Ortho_Pricebook_with_SKU</fullName>
+    <columns>Product2.Article__c</columns>
+    <columns>PRODUCT.NAME</columns>
+    <columns>PRODUCT.DEFAULT_PRICE</columns>
+    <columns>PRODUCT.ACTIVE</columns>
+    <filterScope>Queue</filterScope>
+    <label>Iberia Ortho Pricebook with SKU</label>
+    <language>en_US</language>
+    <queue>Iberia Ortho Price Book</queue>
+    <sharedTo>
+      <role>IB_CRM_Analyst</role>
+      <role>IB_Shared_Services</role>
+    </sharedTo>
+  </listViews>
+  <searchLayouts>
+    <searchResultsAdditionalFields>PRODUCT.NAME</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>PRODUCT.DEFAULT_PRICE</searchResultsAdditionalFields>
+  </searchLayouts>
+  <validationRules>
+    <fullName>Check_market</fullName>
+    <active>true</active>
+    <description>#3279</description>
+    <errorConditionFormula>AND(
+TEXT(Pricebook2.Market__c)&lt;&gt; TEXT( $User.Market__c ), TEXT(Pricebook2.Market__c)&lt;&gt; TEXT( $User.User_Country__c ),
+$User.Profile__c &lt;&gt; "#System: System Administrator", 
+$User.Id &lt;&gt; "00520000001CBYl",
+$User.Profile__c &lt;&gt; "#System: OrgFlow",
+Product2.RecordType.Id &lt;&gt; '0126M000000R5KX'
+)</errorConditionFormula>
+    <errorMessage>You cannot edit price book entries that are not connected to your market</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>NotAllowedToAddInPricebook</fullName>
+    <active>true</active>
+    <errorConditionFormula>Pricebook2.ShowPricingfromMicroServiceOM__c
+&amp;&amp;
+(Pricebook2.CompanyCode__c != Product2.Company_Code__c
+||
+text(Pricebook2.SourceId__c) != text(Product2.ERP_Source__c))</errorConditionFormula>
+    <errorMessage>This Product is not matching Pricebook Company Code or Source</errorMessage>
+  </validationRules>
+</CustomObject>

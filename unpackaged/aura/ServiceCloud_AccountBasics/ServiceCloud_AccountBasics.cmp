@@ -1,0 +1,48 @@
+<aura:component controller="ServiceCloud_Account" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="acc" type="Object"/>
+    
+     <aura:attribute name="headerTitle" type="Aura.Component[]">
+        <h2>
+            <b>Addresses</b>
+        </h2>
+    </aura:attribute>
+        
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="Account">
+    
+    <!--<force:recordData aura:id="forceRecord"
+                 recordId="{!v.recordId}"     
+                 layoutType="FULL"
+                 targetFields="{!v.acc}"
+                 mode="VIEW" /> -->
+       
+        <lightning:card iconName="standard:account" title="{!v.headerTitle}">    
+			<div class="slds-grid slds-wrap slds-p-around--x-small slds-grow-none slds-size--1-of-1">
+                 <div class="slds-col slds-size--1-of-1 slds-x-large-size--1-of-2"> 
+                	<lightning:outputField fieldName="ShippingAddress"/>
+                 </div>
+                 <div class="slds-col slds-size--1-of-1 slds-x-large-size--1-of-2">
+                    <lightning:outputField fieldName="BillingAddress"/>
+                </div>    
+            </div>    
+            
+            
+            <!--<p class="slds-p-horizontal_small">
+            <table>
+            <tr>
+            <th scope="col" class="slds-align-top">    
+            <lightning:outputField fieldName="ShippingAddress"/>
+            </th>
+            <th scope="col" class="slds-align-top">
+            <lightning:outputField fieldName="BillingAddress"/>    
+            </th>
+                </tr>
+                </table>
+            </p> -->
+        </lightning:card>
+    
+    </lightning:recordEditForm>
+             
+</aura:component>

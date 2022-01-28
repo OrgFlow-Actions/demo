@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <fields>
+    <fullName>Picklist_Value__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Picklist Value</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>To Call</fullName>
+          <default>true</default>
+          <label>To Call</label>
+        </value>
+        <value>
+          <fullName>In Progress</fullName>
+          <default>false</default>
+          <label>In Progress</label>
+        </value>
+        <value>
+          <fullName>Busy</fullName>
+          <default>false</default>
+          <label>Busy</label>
+        </value>
+        <value>
+          <fullName>No Answer</fullName>
+          <default>false</default>
+          <label>No Answer</label>
+        </value>
+        <value>
+          <fullName>Left Message</fullName>
+          <default>false</default>
+          <label>Left Message</label>
+        </value>
+        <value>
+          <fullName>Call Back Later</fullName>
+          <default>false</default>
+          <label>Call Back Later</label>
+        </value>
+        <value>
+          <fullName>Call Completed</fullName>
+          <default>false</default>
+          <label>Call Completed</label>
+        </value>
+        <value>
+          <fullName>Not Completed</fullName>
+          <default>false</default>
+          <label>Not Completed</label>
+        </value>
+        <value>
+          <fullName>Bounced</fullName>
+          <default>false</default>
+          <label>Bounced</label>
+        </value>
+        <value>
+          <fullName>Failure</fullName>
+          <default>false</default>
+          <label>Failure</label>
+        </value>
+        <value>
+          <fullName>Sent</fullName>
+          <default>false</default>
+          <label>Sent</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Inside Sales Campaign Picklist</label>
+  <pluralLabel>Inside Sales Campaign Picklists</pluralLabel>
+  <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,15 @@
+<apex:page >
+    <apex:includeLightning />
+	<div id="auraLightning"></div>
+    <script>
+    $Lightning.use("c:orderDealerLightningOutApp", function() {
+        $Lightning.createComponent(
+            "c:Dealer_Search_Box",
+            { recordId : "{!$CurrentPage.parameters.recordId}"},
+            "auraLightning",
+            function(cmp) {
+            }
+        );
+    });
+    </script>
+</apex:page>

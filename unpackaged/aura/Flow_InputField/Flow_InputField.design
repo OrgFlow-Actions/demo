@@ -1,0 +1,11 @@
+<design:component>
+   <design:attribute name="caseId" label="Record Id" />
+   <design:attribute name="resId" label="Result Id" />
+   <design:attribute name="fieldN" label="Field name" />
+   <design:attribute name="fieldVal" label="Field value" />
+   <design:attribute name="fieldValNumber" label="Field value (number/currency)" /> 
+   <design:attribute name="objType" label="Object type" />
+    <design:attribute name="recordTypeId" label="Record type Id" />
+    <design:attribute name="readOnly" label="Read only" />
+    
+</design:component>

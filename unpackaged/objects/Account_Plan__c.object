@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override updated by Lightning App Builder during activation.</comment>
+    <content>Lightning_Account_Plan_Record</content>
+    <formFactor>Large</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override updated by Lightning App Builder during activation.</comment>
+    <content>Lightning_Account_Plan_Record</content>
+    <formFactor>Small</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <allowInChatterGroups>true</allowInChatterGroups>
+  <compactLayoutAssignment>Account_Plan</compactLayoutAssignment>
+  <compactLayouts>
+    <fullName>Account_Plan</fullName>
+    <fields>Name</fields>
+    <fields>Account__c</fields>
+    <fields>Year__c</fields>
+    <fields>AccountPlanOwner__c</fields>
+    <label>Account Plan</label>
+  </compactLayouts>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>Account planning is the process of mapping out important details about your customer, including information about their decision-making process, the companies you're competing with to close them, and the overall strategy to win them over, retain and grow them.
+
+An Account plan is yearly-based as it's typically something you create at the beginning of the year and you keep track of your progress throughout the months.
+
+This account plan is based on the "OGSM" strategic planning methodology: an OGSM is a written and easily communicated statement of an organization’s Objective, Goals, Strategies and Measures. OGSM brings alignment, transparency of priorities and metrics that define success.</description>
+  <enableActivities>true</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>true</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>AccountPlanOwner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Account Plan Owner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts_Plans</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Account_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>If (NOT(ISBLANK(Account__r.ShippingAddress)) , 
+Account__r.ShippingStreet &amp;" "&amp; Account__r.ShippingCity &amp;" "&amp; Account__r.ShippingState &amp;" "&amp; Account__r.ShippingPostalCode,
+Account__r.BillingStreet &amp;" "&amp; Account__r.BillingCity &amp;" "&amp; Account__r.BillingState &amp;" "&amp; Account__r.BillingPostalCode
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account_OneSF_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.OneSF_Id__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account OneSF ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account_Plan_Description__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Plan Highlights</label>
+    <length>32768</length>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Account_Plan_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Plan Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Active</fullName>
+          <default>false</default>
+          <label>Active</label>
+        </value>
+        <value>
+          <fullName>Retired</fullName>
+          <default>false</default>
+          <label>Retired</label>
+        </value>
+        <value>
+          <fullName>Cancelled</fullName>
+          <default>false</default>
+          <label>Cancelled</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Account_Segment__c</fullName>
+    <externalId>false</externalId>
+    <formula>TEXT(Account__r.Segment__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Segment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account__c</fullName>
+    <externalId>false</externalId>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Account Plans</relationshipLabel>
+    <relationshipName>Account_Plans</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Acquisitions__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>How many acquisitions did your customer acquire this year?</inlineHelpText>
+    <label>Acquisitions</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>AddSurgicalOperatory__c</fullName>
+    <externalId>false</externalId>
+    <label>Add Surgical Operatory</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>AddingAssociates__c</fullName>
+    <externalId>false</externalId>
+    <label>Adding Associate(s)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>BusinessUnits__c</fullName>
+    <description>Select the business units that apply to this account in order to mass generate financial records per Business Unit</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the business units that apply to this account in order to mass generate financial records per Business Unit</inlineHelpText>
+    <label>Business Unit(s)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>CAD/CAM</fullName>
+          <default>false</default>
+          <label>CAD/CAM</label>
+        </value>
+        <value>
+          <fullName>Endodontics</fullName>
+          <default>false</default>
+          <label>Endodontics</label>
+        </value>
+        <value>
+          <fullName>Imaging</fullName>
+          <default>false</default>
+          <label>Imaging</label>
+        </value>
+        <value>
+          <fullName>Implants</fullName>
+          <default>false</default>
+          <label>Implants</label>
+        </value>
+        <value>
+          <fullName>Lab (Prosthetics)</fullName>
+          <default>false</default>
+          <label>Lab (Prosthetics)</label>
+        </value>
+        <value>
+          <fullName>Orthodontics</fullName>
+          <default>false</default>
+          <label>Orthodontics</label>
+        </value>
+        <value>
+          <fullName>Preventive</fullName>
+          <default>false</default>
+          <label>Preventive</label>
+        </value>
+        <value>
+          <fullName>Restorative</fullName>
+          <default>false</default>
+          <label>Restorative</label>
+        </value>
+        <value>
+          <fullName>Treatment Centers</fullName>
+          <default>false</default>
+          <label>Treatment Centers</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+  </fields>
+  <fields>
+    <fullName>CBCT3D__c</fullName>
+    <externalId>false</externalId>
+    <label>CBCT / 3D</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ChairDeliverySystemTreatmentCent__c</fullName>
+    <externalId>false</externalId>
+    <label>Chair/Delivery System/Treatment Center</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Denovo__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>How many new acquisitions is your customer predicting to acquire this year?</inlineHelpText>
+    <label>Denovo</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>DigitalScanner__c</fullName>
+    <externalId>false</externalId>
+    <label>Digital Scanner</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>EndodonticsNotes__c</fullName>
+    <externalId>false</externalId>
+    <label>Endodontics Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>FollowUpNotes__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter your Account Plan Notes that you want to track (e.g. Quarterly Business Review, ...)</inlineHelpText>
+    <label>Follow-Up Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>HygieneOperatory__c</fullName>
+    <externalId>false</externalId>
+    <label>Hygiene Operatory</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ImplantsNotes__c</fullName>
+    <externalId>false</externalId>
+    <label>Implants Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>KeyDecisions__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What are the decisions that have been made?</inlineHelpText>
+    <label>Key Decisions</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>MillOven__c</fullName>
+    <externalId>false</externalId>
+    <label>Mill / Oven</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Offices__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Automatically calculated upon creation of the Account Plan (Based on the # of Accounts related to this account in the hierarchy)</inlineHelpText>
+    <label>Offices</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>OpeningNewPractice__c</fullName>
+    <externalId>false</externalId>
+    <label>Opening New Practice(s)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>OrthodonticsNotes__c</fullName>
+    <externalId>false</externalId>
+    <label>Orthodontics Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Pan__c</fullName>
+    <externalId>false</externalId>
+    <label>Pan</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>PracticeOpeningExpansionProgram__c</fullName>
+    <description>TFUS-000003331</description>
+    <externalId>false</externalId>
+    <label>Practice Opening or Expansion Program</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Practice Opening</fullName>
+          <default>false</default>
+          <label>Practice Opening</label>
+        </value>
+        <value>
+          <fullName>Practice Expansion</fullName>
+          <default>false</default>
+          <label>Practice Expansion</label>
+        </value>
+        <value>
+          <fullName>Not Applicable</fullName>
+          <default>false</default>
+          <label>Not Applicable</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>PreventiveNotes__c</fullName>
+    <description>TFUS-000003175</description>
+    <externalId>false</externalId>
+    <label>Preventive Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>PurchasingExistingPractice__c</fullName>
+    <externalId>false</externalId>
+    <label>Purchasing Existing Practice(s)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Relocating__c</fullName>
+    <externalId>false</externalId>
+    <label>Relocating</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>No Plans</fullName>
+          <default>false</default>
+          <label>No Plans</label>
+        </value>
+        <value>
+          <fullName>Yes - 0-12 Months</fullName>
+          <default>false</default>
+          <label>Yes - 0-12 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 12-24 Months</fullName>
+          <default>false</default>
+          <label>Yes - 12-24 Months</label>
+        </value>
+        <value>
+          <fullName>Yes - 24+ Months</fullName>
+          <default>false</default>
+          <label>Yes - 24+ Months</label>
+        </value>
+        <value>
+          <fullName>Yes - Unknown Timeline</fullName>
+          <default>false</default>
+          <label>Yes - Unknown Timeline</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>RestorativeNotes__c</fullName>
+    <description>TFUS-000003175</description>
+    <externalId>false</externalId>
+    <label>Restorative Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Start_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Start Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>TotalAnnualGrowthTotalQuota__c</fullName>
+    <externalId>false</externalId>
+    <formula>TotalLatestEstimate__c -  TotalAnnualSalesQuota__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Annual Growth vs Total Quota</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>TotalAnnualSalesQuota__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Annual Sales Quota</label>
+    <summarizedField>AccountPlanEstimates__c.AnnualSalesQuota__c</summarizedField>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <fields>
+    <fullName>TotalDSMarketShareAverage__c</fullName>
+    <externalId>false</externalId>
+    <formula>TotalDSMarketShare__c /  ofQuotaLines__c</formula>
+    <label>Total DS Market Share Average</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+  </fields>
+  <fields>
+    <fullName>TotalDSMarketShare__c</fullName>
+    <externalId>false</externalId>
+    <label>Total DS Market Share %</label>
+    <summarizedField>AccountPlanEstimates__c.DSMarketShare__c</summarizedField>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <fields>
+    <fullName>TotalLatestEstimate__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Latest Estimate (LE)</label>
+    <summarizedField>AccountPlanEstimates__c.LatestEstimate__c</summarizedField>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <fields>
+    <fullName>TotalQ1SalesQuota__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Q1 Sales Quota</label>
+    <summarizedField>AccountPlanEstimates__c.Q1SalesQuota__c</summarizedField>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <fields>
+    <fullName>TotalQ2SalesQuota__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Q2 Sales Quota</label>
+    <summarizedField>AccountPlanEstimates__c.Q2SalesQuota__c</summarizedField>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <fields>
+    <fullName>TotalQ3SalesQuota__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Q3 Sales Quota</label>
+    <summarizedField>AccountPlanEstimates__c.Q3SalesQuota__c</summarizedField>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <fields>
+    <fullName>TotalQ4SalesQuota__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Q4 Sales Quota</label>
+    <summarizedField>AccountPlanEstimates__c.Q4SalesQuota__c</summarizedField>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <fields>
+    <fullName>Year__c</fullName>
+    <defaultValue>TEXT(YEAR(Today()))</defaultValue>
+    <externalId>false</externalId>
+    <label>Calendar Year</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>2019</fullName>
+          <default>false</default>
+          <label>2019</label>
+        </value>
+        <value>
+          <fullName>2020</fullName>
+          <default>false</default>
+          <label>2020</label>
+        </value>
+        <value>
+          <fullName>2021</fullName>
+          <default>false</default>
+          <label>2021</label>
+        </value>
+        <value>
+          <fullName>2022</fullName>
+          <default>false</default>
+          <label>2022</label>
+        </value>
+        <value>
+          <fullName>2023</fullName>
+          <default>false</default>
+          <label>2023</label>
+        </value>
+        <value>
+          <fullName>2024</fullName>
+          <default>false</default>
+          <label>2024</label>
+        </value>
+        <value>
+          <fullName>2025</fullName>
+          <default>false</default>
+          <label>2025</label>
+        </value>
+        <value>
+          <fullName>TEXT(Year(22 November 2021))</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>TEXT(Year(22 November 2021))</label>
+        </value>
+        <value>
+          <fullName>Year(22 November 2021)</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>Year(22 November 2021)</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ofQuotaLines__c</fullName>
+    <externalId>false</externalId>
+    <label># of Quota Lines</label>
+    <summaryForeignKey>AccountPlanEstimates__c.AccountPlan__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+  </fields>
+  <label>Account Plan</label>
+  <listViews>
+    <fullName>All_Account_Plans</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Year__c</columns>
+    <columns>AccountPlanOwner__c</columns>
+    <columns>Offices__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Account Plans</label>
+  </listViews>
+  <listViews>
+    <fullName>NA_DSO_Account_Plans</fullName>
+    <booleanFilter>1 OR 2 OR 3</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Year__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+      <field>AccountPlanOwner__c</field>
+      <operation>contains</operation>
+      <value>Nikki</value>
+    </filters>
+    <filters>
+      <field>AccountPlanOwner__c</field>
+      <operation>contains</operation>
+      <value>hideyoshi</value>
+    </filters>
+    <filters>
+      <field>AccountPlanOwner__c</field>
+      <operation>contains</operation>
+      <value>Hoover</value>
+    </filters>
+    <label>NA DSO Account Plans</label>
+  </listViews>
+  <nameField>
+    <label>Account Plan #</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+  </nameField>
+  <pluralLabel>Account Plans</pluralLabel>
+  <searchLayouts />
+  <sharingModel>ControlledByParent</sharingModel>
+  <visibility>Public</visibility>
+</CustomObject>

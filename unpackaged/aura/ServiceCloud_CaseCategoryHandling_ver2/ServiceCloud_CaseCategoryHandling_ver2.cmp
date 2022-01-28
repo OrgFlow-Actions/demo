@@ -1,0 +1,159 @@
+<aura:component controller="ServiceCloud_Case" implements="lightning:availableForFlowScreens" access="global" >
+	    <aura:attribute name="case" type="Object" access="global" />
+		<aura:attribute name="caseId" type="String" access="global" />
+    	<aura:attribute name="fieldN" type="String" access="global" />
+    	<aura:attribute name="defaultVal" type="String" access="global"/>
+    	<aura:attribute name="defaultDepVal" type="String" access="global"/>
+		<aura:attribute name="defaultDepVal2" type="String" access="global"/>
+   		<aura:attribute name="objType" type="String" access="global" />
+    	<aura:attribute name="resId" type="String" access="global" />
+    	<aura:attribute name="depField" type="String" access="global" />
+    	<aura:attribute name="depresId" type="String" access="global"/>
+    	<aura:attribute name="depField2" type="String" access="global" />   	
+    	<aura:attribute name="depres2Id" type="String" access="global"/>
+    
+    	<!-- Answer attributes -->
+    	<aura:attribute name="questions" type="SC_Case_Questionnaire__mdt[]" access="public" default="[]"/>
+    	<aura:attribute name="specificQuestions" type="SC_Case_Questionnaire__mdt" access="public" default="[]"/>
+    	<aura:attribute name="orderNumber" type="String" access="global" default=""/>
+    	<aura:attribute name="itemNumber" type="String" access="global" default=""/>
+    	<aura:attribute name="trackingNumber" type="String" access="global" default=""/>
+    	<aura:attribute name="invoiceNumber" type="String" access="global" default=""/>
+		<aura:attribute name="lotNumber" type="String" access="global" default=""/>     
+    	<aura:attribute name="carrier" type="String" access="global" default=""/> 
+    	<aura:attribute name="Credit_Rebill" type="String" access="global" default=""/> 
+    	<aura:attribute name="New_or_Replacement_Order" type="String" access="global" default=""/> 
+    	<aura:attribute name="timeOfContact" type="DateTime" access="global"/>  	
+   		<aura:attribute name="returnNumber" type="String" access="global" default=""/>
+    	<aura:attribute name="softwareName" type="String" access="global" default=""/> 
+    	<aura:attribute name="expirationDate" type="Date" access="global" default=""/> 
+    	<aura:attribute name="correctValue" type="String" access="global" default=""/> 	
+    	<aura:attribute name="incorrectValue" type="String" access="global" default=""/>
+    	<aura:attribute name="amount" type="Integer" access="global"/>
+    
+    	<aura:attribute name="descriptionString" type="String" access="global" default=""/>
+    
+    	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    	<aura:attribute name="accountId" type="String" access="global" />
+        	
+        <lightning:recordEditForm aura:id="recordViewForm" 
+                                     recordId="{!v.caseId}"
+                                  	 recordTypeId="01220000000AvOOAA0"
+                                     objectApiName="Case"
+                                  	 >
+           <lightning:messages />
+
+            			<lightning:inputField aura:id="fieldCatValue" value="{!v.defaultVal}" fieldName="{!v.fieldN}" onchange="{!c.updateVal}"/>                  
+                        
+            			<lightning:inputField aura:id="depfieldCatValue" value="{!v.defaultDepVal}" fieldName="{!v.depField}" onchange="{!c.updateDepVal}" />
+    					
+            			<lightning:inputField aura:id="depfieldCatValue2"  value="{!v.defaultDepVal2}" fieldName="{!v.depField2}" onchange="{!c.updateDepVal}" />			
+            			
+            
+           	<aura:if isTrue="{!v.specificQuestions.Order_number__c == true}">
+                <br/>
+                <lightning:inputField aura:id="orderNumber" value="" fieldName="Order_Number__c" onchange="{!c.updateAnswers}"/>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Item_number__c == true}">
+                <br/>
+                <lightning:inputField aura:id="itemNumber" fieldName="Article_Number__c" onchange="{!c.updateAnswers}"/>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Invoice_number__c == true}">
+                <br/>
+                <lightning:inputField aura:id="invoiceNumber" value="" fieldName="Invoice_Number__c" onchange="{!c.updateAnswers}"/>
+                <!--div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">{!$Label.c.Invoice_number}</label>    
+                <ui:inputText aura:id="invoiceNumber" value="{!v.invoiceNumber}" change="{!c.updateAnswers}"/>
+                </div-->  
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Amount__c == true}">
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">{!$Label.c.Amount}</label>    
+                <ui:inputCurrency aura:id="amount" value="{!v.amount}" change="{!c.updateAnswers}"/>
+                </div>            
+            </aura:if> 
+            
+            <aura:if isTrue="{!v.specificQuestions.Expirationdate__c == true}">
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">{!$Label.c.Date}</label>    
+                <ui:inputDate displayDatePicker="true" aura:id="date" value="{!v.expirationDate}" change="{!c.updateAnswers}"/>
+               </div>           
+            </aura:if>  
+            
+            <aura:if isTrue="{!v.specificQuestions.LOT_number__c == true}">
+                <br/>
+                <lightning:inputField aura:id="LotNumber" fieldName="Lot_Number__c" onchange="{!c.updateAnswers}"/>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Carrier__c == true}">
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">{!$Label.c.Carrier}</label>    
+                <ui:inputText value="{!v.carrier}" change="{!c.updateAnswers}"/>
+                </div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Credit_Rebill__c == true}">
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">{!$Label.c.Credit_Rebill}</label>    
+                <ui:inputText value="{!v.Credit_Rebill}" change="{!c.updateAnswers}"/>
+                </div>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.New_or_Replacement_Order__c == true}">
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">{!$Label.c.New_or_Replacement_Order}</label>    
+                <ui:inputText value="{!v.New_or_Replacement_Order}" change="{!c.updateAnswers}"/>
+                </div>
+            </aura:if>
+               
+            <aura:if isTrue="{!v.specificQuestions.Tracking_number__c == true}">
+                <br/>
+                <lightning:inputField aura:id="trackingNumber" fieldName="Tracking_number__c" onchange="{!c.updateAnswers}"/>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Softwarename__c == true}">
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">Software Name</label>
+                <ui:inputText value="{!v.softwareName}" change="{!c.updateAnswers}"/>
+                </div>    
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Correctionofvalue__c == true}">
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">Incorrect/actual value</label>
+                <ui:inputText value="{!v.incorrectValue}" change="{!c.updateAnswers}"/>
+                </div> 
+                <br/>
+                <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">Correct value</label>
+                <ui:inputText value="{!v.correctValue}" change="{!c.updateAnswers}"/>
+                </div> 
+               
+            </aura:if>
+            
+            <aura:if isTrue="{!v.specificQuestions.Returnnumber__c == true}">
+                <br/>
+                <!--<div class="slds-form-element">
+                <label class="slds-form-element__label">Return number</label>
+                    <ui:inputText value="{!v.returnNumber}" change="{!c.updateAnswers}"/>   
+                </div>-->
+                <lightning:inputField aura:id="returnNumber" fieldName="Return_Tracking_Number__c" onchange="{!c.updateAnswers}"/>
+                <br/>
+                <lightning:inputField fieldName="Returned_Product_Received_Date__c" onchange="{!c.updateAnswers}"/>
+            </aura:if>
+            
+    </lightning:recordEditForm>
+          
+    <br/>
+</aura:component>

@@ -1,0 +1,21 @@
+<aura:component
+    implements="force:lightningQuickActionWithoutHeader,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+    access="global">
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .cuf-scroller-content {
+        background: rgb(255, 255, 255) !important;
+        }
+        .cuf-scroller-inside {
+        padding: 0 0rem !important;
+        }
+        .slds-modal__content {
+        padding: 0rem !important;
+        height: unset !important;
+        max-height: 75vh !important;
+        }
+    </aura:html>
+    <c:orderDealerLwc recordId="{! v.recordId}" onrefresh="{! c.refreshQA}" onclose="{! c.closeQA}"></c:orderDealerLwc>
+</aura:component>

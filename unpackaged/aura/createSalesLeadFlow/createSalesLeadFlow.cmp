@@ -1,0 +1,20 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction,lightning:actionOverride" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="testVar" type="String" />
+    <aura:attribute name="pageReference" type="Object"/>
+    
+    <section role="dialog" tabindex="-1" class="slds-modal slds-backdrop slds-fade-in-open slds-modal_large" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                        <h2 class="slds-text-heading--medium">New Sales Lead</h2>
+                </div>
+            
+                <div class="slds-modal__content slds-p-around--medium" style="overflow: auto"> <!-- slds-grid slds-wrap -->
+                        <lightning:flow aura:id="flowData" />
+                </div>
+            
+        </div>     
+    </section>
+</aura:component>

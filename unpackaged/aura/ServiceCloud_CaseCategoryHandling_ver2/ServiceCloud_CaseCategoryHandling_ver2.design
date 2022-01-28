@@ -1,0 +1,31 @@
+<design:component>
+   <design:attribute name="caseId" label="Object Id" />
+   <design:attribute name="resId" label="Result Id" />
+   <design:attribute name="depresId" label="Dependent Result Id" />
+   <design:attribute name="depres2Id" label="Dependent Result 2 Id" />
+   <design:attribute name="fieldN" label="Field name" />
+   <design:attribute name="depField" label="Dependent field name" />
+   <design:attribute name="depField2" label="Second dependent field name" />
+   <design:attribute name="defaultVal" label="Default value" />
+   <design:attribute name="defaultDepVal" label="Default dependent value" />
+   <design:attribute name="defaultDepVal2" label="Second default dependent value" />
+   <design:attribute name="objType" label="Object type" /> 
+   
+   <!-- Answer attributes --> 
+   <design:attribute name="orderNumber" label="Order number (output)"/>
+   <design:attribute name="invoiceNumber" label="Invoice number (output)"/>
+   <design:attribute name="itemNumber" label="Article/item number (output)"/>
+   <design:attribute name="trackingNumber" label="Tracking number (output)"/>
+   <design:attribute name="carrier" label="Carrier (output)"/>
+   <design:attribute name="Credit_Rebill" label="Credit_Rebill (output)"/>
+   <design:attribute name="New_or_Replacement_Order" label="New_or_Replacement_Order (output)"/>
+   <design:attribute name="timeOfContact" label="Date/time of contact (output)"/>
+   <design:attribute name="returnNumber" label="Return number (output)"/>
+   <design:attribute name="softwareName" label="Software name (output)"/>
+   <design:attribute name="expirationDate" label="Expiration date (output)"/>
+   <design:attribute name="correctValue" label="Correct value (output)"/>   
+   <design:attribute name="incorrectValue" label="Incorrect value (output)"/>
+   
+   <design:attribute name="descriptionString" label="Description (output)"/>
+    
+</design:component>

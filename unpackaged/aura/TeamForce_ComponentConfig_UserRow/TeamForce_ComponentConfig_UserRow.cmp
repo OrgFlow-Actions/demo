@@ -1,0 +1,50 @@
+<aura:component controller="LightningCompSetup" implements="flexipage:availableForAllPageTypes">
+	    <aura:attribute access="public" name="UserInstance" type="User"/>
+    	<aura:attribute access="public" name="rowIndex" type="Integer" default="0"/>
+    	<aura:attribute access="public" name="Teams" type="object[]"/>
+		<aura:attribute access="public" name="ChosenTeam" type="object" default="{!v.UserInstance.Team_Setup_ID__c}"/>    
+    	
+    	<aura:registerEvent name="LightningComponentUserEv" type="c:LightningComponentUserEv"/> 
+    
+        <tr>
+                <th scope="row">
+            		<div class="slds-truncate">
+                      {!v.UserInstance.FirstName +' ' + v.UserInstance.LastName}                     
+                    </div>             
+            	</th> 
+                <th scope="row">
+            		
+ 
+                        <ui:inputSelect change="{!c.onUserUpdate}" value="{!v.ChosenTeam}" updateOn="change">                
+                				<ui:inputSelectOption text="" label=""/>
+                				<aura:iteration items="{!v.Teams}" var="TeamObj">
+                                    <ui:inputSelectOption aura:id="RowSel" text="{!TeamObj.Label}" label="{!TeamObj.Label}" value="{!TeamObj.Label == v.UserInstance.Team_Setup_ID__c}" />
+             					</aura:iteration>
+            			</ui:inputSelect>
+                        
+                        <!--<lightning:select name="test" onchange="{!c.onUserUpdate}" value="{!v.ChosenTeam}">
+                        	<option value=""></option>
+                				<aura:iteration items="{!v.Teams}" var="TeamObj" >
+                                    <option value="{!TeamObj.Label}">{!TeamObj.Label}</option>
+             					</aura:iteration>                                                
+                        </lightning:select>-->
+                                 
+            	</th>
+                <th scope="row">
+            		<div class="slds-truncate">
+						{!v.UserInstance.User_Country__c}
+                    </div>                
+            	</th>               
+            	<th scope="row">
+            		<div class="slds-truncate">
+						{!v.UserInstance.Profile__c}
+                    </div>               
+            	</th>
+                <th scope="row">
+              
+            	</th>
+                
+            </tr>  
+    
+    
+</aura:component>

@@ -1,0 +1,37 @@
+<template>
+    <section aria-labelledby="panel-heading-id" class="slds-popover slds-popover_panel slds-nubbin_left-top"
+        role="dialog">
+        <!-- <button
+            class="slds-button slds-button_icon slds-button_icon slds-button_icon-small slds-float_right slds-popover__close"
+            title="Close dialog">
+            <svg class="slds-button__icon" aria-hidden="true">
+                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Close dialog</span>
+        </button> -->
+        <div class="slds-popover__header">
+            <header class="slds-media slds-media_center slds-m-bottom_small">
+                <span class="slds-icon_container slds-icon-standard-account slds-media__figure">
+                    <lightning-icon icon-name={iconName} title={iconName}
+                        alternative-text={iconName} size="small"></lightning-icon>
+                </span>
+                <div class="slds-media__body">
+                    <p class="slds-hyphenate slds-text-align_left slds-text-heading_small" id="panel-heading-id">
+                        <a href={recordUrl} target="_blank">{title}</a>
+                    </p>
+                </div>
+            </header>
+            <footer class="slds-grid slds-wrap">
+                <template if:true={fields}>
+                    <lightning-record-form class="full-width" columns={columns} object-api-name={objectApiName} record-id={recordId} fields={fields}
+                        mode={mode}></lightning-record-form>
+                </template>
+                <template if:false={fields}>
+                    <lightning-record-form class="full-width" columns={columns} object-api-name={objectApiName} record-id={recordId}
+                        layout-type="Compact" mode={mode}>
+                    </lightning-record-form>
+                </template>
+            </footer>
+        </div>
+    </section>
+</template>

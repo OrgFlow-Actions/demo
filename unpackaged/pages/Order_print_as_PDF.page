@@ -1,0 +1,125 @@
+<apex:page standardController="Order" docType="html-5.0" renderAs="pdf" standardStylesheets="false">
+<head>
+        <style type="text/css">
+            TH {font-size: 13px; font-face: arial; background: #edeaea; border-width: 0; text-align: center; padding-left:10px; padding-right:10px;}
+            TD {padding-left:10px;padding-right:10px;}
+            TABLE {border: solid #FFFFFF; border-width: 0;font-size: 13px; font-face: arial;}
+            p {font-size: 14px; font-face: arial; text-align: left;}
+        </style>
+        </head>
+        <body>
+            
+            <img src="https://dentsplysirona.my.salesforce.com/servlet/servlet.ImageServer?id=0150J0000045Oy8&oid=00D200000001dDc" width="100%" /><br/><br/>
+            <img src="https://dentsplysirona.my.salesforce.com/servlet/servlet.ImageServer?id=0150J000004JEYR&oid=00D200000001dDc" width="170" /><br/><br/><br/><br/>
+        
+            <table>
+            <tr>
+            <td width="300px"><font face="arial" size="1">{!Order.Account.Name}<br/>{!Order.ShippingStreet}<br/>{!Order.ShippingPostalCode}, {!Order.ShippingCity} <br/><apex:outputText rendered="{!Order.ShippingState != null}" value="{!Order.ShippingState},"/> {!Order.ShippingCountry}<br/>{!Order.Account.Phone}</font></td>
+            <td width="150px"><h3>{!$ObjectType.Order.Label}</h3></td>
+            <td><h3>{!Order.OrderNumber}</h3></td>
+            </tr>
+            <tr>
+            <td/>
+            <td><b>{!$ObjectType.Order.fields.CreatedDate.Label}</b></td>
+            <td><b>{!$ObjectType.Order.fields.EffectiveDate.Label}</b></td>
+            </tr>
+            <tr>
+            <td/>
+            <td><apex:outputText value=" {0,date,MMM d, yyyy}"><apex:param value="{!Order.CreatedDate}"/></apex:outputText></td>
+            <td><apex:outputText value=" {0,date,MMM d, yyyy}"><apex:param value="{!Order.EffectiveDate}"/></apex:outputText></td>
+            </tr>
+            
+            <!--<div text-align="right" rendered="{!Order.Distributor__r.Name <> null}">-->
+            <apex:outputPanel rendered="{!Order.Distributor__c <> null}">
+            <tr>
+            <td valign="top" width="300px"/>
+            <td valign="top" width="150px"><b>{!$ObjectType.Order.fields.Distributor__c.Label}:</b></td>
+            <td valign="top">{!Order.Distributor__r.Name}
+            <br/><apex:outputText rendered="{!Order.Distributor__r.ShippingStreet <> null}"><apex:param value="{!Order.Distributor__r.ShippingStreet}"/></apex:outputText>
+            <br/><apex:outputText rendered="{!Order.Distributor__r.ShippingPostalCode <> null}"><apex:param value="{!Order.Distributor__r.ShippingPostalCode}, {!Order.Distributor__r.ShippingCity}"/></apex:outputText>
+            </td>
+            </tr>
+            </apex:outputPanel>
+            <!--</div>-->
+            
+            </table>
+            <table>
+            <tr><td/><td/><td/></tr>
+            <tr>
+            <td width="300px"/>
+            <td width="150px"><b>{!$ObjectType.Contact.Label}</b></td>
+            <td><b>{!$ObjectType.User.fields.Phone.Label}</b></td>
+            </tr>
+            <tr>
+            <td/>
+            <td>{!Order.Owner.Name}</td>
+            <td>{!Order.Owner.Phone}</td>
+            </tr>
+            
+            </table>
+            
+            <br/><br/><br/><br/>
+            <table style="border:0px;">
+                <tr>
+                    <th width="120px"><font face="arial" size="1"> {!$ObjectType.OrderItem.fields.Article_Number__c.Label} </font></th>
+                    <th width="250px"><font face="arial" size="1"> {!$ObjectType.Product2.Label} </font></th>
+                    <th width="50px"><font face="arial" size="1"> {!$ObjectType.OrderItem.fields.Quantity.Label}  </font></th>
+                    <th width="90px"><font face="arial" size="1"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_prices__c == true)||(Order.Pricebook2.Direct_orders_Show_prices__c == true) }">{!$ObjectType.OrderItem.fields.UnitPrice.Label}</apex:outputPanel></font></th>  
+                    <th width="70px"><font face="arial" size="1"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_discount_field__c == true) ||(Order.Pricebook2.Direct_orders_Show_discount_field__c == true) }"> Discount </apex:outputPanel></font></th>  
+                    <th width="90px"><font face="arial" size="1"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_prices__c == true)||(Order.Pricebook2.Direct_orders_Show_prices__c == true)}"> {!$ObjectType.OrderItem.fields.Total_Line_Item_Price__c.Label}</apex:outputPanel></font></th>
+                </tr>
+                <apex:repeat var="ox" value="{!Order.OrderItems}">
+                    <tr>
+                        <td><font face="arial" size="1">{!ox.Article_Number__c}</font></td>
+                        <td><font face="arial" size="1">{!ox.PriceBookEntry.Product2.Name}</font></td>
+                        <td><font face="arial" size="1">{!ROUND(ox.Quantity,0)}</font></td>
+                        <td><font face="arial" size="1"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_prices__c == true)||(Order.Pricebook2.Direct_orders_Show_prices__c == true)}">{!ox.Unit_price_formula_c__c} {!ox.Order.CurrencyIsoCode}</apex:outputPanel></font></td>
+                        <td><font face="arial" size="1"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_discount_field__c == true)||(Order.Pricebook2.Direct_orders_Show_discount_field__c == true)}">{!ox.Discount_Percent__c}</apex:outputPanel></font></td>    
+                        <td><font face="arial" size="1"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_prices__c == true) ||(Order.Pricebook2.Direct_orders_Show_prices__c == true)}">{!ox.Total_Line_Item_Price__c} {!ox.Order.CurrencyIsoCode}</apex:outputPanel></font></td>
+                    </tr>
+                </apex:repeat>
+                
+                <tr>
+                <th colspan="4"><c:OrderPdfBOMs /></th>
+                </tr>
+                
+            </table>
+                        
+        
+        <br/>
+        <table><tr>
+        <td width="200px" valign="top"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_prices__c == true) ||(Order.Pricebook2.Direct_orders_Show_prices__c == true)}"><b>{!$ObjectType.Order.fields.TotalAmount.Label}: </b></apex:outputPanel></td>
+        <td width="200px" valign="top"><apex:outputPanel rendered="{!(Order.Pricebook2.Indirect_orders_Show_prices__c == true)||(Order.Pricebook2.Direct_orders_Show_prices__c == true)}">{!Order.Order_Amount_global__c} {!Order.CurrencyIsoCode}</apex:outputPanel></td>
+        </tr>
+        <apex:outputPanel rendered="{!$ObjectType.Order.Fields.Payment_terms_months__c.accessible}">
+        <tr>
+        <td valign="top" width="200px"><b>{!$ObjectType.Order.Fields.Payment_terms_months__c.Label}</b></td>
+        <td valign="top" width="200px">{!Order.Payment_terms_months__c}</td>
+        </tr>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!$ObjectType.Order.Fields.Payment_type__c.accessible}">
+        <tr>
+        <td valign="top" width="200px"><b>{!$ObjectType.Order.Fields.Payment_type__c.Label}</b></td>
+        <td valign="top" width="200px">{!Order.Payment_type__c}</td>
+        </tr>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!$ObjectType.Order.Fields.Order_quote_end_date__c.accessible}">
+        <tr>
+        <td valign="top" width="200px"><b>{!$ObjectType.Order.Fields.Order_quote_end_date__c.Label}</b></td>
+        <td valign="top" width="200px"><apex:outputText value=" {0,date,MMM d, yyyy}"><apex:param value="{!Order.Order_quote_end_date__c}"/></apex:outputText></td>
+        </tr>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!$ObjectType.Order.Fields.External_notes__c.accessible}">
+        <tr>
+        <td valign="top" width="200px"><b>{!$ObjectType.Order.Fields.External_notes__c.Label}</b></td>
+        <td valign="top" width="200px">{!Order.External_notes__c}</td>
+        </tr>
+        </apex:outputPanel>
+        
+        </table>
+
+         </body>
+
+</apex:page>

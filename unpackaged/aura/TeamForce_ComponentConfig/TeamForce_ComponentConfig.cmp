@@ -1,0 +1,433 @@
+<aura:component controller="LightningCompSetup" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+
+<!-- VARIABLES -->    
+    
+    <aura:attribute name="recordId" type="String" />
+    
+    <aura:attribute name="NewCountryRecord" type="object" default="{}"/>
+    <aura:attribute name="NewCountryRecords" type="object[]"/>
+        
+    <!-- Variables for displaying and handling Country_metadata records -->
+    <aura:attribute name="record" type="object" default="{}"/>
+    <aura:attribute name="records" type="object[]"/>
+    <aura:attribute name="Team" type="object" default="{}"/>
+    <aura:attribute name="Teams" type="object[]"/>
+    <aura:attribute name="Cmp" type="object" default="{}"/>
+    <aura:attribute name="Cmps" type="object[]"/>
+    
+    <aura:attribute name="CountryFilter" type="String" default=""/>
+    <aura:attribute name="CmpFilter" type="String" default=""/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" default="Country__c"/>
+    <aura:attribute name="sortedDirection" type="String" default="asc"/>
+    <aura:attribute name="errors" type="string"/>
+    <aura:attribute name="CmpCountries" type="string[]"/>    
+    <aura:attribute name="Country" type="Country__c" />
+    
+    <!-- Variables for creating new records of Lightning_Component__mdt -->
+    <aura:attribute name="NewCmp" type="object" default="{}"/>
+    <aura:attribute name="StatusPicklist" type="String[]"/>
+    <aura:attribute name="SelectedCmp" type="object" default="{}"/>
+    <aura:attribute name="SelectedCmpDescr" type="String"/>
+    <aura:attribute name="SelectedCmpManage" type="String"/>
+    <aura:attribute name="SelectedCmpStatus" type="String"/>
+    
+    <!-- Variables for creating new records of Team_Setup__mdt -->
+    <aura:attribute name="NewTeam" type="object" default="{}"/>
+    <aura:attribute name="SelectedTeam" type="object" default="{}"/>    
+    <aura:attribute name="SelectedTeamCountry" type="String"/>
+    <aura:attribute name="SelectedTeamStatus" type="String"/>
+    <aura:attribute name="SelectedTeamDescr" type="String"/>
+            
+    <!-- Variables for managing assigned Team_Setup to individual users -->
+    <aura:attribute name="UserList" type="User[]" />
+    <aura:attribute name="SelectedUserCountry" type="String"/>
+    <aura:attribute name="SelectedUserTeam" type="String" default=""/>
+    <aura:attribute name="UserCountries" type="string[]"/>
+    <aura:attribute name="ChosenTeam" type="object" default="{}"/>
+    
+    <aura:attribute name="UserCountryFilter" type="String" default=""/>
+    <aura:attribute name="UserTeamFilter" type="String" default=""/>
+    
+    <!-- HANDLERS -->
+	<aura:handler aura:id="recordEvent" event="c:metadataRecordDataResult" action="{!c.fetchPicklistVal}"/>
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler name="LightningComponentUserEv" event="c:LightningComponentUserEv" action="{!c.onUserUpdate}"/>
+       
+    <c:metadataRecordData aura:id="recordData"
+        recordFullName="{!'Country_metadata.' + v.record.DeveloperName}"
+        targetRecord="{!v.record}"
+        targetFields="DeveloperName, Label, Team_setup__r.Country__c, Team_setup__c, Team_setup__r.Label, LightningComponent__r.Label, Team_setup__r.SBU__c, Component__c, Visible__c"
+        recordUpdated="{!c.handleSaveResult}"
+        recordId="{!v.recordId}"/>
+    
+     <c:metadataRecordData aura:id="NewCountryRecordData"
+        recordFullName="{!'Country_metadata.' + v.NewCountryRecord.DeveloperName}"
+        targetRecord="{!v.NewCountryRecord}"
+        targetFields="DeveloperName, Label, Team_setup__r.Country__c, Team_setup__c, Team_setup__r.Label, LightningComponent__r.Label, Team_setup__r.SBU__c, Component__c, Visible__c"
+        recordUpdated="{!c.handleSaveResult}"
+        recordId="{!v.recordId}"/>
+    
+    <!-- USER INTERFACE -->
+    
+    <p class="slds-p-horizontal_small">
+    <lightning:tabset>
+     
+    <!-- OVERVIEW SECTION -->    
+    <!-- Tab for showing and managing records of Country_metadata__mdt, i.e 
+		records where we connect a component to a team -->    
+    <lightning:tab label="Overview" class="slds-sub-tabs">
+    <lightning:card >
+        
+        <aura:if isTrue="{!v.errors}">
+            <ui:message title="Error" severity="error">{!v.errors}</ui:message>        
+        </aura:if>
+        <p class="slds-p-horizontal--small">
+      	
+         <!-- Filters section-->
+         <ui:inputSelect label="Country" aura:id="SelCountry" change="{!c.onCountryFilterChange}">                
+                <ui:inputSelectOption text="" label=""/>
+             <aura:iteration items="{!v.CmpCountries}" var="obj">	
+             <ui:inputSelectOption text="{!obj}" label="{!obj}"/>
+             </aura:iteration>
+          </ui:inputSelect> 
+            <br/>
+          <ui:inputSelect label="Component" aura:id="SelCmp" change="{!c.onCountryFilterChange}">                
+                <ui:inputSelectOption text="" label=""/>
+             	<aura:iteration items="{!v.Cmps}" var="obj">	
+              <ui:inputSelectOption text="{!obj.Label}" label="{!obj.Label}"/>
+              </aura:iteration>
+          </ui:inputSelect>   
+            
+          <br/>
+            
+        <!-- Table to display and manage records of Country_metadata__mdt -->    
+        <table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+        <thead>
+            	<tr class="slds-text-title_caps">
+                    <th scope="col">
+                    	<div class="slds-truncate">Team</div>
+                    </th>
+                    <th scope="col">
+                    	<div class="slds-truncate">Country</div>
+                    </th>
+                    <th scope="col">
+                    	<div class="slds-truncate">SBU</div>
+                    </th>
+            		<th scope="col">
+                    	<div class="slds-truncate">Component</div>
+                    </th>
+            		<th scope="col">
+                    	<div class="slds-truncate">Visible?</div>
+                    </th>
+            	</tr>
+        </thead>
+        <tbody>
+            
+            <aura:iteration items="{!v.records}" var="obj">
+			
+            <aura:if isTrue="{!obj.Team_setup__r.Country__c == v.CountryFilter || v.CountryFilter == ''}">    
+            <aura:if isTrue="{!obj.LightningComponent__r.Label == v.CmpFilter || v.CmpFilter == ''}">    
+                
+                <tr>
+                <th scope="row">
+            		<div class="slds-truncate">
+                      {!obj.Team_setup__r.Label}                          
+                    </div>             
+            	</th> 
+                <th scope="row">
+            		<div class="slds-truncate">
+						{!obj.Team_setup__r.Country__c}
+                    </div>                
+            	</th>
+                <th scope="row">
+            		<div class="slds-truncate">
+						{!obj.Team_setup__r.SBU__c}
+                    </div>                
+            	</th>               
+            	<th scope="row">
+            		<div class="slds-truncate">
+						{!obj.LightningComponent__r.Label}
+                    </div>               
+            	</th>
+                <th scope="row">
+            		<div class="slds-truncate">
+            			<lightning:input type="checkbox" aura:id="TestRecordField" 
+                		name="Visible__c" 
+                		checked="{!obj.Visible__c}"/>
+                    </div>              
+            	</th>
+                
+            </tr>
+            </aura:if>
+            </aura:if>    
+            </aura:iteration>
+        </tbody>
+            
+        </table>    
+            
+            <br/> 
+            
+            <!-- Button to save changes made to visibility -->
+            <lightning:button aura:id="saveButton"
+                label="Save" onclick="{!c.handleCountrySave}" class="slds-m-top--medium"/>                   
+                
+       </p> 
+    </lightning:card>
+    </lightning:tab>
+
+        
+   <!--- COMPONENT SECTION -->     
+   <!-- Tab to both create new as well as to edit exisiting records of Lightning_Componenent__mdt -->     
+    	<lightning:tab label="Component" class="slds-sub-tabs">
+        <p class="slds-p-horizontal--small">
+         <lightning:tabset variant="scoped">
+          <lightning:tab label="New component" class="slds-sub-tabs">
+            
+            <p class="slds-p-horizontal--small">
+			
+            <ui:inputText label="Add component name" class="field" aura:id="NewCompName" required="true"/>
+            <br/>    
+            <ui:inputText label="Please describe what the component is doing" class="field" aura:id="NewCompDescr"/>
+            <br/>
+			<ui:inputText label="The component is managed by" class="field" aura:id="NewCompManage"/>
+            <br/>
+            
+            <ui:inputSelect label="Status" aura:id="NewCompStatus">  
+            <aura:iteration items="{!v.StatusPicklist}" var="obj">
+           <ui:inputSelectOption text="{!obj}" label="{!obj}"/>   
+            </aura:iteration>    
+             </ui:inputSelect>     
+                
+            <br/>
+            The component should be shown to the following teams:    
+                <table>
+                <tr>
+                <td><b>Visible?</b></td>     
+                <td><b>Team</b></td>
+                <td><b>Country</b></td>
+                <td><b>Status</b></td>    
+				<td><b>Description</b></td>                    
+                  
+                </tr>
+                 
+                <!-- Section where all available records of Team_Setup__mdt are shown -->    
+                <aura:iteration items="{!v.Teams}" var="obj">
+                <tr> 
+                   <td width="80px"><ui:inputCheckbox aura:id="NewCompView" value="{!obj.Visible__c}"/></td>
+                   <td width="80px">{!obj.Label}</td>
+                   <td width="120px">{!obj.Country__c}</td>
+                   <td width="120px">{!obj.Status__c}</td> 
+                   <td>{!obj.Description__c}</td>
+                   
+                </tr>
+                </aura:iteration>
+                </table>   
+            <br/>
+             
+             <!-- Button to handle save of new Lightning_Component__mdt record-->   
+            <lightning:button aura:id="saveCmp"
+                label="Create component control" onclick="{!c.handleCmpSave}" class="slds-m-top--medium"/>                         
+            </p>
+
+        </lightning:tab>
+        <lightning:tab label="Edit component">
+            
+            <p class="slds-p-horizontal--small">
+			
+            <ui:inputSelect label="Component" aura:id="UpdateCmp" change="{!c.onCmpSelect}">  
+                     	<aura:iteration items="{!v.Cmps}" var="obj">
+                            <ui:inputSelectOption text="{!obj.Label}" label="{!obj.Label}"/>
+             			</aura:iteration>
+            </ui:inputSelect>     
+                
+            <br/>
+            
+            <ui:inputText label="Description" class="field" aura:id="UpdateCompDescr" value="{!v.SelectedCmpDescr}"/>
+            <br/>
+                
+			<ui:inputText label="The component is managed by" class="field" aura:id="SelectedCmpManager" value="{!v.SelectedCmpManage}"/>
+            <br/>
+            
+              
+            <ui:inputSelect label="Status" aura:id="SelectedCmpStatus" value="{!v.SelectedCmpStatus}">  
+            <aura:iteration items="{!v.StatusPicklist}" var="obj">
+           	<ui:inputSelectOption text="{!obj}" label="{!obj}"/>   
+            </aura:iteration>    
+            </ui:inputSelect>     
+                
+            <br/>
+                 
+            <lightning:button aura:id="saveCmp"
+                label="Update component" onclick="{!c.handleCmpUpdate}" class="slds-m-top--medium"/>                         
+            </p>            
+
+        </lightning:tab>
+      </lightning:tabset>
+      </p>     
+    </lightning:tab>
+        
+        
+    <!-- TEAM SECTION  -->    
+    <!-- Tab where we can create new as well as edit existing records of Team_Setup__mdt -->
+    <lightning:tab label="Team" class="slds-sub-tabs">
+	<p class="slds-p-horizontal--small">	
+        <lightning:tabset variant="scoped">
+        <lightning:tab label="New team" class="slds-sub-tabs">    
+        
+            <p class="slds-p-horizontal--small">
+            <ui:inputText label="Add team name" class="field" aura:id="NewTeamName" required="true"/>
+            <br/>
+             
+            <ui:inputSelect label="Status" aura:id="NewTeamStatus">                
+                <ui:inputSelectOption text="Active" label="Active"/>
+                <ui:inputSelectOption text="Retired" label="Retired"/>
+            </ui:inputSelect>   
+            <br/>    
+                
+            <!--<ui:inputSelect label="Country" aura:id="NewTeamCountry">                
+                <ui:inputSelectOption text="Sweden" label="Sweden"/>
+                <ui:inputSelectOption text="UK" label="UK"/>   
+            </ui:inputSelect> -->
+                
+           <ui:inputSelect label="Country" aura:id="NewTeamCountry">                
+                <ui:inputSelectOption text="" label=""/>
+             	<aura:iteration items="{!v.CmpCountries}" var="obj">	
+             		<ui:inputSelectOption text="{!obj}" label="{!obj}"/>
+             	</aura:iteration>
+          </ui:inputSelect>    
+                
+                
+                
+            <br/>
+            <ui:inputText label="Description" aura:id="NewTeamDescr"/>    
+                <br/>    
+                
+            The team should be able to see the following components:    
+                <table>
+                <tr>
+                <td><b>Visible?</b></td>
+                <td><b>Component</b></td>    
+                <td><b>Status</b></td>    
+                <td><b>Description</b></td>    
+                </tr>    
+                <aura:iteration items="{!v.Cmps}" var="obj">
+                <tr>
+                   <td width="80px"><ui:inputCheckbox aura:id="NewTeamComp" value="{!obj.Visible__c}"/></td>
+                   <td width="300px">{!obj.Label}</td>
+                    <td width="150px">{!obj.Status__c}</td>
+                   <td>{!obj.Description__c}</td>
+                </tr>
+                </aura:iteration>
+                </table>   
+              <lightning:button aura:id="saveTeam"
+                label="Create team" onclick="{!c.handleTeamSave}" class="slds-m-top--medium"/>                                    
+            </p>
+        
+            </lightning:tab>
+            <lightning:tab label="Edit team" class="slds-sub-tabs">
+             
+                <ui:inputSelect label="Team" aura:id="UpdateTeam" change="{!c.onTeamSelect}">       
+                	<ui:inputSelectOption text="" label=""/>
+                    <aura:iteration items="{!v.Teams}" var="obj">	
+                    <ui:inputSelectOption text="{!obj.DeveloperName}" label="{!obj.Label}"/>
+                    </aura:iteration>	  
+            	</ui:inputSelect>  
+    
+           <ui:inputSelect label="Status" aura:id="UpdateTeamStatus" value="{!v.SelectedTeamStatus}">               
+               <ui:inputSelectOption text="" label=""/> 
+               <ui:inputSelectOption text="Active" label="Active"/>
+                <ui:inputSelectOption text="Retired" label="Retired"/>   
+            </ui:inputSelect>
+                
+            <!--<ui:inputSelect label="Country" aura:id="UpdateTeamCountry" value="{!v.SelectedTeamCountry}">                
+                <ui:inputSelectOption text="" label=""/>
+                <ui:inputSelectOption text="Sweden" label="Sweden"/>
+                <ui:inputSelectOption text="UK" label="UK"/>   
+            </ui:inputSelect> -->
+            
+           <ui:inputSelect label="Country" aura:id="UpdateTeamCountry" value="{!v.SelectedTeamCountry}">                
+                <ui:inputSelectOption text="" label=""/>
+             	<aura:iteration items="{!v.CmpCountries}" var="obj">	
+             		<ui:inputSelectOption text="{!obj}" label="{!obj}"/>
+             	</aura:iteration>
+          </ui:inputSelect>
+                
+                
+             <ui:inputText label="Description" aura:id="UpdateTeamDescription" value="{!v.SelectedTeamDescr}"/>    
+                
+            <br/> 
+                
+            <lightning:button aura:id="updateTeam"
+                label="Update team" onclick="{!c.handleTeamUpdate}" class="slds-m-top--medium"/>                                          
+            </lightning:tab>    
+        </lightning:tabset>
+        </p>
+    </lightning:tab>  
+        
+  <!-- USER SECTION -->
+  <!-- Tab where we are able to mass edit assigned teams to individual users.
+		Per default, the component displays all users in the system -->
+   <lightning:tab label="User">
+	  <p class="slds-p-horizontal--small">
+      <div onkeyup="{! c.handleKeyUp }">            
+          <lightning:input
+            			aura:id="enter-search"
+            			name="enter-search"
+            			label="Find user"
+            			type="search"
+        	/>
+          <br/>
+          <ui:inputSelect label="Country" aura:id="FilterUserCountry" value="{!v.SelectedUserCountry}" change="{!c.onUserFilterChange}">                
+                <ui:inputSelectOption text="" label=""/>
+              	<aura:iteration items="{!v.UserCountries}" var="obj">
+                <ui:inputSelectOption text="{!obj}" label="{!obj}"/>
+             	</aura:iteration>  
+            </ui:inputSelect>
+          <br/>
+          <ui:inputSelect label="Team" aura:id="FilterUserTeam" value="{!v.SelectedUserTeam}" change="{!c.onUserFilterChange}">                
+                <ui:inputSelectOption text="" label=""/>
+                <aura:iteration items="{!v.Teams}" var="obj">
+                <ui:inputSelectOption text="{!obj.Label}" label="{!obj.Label}"/>
+             	</aura:iteration> 
+            </ui:inputSelect>
+          <br/>
+      </div>    
+      <table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+        <thead>
+            	<tr class="slds-text-title_caps">
+                    <th scope="col">
+                    	<div class="slds-truncate">User</div>
+                    </th>
+                    <th scope="col">
+                    	<div class="slds-truncate">Team</div>
+                    </th>
+                    <th scope="col">
+                    	<div class="slds-truncate">Country</div>
+                    </th>
+            		<th scope="col">
+                    	<div class="slds-truncate">Profile</div>
+                    </th>
+            		<th scope="col">
+                    	<div class="slds-truncate">...</div>
+                    </th>
+            	</tr>
+        </thead>
+        <tbody>
+            
+            <aura:iteration aura:id="UserTeamSummary" items="{!v.UserList}" var="obj" indexVar="index">
+               
+               <c:TeamForce_ComponentConfig_UserRow rowIndex="{!index}" UserInstance="{!obj}" Teams="{!v.Teams}"/> 
+                
+            </aura:iteration>
+        </tbody>
+            
+        </table>
+          
+       </p>
+              
+   </lightning:tab>     
+       
+    </lightning:tabset>
+    </p>
+</aura:component>

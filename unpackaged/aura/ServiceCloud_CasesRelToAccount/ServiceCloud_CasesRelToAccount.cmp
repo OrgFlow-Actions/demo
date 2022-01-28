@@ -1,0 +1,64 @@
+<aura:component controller="ServiceCloud_Account" implements="lightning:availableForFlowScreens,flexipage:availableForRecordHome,force:hasRecordId" access="global" >    
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="accId" type="String"/>
+    <aura:attribute name="acc" type="object"/>
+    <aura:attribute name="openCases" type="object[]" />
+    <aura:attribute name="closedCases" type="object[]" />
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="listSize" type="Integer"/>
+    <aura:attribute name="headerTitle" type="Aura.Component[]">
+        <h2>
+            <b>{!$Label.c.OpenCases} ({!v.listSize})</b>
+        </h2>
+    </aura:attribute>
+    <aura:attribute name="caseLabels" type="Map"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="ServiceCloud_Case2AccEv" event="c:ServiceCloud_Case2AccEv" action="{!c.init}"/>
+    <aura:handler event="force:showToast" action="{!c.refreshRec}"/>
+    
+    <force:recordData aura:id="forceRecord"
+    recordId="{!v.recordId}" 
+    layoutType="FULL"
+    targetRecord="{!v.acc}"
+    recordUpdated="{!c.recordUpdated}" />
+         
+    <lightning:card title="{!v.headerTitle}" iconName="standard:case" class="slds-card slds-card_boundary">
+    
+     <aura:set attribute="actions">
+        <lightning:button iconName="action:refresh" onclick="{!c.getFieldLabel}"/> 
+        </aura:set>
+	                   
+        <table class="slds-table slds-table--bordered slds-table--striped slds-table--fixed-layout"> 
+        <thead>
+            	<tr class="slds-text-title_caps">
+                    <th scope="col">
+                    	<div class="slds-truncate">{!v.caseLabels.CaseNumber}</div>
+                    </th>
+                    <th scope="col">
+                    	<div class="slds-truncate">{!v.caseLabels.Subject}</div>
+                    </th>
+                    <th scope="col">
+                    	<div class="slds-truncate">{!v.caseLabels.Status}</div>
+                    </th>
+            		<th scope="col">
+                    	<div class="slds-truncate">{!v.caseLabels.CreatedDate}</div>
+                    </th>
+                    <th scope="col">
+                    	<div class="slds-truncate">{!v.caseLabels.OwnerId}</div>
+                    </th>
+
+            	</tr>
+
+        </thead>
+        <tbody>              
+            <aura:iteration aura:id="CaseSummary" items="{!v.openCases}" var="obj" indexVar="index">               
+               <c:ServiceCloud_CaseRowRelToAccount rowIndex="{!index}" CaseInstance="{!obj}"/>                 
+            </aura:iteration>          
+        </tbody>
+              
+        </table>
+        
+    </lightning:card>
+ 
+</aura:component>

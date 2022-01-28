@@ -1,0 +1,8 @@
+<template>
+    <lightning-record-edit-form record-id={recordId} object-api-name={sObjectName} onsubmit={handleSubmit}>
+        <template for:each={_fields} for:item="field">
+            <lightning-input-field key={field} field-name={field} readonly={readOnly}></lightning-input-field>
+        </template>
+        <lightning-button class="slds-hide" label="submit" type="submit"></lightning-button>
+    </lightning-record-edit-form>
+</template>

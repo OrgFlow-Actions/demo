@@ -1,0 +1,10 @@
+<apex:page standardcontroller="Account" showHeader="false"  >
+    <wave:dashboard dashboardId="0FK0J000000bmFvWAI"
+                    showTitle="false"
+                    showHeader="false"
+                    height="575px"
+                    openLinksInNewWindow="false"
+                    rendered="true"
+                    filter="{'datasets':{'AccountSalesDetail':[{'fields':['ac.Id'], 'filter':{'operator': 'matches', 'values':['{!Account.Id}']}}]}}">
+    </wave:dashboard>
+</apex:page>

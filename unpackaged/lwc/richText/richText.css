@@ -1,0 +1,19 @@
+lightning-textarea{
+    min-height: 100%;
+}
+
+.edited {
+    background-color: yellow;
+}
+
+.slds-is-edited {
+    background: var(--lwc-colorBackgroundHighlight,rgb(250, 255, 189)) !important;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+}

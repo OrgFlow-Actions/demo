@@ -1,0 +1,7 @@
+.THIS ul.slds-path__nav {
+    pointer-events: none;
+}
+
+.THIS .runtime_sales_pathassistantPathAssistantHeader {
+    display: none !important;
+}

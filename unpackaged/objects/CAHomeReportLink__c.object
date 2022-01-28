@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <customSettingsType>Hierarchy</customSettingsType>
+  <enableFeeds>false</enableFeeds>
+  <fields>
+    <fullName>ReportURL__c</fullName>
+    <externalId>false</externalId>
+    <label>Report URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+  </fields>
+  <label>Clinical Affairs Home Report Link</label>
+  <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <enableFeeds>false</enableFeeds>
+  <fields>
+    <fullName>BU_Dental_Contact__c</fullName>
+    <description>Who to contact when you have questions about a material</description>
+    <externalId>false</externalId>
+    <label>BU Dental Contact</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Head of Market Communication</fullName>
+          <default>false</default>
+          <label>Head of Market Communication</label>
+        </value>
+        <value>
+          <fullName>Head of Product &amp; Therapy Management</fullName>
+          <default>false</default>
+          <label>Head of Product &amp; Therapy Management</label>
+        </value>
+        <value>
+          <fullName>Head of Scientific Management</fullName>
+          <default>false</default>
+          <label>Head of Scientific Management</label>
+        </value>
+        <value>
+          <fullName>Head of Training &amp; Education</fullName>
+          <default>false</default>
+          <label>Head of Training &amp; Education</label>
+        </value>
+        <value>
+          <fullName>Head of International Congresses</fullName>
+          <default>false</default>
+          <label>Head of International Congresses</label>
+        </value>
+        <value>
+          <fullName>Market Company AT</fullName>
+          <default>false</default>
+          <label>Market Company AT</label>
+        </value>
+        <value>
+          <fullName>Market Company AU</fullName>
+          <default>false</default>
+          <label>Market Company AU</label>
+        </value>
+        <value>
+          <fullName>Market Company BeNeLux</fullName>
+          <default>false</default>
+          <label>Market Company BeNeLux</label>
+        </value>
+        <value>
+          <fullName>Market Company CA</fullName>
+          <default>false</default>
+          <label>Market Company CA</label>
+        </value>
+        <value>
+          <fullName>Market Company CH</fullName>
+          <default>false</default>
+          <label>Market Company CH</label>
+        </value>
+        <value>
+          <fullName>Market Company DE</fullName>
+          <default>false</default>
+          <label>Market Company DE</label>
+        </value>
+        <value>
+          <fullName>Market Company DK</fullName>
+          <default>false</default>
+          <label>Market Company DK</label>
+        </value>
+        <value>
+          <fullName>Market Company DEX</fullName>
+          <default>false</default>
+          <label>Market Company DEX</label>
+        </value>
+        <value>
+          <fullName>Market Company ES</fullName>
+          <default>false</default>
+          <label>Market Company ES</label>
+        </value>
+        <value>
+          <fullName>Market Company FI</fullName>
+          <default>false</default>
+          <label>Market Company FI</label>
+        </value>
+        <value>
+          <fullName>Market Company FR</fullName>
+          <default>false</default>
+          <label>Market Company FR</label>
+        </value>
+        <value>
+          <fullName>Market Company IT</fullName>
+          <default>false</default>
+          <label>Market Company IT</label>
+        </value>
+        <value>
+          <fullName>Market Company NO</fullName>
+          <default>false</default>
+          <label>Market Company NO</label>
+        </value>
+        <value>
+          <fullName>Market Company PL</fullName>
+          <default>false</default>
+          <label>Market Company PL</label>
+        </value>
+        <value>
+          <fullName>Market Company UK</fullName>
+          <default>false</default>
+          <label>Market Company UK</label>
+        </value>
+        <value>
+          <fullName>Market Company US</fullName>
+          <default>false</default>
+          <label>Market Company US</label>
+        </value>
+        <value>
+          <fullName>Market Company SE</fullName>
+          <default>false</default>
+          <label>Market Company SE</label>
+        </value>
+        <value>
+          <fullName>Market Company AT Nordic</fullName>
+          <default>false</default>
+          <label>Market Company AT Nordic</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ContentSize</fullName>
+  </fields>
+  <fields>
+    <fullName>CurrencyIsoCode</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>Description</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>FileExtension</fullName>
+  </fields>
+  <fields>
+    <fullName>FileType</fullName>
+  </fields>
+  <fields>
+    <fullName>IsAssetEnabled</fullName>
+  </fields>
+  <fields>
+    <fullName>Language</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>OwnerId</fullName>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>SharingPrivacy</fullName>
+    <trackHistory>true</trackHistory>
+  </fields>
+  <fields>
+    <fullName>TagCsv</fullName>
+  </fields>
+  <fields>
+    <fullName>Title</fullName>
+    <trackHistory>false</trackHistory>
+  </fields>
+  <fields>
+    <fullName>Type_of_Material__c</fullName>
+    <externalId>false</externalId>
+    <label>Type of Material</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>SP Sales Presentation</fullName>
+          <default>false</default>
+          <label>SP Sales Presentation</label>
+        </value>
+        <value>
+          <fullName>AB Abstract</fullName>
+          <default>false</default>
+          <label>AB Abstract</label>
+        </value>
+        <value>
+          <fullName>RP Reprint</fullName>
+          <default>false</default>
+          <label>RP Reprint</label>
+        </value>
+        <value>
+          <fullName>SR Scientific Review</fullName>
+          <default>false</default>
+          <label>SR Scientific Review</label>
+        </value>
+        <value>
+          <fullName>GU Guideline</fullName>
+          <default>false</default>
+          <label>GU Guideline</label>
+        </value>
+        <value>
+          <fullName>MA Manual</fullName>
+          <default>false</default>
+          <label>MA Manual</label>
+        </value>
+        <value>
+          <fullName>AD Advertisement</fullName>
+          <default>false</default>
+          <label>AD Advertisement</label>
+        </value>
+        <value>
+          <fullName>BO Book</fullName>
+          <default>false</default>
+          <label>BO Book</label>
+        </value>
+        <value>
+          <fullName>BR Brochure</fullName>
+          <default>false</default>
+          <label>BR Brochure</label>
+        </value>
+        <value>
+          <fullName>FO Folder</fullName>
+          <default>false</default>
+          <label>FO Folder</label>
+        </value>
+        <value>
+          <fullName>LF Leaflet</fullName>
+          <default>false</default>
+          <label>LF Leaflet</label>
+        </value>
+        <value>
+          <fullName>MAG Magazine</fullName>
+          <default>false</default>
+          <label>MAG Magazine</label>
+        </value>
+        <value>
+          <fullName>PC Postcard</fullName>
+          <default>false</default>
+          <label>PC Postcard</label>
+        </value>
+        <value>
+          <fullName>PO Poster</fullName>
+          <default>false</default>
+          <label>PO Poster</label>
+        </value>
+        <value>
+          <fullName>OT Other</fullName>
+          <default>false</default>
+          <label>OT Other</label>
+        </value>
+        <value>
+          <fullName>DP Digital Presentation</fullName>
+          <default>false</default>
+          <label>DP Digital Presentation</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Type_of_Use__c</fullName>
+    <externalId>false</externalId>
+    <label>Type of Use</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>For EXTERNAL use</fullName>
+          <default>false</default>
+          <label>For EXTERNAL use</label>
+        </value>
+        <value>
+          <fullName>For INTERNAL use</fullName>
+          <default>false</default>
+          <label>For INTERNAL use</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+  </fields>
+  <recordTypes>
+    <active>true</active>
+    <fullName>Brochures</fullName>
+    <label>Brochures</label>
+    <picklistValues>
+      <picklist>BU_Dental_Contact__c</picklist>
+      <values>
+        <fullName>Head of International Congresses</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Head of Market Communication</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Head of Product %26 Therapy Management</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Head of Scientific Management</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Head of Training %26 Education</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Type_of_Material__c</picklist>
+      <values>
+        <fullName>AB Abstract</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>AD Advertisement</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>BO Book</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>BR Brochure</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>FO Folder</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>GU Guideline</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>LF Leaflet</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>MA Manual</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>MAG Magazine</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>OT Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>PC Postcard</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>PO Poster</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>RP Reprint</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SP Sales Presentation</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SR Scientific Review</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Type_of_Use__c</picklist>
+      <values>
+        <fullName>For EXTERNAL use</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>For INTERNAL use</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <searchLayouts>
+    <searchResultsAdditionalFields>VERSION.TITLE</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>VERSION.CONTENT_SIZE</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>VERSION.FILE_EXTENSION</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>VERSION.LAST_UPDATE</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>VERSION.OWNER</searchResultsAdditionalFields>
+  </searchLayouts>
+</CustomObject>

@@ -1,0 +1,12 @@
+<aura:component access="GLOBAL" implements="lightning:isUrlAddressable,force:hasRecordId,lightning:actionOverride,flexipage:availableForAllPageTypes,force:appHostable,force:LightningQuickAction" >    <aura:attribute name="showStep4" type="Boolean" default="true"/>
+
+    <aura:attribute name="selectedStep" type="string" default="Select Campaigns"/>
+    <aura:attribute access="GLOBAL" name="recordId" type="Id" />
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:progressIndicator currentStep="{!v.selectedStep}" type="path" variant="base">
+        <lightning:progressStep label="Select Campaigns" value="Select Campaigns"/>
+        <lightning:progressStep label="Notes/Status" value="Notes/Status"/>
+        <lightning:progressStep label="Next Step" value="Next Step"/>
+    </lightning:progressIndicator>
+    <c:selectedCampaigns childAttr="{!v.selectedStep}" recordId="{!v.recordId}"/>
+</aura:component>

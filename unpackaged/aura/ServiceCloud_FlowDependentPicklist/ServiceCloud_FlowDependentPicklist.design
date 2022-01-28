@@ -1,0 +1,19 @@
+<design:component>
+   <design:attribute name="recordId" label="Object Id" />
+   <design:attribute name="resId" label="Result Id" />
+   <design:attribute name="fieldN" label="Field name" />
+   <design:attribute name="fieldDisabled" label="Main field disabled?" /> 
+   <design:attribute name="defaultVal" label="Default field value" />
+   <design:attribute name="defaultDepVal" label="Default dependent field value" />
+   <design:attribute name="defaultSecondDepVal" label="Second dependent field value" />
+   <design:attribute name="defaultThirdDepVal" label="Third dependent field value" />
+   <design:attribute name="objType" label="Object type" />
+   <design:attribute name="depField" label="Dependent field" />
+   <design:attribute name="depresId" label="Dependent result ID" />
+   <design:attribute name="depField2" label="Second dependent field" />
+   <design:attribute name="depresId2" label="Second dependent result ID" />
+   <design:attribute name="depField3" label="Third dependent field" /> 
+   <design:attribute name="depresId3" label="Third dependent result ID" /> 
+   <design:attribute name="recordTypeId" label="Record Type ID" />  
+    
+</design:component>
