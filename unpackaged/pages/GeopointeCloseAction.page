@@ -1,0 +1,7 @@
+<apex:page sidebar="false" showHeader="false">    
+    <apex:includeScript value="{!URLFOR($Resource.geopointe__js_api_v1)}" />
+    <script Type="text/javascript">
+        //alert('Ready to close');
+        geopointe.api.closeAction();
+    </script>
+</apex:page>

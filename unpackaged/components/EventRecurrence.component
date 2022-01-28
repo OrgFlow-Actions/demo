@@ -1,0 +1,164 @@
+<apex:component >
+    <apex:attribute name="task" type="Event" description="The Task to be configured as recurring"/>
+    <apex:attribute name="state" type="EventRecurrenceState" description="An instance of the state that this control is bound to"/>
+    <apex:attribute name="isSeries" type="boolean" description="Indicates whether or not the Event passed as task is an Event Series or not"/>
+    <apex:attribute name="OnRecurrenceTypeChangeScript" type="string" description="" required="false" />
+    
+    <apex:pageBlockSection title="{!$Label.Recurrence_Title}" collapsible="false" />    
+    
+    <apex:outputPanel rendered="{!task.RecurrenceActivityId != null && !isSeries}">
+        <p>
+            <img src="/img/recurring_activity.gif" alt="Recurring Event" title="Recurring Event" />
+            {!$Label.Recurrence_InstanceNotice} &nbsp;&nbsp;
+            <apex:outputLink value="{!URLFOR($Action.Event.Edit, task.RecurrenceActivityId)}">{!$Label.Recurrence_EditSeries}</apex:outputLink>            
+        </p>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!task.RecurrenceActivityId == null || isSeries}">
+        <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <th class="labelCol vfLabelColTextWrap first last" scope="row">
+                        <label>
+                            {!$ObjectType.Event.fields.RecurrenceType.Label}
+                        </label>
+                    </th>
+                    <td class="data2Col first last">
+                        <apex:selectList value="{!state.RecurrenceType}" multiselect="false" size="1" styleClass="recurrence-type-select">
+                            <apex:selectOption itemDisabled="{!isSeries}" itemValue="None" itemLabel="{!$Label.Recurrence_TypeNone}" />
+                            <apex:selectOption itemValue="Daily" itemLabel="{!$Label.Recurrence_TypeDaily}" />
+                            <apex:selectOption itemValue="DailyEveryWeekday" itemLabel="{!$Label.Recurrence_DailyEveryWeekday}" />
+                            <apex:selectOption itemValue="Weekly" itemLabel="{!$Label.Recurrence_TypeWeekly}" />
+                            <apex:selectOption itemValue="Monthly" itemLabel="{!$Label.Recurrence_TypeMonthly}" />
+                            <apex:selectOption itemValue="MonthlyFixedDate" itemLabel="{!$Label.Recurrence_TypeMonthlyFixedDate}" />
+                            <apex:selectOption itemValue="Yearly" itemLabel="{!$Label.Recurrence_TypeYearly}" />
+                            <apex:selectOption itemValue="YearlyFixedDate" itemLabel="{!$Label.Recurrence_YearlyFixedDate}" />
+                        </apex:selectList>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        &nbsp;
+                    </th>
+                    <td class="data2Col first last">
+                        <div class="recurrence-panel" data-recurrence-for="Daily">
+                            {!$Label.Recurrence_Daily_Before} <apex:inputText value="{!state.DailyInterval}" size="3"/> {!$Label.Recurrence_Daily_After}
+                        </div>
+                        <div class="recurrence-panel" data-recurrence-for="Weekly">
+                            {!$Label.Recurrence_Weekly_BeforeInterval} <apex:inputText value="{!state.WeeklyInterval}" size="3"/> {!$Label.Recurrence_Weekly_AfterInterval}
+                            <br/>
+                            <apex:inputCheckbox value="{!state.WeeklyOccursOnSunday}" />
+                            <label>{!$Label.Recurrence_Sunday}</label>
+                            <br/>
+                            <apex:inputCheckbox value="{!state.WeeklyOccursOnMonday}" />
+                            <label>{!$Label.Recurrence_Monday}</label>
+                            <br/>
+                            <apex:inputCheckbox value="{!state.WeeklyOccursOnTuesday}" />
+                            <label>{!$Label.Recurrence_Tuesday}</label>
+                            <br/>
+                            <apex:inputCheckbox value="{!state.WeeklyOccursOnWednesday}" />
+                            <label>{!$Label.Recurrence_Wednesday}</label>
+                            <br/>
+                            <apex:inputCheckbox value="{!state.WeeklyOccursOnThursday}" />
+                            <label>{!$Label.Recurrence_Thursday}</label>
+                            <br/>
+                            <apex:inputCheckbox value="{!state.WeeklyOccursOnFriday}" />
+                            <label>{!$Label.Recurrence_Friday}</label>
+                            <br/>
+                            <apex:inputCheckbox value="{!state.WeeklyOccursOnSaturday}" />
+                            <label>{!$Label.Recurrence_Saturday}</label>
+                        </div>
+                        <div class="recurrence-panel" data-recurrence-for="Monthly">
+                            {!$Label.Recurrence_Monthly_Before} 
+                            <apex:selectList value="{!state.MonthlyInstance}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.Instances}" />
+                            </apex:selectList>
+                            {!$Label.Recurrence_Monthly_AfterInstance}
+                            <apex:selectList value="{!state.MonthlyDay}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.DaysOfTheWeek}" />
+                            </apex:selectList> 
+                            {!$Label.Recurrence_Monthy_AfterDayOfWeek} 
+                            <apex:inputText value="{!state.MonthlyInterval}" size="3"/> 
+                            {!$Label.Recurrence_Monthly_After}
+                        </div>
+                        <div class="recurrence-panel" data-recurrence-for="MonthlyFixedDate">
+                            {!$Label.Recurrence_MonthlyFixedDate_Before} 
+                            <apex:selectList value="{!state.MonthlyDayOfMonth}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.DaysOfTheMonth}" />
+                            </apex:selectList>
+                            {!$Label.Recurrence_MonthlyFixedDate_AfterDayOfMonth} 
+                            <apex:inputText value="{!state.MonthlyFixedInterval}" size="3"/>
+                            {!$Label.Recurrence_MonthlyFixedDate_After}
+                        </div>
+                        <div class="recurrence-panel" data-recurrence-for="Yearly">
+                            {!$Label.Recurrence_Yearly_Before} 
+                            <apex:selectList value="{!state.YearlyInstance}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.Instances}" />
+                            </apex:selectList>
+                            {!$Label.Recurrence_Yearly_AfterInstance}
+                            <apex:selectList value="{!state.YearlyDay}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.DaysOfTheWeek}" />
+                            </apex:selectList> 
+                            {!$Label.Recurrence_Yearly_AfterDayOfWeek} 
+                            <apex:selectList value="{!state.YearlyMonth}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.MonthsOfTheYear}" />
+                            </apex:selectList>
+                            {!$Label.Recurrence_Yearly_After}
+                        </div>
+                        <div class="recurrence-panel" data-recurrence-for="YearlyFixedDate">
+                            {!$Label.Recurrence_YearlyFixedDate_Before} 
+                            <apex:selectList value="{!state.YearlyFixedMonth}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.MonthsOfTheYear}" />
+                            </apex:selectList>
+                            {!$Label.Recurrence_YearlyFixedDate_AfterMonth}
+                            <apex:selectList value="{!state.YearlyDayOfMonth}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!state.DaysOfTheMonth}" />
+                            </apex:selectList> 
+                            {!$Label.Recurrence_YearlyFixedDate_After}
+                        </div>
+                    </td>
+                </tr>
+                <tr class="recurrence-panel" data-recurrence-for="all">            
+                    <th class="labelCol vfLabelColTextWrap first last" scope="row">
+                        <label>
+                            {!$ObjectType.Event.fields.RecurrenceEndDateOnly.Label}
+                        </label>
+                    </th>
+                    <td class="data2Col first last">
+                        <apex:inputField value="{!task.RecurrenceEndDateOnly}" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>    
+            
+        <input type="hidden" val="{!task.IsRecurrence}" />
+        <input type="hidden" val="{!task.RecurrenceType}" />
+        <input type="hidden" val="{!task.RecurrenceInterval}" />
+        <input type="hidden" val="{!task.RecurrenceInstance}" />
+        <input type="hidden" val="{!task.RecurrenceStartDateTime}" />
+        <input type="hidden" val="{!task.RecurrenceEndDateOnly}" />
+        <input type="hidden" val="{!task.RecurrenceDayOfWeekMask}" />
+        <input type="hidden" val="{!task.RecurrenceMonthOfYear}" />
+        <input type="hidden" val="{!task.RecurrenceDayOfMonth}" />
+        
+    </apex:outputPanel>
+    
+<script>
+    j$(function(){
+    	j$("select.recurrence-type-select").on("change", function(){
+            var recurrenceType = j$(this).val();
+            
+        	j$(".recurrence-panel")
+            	.hide()
+            	.filter("[data-recurrence-for='" + recurrenceType + "']")
+            	.show();
+            
+            j$("[data-recurrence-for='all']").toggle(recurrenceType !== 'None');
+            
+            {!OnRecurrenceTypeChangeScript}
+            
+        }).trigger("change");
+    });
+</script>                                                  
+                                                        
+</apex:component>

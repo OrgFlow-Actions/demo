@@ -1,0 +1,374 @@
+<apex:component controller="EventRelationsController">
+    <apex:attribute name="ComponentId" type="string" required="false" description="A unique ID for this component." />
+    <apex:attribute name="EventRelationPickerState" type="EventRelationPickerState" assignTo="{!State}" required="true" description="A comma separated list of relation IDs to include in the list of selected relations. Pass null or an empty string to seed values from the database." />
+    <apex:attribute name="SearchFieldPlaceholder" type="string" required="true" default="" description="The placeholder text to be displayed in the search box." />
+    <apex:attribute name="SearchDelay" type="integer" required="false" default="0" description="The number of milliseconds to wait between user input and the trigger of the search query." />
+    <apex:attribute name="EnablePrimarySelection" type="boolean" required="false" default="false" description="Indicates whether or not the user should be able to mark one of the selected items as primary (ie first in the list)." />
+    
+    <apex:attribute name="ShowUsers" type="boolean" required="false" default="true" description="True will include Users in the available objects to add as a relation." />
+    <apex:attribute name="ShowLeads" type="boolean" required="false" default="true" description="True will include Leads in the available objects to add as a relation." />
+    <apex:attribute name="ShowContacts" type="boolean" required="false" default="true" description="True will include Contacts in the available objects to add as a relation." />
+    <apex:attribute name="OnPicklistChangeScript" type="string" description="" required="false" />
+    
+    <apex:inputHidden id="targetInput" value="{!State.StringRepresentation}"/>
+    <div id="{!ComponentId}__wrapper" data-target-input-id="{!$Component.targetInput}">                
+        <select id="{!ComponentId}__type" class="ddl_invitee_type">
+            <apex:outputPanel rendered="{!ShowUsers}">
+                <option value="User" data-selected-items-limit="0">Users</option>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!ShowContacts}">
+                <option value="Contact" data-selected-items-limit="50">Contacts</option>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!ShowLeads}">
+                <option value="Lead" data-selected-items-limit="1">Leads</option>
+            </apex:outputPanel>
+        </select>
+        <input type="text" id="{!ComponentId}__query" class="txt_invitees_name" placeholder="{!SearchFieldPlaceholder}"  />
+        
+        <p class="limitWarning" id="{!ComponentId}__limitWarning">
+        	{!$Label.CallReport_SharedActivities_LimitReached}
+        </p>
+        
+        <div>
+            <div class="searchResultList availableAttendees">
+                <p>
+                    {!$Label.Invitee_available}
+                </p>
+                <ul id="{!ComponentId}__availableAttendees"> </ul>        
+            </div>
+            
+            <div class="searchResultList chosenAttendees {!IF(EnablePrimarySelection, 'primarySelection', '')}">
+                <p>
+                    {!$Label.Invitee_selected}
+                </p>
+                <ul id="{!ComponentId}__chosenAttendees">    	
+                </ul>
+            </div>        
+        </div>  
+        
+    </div>
+    
+    <style>
+        .ddl_invitee_type {
+        	width:100px;
+        }
+        
+        .txt_invitees_name {
+        	margin-left:5px;
+        	width:411px;
+        }
+        
+        p.limitWarning {
+        	display: none;
+        }
+        
+    	.searchResultList {
+        	float:left;
+        	width: 250px;
+        }
+        
+        .searchResultList p {
+        	font-weight: bold;
+        }
+        
+    	.searchResultList ul {
+        	display: block;
+        	overflow-y: auto;
+        	overflow-x: hidden;
+        	height: 200px;
+        	list-style-type: none;
+        	background-color: #fff;
+        
+        	-webkit-padding-start: 0px;
+        }
+        
+        .searchResultList li {
+        	margin-left: 0px;
+        	padding: 5px;
+        }
+        
+        .searchResultList li span.secondaryInfo {
+        	margin-left: 20px;
+        	color: #999;
+        	font-size: 0.8em;
+        	display: block;
+        }
+        
+        .searchResultList li:hover {
+        	cursor: pointer;
+        	background-color: #C2DFFF;
+        }
+        
+        .chosenAttendees {
+        	margin-left: 20px;
+        }
+        
+        img.UserIcon, img.ContactIcon, img.LeadIcon, img.ResourceIcon {
+        	height: 16px;
+            width: 16px;
+            margin: 3px 3px -3px 0;
+        }
+        
+        img.UserIcon {
+        	background-image: url(/img/icon/alohaProfile16.png);
+        }
+        
+        img.ContactIcon {
+        	background-position: 0 -82px;
+        	background-image: url(/img/sprites/master.gif);
+        }
+        
+        img.LeadIcon {
+        	background-position: 0 -200px;
+        	background-image: url(/img/sprites/master.gif);
+        }
+        
+        img.ResourceIcon {
+        	background-position: 0 -82px;
+        	background-image: url(/img/sprites/master.gif);
+        }
+        
+        img.primaryIcon {
+        	background-position: 0 -920px;
+        	background-image: url(/img/sprites/master.gif);
+        	height: 24px;
+            width: 24px;
+            margin: 0px 0px 0px 0;
+        	float: right;
+        	display: none;
+        }
+        
+        .primarySelection li:hover:not(:first-child) img.primaryIcon {
+        	display: block;
+        }
+    </style>
+    
+    <script type="text/javascript">
+    	var __sfdcSessionId = '{!GETSESSIONID()}';
+    </script>
+    <script src="../../soap/ajax/36.0/connection.js" type="text/javascript"></script>
+    
+    <script>
+        j$(function(){
+            <apex:repeat value="{!EventRelationPickerState.EventRelationVMs}" var="vm">
+                {!ComponentId}EventRelationsPicker_AddEventRelation('{!JSENCODE(vm.Type)}', '{!JSENCODE(vm.Id)}', '{!JSENCODE(vm.Name)}', '{!JSENCODE(vm.SecondaryInfo)}');
+            </apex:repeat>
+
+            var selectedItemTypes = j$("#{!ComponentId}__chosenAttendees li").data("type");
+            if(selectedItemTypes) {
+            	j$("#{!ComponentId}__type").val(selectedItemTypes);
+            }
+
+            j$("#{!ComponentId}__type, #{!ComponentId}__query").on("keyup change", function(){
+                var type = document.getElementById('{!ComponentId}__type').value;
+                var query = document.getElementById('{!ComponentId}__query').value;
+
+                setTimeout(function(){
+                    if(type == document.getElementById('{!ComponentId}__type').value
+                       && query == document.getElementById('{!ComponentId}__query').value) {
+                		{!ComponentId}EventRelationsPicker_Search(type, query);
+                    }
+                }, {!SearchDelay});
+            });
+        });
+
+    	var {!ComponentId}SearchCount = 0;
+
+    	function {!ComponentId}EventRelationsPicker_Search(type, query){
+            if(query.length == 0) {
+                j$("#{!ComponentId}__availableAttendees").empty();
+
+          		return;
+            }
+            else if(query.length <= 1) { // the SF search API will fail if the query is too short
+                return;
+            }
+
+            {!ComponentId}SearchCount ++;
+
+        	var state = {
+                type : type,
+                searchCount : {!ComponentId}SearchCount
+            };
+
+            var callback = {
+                onSuccess: function(queryResult, source) {
+                    if({!ComponentId}SearchCount != source.searchCount) {
+                        // this prevents race conditions with the asyncronous nature of the xhr requests.
+                        // it guarantees that only the latest search is processed.
+                        // ie any search that has completed after another search is triggered by user input is ignored.
+                        return;
+                    }
+
+                    var resultsContainer = j$("#{!ComponentId}__availableAttendees");
+
+                    resultsContainer.empty();
+
+                    //get the records array
+                    var records = queryResult.getArray('searchRecords');
+
+                    //loop through the records and append the results to the container
+                    for (var i = 0; i < records.length; i++) {
+                        var result = records[i].record;
+
+                        var secondaryInfoText = null;
+                        switch(source.type){
+                        	case 'Lead':
+                            	secondaryInfoText = result.Company;
+                                break;
+                        	case 'Contact':
+                                secondaryInfoText = result.Account.Name;
+                                break;
+                        }
+
+            			var element = {!ComponentId}EventRelationsPicker_CreateResultElement(source.type, result.Id, result.Name, secondaryInfoText);
+
+                        element.on("click", function(){
+                            {!ComponentId}SearchCount ++;
+                            {!ComponentId}EventRelationsPicker_AddEventRelation(j$(this).data("type"), j$(this).data("id"), j$(this).data("text"), j$(this).data("secondaryInfo"));
+
+                            j$(this).addClass("selected").hide();
+                        });
+
+                        resultsContainer.append(element);
+                    }
+                },
+                onFailure: function(error, source) {
+            		console.log(error);
+                },
+                source: state
+            };
+
+            var soqlWhereClause = " where id not in ('' ";
+
+        	{!ComponentId}EventRelationsPicker_GetEventRelations().forEach(function(relation, index){
+            	soqlWhereClause += ", '" + relation.id + "'";
+            });
+
+            soqlWhereClause += ')';
+
+            var soslReturningClause = "";
+            switch(type){
+                case 'Lead':
+                    soslReturningClause = "Lead(name, id, company"+ soqlWhereClause +")";
+                    break;
+                case 'Contact':
+                    soslReturningClause = "Contact(name, id, account.name"+ soqlWhereClause +")";
+                    break;
+                case 'User':
+                    soslReturningClause = "User(name, id"+ soqlWhereClause +" and isactive = true)";
+                    break;
+            }
+
+            sforce.connection.search("find {" + query + "} in all fields returning " + soslReturningClause, callback);
+        }
+
+    	function {!ComponentId}EventRelationsPicker_AddEventRelation(type, id, text, secondaryInfo){
+            var selectedContainer = j$("#{!ComponentId}__chosenAttendees");
+
+            var element = {!ComponentId}EventRelationsPicker_CreateResultElement(type, id, text, secondaryInfo);
+
+            element.on("click", function(){
+                {!ComponentId}EventRelationsPicker_RemoveEventRelation(j$(this).data("id"));
+            });
+
+            selectedContainer.append(element);
+
+            {!ComponentId}EventRelationsPicker_HasChanged();
+        }
+
+    	function {!ComponentId}EventRelationsPicker_RemoveEventRelation(id){
+            //find li element and remove it
+            j$("#{!ComponentId}__chosenAttendees li[data-id='" + id + "']").remove();
+
+            //show related li element in list of available options (if relevant)
+            j$("#{!ComponentId}__availableAttendees li[data-id='" + id + "']").removeClass("selected").show();
+
+            //callback
+            {!ComponentId}EventRelationsPicker_HasChanged();
+        }
+
+    	function {!ComponentId}EventRelationsPicker_GetEventRelations(){
+            var ids = [];
+
+            j$("#{!ComponentId}__chosenAttendees li").each(function(){
+                ids.push({
+                    id : j$(this).data("id"),
+                    type : j$(this).data("type"),
+                    text : j$(this).data("text")
+                });
+            });
+
+            return ids;
+        }
+
+    	function {!ComponentId}EventRelationsPicker_HasChanged(){
+
+            var wrapperElement = j$("#{!ComponentId}__wrapper");
+            var inputElementId = wrapperElement.data("target-input-id");
+
+            var ids = [];
+            var eventRelations = {!ComponentId}EventRelationsPicker_GetEventRelations();
+
+            eventRelations.forEach(function(eventRelation, index){
+                ids.push(eventRelation.id);
+            });
+
+            wrapperElement.data("event-relations", eventRelations);
+
+            // type drop down should be disabled if any ids have been selected
+            j$("#{!ComponentId}__type").prop('disabled', ids.length > 0);
+
+            // input should be disabled if the limit has been reached
+            var selectedItemsLimit = j$("#{!ComponentId}__type option:selected").data("selected-items-limit");
+
+            if(selectedItemsLimit != 0){
+                var maxNumberOfLeadsHasBeenSelected = ids.length >= selectedItemsLimit;
+
+                j$("#{!ComponentId}__query").prop('disabled', maxNumberOfLeadsHasBeenSelected);
+                j$("#{!ComponentId}__limitWarning").toggle(maxNumberOfLeadsHasBeenSelected);
+                j$("#{!ComponentId}__availableAttendees li:not(.selected)").toggle(!maxNumberOfLeadsHasBeenSelected);
+            }
+
+            document.getElementById(inputElementId).value = ids;
+
+            {!OnPicklistChangeScript}
+        }
+
+    	function {!ComponentId}EventRelationsPicker_CreateResultElement(type, id, text, secondaryInfo){
+            var imageElement = j$("<img/>")
+                .attr("src", "/s.gif")
+                .addClass(type + "Icon");
+
+            var primaryIcon = j$("<img/>")
+                .attr("src", "/s.gif")
+                .addClass("primaryIcon")
+            	.on("click", function() {
+                    j$(this).parents("ul").prepend(j$(this).parent("li"));
+
+                    {!ComponentId}EventRelationsPicker_HasChanged();
+
+                    return false;
+                });
+
+            var secondaryInfoSpan = j$("<span/>")
+                .addClass("secondaryInfo")
+                .append(secondaryInfo);
+
+            var element = j$("<li/>")
+            	.attr("data-id", id) // required so we can select by id
+                .data("id", id)
+                .data("type", type)
+                .data("text", text)
+                .data("secondaryInfo", secondaryInfo)
+                .append(imageElement)
+                .append(text)
+            	.append(primaryIcon)
+                .append(secondaryInfoSpan);
+
+            return element;
+        }
+    </script>
+    
+    <!--<apex:includeScript value="{!$Resource.EventRelationsPickerJavascript}"/>-->
+</apex:component>
