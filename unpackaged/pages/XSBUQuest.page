@@ -1,0 +1,102 @@
+<apex:page showHeader="true"  standardController="Account" extensions="XSBUQuestController">
+  <script src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+  <script src="{!URLFOR($Resource.XSBUQuestionnaire, 'app.js')}"></script>
+  <script src="{!URLFOR($Resource.XSBUQuestionnaire, 'ProspectQuestionnaireController.js')}"></script>
+  <script src="{!URLFOR($Resource.XSBUQuestionnaire, 'directive.js')}"></script>
+  <script src="{!URLFOR($Resource.XSBUQuestionnaire, 'service.js')}"></script>
+
+<apex:slds />
+     
+  <!--link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" /-->
+        
+    <div class="slds-scope">
+            <div ng-app="questionnaireapp">
+                <div ng-controller="ProspectQuestionnaireController">
+                <form name="form" novalidate="novalidate">  
+                            
+                    <input type="hidden" ng-model="country" ng-init="country='{!Country}'" />
+                    <input type="hidden" ng-model="userLanguage" ng-init="userLanguage='{!UserLanguage}'" />
+                    <input type="hidden" ng-model="accountId" ng-init="accountId='{!AccountId}'" />
+                    <input type="hidden" ng-model="questionnaireType" ng-init="questionnaireType='{!QuestionnaireType}'" />
+                    <input type="hidden" ng-model="questionnaireSetupId" ng-init="questionnaireSetupId='{!QuestionnaireSetupId}'" />
+                    <input type="hidden" ng-model="sourceId" ng-init="sourceId='{!SourceId}'" />
+                    <input type="hidden" ng-model="notSBUSPecific" ng-init="notSBUSPecific='{!NotSBUSPecific}'" />
+                    <input type="hidden" ng-model="createOpportunity" ng-init="createOpportunity='{!CreateOpportunity}'" />
+                    <input type="hidden" ng-model="questionnaireName" ng-init="questionnaireName='{!QuestionnaireName}'" />
+                    <input type="hidden" ng-model="accountName" ng-init="accountName='{!AccountName}'" />
+                    <input type="hidden" ng-model="selectSBU" ng-init="selectSBU='{!$Label.xsbu_Select_SBU}'" />
+                    <input type="hidden" ng-model="selectAnswer" ng-init="selectAnswer='{!$Label.xsbu_Select_Answer}'" />
+                    <input type="hidden" ng-model="selectProductLine" ng-init="selectProductLine='{!$Label.xsbu_Select_Product_Line}'" />
+                    <input type="hidden" ng-model="showContacts" ng-init="showContacts='{!Show_contacts}'"/>
+                    <input type="hidden" ng-model="showOwner" ng-init="showOwner='{!Show_owner}'"/>
+                    <input type="hidden" ng-model="selectedContact" ng-init="selectedContact = ''"/>
+                    <input type="hidden" ng-model="selectedUser" ng-init="selectedUser = ''"/>
+                    <input type="hidden" ng-model="OppOwner" ng-init="OppOwner = '{!Opp_owner}'"/>
+                    <input type="hidden" ng-model="DefUser" ng-init="DefUser = '{!DefaultUser.FirstName + ' ' + DefaultUser.LastName + ' (' + DefaultUser.UserRole.Name + ')'}'"/>
+                    <input type="hidden" ng-model="DefUserId" ng-init="DefUserId = '{!DefaultUser.Id}'"/>
+                    
+                    <div ng-show="questionnaireName > ''">
+                        <p class="slds-text-heading--label slds-m-bottom--small">
+                            <b>{{accountName}} | {{questionnaireName}}</b>
+                        </p>
+                    </div>
+                    
+                    <div style="color:red" ng-show="questionnaireName == ''">Questionnaire setup cannot be initialized. Please, check input parameters.</div>
+
+                    <span ng-show="saveResult == 'Success'"><a href="/{!Id}#{!Id}_RelatedOpportunityList_target">{!$Label.xsbu_Thank_you_for_your_answer}</a> </span>
+                    <div ng-show="saveResult == 'Success' && notSBUSPecific == 'false'">{!$Label.xsbu_Qualify_Another}</div>&nbsp;<br />
+                        
+                    <div ng-show="questionnaireName > '' && showContacts == 'true'">
+                        {!$ObjectType.Contact.Label}: <select name="repeatSelect" id="repeatSelect" class="slds-select slds-select--neutral" ng-model="selectedContact" ng-init="init()">
+                                    <option></option>
+                                    <option ng-repeat="contact in contactList" value="{{contact.Id}}">{{contact.FirstName}} {{contact.LastName}} ({{contact.Phone}}, {{contact.Email}})</option>
+                                </select>
+                                
+                                <div ng-show="selectedContact ==''">
+                                <p><a href="/003/e?retURL=%2F{!accountId}&accid={!accountId}&RecordType=01220000000CyRU&ent=Contact&nooverride=1" target="_blank">Add new contact</a></p>
+                                <br />
+                                </div>
+                                
+                                <div ng-show="selectedContact >''">
+                                <p><a href="/{{selectedContact}}/e?retURL=%2F{{selectedContact}}" target="_blank">Edit contact</a></p>
+                                <br />
+                                </div>
+                                   
+                    </div>
+                     
+                    <div ng-show="questionnaireName > '' && showOwner == 'true' && OppOwner == 'Based on Manual assignment ETM' ">            
+                    <div>
+                     {!$Label.xsbu_assign_ETM_manually}:
+                    
+                       <select name="repeatSelect" id="repeatSelect" class="slds-select slds-select--neutral" ng-model="selectedUser" ng-init="init()">
+                                    <option></option>
+                                    <!--<option ng-repeat="user in userList" value="{{user.Id}}">{{user.FirstName}} {{user.LastName}} ({{user.UserRole.Name}})</option> -->
+                                    <option ng-repeat="user in userList" value="{{user.User.Id}}">{{user.User.FirstName}} {{user.User.LastName}} ({{user.User.UserRole.Name}}, {{user.RoleInTerritory2}})</option>
+                                    <option value="{{DefUserId}}"> {{DefUser}}</option>   
+                       </select>
+                                    <p><br/></p>
+                      </div>
+                     </div>             
+
+                    <div ng-show="questionnaireName > ''">
+                        <div ng-show="notSBUSPecific == 'false'">
+                            Product Line:<select name="repeatSelect" id="repeatSelect" class="slds-select slds-select--neutral" ng-model="sbu" ng-change="update()" ng-init="init()">
+                                <option ng-repeat="sbu in sbuList" value="{{sbu}}" ng-selected="sbu == '--{!$Label.xsbu_Select_Product_Line}'">{{sbu}}</option>
+                            </select> 
+                            <br />&nbsp;                  
+                        </div>
+                        <div ng-show="saveResult != 'Success'">
+                            <question ng-repeat="questiondata in questions" data="questiondata"></question>
+                            <div style="color:red" ng-show="!form.$valid"> {!$Label.xsbu_Answer_Required}</div>&nbsp;<br />
+                            <input type="submit" class="slds-button slds-button--neutral" onclick="this.disabled=true" ng-disabled="!form.$valid || (sbu == '--{!$Label.xsbu_Select_Product_Line}' && notSBUSpecific == 'false')" value="{!$Label.xsbu_Submit}" ng-click="save(form)" />&nbsp;
+                            <input type="reset" class="slds-button slds-button--neutral" value="{!$Label.xsbu_Reset}" />
+                        </div>
+                    </div>
+                          
+                </form>
+                </div>
+            </div>
+</div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></!--script-->
+</apex:page>

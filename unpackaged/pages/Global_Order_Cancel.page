@@ -1,0 +1,27 @@
+<apex:page standardController="Order" extensions="OrderGlobal_Cancel" doctype="html-5.0">
+
+<script>
+
+function updateRecords()
+{
+remote_UpdateRecords();
+}
+
+</script>
+
+<apex:form >
+
+<apex:actionFunction name="remote_UpdateRecords" action="{!save}">
+</apex:actionFunction>
+
+<p><b>Are you sure you want to cancel the order?</b></p>
+<p><i>Please add a reason for why the order is cancelled:</i></p>
+
+<br/><apex:inputText value="{!CurRec.Note_for_canceled_orders__c}"/>
+
+<br/><br/>
+<apex:commandButton onclick="updateRecords(); return false;" value="Cancel order" immediate="true"/>
+
+</apex:form>
+
+</apex:page>

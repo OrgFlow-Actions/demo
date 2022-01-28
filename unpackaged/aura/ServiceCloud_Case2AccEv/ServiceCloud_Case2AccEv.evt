@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event to handle row updates">
+    <aura:attribute access="public" name="indexVar" type="Integer"/>
+    <aura:attribute access="public" name="SelCase" type="String"/>    
+</aura:event>

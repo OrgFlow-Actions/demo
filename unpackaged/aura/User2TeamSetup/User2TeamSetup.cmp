@@ -1,0 +1,61 @@
+<aura:component controller="LightningAccountController" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" >
+<aura:attribute name="recordId" type="Id" />
+<aura:attribute name="UserId" type="Id"/>
+<aura:attribute name="ThisUser" type="User"/>
+<aura:attribute name="UserToEdit" type="User"/>    
+<aura:attribute name="isVisible" type="Boolean"/>
+<aura:attribute name="TeamSetup" type="object[]"/>
+<aura:attribute name="isEditPage" type="boolean"/>    
+    
+<aura:handler name="init" value="{! this }" action="{! c.getContactData }" />
+    
+    <!--<force:recordData aura:id="accountRecord"
+                  recordId="{! v.recordId }"
+                  targetFields="{! v.Account }"
+                  layoutType="FULL"
+                  />   --> 
+     
+<!--<aura:if isTrue="{!v.isVisible}"> -->
+    <lightning:recordEditForm recordId="{!v.recordId}" objectApiName="User" aura:id="edit" onsubmit="{!c.SaveUser}">
+    <lightning:card class="slds-card_boundary" iconName="standard:topic" title="{! 'Team Setup'}">
+    
+    <p class="slds-p-horizontal_small">
+    The current team assigned to {!v.UserToEdit.FirstName + ' ' + v.UserToEdit.LastName} is {!v.UserToEdit.Team_Setup_ID__c}
+    <br/>    
+  		<aura:if isTrue="{!v.isEditPage}">
+            <fieldset class="slds-form-element">
+  					<div class="slds-form-element__control">
+ 		
+            			<aura:iteration items="{!v.TeamSetup}" var="obj">                           
+                            <ui:inputRadio name="others" label="{!obj.Label}" value="{!obj.Label == v.UserToEdit.Team_Setup_ID__c}" change="{!c.onRadio}" />
+        				</aura:iteration>
+           
+                	</div>
+            </fieldset>
+        </aura:if> 
+    </p>
+        
+    <aura:set attribute="actions">
+       <aura:if isTrue="{!v.isEditPage}">
+ 		<div class="slds-align--absolute-center">
+            
+        <button type="button" class="slds-button slds-button--neutral slds-m-around--medium" aura:id="btnCancel" onclick="{!c.clickCancel}">
+ 		Close
+ 		</button> 
+ 		<!--<lightning:button type="submit" label="Save" onclick="{!c.clickSave}" class="slds-m-around-medium"/> -->
+ 		</div> 
+		<aura:set attribute="else">
+    <div class="slds-align--absolute-center">
+ 		<button type="button" class="slds-button slds-button--neutral slds-m-around--medium" aura:id="btnCancel" onclick="{!c.changeEditLayout}">
+ 		Edit
+ 		</button> 
+    </div>
+    </aura:set>
+    </aura:if>
+    </aura:set>
+    </lightning:card>
+    </lightning:recordEditForm>
+ 
+    <!-- </aura:if> -->   
+          
+</aura:component>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" type="String" label="Record Id" />
+            <property name="accountId" type="String" label="Account Id (in case of Contact search)" />
+            <property name="sObjectName" type="String" label="SObject API Name" />
+            <property name="label" type="String" label="Field label" />
+            <property name="isMultiEntry" type="Boolean" label="Is multi entry?" />
+            <property name="maxSelectionSize" type="Integer" label="Max selection size" />
+            
+        </targetConfig>    
+    </targetConfigs>
+</LightningComponentBundle>

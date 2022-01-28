@@ -1,0 +1,45 @@
+<aura:component implements="force:hasRecordId" access="global" >
+		<aura:attribute access="public" name="CaseInstance" type="Case"/>
+    	<aura:attribute access="public" name="rowIndex" type="Integer" default="0"/>
+    	<aura:attribute access="public" name="timeTest" type="String"/>
+    	<aura:attribute access="public" name="closeModal" type="Boolean" default="false"/>    
+		<aura:attribute name="overlayPanel" type="Aura.Component[]" />
+		<aura:attribute name="modalPromise" type="Aura.Action"/>
+		<aura:attribute name="modalClosed" type="Boolean" default="false"/>    
+	    
+    	<aura:registerEvent name="ServiceCloud_Case2AccEv" type="c:ServiceCloud_Case2AccEv"/> 
+		<lightning:overlayLibrary aura:id="overlayLib"/>
+		
+    	        <tr>
+                <th scope="row" class="slds-has-flexi-truncate">
+            		<div class="slds-truncate">
+                        <a href="" value="{!'contactpopover' + v.rowIndex}" class="{!'contactpopover' + v.rowIndex}" name = "{!'mypopover' + v.rowIndex}" onmouseover="{!c.handleShowModal}" onmouseleave="{!c.handleCloseModal}">                 
+                        <lightning:button variant="base" label="{!v.CaseInstance.CaseNumber}" onclick="{!c.navRecord}"/>                                     
+                        </a>
+                    </div>             
+            	</th> 
+                <th scope="row" class="slds-has-flexi-truncate">
+            		<div class="slds-truncate">
+                        <p class="slds-truncate">{!v.CaseInstance.Subject}</p>
+                    </div>                              
+            	</th>
+                <th scope="row" class="slds-has-flexi-truncate">
+            		<div class="slds-truncate">
+                        <p class="slds-truncate">{!v.CaseInstance.Status}</p>
+                    </div>                
+            	</th>               
+            	<th scope="row" class="slds-has-flexi-truncate">
+            		<div class="slds-truncate">
+                        <ui:outputDate value="{!v.CaseInstance.CreatedDate}"/>
+                    </div>               
+            	</th>
+               <th scope="row" class="slds-has-flexi-truncate">
+            		<div class="slds-truncate">
+                        <p class="slds-truncate">{!v.CaseInstance.Owner.FirstName + ' ' + v.CaseInstance.Owner.LastName}</p>
+                    </div>                
+            	</th>      
+                
+            </tr>  
+    
+    
+</aura:component>

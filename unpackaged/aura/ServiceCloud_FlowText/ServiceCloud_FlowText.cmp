@@ -1,0 +1,23 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="text" type="String" access="global"/>
+    <aura:attribute name="header" type="String" access="global"/>
+    <aura:attribute name="text2" type="String" access="global"/>
+    <aura:attribute name="approvedExtension" type="Boolean" access="global" default="false"/>
+    
+    <lightning:card variant="Narrow" title="{!v.header}" class="slds-card slds-card_boundary" iconName="action:approval">
+    
+    <table>
+    <tr>
+    <td>    
+    <p class="slds-p-horizontal_small"><lightning:formattedText value="{!v.text}"/></p>
+    <p class="slds-p-horizontal_small"><lightning:formattedText value="{!v.text2}"/></p>    
+    <br/>
+    </td>
+    <td>    
+    <p class="slds-p-horizontal_small"><lightning:input type="toggle" label="FMV extension approved?" checked="{!v.approvedExtension}" disabled="true"/></p>    
+    </td>
+    </tr>
+    </table>
+    </lightning:card>
+    <br/>
+</aura:component>

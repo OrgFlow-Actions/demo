@@ -1,0 +1,12 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" >
+	   
+    <aura:attribute name="type" type="String" access="global"/>
+    <aura:attribute name="label" type="String" access="global"/>
+    <aura:attribute name="output" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="defaultToggle" type="Boolean" access="global"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+<lightning:input aura:id="inputCheck" type="{!v.type}" label="{!v.label}" checked="{!v.defaultToggle}" onchange="{!c.createContact}"/>
+        
+</aura:component>

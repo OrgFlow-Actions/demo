@@ -1,0 +1,11 @@
+.THIS.scriptBorder {
+    border-color: gainsboro;
+    border-style: solid;
+    margin-bottom: 20px;
+}
+
+.THIS .scriptBody {
+    font-size: 150%;
+    padding-left: 1rem;
+    vertical-align: middle;
+}

@@ -1,0 +1,7 @@
+<design:component>
+   <design:attribute name="recordId" label="Record Id" />
+   <design:attribute name="multiple" label="Multiple" />
+   <design:attribute name="accept" label="Accept" />
+   <design:attribute name="disabled" label="Disabled" />
+	
+</design:component>
