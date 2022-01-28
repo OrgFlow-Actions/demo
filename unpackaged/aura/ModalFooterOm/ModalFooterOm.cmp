@@ -1,0 +1,18 @@
+<aura:component>
+    <aura:registerEvent name="modalEventOm" type="c:ModalEventOm" />
+    <aura:attribute name="isLoading" type="Boolean" />
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <lightning:button
+        name="Cancel"
+        label="Cancel"
+        onclick="{!c.handleCancel}"
+        disabled="{!v.isLoading}"
+    />
+    <lightning:button
+        variant="brand"
+        name="Submit"
+        label="Submit"
+        onclick="{!c.handleSubmit}"
+        disabled="{!v.isLoading}"
+    />
+</aura:component>

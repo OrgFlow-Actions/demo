@@ -1,0 +1,12 @@
+.THIS sticky-button_bottom-container {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	left: 0;
+	width: 100%;    
+}
+
+.THIS sticky-button_bottom-container-mobile {
+    background: rgba(255, 255, 255, 0.9);
+	float: none;
+}

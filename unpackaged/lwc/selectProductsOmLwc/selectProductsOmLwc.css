@@ -1,0 +1,29 @@
+.slds-box {
+    padding: 0.5rem !important;
+}
+.container-vf-height {
+    max-height: 60vh;
+}
+.description-picklist {
+    margin-top: -5px;
+}
+.sticky-footer {
+    bottom: 0;
+    position: sticky;
+    z-index: 1;
+}
+.sticky-header {
+    top: 0;
+    position: sticky;
+    z-index: 1;
+}
+.inline-combobox {
+    width: 6em;
+    display: inline-block !important;
+}
+dt {
+    width: 40% !important;
+}
+dd {
+    width: 60% !important;
+}

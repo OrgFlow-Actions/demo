@@ -1,0 +1,990 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <enableActivities>true</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>false</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>Account__c</fullName>
+    <externalId>false</externalId>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Implant Rescue Services</relationshipLabel>
+    <relationshipName>Implant_Rescue_Services</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>ERP_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.Movex__c</formula>
+    <label>ERP ID</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IRS_city__c</fullName>
+    <externalId>false</externalId>
+    <label>IRS_city</label>
+    <length>20</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IRS_full_adress__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.Name &amp;", "&amp; IRS_street__c &amp;", "&amp; IRS_zip__c &amp; ", "&amp; IRS_city__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>IRS_full_adress</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IRS_street__c</fullName>
+    <externalId>false</externalId>
+    <label>IRS_street</label>
+    <length>30</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IRS_zip__c</fullName>
+    <externalId>false</externalId>
+    <label>IRS_zip</label>
+    <length>5</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Implant_System__c</fullName>
+    <externalId>false</externalId>
+    <label>implant system</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>Ankylos</fullName>
+          <default>false</default>
+          <label>Ankylos</label>
+        </value>
+        <value>
+          <fullName>ATIS</fullName>
+          <default>false</default>
+          <label>ATIS</label>
+        </value>
+        <value>
+          <fullName>ATIS EV</fullName>
+          <default>false</default>
+          <label>ATIS EV</label>
+        </value>
+        <value>
+          <fullName>ATIS TX</fullName>
+          <default>false</default>
+          <label>ATIS TX</label>
+        </value>
+        <value>
+          <fullName>competitor (provided with Atlantis)</fullName>
+          <default>false</default>
+          <label>competitor (provided with Atlantis)</label>
+        </value>
+        <value>
+          <fullName>Frialit</fullName>
+          <default>false</default>
+          <label>Frialit</label>
+        </value>
+        <value>
+          <fullName>IMZ</fullName>
+          <default>false</default>
+          <label>IMZ</label>
+        </value>
+        <value>
+          <fullName>XiVE</fullName>
+          <default>false</default>
+          <label>XiVE</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Implant_safed__c</fullName>
+    <externalId>false</externalId>
+    <label>Implant safed</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>no information received</fullName>
+          <default>true</default>
+          <label>no information received</label>
+        </value>
+        <value>
+          <fullName>YES</fullName>
+          <default>false</default>
+          <label>YES</label>
+        </value>
+        <value>
+          <fullName>NO</fullName>
+          <default>false</default>
+          <label>NO</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>amount__c</fullName>
+    <externalId>false</externalId>
+    <label>amount</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>case_confirmed__c</fullName>
+    <externalId>false</externalId>
+    <label>case confirmed</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>NO</fullName>
+          <default>true</default>
+          <label>NO</label>
+        </value>
+        <value>
+          <fullName>YES</fullName>
+          <default>false</default>
+          <label>YES</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>case_confirmed_date__c</fullName>
+    <externalId>false</externalId>
+    <label>case confirmed date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>case_confirmed_to__c</fullName>
+    <externalId>false</externalId>
+    <label>case confirmed to</label>
+    <length>20</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>contact_person__c</fullName>
+    <externalId>false</externalId>
+    <label>contact person</label>
+    <length>20</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>customer_email__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.General_Info_Email__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>customer_email</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>customer_pays__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>customer pays</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>customer_phone__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.Phone</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>customer_phone</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>description__c</fullName>
+    <externalId>false</externalId>
+    <label>description</label>
+    <length>50000</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>50</visibleLines>
+  </fields>
+  <fields>
+    <fullName>invoice_date__c</fullName>
+    <externalId>false</externalId>
+    <label>invoice date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>order_no__c</fullName>
+    <externalId>false</externalId>
+    <label>order no</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>patient_name__c</fullName>
+    <externalId>false</externalId>
+    <label>patient_name</label>
+    <length>20</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>reports_sent_in__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>reports sent in</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>rescue_date_end__c</fullName>
+    <externalId>false</externalId>
+    <label>rescue_date_end</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>rescue_date_start__c</fullName>
+    <externalId>false</externalId>
+    <label>rescue_date_start</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>rescue_date_status__c</fullName>
+    <externalId>false</externalId>
+    <label>rescue_date_status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>first possible date</fullName>
+          <default>false</default>
+          <label>first possible date</label>
+        </value>
+        <value>
+          <fullName>planned in advance</fullName>
+          <default>false</default>
+          <label>planned in advance</label>
+        </value>
+        <value>
+          <fullName>conditionally</fullName>
+          <default>false</default>
+          <label>conditionally</label>
+        </value>
+        <value>
+          <fullName>follow-up</fullName>
+          <default>false</default>
+          <label>follow-up</label>
+        </value>
+        <value>
+          <fullName>fixed</fullName>
+          <default>false</default>
+          <label>fixed</label>
+        </value>
+        <value>
+          <fullName>no customer reply</fullName>
+          <default>false</default>
+          <label>no customer reply</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>rescue_dentist__c</fullName>
+    <externalId>false</externalId>
+    <label>rescue dentist</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>Abert, Christian</fullName>
+          <default>false</default>
+          <label>Abert, Christian</label>
+        </value>
+        <value>
+          <fullName>Ajam, Farid</fullName>
+          <default>false</default>
+          <label>Ajam, Farid</label>
+        </value>
+        <value>
+          <fullName>Bauer, Thomas</fullName>
+          <default>false</default>
+          <label>Bauer, Thomas</label>
+        </value>
+        <value>
+          <fullName>Büchter, Andre</fullName>
+          <default>false</default>
+          <label>Büchter, Andre</label>
+        </value>
+        <value>
+          <fullName>Buhtz, Christian</fullName>
+          <default>false</default>
+          <label>Buhtz, Christian</label>
+        </value>
+        <value>
+          <fullName>Czichowsky, Chris</fullName>
+          <default>false</default>
+          <label>Czichowsky, Chris</label>
+        </value>
+        <value>
+          <fullName>Drews, Dirk Joachim</fullName>
+          <default>false</default>
+          <label>Drews, Dirk Joachim</label>
+        </value>
+        <value>
+          <fullName>Ender, Marcel</fullName>
+          <default>false</default>
+          <label>Ender, Marcel</label>
+        </value>
+        <value>
+          <fullName>Engelke &amp; Büchter</fullName>
+          <default>false</default>
+          <label>Engelke &amp; Büchter</label>
+        </value>
+        <value>
+          <fullName>Fischer-Barber, Andrea</fullName>
+          <default>false</default>
+          <label>Fischer-Barber, Andrea</label>
+        </value>
+        <value>
+          <fullName>Fröhlich, Michael</fullName>
+          <default>false</default>
+          <label>Fröhlich, Michael</label>
+        </value>
+        <value>
+          <fullName>Gerlach, Till</fullName>
+          <default>false</default>
+          <label>Gerlach, Till</label>
+        </value>
+        <value>
+          <fullName>Gura, Michael</fullName>
+          <default>false</default>
+          <label>Gura, Michael</label>
+        </value>
+        <value>
+          <fullName>Heering, Dirk</fullName>
+          <default>false</default>
+          <label>Heering, Dirk</label>
+        </value>
+        <value>
+          <fullName>Hundeshagen, Benjamin</fullName>
+          <default>false</default>
+          <label>Hundeshagen, Benjamin</label>
+        </value>
+        <value>
+          <fullName>IRS Doctor</fullName>
+          <default>false</default>
+          <isActive>false</isActive>
+          <label>IRS Doctor</label>
+        </value>
+        <value>
+          <fullName>Kestel, Martin</fullName>
+          <default>false</default>
+          <label>Kestel, Martin</label>
+        </value>
+        <value>
+          <fullName>Kornmann, Frank</fullName>
+          <default>false</default>
+          <label>Kornmann, Frank</label>
+        </value>
+        <value>
+          <fullName>Kornmann &amp; Gerlach</fullName>
+          <default>false</default>
+          <label>Kornmann &amp; Gerlach</label>
+        </value>
+        <value>
+          <fullName>Korves, Gerhard</fullName>
+          <default>false</default>
+          <label>Korves, Gerhard</label>
+        </value>
+        <value>
+          <fullName>Krinner, Maximilian</fullName>
+          <default>false</default>
+          <label>Krinner, Maximilian</label>
+        </value>
+        <value>
+          <fullName>Krug, Florian</fullName>
+          <default>false</default>
+          <label>Krug, Florian</label>
+        </value>
+        <value>
+          <fullName>Lodde, Gerrit</fullName>
+          <default>false</default>
+          <label>Lodde, Gerrit</label>
+        </value>
+        <value>
+          <fullName>Loeck, Michael</fullName>
+          <default>false</default>
+          <label>Loeck, Michael</label>
+        </value>
+        <value>
+          <fullName>Rahlf, Björn</fullName>
+          <default>false</default>
+          <label>Rahlf, Björn</label>
+        </value>
+        <value>
+          <fullName>Rauch, Petra</fullName>
+          <default>false</default>
+          <label>Rauch, Petra</label>
+        </value>
+        <value>
+          <fullName>Sausmikat, Wolfgang</fullName>
+          <default>false</default>
+          <label>Sausmikat, Wolfgang</label>
+        </value>
+        <value>
+          <fullName>Schaaf-Zielinska, Agnieszka</fullName>
+          <default>false</default>
+          <label>Schaaf-Zielinska, Agnieszka</label>
+        </value>
+        <value>
+          <fullName>Schmitz, Jens</fullName>
+          <default>false</default>
+          <label>Schmitz, Jens</label>
+        </value>
+        <value>
+          <fullName>Schneider, Matthias</fullName>
+          <default>false</default>
+          <label>Schneider, Matthias</label>
+        </value>
+        <value>
+          <fullName>Schwarz, Anton</fullName>
+          <default>false</default>
+          <label>Schwarz, Anton</label>
+        </value>
+        <value>
+          <fullName>Steude, Mischa</fullName>
+          <default>false</default>
+          <label>Steude, Mischa</label>
+        </value>
+        <value>
+          <fullName>Stolzenburg, Thomas</fullName>
+          <default>false</default>
+          <label>Stolzenburg, Thomas</label>
+        </value>
+        <value>
+          <fullName>Struve, Andreas</fullName>
+          <default>false</default>
+          <label>Struve, Andreas</label>
+        </value>
+        <value>
+          <fullName>Terwelp, Joachim</fullName>
+          <default>false</default>
+          <label>Terwelp, Joachim</label>
+        </value>
+        <value>
+          <fullName>Trilck, Enrico</fullName>
+          <default>false</default>
+          <label>Trilck, Enrico</label>
+        </value>
+        <value>
+          <fullName>Uecker, Wolfgang</fullName>
+          <default>false</default>
+          <label>Uecker, Wolfgang</label>
+        </value>
+        <value>
+          <fullName>von Krockow, Nadine</fullName>
+          <default>false</default>
+          <label>von Krockow, Nadine</label>
+        </value>
+        <value>
+          <fullName>Wagner, Mario</fullName>
+          <default>false</default>
+          <label>Wagner, Mario</label>
+        </value>
+        <value>
+          <fullName>Weise, Thomas</fullName>
+          <default>false</default>
+          <label>Weise, Thomas</label>
+        </value>
+        <value>
+          <fullName>Wittwer, Gert</fullName>
+          <default>false</default>
+          <label>Wittwer, Gert</label>
+        </value>
+        <value>
+          <fullName>Wurdinger, Jens</fullName>
+          <default>false</default>
+          <label>Wurdinger, Jens</label>
+        </value>
+        <value>
+          <fullName>Zingsheim, Claudia</fullName>
+          <default>false</default>
+          <label>Zingsheim, Claudia</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>rescue_method__c</fullName>
+    <externalId>false</externalId>
+    <label>rescue method</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>centre</fullName>
+          <default>false</default>
+          <label>centre</label>
+        </value>
+        <value>
+          <fullName>mobile</fullName>
+          <default>false</default>
+          <label>mobile</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>rescue_partner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>rescue partner</label>
+    <lookupFilter>
+      <active>true</active>
+      <filterItems>
+        <field>User.User_Type__c</field>
+        <operation>equals</operation>
+        <value>Implant Rescue Dentist</value>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Implant_Rescue_Services</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>rescue_reason__c</fullName>
+    <externalId>false</externalId>
+    <label>rescue reason</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>abutment broken</fullName>
+          <default>false</default>
+          <label>abutment broken</label>
+        </value>
+        <value>
+          <fullName>conus broken</fullName>
+          <default>false</default>
+          <label>conus broken</label>
+        </value>
+        <value>
+          <fullName>implant broken</fullName>
+          <default>false</default>
+          <label>implant broken</label>
+        </value>
+        <value>
+          <fullName>screw broken</fullName>
+          <default>false</default>
+          <label>screw broken</label>
+        </value>
+        <value>
+          <fullName>tightened abutment</fullName>
+          <default>false</default>
+          <label>tightened abutment</label>
+        </value>
+        <value>
+          <fullName>tightened screw</fullName>
+          <default>false</default>
+          <label>tightened screw</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+  </fields>
+  <fields>
+    <fullName>rescue_status__c</fullName>
+    <externalId>false</externalId>
+    <label>rescue status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>open</fullName>
+          <default>true</default>
+          <label>open</label>
+        </value>
+        <value>
+          <fullName>internal check</fullName>
+          <default>false</default>
+          <label>internal check</label>
+        </value>
+        <value>
+          <fullName>feedback customer</fullName>
+          <default>false</default>
+          <label>feedback customer</label>
+        </value>
+        <value>
+          <fullName>closed</fullName>
+          <default>false</default>
+          <label>closed</label>
+        </value>
+        <value>
+          <fullName>cancelled</fullName>
+          <default>false</default>
+          <label>cancelled</label>
+        </value>
+        <value>
+          <fullName>rejected</fullName>
+          <default>false</default>
+          <label>rejected</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>sent_complaint_formular__c</fullName>
+    <externalId>false</externalId>
+    <label>sent complaint formular</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>NO</fullName>
+          <default>true</default>
+          <label>NO</label>
+        </value>
+        <value>
+          <fullName>YES</fullName>
+          <default>false</default>
+          <label>YES</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>sent_consent_form__c</fullName>
+    <externalId>false</externalId>
+    <label>sent consent form</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>NO</fullName>
+          <default>true</default>
+          <label>NO</label>
+        </value>
+        <value>
+          <fullName>YES</fullName>
+          <default>false</default>
+          <label>YES</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>sent_in_by_sales_rep__c</fullName>
+    <externalId>false</externalId>
+    <formula>sent_in_by_user__c  &lt;&gt; ""</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>sent in by sales rep</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>sent_in_by_user__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>sent in by user</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Implant_Rescue_Services1_del</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>sent_rescue_kit__c</fullName>
+    <externalId>false</externalId>
+    <label>sent rescue kit</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>NO</fullName>
+          <default>true</default>
+          <label>NO</label>
+        </value>
+        <value>
+          <fullName>YES</fullName>
+          <default>false</default>
+          <label>YES</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>visiting_adress_city__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.ShippingCity</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>visiting_adress_city</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>visiting_adress_zip__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.ShippingPostalCode</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>visiting_adress_zip</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <label>Implant Rescue Service</label>
+  <nameField>
+    <displayFormat>{000000}</displayFormat>
+    <label>IRS-Nr.</label>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Implant Rescue Services</pluralLabel>
+  <searchLayouts>
+    <lookupDialogsAdditionalFields>rescue_date_end__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>rescue_date_start__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>OBJECT_ID</lookupDialogsAdditionalFields>
+    <searchFilterFields>NAME</searchFilterFields>
+    <searchFilterFields>ERP_ID__c</searchFilterFields>
+    <searchFilterFields>Account__c</searchFilterFields>
+  </searchLayouts>
+  <sharingModel>ControlledByParent</sharingModel>
+  <validationRules>
+    <fullName>date_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK(rescue_date_start__c),ISBLANK(rescue_date_end__c), ISPICKVAL(rescue_date_status__c, "fixed"))</errorConditionFormula>
+    <errorMessage>you're not able to safe a fixed rescue meeting without entering a start- / enddate</errorMessage>
+  </validationRules>
+  <visibility>Public</visibility>
+</CustomObject>

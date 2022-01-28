@@ -1,0 +1,32 @@
+.slds-box {
+    padding: 0.5rem !important;
+}
+.container-vf-height {
+    max-height: 60vh;
+}
+.full-width {
+    font-size: xx-small;
+}
+.sticky-footer {
+    bottom: 0;
+    position: sticky;
+    z-index: 1;
+}
+.sticky-header {
+    top: 0;
+    position: sticky;
+    z-index: 1;
+}
+.inline-combobox {
+    width: 6em;
+    display: inline-block !important;
+}
+.slds-tile {
+    text-align: left !important;
+}
+.compact-label {
+    min-height: 0 !important;
+}
+.m-top-negative {
+    margin-top: -1.25rem !important;
+}

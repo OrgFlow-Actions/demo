@@ -1,0 +1,178 @@
+<apex:page standardController="Contract" extensions="getContract" standardStylesheets="false" action="{!getSales_CY}">
+<style>
+    html, body, p { font-family: sans-serif; font-size: 14px;}
+    th {text-align:center; background-color: #e5e5e5}
+</style>
+
+<br/>
+<table id="tabl">
+
+<tr>
+<td/>
+<th colspan="2"><b>{!YEAR(TODAY())-3}</b></th>
+<th colspan="2"><b>{!YEAR(TODAY())-2}</b></th>
+<th colspan="2"><b>{!YEAR(TODAY())-1}</b></th>
+<th colspan="2"><b>{!YEAR(TODAY())}</b></th>
+</tr>
+
+<tr>
+<td/>
+<td><i>Gross</i></td>
+<td><i>Net</i></td>
+<td><i>Gross</i></td>
+<td><i>Net</i></td>
+<td><i>Gross</i></td>
+<td><i>Net</i></td>
+<td><i>Gross</i></td>
+<td><i>Net</i></td>
+</tr>
+
+
+<tr>
+
+<td width="430px">
+<b>Gesatmumsatz</b>
+</td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L3Y_C+Discount_L3Y_C, 0)}"/></apex:outputtext></td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L3Y_C, 0)}"/></apex:outputText></td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L2Y_C+Discount_L2Y_C, 0)}"/></apex:outputtext></td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L2Y_C, 0)}"/></apex:outputText></td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_LY_C+Discount_LY_C, 0)}"/></apex:outputtext></td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_LY_C, 0)}"/></apex:outputText></td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_CY_C+Discount_CY_C, 0)}"/></apex:outputtext></td>
+<td width="90px"><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_CY_C,0)}"/></apex:outputText></td>
+
+</tr>
+
+<tr>
+
+<td>
+<i>Verbrauchsgüter</i>
+</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L3Y_M_C+Discount_L3Y_M_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L3Y_M_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L2Y_M_C+Discount_L2Y_M_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L2Y_M_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_LY_M_C+Discount_LY_M_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_LY_M_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_CY_M_C+Discount_CY_M_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_CY_M_C,0)}"/></apex:outputText></td>
+
+</tr>
+
+<tr>
+
+<td>
+<i>Gebrauchsgüter</i>
+</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L3Y_EI_C+Discount_L3Y_EI_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L3Y_EI_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L2Y_EI_C+Discount_L2Y_EI_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_L2Y_EI_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_LY_EI_C+Discount_LY_EI_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_LY_EI_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_CY_EI_C+Discount_CY_EI_C,0)}"/></apex:outputText></td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Sales_CY_EI_C,0)}"/></apex:outputText></td>
+
+</tr>
+
+<tr style="height:20px;"><th colspan="9"/></tr>
+
+<tr>
+<td>
+<b>Rabatt Gesamt</b>
+</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_L3Y_C, 0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_L3Y_C>0, 100*(Discount_L3Y_C/(Sales_L3Y_C + Discount_L3Y_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_L2Y_C, 0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_L2Y_C>0, 100*(Discount_L2Y_C/(Sales_L2Y_C + Discount_L2Y_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_LY_C, 0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_LY_C>0,100*(Discount_LY_C/(Sales_LY_C+Discount_LY_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_CY_C, 0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_CY_C>0,100*(Discount_CY_C/(Sales_CY_C+Discount_CY_C)), 0), 0)}%</td>
+
+</tr>
+
+<tr>
+
+<td>
+<i>Rabatt Verbrauchsgut</i>
+</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_L3Y_M_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_L3Y_M_C>0,100*(Discount_L3Y_M_C/(Sales_L3Y_M_C + Discount_L3Y_M_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_L2Y_M_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_L2Y_M_C>0,100*(Discount_L2Y_M_C/(Sales_L2Y_M_C + Discount_L2Y_M_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_LY_M_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_LY_M_C>0,100*(Discount_LY_M_C/(Sales_LY_M_C + Discount_LY_M_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_CY_M_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_CY_M_C>0,100*(Discount_CY_M_C/(Sales_CY_M_C+Discount_CY_M_C)), 0), 0)}%</td>
+
+</tr>
+
+<tr>
+
+<td>
+<i>Rabatt Gebrauchsgut</i>
+</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_L3Y_EI_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_L3Y_EI_C>0,100*(Discount_L3Y_EI_C/IF((Sales_L3Y_EI_C+Discount_L3Y_EI_C)>0,Sales_L3Y_EI_C+Discount_L3Y_EI_C,Sales_L3Y_EI_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_L2Y_EI_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_L2Y_EI_C>0,100*(Discount_L2Y_EI_C/(Sales_L2Y_EI_C+Discount_L2Y_EI_C)), 0), 0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_LY_EI_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_LY_EI_C>0, 100*(Discount_LY_EI_C/(Sales_LY_EI_C+Discount_LY_EI_C)), 0),0)}%</td>
+<td><apex:outputText value="{0, number,###,###,##0}"><apex:param value="{!ROUND(Discount_CY_EI_C,0)}"/></apex:outputText></td>
+<td>{!ROUND(IF(Discount_CY_EI_C>0,100*(Discount_CY_EI_C/(Sales_CY_EI_C+Discount_CY_EI_C)), 0), 0)}%</td>
+
+</tr>
+
+<tr style="height:20px;"><th colspan="9"/></tr>
+
+<tr>
+<td>
+<b>Anzahl Implantate</b>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Implants_L3Y_C, 0)}</apex:outputText>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Implants_L2Y_C, 0)}</apex:outputText>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Implants_LY_C, 0)}</apex:outputText>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Implants_CY_C, 0)}</apex:outputText>
+</td>
+
+</tr>
+
+<tr>
+<td>
+<b>Anzahl  Abutments</b>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Abutments_L3Y_C, 0)}</apex:outputText>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Abutments_L2Y_C, 0)}</apex:outputText>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Abutments_LY_C, 0)}</apex:outputText>
+</td>
+<td></td>
+<td>
+<apex:outputText value="">{!ROUND(Abutments_CY_C, 0)}</apex:outputText>
+</td>
+
+</tr>
+
+</table>
+
+</apex:page>

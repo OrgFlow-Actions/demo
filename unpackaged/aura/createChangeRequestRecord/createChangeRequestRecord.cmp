@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" controller="AccountChangeRequest">
+    
+    <aura:attribute name="accountcreate" type="Account_Create_Change_Request__c" default="{'sobjectType': 'Account_Create_Change_Request__c'}" />
+    <aura:attribute name="status" type="List" />
+    <aura:attribute name="ac" type="Account" />
+    <aura:attribute name="disableSave" type="Boolean" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInitLoad}" />
+    <lightning:card title="Modify Account Details">
+        <div><form>
+            <div class="slds-card__body"><span class="slds-badge">Account Name</span><ui:inputText aura:id="acName" value="{!v.ac.Name}" /></div>
+        <div class="slds-card__body"><span class="slds-badge">Existing Account</span> <ui:inputText aura:id="acExistingAcc" value="{!v.ac.Name}" /></div>
+    <div class="slds-card__body"><span class="slds-badge">Street Address</span> <ui:inputText aura:id="acStreet" value="{!v.ac.BillingStreet}" /></div>
+            <div class="slds-card__body"><span class="slds-badge">State/Province</span> <ui:inputText  aura:id="acState" value="{!v.ac.BillingState}" /></div>
+            <div class="slds-card__body"><span class="slds-badge">Postal/Zip Code</span> <ui:inputText  aura:id="acZip" value="{!v.ac.BillingPostalCode}" /></div>
+            <div class="slds-card__body"><span class="slds-badge">Account Phone Number</span> <ui:inputText  aura:id="acPhone" value="{!v.ac.Phone}" /></div>
+<div class="slds-card__body"><span class="slds-badge">City </span><ui:inputText aura:id="acBilling" value="{!v.ac.BillingCity}" /></div>
+            <div class="slds-card__body"><span class="slds-badge">Currency</span>
+                <force:inputField value="{!v.accountcreate.CurrencyIsoCode}"/> </div>
+            <div class="slds-card__body"><span class="slds-badge ">Request Type</span>
+                <force:inputField value="{!v.accountcreate.Request_Type__c}" required="true"/> </div>
+                <!--<div class="slds-card__body"><span class="slds-badge">Comments</span> <force:inputField value="{!v.accountcreate.Comments__c}" required="true" /></div>-->
+            <div class="slds-card__body"><span class="slds-badge" style="margin-left:0px;">Comments</span><lightning:textarea onchange="{! c.checkEmpty }" style="margin-top:-22px;" name="Comments" aura:id="acComment" value="{!v.accountcreate.Comments__c}"  maxlength="300" required="true" /></div>
+            <aura:if isTrue="{!v.disableSave}"><span  class="slds-text-color_error">Comment is Mandatory</span> </aura:if>
+            <div class="slds-card__body"><span class="slds-badge">Status</span> <force:inputField aura:id="acStatus" value="{!v.accountcreate.Status__c}"/></div>
+            <lightning:button label="Save" variant="brand" onclick="{!c.handleSaveRecord}" disabled="{!v.disableSave}" />
+            </form>
+            </div>
+    </lightning:card>
+</aura:component>

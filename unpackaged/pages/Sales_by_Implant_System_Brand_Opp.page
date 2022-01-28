@@ -1,0 +1,221 @@
+<apex:page standardController="Opportunity">
+
+    <style type="text/css">
+        #messageDiv {
+            display: none;
+        }
+        #chartTable {
+            margin-left: -25px;
+        }
+        #chartDiv {
+            width: 400px;
+            height: 100px;
+        }
+        #tableDiv {
+            position: relative;
+            top: -7px;
+            margin-right: 12px;
+            line-height: 13px;
+            text-align: right;
+        }        
+        #legendDiv {
+            position: relative;
+            top: -6px;        
+            width: 100%;
+        }
+        #legendDiv img {
+            display: none;
+            margin-right: 5px;
+        }
+        #tableDiv td {
+            display: none;
+            font-weight: bold;
+        }        
+        #tableDiv td.ankylosCell {
+            color: #06949c;
+        }
+        #tableDiv td.astraTechCell {
+            color: #1e5994;
+        }     
+        #tableDiv td.xiveCell {
+            color: #c41f10;
+        }          
+    </style>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js" data-dojo-config="async: true" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    
+    <script>
+    
+        var ankylosCy2 = {!NULLVALUE(opportunity.account.TS_CY_2_D_DI_AllPCs_Ankylos__c, 0)};
+        var ankylosCy1 = {!NULLVALUE(opportunity.account.TS_CY_1_D_DI_AllPCs_Ankylos__c, 0)};
+        var ankylosCy = {!NULLVALUE(opportunity.account.TS_CY_D_DI_AllPCs_Ankylos__c, 0)};
+        
+        var astraTechCy2 = {!NULLVALUE(opportunity.account.TS_CY_2_D_DI_AllPCs_AstraTech__c, 0)};
+        var astraTechCy1 = {!NULLVALUE(opportunity.account.TS_CY_1_D_DI_AllPCs_AstraTech__c, 0)};
+        var astraTechCy = {!NULLVALUE(opportunity.account.TS_CY_D_DI_AllPCs_AstraTech__c, 0)};
+        
+        var xiveCy2 = {!NULLVALUE(opportunity.account.TS_CY_2_D_DI_AllPCs_Xive__c, 0)};
+        var xiveCy1 = {!NULLVALUE(opportunity.account.TS_CY_1_D_DI_AllPCs_Xive__c, 0)};
+        var xiveCy = {!NULLVALUE(opportunity.account.TS_CY_D_DI_AllPCs_Xive__c, 0)};
+        
+        var totalCy2 = ankylosCy2 + astraTechCy2 + xiveCy2;
+        var totalCy1 = ankylosCy1 + astraTechCy1 + xiveCy1;
+        var totalCy = ankylosCy + astraTechCy + xiveCy;
+                        
+        var salesByBrandAnkylos = [
+            totalCy2 == 0 ? 0 : Math.round(ankylosCy2 / totalCy2 * 100),
+            totalCy1 == 0 ? 0 : Math.round(ankylosCy1 / totalCy1 * 100),
+            totalCy == 0 ? 0 : Math.round(ankylosCy / totalCy * 100)];
+            
+        var salesByBrandAstraTech = [
+            totalCy2 == 0 ? 0 : Math.round(astraTechCy2 / totalCy2 * 100),
+            totalCy1 == 0 ? 0 : Math.round(astraTechCy1 / totalCy1 * 100),
+            totalCy == 0 ? 0 : Math.round(astraTechCy / totalCy * 100)];
+                       
+        var salesByBrandXive = [
+            totalCy2 == 0 ? 0 : Math.round(xiveCy2 / totalCy2 * 100),
+            totalCy1 == 0 ? 0 : Math.round(xiveCy1 / totalCy1 * 100),
+            totalCy == 0 ? 0 : Math.round(xiveCy / totalCy * 100)];  
+            
+        // Show a static message instead if there are no sales.
+        if (ankylosCy2 == 0 && ankylosCy1 == 0 && ankylosCy == 0 && astraTechCy2 == 0 && astraTechCy1 == 0 && astraTechCy == 0 && xiveCy2 == 0 && xiveCy1 == 0 && xiveCy == 0)
+        {
+            $(document).ready(function () {
+                $("#messageDiv").show();
+                $("#chartTable").hide();
+            });
+        }
+        else
+        {    
+            $(document).ready(function () {      
+                $("#ankylosCyTd").html(salesByBrandAnkylos[2] + "%");
+                $("#ankylosCy1Td").html(salesByBrandAnkylos[1] + "%");
+                $("#ankylosCy2Td").html(salesByBrandAnkylos[0] + "%");
+                $("#astraTechCyTd").html(salesByBrandAstraTech[2] + "%");
+                $("#astraTechCy1Td").html(salesByBrandAstraTech[1] + "%");
+                $("#astraTechCy2Td").html(salesByBrandAstraTech[0] + "%");              
+                $("#xiveCyTd").html(salesByBrandXive[2] + "%");            
+                $("#xiveCy1Td").html(salesByBrandXive[1] + "%");            
+                $("#xiveCy2Td").html(salesByBrandXive[0] + "%");                                                  
+            });  
+            
+            require([
+            "dojox/charting/Chart",
+            "dojox/charting/plot2d/StackedBars",
+            "dojox/charting/axis2d/Default",
+            "dojox/charting/action2d/Tooltip",
+            "dojo/domReady!"
+            ], function (Chart) {
+    
+                // When the DOM is ready and resources are loaded...
+    
+                // Create the chart within its holding <div>.
+                var chart = new Chart("chartDiv");
+    
+                /* Fill settings for gradients. */
+                var gradient = dojox.charting.Theme.generateGradient;
+                var defaultFill = { type: "linear", space: "shape", x1: 0, y1: 0, x2: 100, y2: 0 };
+    
+                // Create new theme using the logo colors.
+                var customTheme = new dojox.charting.Theme({
+                    seriesThemes: [
+                        { fill: gradient(defaultFill, "#f72714", "#c41f10") }, // Xive
+                        { fill: gradient(defaultFill, "#2774c2", "#1e5994") }, // AstraTech
+                        { fill: gradient(defaultFill, "#08c0c9", "#06949c") } // Ankylos
+                    ]  
+                });
+    
+                // Set the theme.
+                chart.setTheme(customTheme);
+    
+                // Add the only/default plot.
+                chart.addPlot("default", {
+                    type: "StackedBars"
+                });
+    
+                var today = new Date();
+                var decenniumCy2 = today.getFullYear() - 2 - 2000;
+    
+                // Add axes.
+                chart.addAxis("x", { min: 0, max: 100 });
+                chart.addAxis("y", { vertical: true, labels: [{value: 1, text: decenniumCy2}, {value: 2, text: "LY"}, {value: 3, text: "CY"}] });
+    
+                // Add the series of data.
+                chart.addSeries("salesByBrandAnkylos", salesByBrandAnkylos, {stroke: {color: "#fff", width: 2}});
+                chart.addSeries("salesByBrandAstraTech", salesByBrandAstraTech, { stroke: { color: "#fff", width: 2}});
+                chart.addSeries("salesByBrandXive", salesByBrandXive, { stroke: { color: "#fff", width: 2}});
+    
+                new dojox.charting.action2d.Tooltip(chart, "default", {
+                    text : function(o) {
+                        return (o.x + "-" + o.y);
+                    }
+                });
+    
+                // Render the chart.
+                chart.render();
+                
+                // Hide the logos that have no sales on any year.
+                if (ankylosCy2 > 0 || ankylosCy1 > 0 || ankylosCy > 0)
+                    $("#logoAnkylos, .ankylosCell").show();
+                if (astraTechCy2 > 0 || astraTechCy1 > 0 || astraTechCy > 0)
+                    $("#logoAstraTech, .astraTechCell").show();                
+                if (xiveCy2 > 0 || xiveCy1 > 0 || xiveCy > 0)
+                    $("#logoXive, .xiveCell").show();      
+            });
+        }
+
+    </script>
+    
+    <div id="messageDiv"><span>No sold implants or abutments during this or previous two calendar years.</span></div>
+    
+    <table id="chartTable">
+        <tr>
+            <td>
+                <div id="chartDiv"></div>
+            </td>
+            <td>
+                <div id="tableDiv">
+                    <table>
+                        <!--<thead>
+                            <tr>
+                                <th>Year</th>
+                                <th class="ankylosCell">Ankylos</th>
+                                <th class="astraTechCell">AstraTech</th>
+                                <th class="xiveCell">Xive</th>
+                            </tr> 
+                        </thead>-->
+                        <tbody>   
+                            <tr>
+                                <!--<th>CY</th>-->
+                                <td class="ankylosCell" id="ankylosCyTd"></td>
+                                <td class="astraTechCell" id="astraTechCyTd"></td>
+                                <td class="xiveCell" id="xiveCyTd"></td>                           
+                            </tr>
+                            <tr>
+                                <!--<th>LY</th>-->    
+                                <td class="ankylosCell" id="ankylosCy1Td"></td>
+                                <td class="astraTechCell" id="astraTechCy1Td"></td>    
+                                <td class="xiveCell" id="xiveCy1Td"></td>
+                            </tr>
+                            <tr>
+                                <!--<th>10</th>-->  
+                                <td class="ankylosCell" id="ankylosCy2Td"></td>
+                                <td class="astraTechCell" id="astraTechCy2Td"></td>
+                                <td class="xiveCell" id="xiveCy2Td"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>          
+            </td>
+            <td>
+                <div id="legendDiv">
+                    <img id="logoAnkylos" src="{!$Resource.LogoAnkylos}" />&nbsp;
+                    <img id="logoAstraTech" src="{!$Resource.LogoAstraTech}" />&nbsp;
+                    <img id="logoXive" src="{!$Resource.LogoXive}" />&nbsp;
+                </div>              
+            </td>               
+        </tr>
+    </table>
+    
+</apex:page>

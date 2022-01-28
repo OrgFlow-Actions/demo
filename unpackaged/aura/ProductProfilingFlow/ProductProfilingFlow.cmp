@@ -1,0 +1,11 @@
+<aura:component implements="force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="testVar" type="String" />
+    <aura:attribute name="pageReference" type="Object"/>
+    <lightning:card>
+    	<lightning:flow aura:id="flowData" />
+    </lightning:card>
+    
+	
+</aura:component>

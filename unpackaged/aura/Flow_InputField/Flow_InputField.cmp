@@ -1,0 +1,27 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global" >
+	    <aura:attribute name="case" type="Object" access="global"/>
+		<aura:attribute name="caseId" type="String" access="global" />
+    	<aura:attribute name="fieldN" type="String" access="global"/>
+		<aura:attribute name="fieldVal" type="String" access="global"/>
+		<aura:attribute name="fieldValNumber" type="Decimal" access="global"/>
+   		<aura:attribute name="objType" type="String" access="global" />
+    	<aura:attribute name="resId" type="String" access="global" />
+		<aura:attribute name="recordTypeId" type="String" access="global"/>
+		<aura:attribute name="readOnly" type="Boolean" default="false" access="global"/>
+  
+    	<aura:attribute name="accountId" type="String" access="global" />
+    
+    	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    	
+        <lightning:recordEditForm aura:id="recordViewForm" 
+                                     objectApiName="{!v.objType}"
+                                     recordId="{!v.caseId}"
+                                  	 recordTypeId = "{!v.recordTypeId}"
+                                  	 class="slds-m-top_x-small slds-m-bottom_large"
+                                     >
+            
+            <lightning:inputField aura:id="fieldValue" disabled="{!v.readOnly}" fieldName="{!v.fieldN}" onchange="{!c.update}"/>
+            
+    </lightning:recordEditForm>
+    
+</aura:component>

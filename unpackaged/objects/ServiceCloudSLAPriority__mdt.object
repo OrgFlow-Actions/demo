@@ -1,0 +1,906 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <description>To tag cases with the relevant priority based on Case categories, reasons, country, and SBU</description>
+  <fields>
+    <fullName>CaseCategory__c</fullName>
+    <description>Copy of Case Category</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Case Category</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>true</sorted>
+        <value>
+          <fullName>Billing</fullName>
+          <default>true</default>
+          <label>Billing</label>
+        </value>
+        <value>
+          <fullName>Communication &amp; Service</fullName>
+          <default>false</default>
+          <label>Communication &amp; Service</label>
+        </value>
+        <value>
+          <fullName>Consignment</fullName>
+          <default>false</default>
+          <label>Consignment</label>
+        </value>
+        <value>
+          <fullName>Customer Error</fullName>
+          <default>false</default>
+          <label>Customer Error</label>
+        </value>
+        <value>
+          <fullName>Customer Interaction</fullName>
+          <default>false</default>
+          <label>Customer Interaction</label>
+        </value>
+        <value>
+          <fullName>Customer Service Error</fullName>
+          <default>false</default>
+          <label>Customer Service Error</label>
+        </value>
+        <value>
+          <fullName>Dropped Implant</fullName>
+          <default>false</default>
+          <label>Dropped Implant</label>
+        </value>
+        <value>
+          <fullName>E-commerce site</fullName>
+          <default>false</default>
+          <label>E-commerce site</label>
+        </value>
+        <value>
+          <fullName>Exchange</fullName>
+          <default>false</default>
+          <label>Exchange</label>
+        </value>
+        <value>
+          <fullName>Hardware</fullName>
+          <default>false</default>
+          <label>Hardware</label>
+        </value>
+        <value>
+          <fullName>Lost Shipment Error</fullName>
+          <default>false</default>
+          <label>Lost Shipment Error</label>
+        </value>
+        <value>
+          <fullName>Orders</fullName>
+          <default>false</default>
+          <label>Orders</label>
+        </value>
+        <value>
+          <fullName>Orders &amp; Billing</fullName>
+          <default>false</default>
+          <label>Orders &amp; Billing</label>
+        </value>
+        <value>
+          <fullName>Over Ordered</fullName>
+          <default>false</default>
+          <label>Over Ordered</label>
+        </value>
+        <value>
+          <fullName>Pricing System Error</fullName>
+          <default>false</default>
+          <label>Pricing System Error</label>
+        </value>
+        <value>
+          <fullName>Product Related</fullName>
+          <default>false</default>
+          <label>Product Related</label>
+        </value>
+        <value>
+          <fullName>Return</fullName>
+          <default>false</default>
+          <label>Return</label>
+        </value>
+        <value>
+          <fullName>Sales Team Error</fullName>
+          <default>false</default>
+          <label>Sales Team Error</label>
+        </value>
+        <value>
+          <fullName>Shipping</fullName>
+          <default>false</default>
+          <label>Shipping</label>
+        </value>
+        <value>
+          <fullName>Software</fullName>
+          <default>false</default>
+          <label>Software</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>CaseReason__c</fullName>
+    <description>Copy of Case Reasons</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Case Reason</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Academy/Loyalty</fullName>
+          <default>true</default>
+          <label>Academy/Loyalty</label>
+        </value>
+        <value>
+          <fullName>Account maintenance</fullName>
+          <default>false</default>
+          <label>Account maintenance</label>
+        </value>
+        <value>
+          <fullName>Account set up</fullName>
+          <default>false</default>
+          <label>Account set up</label>
+        </value>
+        <value>
+          <fullName>Account set up issues</fullName>
+          <default>false</default>
+          <label>Account set up issues</label>
+        </value>
+        <value>
+          <fullName>Assist with order placement</fullName>
+          <default>false</default>
+          <label>Assist with order placement</label>
+        </value>
+        <value>
+          <fullName>Backorder follow up</fullName>
+          <default>false</default>
+          <label>Backorder follow up</label>
+        </value>
+        <value>
+          <fullName>Cancelled order</fullName>
+          <default>false</default>
+          <label>Cancelled order</label>
+        </value>
+        <value>
+          <fullName>Carrier late delivery</fullName>
+          <default>false</default>
+          <label>Carrier late delivery</label>
+        </value>
+        <value>
+          <fullName>Carrier lost package</fullName>
+          <default>false</default>
+          <label>Carrier lost package</label>
+        </value>
+        <value>
+          <fullName>CEREC direct connect</fullName>
+          <default>false</default>
+          <label>CEREC direct connect</label>
+        </value>
+        <value>
+          <fullName>Courtesy Credit</fullName>
+          <default>false</default>
+          <label>Courtesy Credit</label>
+        </value>
+        <value>
+          <fullName>Crash</fullName>
+          <default>false</default>
+          <label>Crash</label>
+        </value>
+        <value>
+          <fullName>Credit</fullName>
+          <default>false</default>
+          <label>Credit</label>
+        </value>
+        <value>
+          <fullName>Customer Complaint</fullName>
+          <default>false</default>
+          <label>Customer Complaint</label>
+        </value>
+        <value>
+          <fullName>Customer notes not followed</fullName>
+          <default>false</default>
+          <label>Customer notes not followed</label>
+        </value>
+        <value>
+          <fullName>Customer payment</fullName>
+          <default>false</default>
+          <label>Customer payment</label>
+        </value>
+        <value>
+          <fullName>Customer training</fullName>
+          <default>false</default>
+          <label>Customer training</label>
+        </value>
+        <value>
+          <fullName>Delay in Finance order release</fullName>
+          <default>false</default>
+          <label>Delay in Finance order release</label>
+        </value>
+        <value>
+          <fullName>Delivered to Incorrect Address</fullName>
+          <default>false</default>
+          <label>Delivered to Incorrect Address</label>
+        </value>
+        <value>
+          <fullName>Duplicated Order</fullName>
+          <default>false</default>
+          <label>Duplicated Order</label>
+        </value>
+        <value>
+          <fullName>Excessive phone wait time</fullName>
+          <default>false</default>
+          <label>Excessive phone wait time</label>
+        </value>
+        <value>
+          <fullName>Excessive wait time for approval</fullName>
+          <default>false</default>
+          <label>Excessive wait time for approval</label>
+        </value>
+        <value>
+          <fullName>General inquiry</fullName>
+          <default>false</default>
+          <label>General inquiry</label>
+        </value>
+        <value>
+          <fullName>Hardware</fullName>
+          <default>false</default>
+          <label>Hardware</label>
+        </value>
+        <value>
+          <fullName>Incorrect Article/s</fullName>
+          <default>false</default>
+          <label>Incorrect Article/s</label>
+        </value>
+        <value>
+          <fullName>Incorrect articles picked</fullName>
+          <default>false</default>
+          <label>Incorrect articles picked</label>
+        </value>
+        <value>
+          <fullName>Incorrect Components</fullName>
+          <default>false</default>
+          <label>Incorrect Components</label>
+        </value>
+        <value>
+          <fullName>Incorrect Customer Number</fullName>
+          <default>false</default>
+          <label>Incorrect Customer Number</label>
+        </value>
+        <value>
+          <fullName>Incorrect Guide Type</fullName>
+          <default>false</default>
+          <label>Incorrect Guide Type</label>
+        </value>
+        <value>
+          <fullName>Incorrect Payment Terms</fullName>
+          <default>false</default>
+          <label>Incorrect Payment Terms</label>
+        </value>
+        <value>
+          <fullName>Incorrect Price</fullName>
+          <default>false</default>
+          <label>Incorrect Price</label>
+        </value>
+        <value>
+          <fullName>Incorrect Quantity</fullName>
+          <default>false</default>
+          <label>Incorrect Quantity</label>
+        </value>
+        <value>
+          <fullName>Incorrect quantity picked</fullName>
+          <default>false</default>
+          <label>Incorrect quantity picked</label>
+        </value>
+        <value>
+          <fullName>Incorrect Shipping Fees</fullName>
+          <default>false</default>
+          <label>Incorrect Shipping Fees</label>
+        </value>
+        <value>
+          <fullName>Incorrect shipping method</fullName>
+          <default>false</default>
+          <label>Incorrect shipping method</label>
+        </value>
+        <value>
+          <fullName>Incorrect Tubes</fullName>
+          <default>false</default>
+          <label>Incorrect Tubes</label>
+        </value>
+        <value>
+          <fullName>Information requested</fullName>
+          <default>false</default>
+          <label>Information requested</label>
+        </value>
+        <value>
+          <fullName>Insufficient Implant Primary Stability</fullName>
+          <default>false</default>
+          <label>Insufficient Implant Primary Stability</label>
+        </value>
+        <value>
+          <fullName>Invoice/Statement</fullName>
+          <default>false</default>
+          <label>Invoice/Statement</label>
+        </value>
+        <value>
+          <fullName>Invoice &amp; Statement Feedback</fullName>
+          <default>false</default>
+          <label>Invoice &amp; Statement Feedback</label>
+        </value>
+        <value>
+          <fullName>Item on backorder</fullName>
+          <default>false</default>
+          <label>Item on backorder</label>
+        </value>
+        <value>
+          <fullName>Label quality information</fullName>
+          <default>false</default>
+          <label>Label quality information</label>
+        </value>
+        <value>
+          <fullName>Late order billed to customer</fullName>
+          <default>false</default>
+          <label>Late order billed to customer</label>
+        </value>
+        <value>
+          <fullName>Late Order Release</fullName>
+          <default>false</default>
+          <label>Late Order Release</label>
+        </value>
+        <value>
+          <fullName>Lead generation/upsell/cross sell</fullName>
+          <default>false</default>
+          <label>Lead generation/upsell/cross sell</label>
+        </value>
+        <value>
+          <fullName>Lost case/missing materials</fullName>
+          <default>false</default>
+          <label>Lost case/missing materials</label>
+        </value>
+        <value>
+          <fullName>Lost shipment</fullName>
+          <default>false</default>
+          <label>Lost shipment</label>
+        </value>
+        <value>
+          <fullName>Master Incorrect</fullName>
+          <default>false</default>
+          <label>Master Incorrect</label>
+        </value>
+        <value>
+          <fullName>Milling issue - delayed case</fullName>
+          <default>false</default>
+          <label>Milling issue - delayed case</label>
+        </value>
+        <value>
+          <fullName>Missed Discount</fullName>
+          <default>false</default>
+          <label>Missed Discount</label>
+        </value>
+        <value>
+          <fullName>Missing action - transaction not complete</fullName>
+          <default>false</default>
+          <label>Missing action - transaction not complete</label>
+        </value>
+        <value>
+          <fullName>Missing Article/s</fullName>
+          <default>false</default>
+          <label>Missing Article/s</label>
+        </value>
+        <value>
+          <fullName>Missing Information</fullName>
+          <default>false</default>
+          <label>Missing Information</label>
+        </value>
+        <value>
+          <fullName>Missing instructions for use</fullName>
+          <default>false</default>
+          <label>Missing instructions for use</label>
+        </value>
+        <value>
+          <fullName>Missing Invoice</fullName>
+          <default>false</default>
+          <label>Missing Invoice</label>
+        </value>
+        <value>
+          <fullName>Missing invoice/packing slip</fullName>
+          <default>false</default>
+          <label>Missing invoice/packing slip</label>
+        </value>
+        <value>
+          <fullName>Missing models/parts</fullName>
+          <default>false</default>
+          <label>Missing models/parts</label>
+        </value>
+        <value>
+          <fullName>Missing Order</fullName>
+          <default>false</default>
+          <label>Missing Order</label>
+        </value>
+        <value>
+          <fullName>Missing Shipment</fullName>
+          <default>false</default>
+          <label>Missing Shipment</label>
+        </value>
+        <value>
+          <fullName>Navigation challenges</fullName>
+          <default>false</default>
+          <label>Navigation challenges</label>
+        </value>
+        <value>
+          <fullName>Near/out of expiry date</fullName>
+          <default>false</default>
+          <label>Near/out of expiry date</label>
+        </value>
+        <value>
+          <fullName>No Delivery Attempt</fullName>
+          <default>false</default>
+          <label>No Delivery Attempt</label>
+        </value>
+        <value>
+          <fullName>Open case status</fullName>
+          <default>false</default>
+          <label>Open case status</label>
+        </value>
+        <value>
+          <fullName>Open credit not applied</fullName>
+          <default>false</default>
+          <label>Open credit not applied</label>
+        </value>
+        <value>
+          <fullName>Order follow up &amp; tracking</fullName>
+          <default>false</default>
+          <label>Order follow up &amp; tracking</label>
+        </value>
+        <value>
+          <fullName>Order in pending status - system</fullName>
+          <default>false</default>
+          <label>Order in pending status - system</label>
+        </value>
+        <value>
+          <fullName>Order not shipped on time</fullName>
+          <default>false</default>
+          <label>Order not shipped on time</label>
+        </value>
+        <value>
+          <fullName>Order placement issue</fullName>
+          <default>false</default>
+          <label>Order placement issue</label>
+        </value>
+        <value>
+          <fullName>Order processing error</fullName>
+          <default>false</default>
+          <label>Order processing error</label>
+        </value>
+        <value>
+          <fullName>Order sent using incorrect carrier</fullName>
+          <default>false</default>
+          <label>Order sent using incorrect carrier</label>
+        </value>
+        <value>
+          <fullName>Order stuck in customs</fullName>
+          <default>false</default>
+          <label>Order stuck in customs</label>
+        </value>
+        <value>
+          <fullName>Password Issue</fullName>
+          <default>false</default>
+          <label>Password Issue</label>
+        </value>
+        <value>
+          <fullName>Payment issue</fullName>
+          <default>false</default>
+          <label>Payment issue</label>
+        </value>
+        <value>
+          <fullName>Pickup Service</fullName>
+          <default>false</default>
+          <label>Pickup Service</label>
+        </value>
+        <value>
+          <fullName>Place order</fullName>
+          <default>false</default>
+          <label>Place order</label>
+        </value>
+        <value>
+          <fullName>Poor support/service experience</fullName>
+          <default>false</default>
+          <label>Poor support/service experience</label>
+        </value>
+        <value>
+          <fullName>Possible Improvements</fullName>
+          <default>false</default>
+          <label>Possible Improvements</label>
+        </value>
+        <value>
+          <fullName>Price Not Communicated</fullName>
+          <default>false</default>
+          <label>Price Not Communicated</label>
+        </value>
+        <value>
+          <fullName>Pricing Error</fullName>
+          <default>false</default>
+          <label>Pricing Error</label>
+        </value>
+        <value>
+          <fullName>Product Info</fullName>
+          <default>false</default>
+          <label>Product Info</label>
+        </value>
+        <value>
+          <fullName>Product missing from site</fullName>
+          <default>false</default>
+          <label>Product missing from site</label>
+        </value>
+        <value>
+          <fullName>Product Packaging</fullName>
+          <default>false</default>
+          <label>Product Packaging</label>
+        </value>
+        <value>
+          <fullName>Quote &amp; Price inquiry</fullName>
+          <default>false</default>
+          <label>Quote &amp; Price inquiry</label>
+        </value>
+        <value>
+          <fullName>Rebill To Correct Account</fullName>
+          <default>false</default>
+          <label>Rebill To Correct Account</label>
+        </value>
+        <value>
+          <fullName>Refused shipment</fullName>
+          <default>false</default>
+          <label>Refused shipment</label>
+        </value>
+        <value>
+          <fullName>Remote session</fullName>
+          <default>false</default>
+          <label>Remote session</label>
+        </value>
+        <value>
+          <fullName>Repair</fullName>
+          <default>false</default>
+          <label>Repair</label>
+        </value>
+        <value>
+          <fullName>Replacement Order</fullName>
+          <default>false</default>
+          <label>Replacement Order</label>
+        </value>
+        <value>
+          <fullName>Return/Exchange</fullName>
+          <default>false</default>
+          <label>Return/Exchange</label>
+        </value>
+        <value>
+          <fullName>Returns processing error</fullName>
+          <default>false</default>
+          <label>Returns processing error</label>
+        </value>
+        <value>
+          <fullName>Sales Rep Availability</fullName>
+          <default>false</default>
+          <label>Sales Rep Availability</label>
+        </value>
+        <value>
+          <fullName>SalesRep Info</fullName>
+          <default>false</default>
+          <label>SalesRep Info</label>
+        </value>
+        <value>
+          <fullName>Scan upload issue</fullName>
+          <default>false</default>
+          <label>Scan upload issue</label>
+        </value>
+        <value>
+          <fullName>Search item functionality issue</fullName>
+          <default>false</default>
+          <label>Search item functionality issue</label>
+        </value>
+        <value>
+          <fullName>Shipped to incorrect delivery address</fullName>
+          <default>false</default>
+          <label>Shipped to incorrect delivery address</label>
+        </value>
+        <value>
+          <fullName>Shipping delay notification</fullName>
+          <default>false</default>
+          <label>Shipping delay notification</label>
+        </value>
+        <value>
+          <fullName>Site is unavailable</fullName>
+          <default>false</default>
+          <label>Site is unavailable</label>
+        </value>
+        <value>
+          <fullName>Software</fullName>
+          <default>false</default>
+          <label>Software</label>
+        </value>
+        <value>
+          <fullName>Systems interface issue</fullName>
+          <default>false</default>
+          <label>Systems interface issue</label>
+        </value>
+        <value>
+          <fullName>Technical support</fullName>
+          <default>false</default>
+          <label>Technical support</label>
+        </value>
+        <value>
+          <fullName>Transfer</fullName>
+          <default>false</default>
+          <label>Transfer</label>
+        </value>
+        <value>
+          <fullName>Transportation damage</fullName>
+          <default>false</default>
+          <label>Transportation damage</label>
+        </value>
+        <value>
+          <fullName>Troubleshooting</fullName>
+          <default>false</default>
+          <label>Troubleshooting</label>
+        </value>
+        <value>
+          <fullName>Turn around time</fullName>
+          <default>false</default>
+          <label>Turn around time</label>
+        </value>
+        <value>
+          <fullName>Unable to open design file</fullName>
+          <default>false</default>
+          <label>Unable to open design file</label>
+        </value>
+        <value>
+          <fullName>Unclear Communication</fullName>
+          <default>false</default>
+          <label>Unclear Communication</label>
+        </value>
+        <value>
+          <fullName>Waiting For Refund</fullName>
+          <default>false</default>
+          <label>Waiting For Refund</label>
+        </value>
+        <value>
+          <fullName>Warrantee</fullName>
+          <default>false</default>
+          <label>Warrantee</label>
+        </value>
+        <value>
+          <fullName>Web support</fullName>
+          <default>false</default>
+          <label>Web support</label>
+        </value>
+        <value>
+          <fullName>Wrong Account</fullName>
+          <default>false</default>
+          <label>Wrong Account</label>
+        </value>
+        <value>
+          <fullName>Wrong shipping address</fullName>
+          <default>false</default>
+          <label>Wrong shipping address</label>
+        </value>
+        <value>
+          <fullName>Wrong Shipping Method</fullName>
+          <default>false</default>
+          <label>Wrong Shipping Method</label>
+        </value>
+        <value>
+          <fullName>Wrong Terms</fullName>
+          <default>false</default>
+          <label>Wrong Terms</label>
+        </value>
+        <value>
+          <fullName>--None--</fullName>
+          <default>false</default>
+          <label>--None--</label>
+        </value>
+        <value>
+          <fullName>Break-Fix</fullName>
+          <default>false</default>
+          <label>Break-Fix</label>
+        </value>
+        <value>
+          <fullName>Installation</fullName>
+          <default>false</default>
+          <label>Installation</label>
+        </value>
+        <value>
+          <fullName>Service Appointment</fullName>
+          <default>false</default>
+          <label>Service Appointment</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>CaseSBU__c</fullName>
+    <description>Copy of SBUs values</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Case SBU</label>
+    <length>100</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Country__c</fullName>
+    <description>Copy of Country value</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Country</label>
+    <required>false</required>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Priority__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Priority</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Low</fullName>
+          <default>true</default>
+          <label>Low</label>
+        </value>
+        <value>
+          <fullName>Normal</fullName>
+          <default>false</default>
+          <label>Normal</label>
+        </value>
+        <value>
+          <fullName>High</fullName>
+          <default>false</default>
+          <label>High</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>SBU__c</fullName>
+    <description>Copy of SBUs</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>SBU</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>IMPL</fullName>
+          <default>true</default>
+          <label>IMPL</label>
+        </value>
+        <value>
+          <fullName>ORTH</fullName>
+          <default>false</default>
+          <label>ORTH</label>
+        </value>
+        <value>
+          <fullName>ENDO</fullName>
+          <default>false</default>
+          <label>ENDO</label>
+        </value>
+        <value>
+          <fullName>PREV</fullName>
+          <default>false</default>
+          <label>PREV</label>
+        </value>
+        <value>
+          <fullName>PROS</fullName>
+          <default>false</default>
+          <label>PROS</label>
+        </value>
+        <value>
+          <fullName>REST</fullName>
+          <default>false</default>
+          <label>REST</label>
+        </value>
+        <value>
+          <fullName>CDCM</fullName>
+          <default>false</default>
+          <label>CDCM</label>
+        </value>
+        <value>
+          <fullName>IMAG</fullName>
+          <default>false</default>
+          <label>IMAG</label>
+        </value>
+        <value>
+          <fullName>INST</fullName>
+          <default>false</default>
+          <label>INST</label>
+        </value>
+        <value>
+          <fullName>TRCE</fullName>
+          <default>false</default>
+          <label>TRCE</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>TBDSBU__c</fullName>
+    <description>DON'T USE, replaced with CaseSBU__c to provide support for multiple SBUs.
+
+Can't be deleted since it was used in old flow versions</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>DON'T USE, replaced with CaseSBU__c to provide support for multiple SBUs.
+
+Can't be deleted since it was used in old flow versions</inlineHelpText>
+    <label>TBD SBU</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>IMPL</fullName>
+          <default>true</default>
+          <label>IMPL</label>
+        </value>
+        <value>
+          <fullName>ORTH</fullName>
+          <default>false</default>
+          <label>ORTH</label>
+        </value>
+        <value>
+          <fullName>ENDO</fullName>
+          <default>false</default>
+          <label>ENDO</label>
+        </value>
+        <value>
+          <fullName>PREV</fullName>
+          <default>false</default>
+          <label>PREV</label>
+        </value>
+        <value>
+          <fullName>PROS</fullName>
+          <default>false</default>
+          <label>PROS</label>
+        </value>
+        <value>
+          <fullName>REST</fullName>
+          <default>false</default>
+          <label>REST</label>
+        </value>
+        <value>
+          <fullName>CDCM</fullName>
+          <default>false</default>
+          <label>CDCM</label>
+        </value>
+        <value>
+          <fullName>IMAG</fullName>
+          <default>false</default>
+          <label>IMAG</label>
+        </value>
+        <value>
+          <fullName>INST</fullName>
+          <default>false</default>
+          <label>INST</label>
+        </value>
+        <value>
+          <fullName>TRCE</fullName>
+          <default>false</default>
+          <label>TRCE</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Service Cloud: SLA Priority</label>
+  <pluralLabel>Service Cloud: SLA Priorities</pluralLabel>
+  <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,59 @@
+<template>
+    <div class={customCardClass}>
+        <lightning-card class="slds-is-relative" title={cardTitle} icon-name={cardIconName}>
+            <!-- Loading spinner -->
+            <template if:true={isLoading}>
+                <lightning-spinner size="small" variant={spinnerVariant} alternative-text="Loading"></lightning-spinner>
+            </template>
+            <!-- Error message -->
+            <template if:true={error}>
+                <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                    <h2>{error.message}</h2>
+                </div>
+                <p class="slds-text-title slds-text-color_error slds-p-around_x-small">{error.detail}</p>
+            </template>
+            
+            <!-- View mode -->
+            <template if:false={isEditMode}>
+                <template if:true={enableEditMode}>
+                    <template if:true={isDesktopFormFactor}>
+                        <lightning-button label="Edit" slot="actions" onclick={handleCardAction}></lightning-button>
+                    </template>
+                    <template if:false={isDesktopFormFactor}>
+                        <lightning-button-icon slot="actions" icon-name="utility:edit" variant="border-filled"
+                            alternative-text="Edit" onclick={handleCardAction}></lightning-button-icon>
+                    </template>
+                </template>
+                <slot name="view-body"></slot>
+            </template>
+    
+            <!-- Default slot for both modes -->
+            <slot></slot>
+    
+            <!-- Edit mode -->
+            <template if:true={isEditMode}>
+                <template if:false={isDesktopFormFactor}>
+                    <lightning-button-group slot="actions">
+                        <lightning-button-icon icon-name="utility:close" variant="border-filled" alternative-text="Close"
+                            onclick={handleCardAction}></lightning-button-icon>
+                        <lightning-button-icon icon-name="utility:check" variant="brand" alternative-text="Save"
+                            type="submit" onclick={handleSubmit}></lightning-button-icon>
+                    </lightning-button-group>
+                </template>
+                <slot name="edit-body"></slot>
+                <template if:true={isDesktopFormFactor}>
+                    <lightning-button label="Cancel" slot="actions" onclick={handleCardAction}></lightning-button>
+                    <div class="sticky-button_bottom-container">
+                        <template if:true={customDesktopEditActions}>
+                            <slot name="edit-actions"></slot>
+                        </template>
+                        <template if:false={customDesktopEditActions}>
+                            <lightning-button class="slds-align_absolute-center slds-p-vertical_medium" variant="brand"
+                                name="save" label="Save" type="submit" onclick={handleSubmit}></lightning-button>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </lightning-card>
+    </div>
+</template>

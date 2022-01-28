@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>true</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>DEPLOYMENT</description>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>true</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>Country__c</fullName>
+    <externalId>false</externalId>
+    <label>Country</label>
+    <referenceTo>Country__c</referenceTo>
+    <relationshipLabel>Deployment Status Report</relationshipLabel>
+    <relationshipName>Deployment_Status_Report</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Date_for_sending_out_LMS_password__c</fullName>
+    <externalId>false</externalId>
+    <label>Date for sending out LMS password</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Decide_to_buy_Data_com_Info__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Willing to buy Data.com info</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Deployment_Level__c</fullName>
+    <externalId>false</externalId>
+    <formula>if( 
+
+or( 
+text(Status__c)="Deployment Initiation", text(Status__c)="Business Orientation"), 1, 
+
+if( 
+text(Status__c)="Start-up &amp; Design", 2, 
+
+if( 
+and(text(Status__c)="Training &amp; GO-Live", Go_Live_Date__c &gt; TODAY()), 3, 
+
+if( Go_Live_Date__c &lt;= TODAY(),4,0))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Deployment level</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Deployment_Status_Description__c</fullName>
+    <externalId>false</externalId>
+    <label>Deployment status description</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Deployment_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>if( 
+or(
+text(Status__c)="Deployment Initiation", text(Status__c)="Business Orientation"), Image("https://emea.salesforce.com/servlet/servlet.FileDownload?file=01520000003gTQT","Business Orientation",30,30), 
+
+if(
+text(Status__c)="Start-up &amp; Design", Image("https://emea.salesforce.com/servlet/servlet.FileDownload?file=01520000003gTQO","Start-up",30,40),
+ 
+if(
+and(text(Status__c)="Training &amp; GO-Live", Go_Live_Date__c &gt; TODAY()), Image("https://emea.salesforce.com/servlet/servlet.FileDownload?file=01520000003gTQY","Training",30,30),
+
+if(
+Go_Live_Date__c &lt;= TODAY(), Image("https://emea.salesforce.com/servlet/servlet.FileDownload?file=01520000003gTQJ","Live",30,30),""))))</formula>
+    <label>Deployment status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>For_Management_Attention_Support__c</fullName>
+    <externalId>false</externalId>
+    <label>For management attention &amp; support</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Go_Live_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>GO LIVE date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>LM_Translation_Cost__c</fullName>
+    <externalId>false</externalId>
+    <label>LMS Translation Cost in €</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Level__c</fullName>
+    <externalId>false</externalId>
+    <label>Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Basic</fullName>
+          <default>true</default>
+          <label>Basic</label>
+        </value>
+        <value>
+          <fullName>Standard</fullName>
+          <default>false</default>
+          <label>Standard</label>
+        </value>
+        <value>
+          <fullName>Extended</fullName>
+          <default>false</default>
+          <label>Extended</label>
+        </value>
+        <value>
+          <fullName>Advanced</fullName>
+          <default>false</default>
+          <label>Advanced</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Next_Steps_Ongoing_Activities__c</fullName>
+    <externalId>false</externalId>
+    <label>Next Steps/On-going Activities</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Executive One SFDC Meeting</fullName>
+          <default>false</default>
+          <label>Executive One SFDC Meeting</label>
+        </value>
+        <value>
+          <fullName>Change Mngt &amp; Bus Orientation</fullName>
+          <default>false</default>
+          <label>Change Mngt &amp; Bus Orientation</label>
+        </value>
+        <value>
+          <fullName>Project Brief Development</fullName>
+          <default>false</default>
+          <label>Project Brief Development</label>
+        </value>
+        <value>
+          <fullName>Start-up Meeting</fullName>
+          <default>false</default>
+          <label>Start-up Meeting</label>
+        </value>
+        <value>
+          <fullName>Bus Req &amp; Gap Workshop</fullName>
+          <default>false</default>
+          <label>Bus Req &amp; Gap Workshop</label>
+        </value>
+        <value>
+          <fullName>Project Meeting 1</fullName>
+          <default>false</default>
+          <label>Project Meeting 1</label>
+        </value>
+        <value>
+          <fullName>ETM &amp; Legacy data Migration</fullName>
+          <default>false</default>
+          <label>ETM &amp; Legacy data Migration</label>
+        </value>
+        <value>
+          <fullName>Project Meeting 2</fullName>
+          <default>false</default>
+          <label>Project Meeting 2</label>
+        </value>
+        <value>
+          <fullName>Project Meeting 3</fullName>
+          <default>false</default>
+          <label>Project Meeting 3</label>
+        </value>
+        <value>
+          <fullName>Train the Trainer\Superuser Training</fullName>
+          <default>false</default>
+          <label>Train the Trainer\Superuser Training</label>
+        </value>
+        <value>
+          <fullName>Translations</fullName>
+          <default>false</default>
+          <label>Translations</label>
+        </value>
+        <value>
+          <fullName>Project meeting 4</fullName>
+          <default>false</default>
+          <label>Project meeting 4</label>
+        </value>
+        <value>
+          <fullName>Country Deploy Status</fullName>
+          <default>false</default>
+          <label>Country Deploy Status</label>
+        </value>
+        <value>
+          <fullName>End-user Training</fullName>
+          <default>false</default>
+          <label>End-user Training</label>
+        </value>
+        <value>
+          <fullName>Legacy Data Load</fullName>
+          <default>false</default>
+          <label>Legacy Data Load</label>
+        </value>
+        <value>
+          <fullName>GO LIVE</fullName>
+          <default>false</default>
+          <label>GO LIVE</label>
+        </value>
+        <value>
+          <fullName>Post-go live meeting</fullName>
+          <default>false</default>
+          <label>Post-go live meeting</label>
+        </value>
+        <value>
+          <fullName>Follow-up</fullName>
+          <default>false</default>
+          <label>Follow-up</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+  </fields>
+  <fields>
+    <fullName>Platform__c</fullName>
+    <externalId>false</externalId>
+    <label>Platform</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Sales</fullName>
+          <default>true</default>
+          <label>Sales</label>
+        </value>
+        <value>
+          <fullName>Service</fullName>
+          <default>false</default>
+          <label>Service</label>
+        </value>
+        <value>
+          <fullName>Marketing</fullName>
+          <default>false</default>
+          <label>Marketing</label>
+        </value>
+        <value>
+          <fullName>BI-Wave</fullName>
+          <default>false</default>
+          <label>BI-Wave</label>
+        </value>
+        <value>
+          <fullName>IOT</fullName>
+          <default>false</default>
+          <label>IOT</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Project_Health__c</fullName>
+    <externalId>false</externalId>
+    <label>Project health</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>GREEN/ON PLAN</fullName>
+          <default>false</default>
+          <label>GREEN/ON PLAN</label>
+        </value>
+        <value>
+          <fullName>YELLOW/AT RISK</fullName>
+          <default>false</default>
+          <label>YELLOW/AT RISK</label>
+        </value>
+        <value>
+          <fullName>RED/OVERDUE</fullName>
+          <default>false</default>
+          <label>RED/OVERDUE</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Requests__c</fullName>
+    <description>Requests from country</description>
+    <externalId>false</externalId>
+    <label>Requests</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>SalesBasicLevel_copy__c</fullName>
+    <externalId>false</externalId>
+    <label>SalesBasicLevel_copy</label>
+    <precision>1</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Status_Health__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(
+text( Project_Health__c )="GREEN/ON PLAN",Image("https://emea.salesforce.com/servlet/servlet.FileDownload?file=01520000000yzK1","On Plan",16,16),
+if(text( Project_Health__c )="YELLOW/AT RISK",Image("https://emea.salesforce.com/servlet/servlet.FileDownload?file=01520000000zblq","At Risk",16,16),
+if(text( Project_Health__c )="RED/OVERDUE",Image("https://emea.salesforce.com/servlet/servlet.FileDownload?file=01520000000yzK6","Overdue",16,16),"")))</formula>
+    <label>Project health</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Status_Report_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Status report date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Created</fullName>
+          <default>false</default>
+          <label>Created</label>
+        </value>
+        <value>
+          <fullName>Deployment Initiation</fullName>
+          <default>false</default>
+          <label>Deployment Initiation</label>
+        </value>
+        <value>
+          <fullName>Business Orientation</fullName>
+          <default>false</default>
+          <label>Business Orientation</label>
+        </value>
+        <value>
+          <fullName>Start-up &amp; Design</fullName>
+          <default>false</default>
+          <label>Start-up &amp; Design</label>
+        </value>
+        <value>
+          <fullName>Training &amp; GO-Live</fullName>
+          <default>false</default>
+          <label>Training &amp; GO-Live</label>
+        </value>
+        <value>
+          <fullName>Improve &amp; Follow-Up</fullName>
+          <default>false</default>
+          <label>Improve &amp; Follow-Up</label>
+        </value>
+        <value>
+          <fullName>Postponed</fullName>
+          <default>false</default>
+          <label>Postponed</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Willing_to_take_LMS_Translation_Cost__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Willing to  take LMS translation cost</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <label>Deployment Status Report</label>
+  <nameField>
+    <displayFormat>DSR-{0000}</displayFormat>
+    <label>Status Report #</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Deployment Status Report</pluralLabel>
+  <searchLayouts />
+  <sharingModel>ControlledByParent</sharingModel>
+  <visibility>Public</visibility>
+</CustomObject>

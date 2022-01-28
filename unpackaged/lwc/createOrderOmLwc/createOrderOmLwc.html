@@ -1,0 +1,84 @@
+<template>
+    <div class="slds-grid slds-grid_vertical slds-grid_vertical-align-center container-class">
+        <div class="slds-col slds-large-size_6-of-6">
+            <h2 class="slds-text-heading_medium slds-m-bottom_medium">{labels.createOrderLabel}</h2>
+            <template if:true={displayPricebooksCombo}>
+                <h6>{labels.createOrderInstructionsLabel}</h6>
+            </template>
+        </div> 
+        <template if:true={displayPricebooksCombo}>
+            <div class="slds-col slds-size_6-of-6  slds-medium-size_3-of-6 slds-large-size_2-of-6">
+                <lightning-combobox required
+                    label="Pricebook"
+                    name="pricebook"
+                    value={selectedPricebookId}
+                    placeholder={labels.selectPricebook}
+                    options={pricebooksOptions}
+                    onchange={handlePricebookChange} >
+                </lightning-combobox>
+            </div>
+        </template>
+        <template if:false={displayPricebooksCombo}>
+            <h6 style="color:red;">{labels.noPricebooksAccess}</h6>
+        </template>
+        <template if:true={displayCurrenciesCombo}>
+            <div class="slds-col slds-size_6-of-6 slds-medium-size_3-of-6 slds-large-size_2-of-6">
+                <lightning-combobox
+                    label="Currency"
+                    name="currencies"
+                    value={selectedCurrency}
+                    placeholder={labels.selectCurrency}
+                    options={currenciesOptions}
+                    onchange={handleCurrencyChange} required>
+                </lightning-combobox>
+            </div>
+        </template>
+        <template if:true={displayRelatedAccountsWithContactCombo}>
+            <div class="slds-col slds-size_6-of-6  slds-medium-size_3-of-6 slds-large-size_2-of-6">
+                <lightning-combobox required
+                    label="RelatedAccount"
+                    name="RelatedAccount"
+                    value={selectedAccountsWithContactId}
+                    placeholder={labels.selectPricebook}
+                    options={relatedAccountsWithContactOptions}  
+                    onchange={handlerelatedAccountsWithContactChange} >
+                </lightning-combobox> <!--pick account-->
+            </div>
+        </template>
+        <template if:true={displaySourceRecordsCombo}>
+            <div class="slds-col slds-size_6-of-6  slds-medium-size_3-of-6 slds-large-size_2-of-6">
+                <lightning-combobox required
+                    label="SourceRecord"
+                    name="SourceRecord"
+                    value={selectedSourceRecordId}
+                    placeholder={labels.selectPricebook}
+                    options={soruceRecordOptions}  
+                    onchange={handleSourceRecordChange} >
+                </lightning-combobox> <!--soruceRecordOptions handleSourceRecordChange-->
+            </div>
+        </template>
+        <template if:true={displayContractsCombo}>
+            <div class="slds-col slds-size_6-of-6 slds-medium-size_3-of-6 slds-large-size_2-of-6">
+                <lightning-combobox
+                    label="Contract"
+                    name="contract"
+                    value={selectedContractId}
+                    placeholder={labels.selectContract}
+                    options={contractsOptions}
+                    onchange={handleContractChange} >
+                </lightning-combobox>
+            </div>
+        </template>
+        <template if:true={displayPricebooksCombo}>
+            <div class="slds-col slds-size_6-of-6 slds-medium-size_3-of-6 slds-large-size_2-of-6 slds-p-vertical_small">
+                <button class="slds-button slds-button_brand slds-button_stretch" disabled={enableCreateButton} onclick={createOrder}>{labels.createOrderLabel}</button>
+            </div>
+        </template>            
+        <div class="slds-col slds-size_6-of-6 slds-medium-size_3-of-6 slds-large-size_2-of-6">
+            <button class="slds-button slds-button_neutral slds-button_stretch" onclick={cancel}>{labels.cancelLabel}</button>
+        </div>
+        <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+    </div>
+</template>

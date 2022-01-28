@@ -1,0 +1,5 @@
+<design:component>
+ 	  <design:attribute name="refreshInterval" label="Refresh Interval" description="By default it will be 60secs" />
+      <design:attribute name="refreshing" label="IsRefreshing" description="Checks if the list view gor refreshed or not, by default it will be set to flase" />
+  	  <design:attribute name="intervalId" label="Interval" description="Indicates the refreshing interval number" />
+</design:component>

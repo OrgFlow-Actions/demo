@@ -1,0 +1,35 @@
+<aura:component controller="SignatureCaptureCMPController" implements="lightning:availableForFlowScreens">
+    <!--  -->
+    <aura:attribute name="blankCanvasData" type="String" /> <!-- Base64 Image data when canvas is blank -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="buttonstate" type="Boolean" default="false"/> <!-- State of the button -->
+    <aura:attribute name="title" type="String"/> <!-- Title of the signature image. -->
+    <aura:attribute name="contentDocumentID" type="String"/> <!-- ID of the signature image file -->
+    
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    
+    <div style="background-color:white">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner variant="brand" alternativeText="Loading" size="medium" />
+        </aura:if>
+        <!-- Canvas -->
+        <div class="slds-align_absolute-center slds-var-p-around_small">
+            <canvas aura:id="canvas" style="border:2px solid #ddd;background: white;"></canvas>
+        </div>
+        <!-- Title input -->
+        <lightning:input class="slds-var-p-around_small" label="Save as..." required="true" placeholder="Enter the title here" value="{!v.title}" />
+        
+        <!-- Clear and Save Buttons -->
+        <div class="slds-align_absolute-center slds-var-p-around_small slds-is-relative">
+            <lightning:button label="Clear" iconName="action:delete" iconPosition="left" 
+                              variant="destructive" onclick="{! c.signatureClear }" />
+            
+            <lightning:buttonStateful labelWhenOff="Upload and Save" labelWhenOn="Saved"
+                                      variant="{! v.buttonstate ? 'success' : 'brand' }"
+                                      iconNameWhenOff="utility:upload" 
+                                      iconNameWhenOn="action:check" state="{! v.buttonstate }"
+                                      onclick="{! c.signatureSave }"
+                                      />
+        </div>
+    </div>
+</aura:component>

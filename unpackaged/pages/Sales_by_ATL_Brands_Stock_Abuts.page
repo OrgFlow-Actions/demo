@@ -1,0 +1,223 @@
+<apex:page standardController="Account">
+
+    <style type="text/css">
+        #messageDiv {
+            display: none;
+        }
+        #chartTable {
+            margin-left: -25px;
+        }
+        #chartDiv {
+            width: 400px;
+            height: 100px;
+        }
+        #tableDiv {
+            position: relative;
+            top: -7px;
+            margin-right: 12px;
+            line-height: 13px;
+            text-align: right;
+        }        
+        #legendDiv {
+            position: relative;
+            top: -6px;        
+            width: 100%;
+        }
+        #legendDiv img {
+            display: none;
+            margin-right: 5px;
+        }
+        #tableDiv td {
+            display: none;
+            font-weight: bold;
+        }        
+        #tableDiv td.atlantisCell {
+            color: #1e5994;
+        }
+        #tableDiv td.isusCell {
+            color: #ff9007;
+        }
+        #tableDiv td.stockAbutsCell {
+            color: #f72714;
+        }          
+    </style>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js" data-dojo-config="async: true" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    
+    <script>
+    
+        var atlantisCy2 = {!NULLVALUE(account.TS_CY_2_D_DD_AllPCs_Atlantis__c, 0)};
+        var atlantisCy1 = {!NULLVALUE(account.TS_CY_1_D_DD_AllPCs_Atlantis__c, 0)};
+        var atlantisCy = {!NULLVALUE(account.TS_CY_D_DD_AllPCs_Atlantis__c, 0)};
+        
+        var isusCy2 = {!NULLVALUE(account.TS_CY_2_D_DD_AllPCs_Isus__c, 0)};
+        var isusCy1 = {!NULLVALUE(account.TS_CY_1_D_DD_AllPCs_Isus__c, 0)};
+        var isusCy = {!NULLVALUE(account.TS_CY_D_DD_AllPCs_Isus__c, 0)};
+
+        var stockAbutsCy2 = {!NULLVALUE(account.TS_CY_2_D_DI_StockAbuts_AllBrands__c, 0)};
+        var stockAbutsCy1 = {!NULLVALUE(account.TS_CY_1_D_DI_StockAbuts_AllBrands__c, 0)};
+        var stockAbutsCy = {!NULLVALUE(account.TS_CY_D_DI_StockAbuts_AllBrands__c, 0)};
+
+        var totalCy2 = atlantisCy2 + isusCy2 + stockAbutsCy2;
+        var totalCy1 = atlantisCy1 + isusCy1 + stockAbutsCy1;
+        var totalCy = atlantisCy + isusCy + stockAbutsCy;
+
+        var salesByBrandAtlantis = [
+            totalCy2 == 0 ? 0 : Math.round(atlantisCy2 / totalCy2 * 100),
+            totalCy1 == 0 ? 0 : Math.round(atlantisCy1 / totalCy1 * 100),
+            totalCy == 0 ? 0 : Math.round(atlantisCy / totalCy * 100)];
+            
+        var salesByBrandIsus = [
+            totalCy2 == 0 ? 0 : Math.round(isusCy2 / totalCy2 * 100),
+            totalCy1 == 0 ? 0 : Math.round(isusCy1 / totalCy1 * 100),
+            totalCy == 0 ? 0 : Math.round(isusCy / totalCy * 100)];
+            
+        var salesByBrandStockAbuts = [
+            totalCy2 == 0 ? 0 : Math.round(stockAbutsCy2 / totalCy2 * 100),
+            totalCy1 == 0 ? 0 : Math.round(stockAbutsCy1 / totalCy1 * 100),
+            totalCy == 0 ? 0 : Math.round(stockAbutsCy / totalCy * 100)];            
+            
+        // Show a static message instead if there are no sales.
+        if (atlantisCy2 == 0 && atlantisCy1 == 0 && atlantisCy == 0 &&
+            isusCy2 == 0 && isusCy1 == 0 && isusCy == 0 &&
+            stockAbutsCy2 == 0 && stockAbutsCy1 == 0 && stockAbutsCy == 0)
+        {
+            $(document).ready(function () {
+                $("#messageDiv").show();
+                $("#chartTable").hide();
+            });
+        }
+        else
+        {    
+            $(document).ready(function () {      
+                $("#atlantisCyTd").html("ATL Abuts: " + salesByBrandAtlantis[2] + "%");
+                $("#atlantisCy1Td").html("ATL Abuts: " + salesByBrandAtlantis[1] + "%");
+                $("#atlantisCy2Td").html("ATL Abuts: " + salesByBrandAtlantis[0] + "%");
+                $("#isusCyTd").html("ATL ISUS: " + salesByBrandIsus[2] + "%");
+                $("#isusCy1Td").html("ATL ISUS: " + salesByBrandIsus[1] + "%");
+                $("#isusCy2Td").html("ATL ISUS: " + salesByBrandIsus[0] + "%");
+                $("#stockAbutsCyTd").html("Stock Abuts: " + salesByBrandStockAbuts[2] + "%");
+                $("#stockAbutsCy1Td").html("Stock Abuts: " + salesByBrandStockAbuts[1] + "%");
+                $("#stockAbutsCy2Td").html("Stock Abuts: " + salesByBrandStockAbuts[0] + "%");                                                                 
+            });  
+            
+            require([
+                "dojox/charting/Chart",
+                "dojox/charting/plot2d/StackedBars",
+                "dojox/charting/axis2d/Default",
+                "dojox/charting/action2d/Tooltip",
+                "dojo/domReady!"
+            ], function (Chart) {
+    
+                // When the DOM is ready and resources are loaded...
+    
+                // Create the chart within its holding <div>.
+                var chart = new Chart("chartDiv");
+    
+                /* Fill settings for gradients. */
+                var gradient = dojox.charting.Theme.generateGradient;
+                var defaultFill = { type: "linear", space: "shape", x1: 0, y1: 0, x2: 100, y2: 0 };
+    
+                // Create new theme using the logo colors.
+                var customTheme = new dojox.charting.Theme({
+                    seriesThemes: [
+                        { fill: gradient(defaultFill, "#f72714", "#c41f10") }, // StockAbuts
+                        { fill: gradient(defaultFill, "#ffa12e", "#f58700") }, // Isus
+                        { fill: gradient(defaultFill, "#2774c2", "#1e5994") } // Atlantis
+                    ]  
+                });
+    
+                // Set the theme.
+                chart.setTheme(customTheme);
+    
+                // Add the only/default plot.
+                chart.addPlot("default", {
+                    type: "StackedBars"
+                });
+    
+                var today = new Date();
+                var decenniumCy2 = today.getFullYear() - 2 - 2000;
+    
+                // Add axes.
+                chart.addAxis("x", { min: 0, max: 100 });
+                chart.addAxis("y", { vertical: true, labels: [{value: 1, text: decenniumCy2}, {value: 2, text: "LY"}, {value: 3, text: "CY"}] });
+    
+                // Add the series of data.
+                chart.addSeries("salesByBrandAtlantis", salesByBrandAtlantis, {stroke: {color: "#fff", width: 2}});
+                chart.addSeries("salesByBrandIsus", salesByBrandIsus, { stroke: { color: "#fff", width: 2}});
+                chart.addSeries("salesByBrandStockAbuts", salesByBrandStockAbuts, { stroke: { color: "#fff", width: 2}});
+    
+                new dojox.charting.action2d.Tooltip(chart, "default", {
+                    text : function(o) {
+                        return (o.x + "-" + o.y);
+                    }
+                });
+    
+                // Render the chart.
+                chart.render(); 
+                
+                // Hide the logos that have no sales on any year.
+                if (atlantisCy2 > 0 || atlantisCy1 > 0 || atlantisCy > 0)
+                    $("#logoAtlantis, .atlantisCell").show();
+                if (isusCy2 > 0 || isusCy1 > 0 || isusCy > 0)
+                    $("#logoIsus, .isusCell").show();
+                if (stockAbutsCy2 > 0 || stockAbutsCy1 > 0 || stockAbutsCy > 0)
+                    $("#logoStockAbuts, .stockAbutsCell").show();                   
+            });
+        }
+
+    </script>
+    
+    <div id="messageDiv"><span>No sold implants or abutments during this or previous two calendar years.</span></div>
+    
+    <table id="chartTable">
+        <tr>
+            <td>
+                <div id="chartDiv"></div>
+            </td>
+            <td>
+                <div id="tableDiv">
+                    <table>
+                        <!--<thead>
+                            <tr>
+                                <th>Year</th>
+                                <th class="atlantisCell">ATL Abutments</th>
+                                <th class="isusCell">ATL Isus</th>
+                                <th class="stockAbutsCell">Stock Abutments</th>
+                            </tr> 
+                        </thead>-->
+                        <tbody>   
+                            <tr>
+                                <!--<th>CY</th>-->
+                                <td class="atlantisCell" id="atlantisCyTd"></td>
+                                <td class="isusCell" id="isusCyTd"></td>
+                                <td class="stockAbutsCell" id="stockAbutsCyTd"></td>                         
+                            </tr>
+                            <tr>
+                                <!--<th>LY</th>-->    
+                                <td class="atlantisCell" id="atlantisCy1Td"></td>
+                                <td class="isusCell" id="isusCy1Td"></td>    
+                                <td class="stockAbutsCell" id="stockAbutsCy1Td"></td> 
+                            </tr>
+                            <tr>
+                                <!--<th>10</th>-->  
+                                <td class="atlantisCell" id="atlantisCy2Td"></td>
+                                <td class="isusCell" id="isusCy2Td"></td>
+                                <td class="stockAbutsCell" id="stockAbutsCy2Td"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>          
+            </td>
+            <!--td>
+                <div id="legendDiv">
+                    <img id="logoAtlantis" src="" />&nbsp;
+                    <img id="logoIsus" src="" />&nbsp;
+                    <img id="logoStockAbuts" src="" />&nbsp;
+                </div>              
+            </td-->               
+        </tr>
+    </table>
+    
+</apex:page>

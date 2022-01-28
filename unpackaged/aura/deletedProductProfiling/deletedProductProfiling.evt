@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Event to handle deleted Product Profiling records">
+    	<aura:attribute name="message" type="String"/>
+</aura:event>

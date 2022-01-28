@@ -1,0 +1,83 @@
+<!--	
+Author: 		Richard Trum (Glimt) 2019-11-27 	
+Description:   	Component to mass edit Product Profiling records - embedded in component ProductProfilingComponent
+-->
+
+<aura:component controller="ProductProfilingHierarchyController" implements="lightning:availableForFlowScreens" access="global" >
+		<aura:handler name="init" value="{!this}" action="{!c.init}" />
+    	<aura:registerEvent name="cmpEvent" type="c:deletedProductProfiling"/>
+      	<aura:attribute name="selectedProducts" type="Product_Profiling__c[]" />
+    	<aura:attribute name="columns" type="List"/>
+    	<aura:attribute name="showSpinner" type="boolean" default="true"/>
+    	<aura:attribute name="options" type="List" default="[
+    		{'label': 'Prospect', 'value': 'Prospect'},
+    		{'label': 'Low Usage', 'value': 'Low Usage'},
+    		{'label': 'Medium Usage', 'value': 'Medium Usage'},
+            {'label': 'High Usage', 'value': 'High Usage'}, 
+          	{'label': 'Installed', 'value': 'Installed'}, 
+          	{'label': 'Not Interested', 'value': 'Not Interested'},                                                             
+    	]"/>
+    
+    	<aura:if isTrue="{!v.showSpinner}">
+    		<lightning:spinner variant="brand" size="small" alternativeText="Updating" />
+    	</aura:if>
+		
+		<div class="overflow-y: scroll;">    
+    	<aura:iteration items="{!v.selectedProducts}" var="item">
+            
+          <lightning:recordEditForm
+                      aura:id="editForm"               
+                      recordId="{!item.Id}"
+                      objectApiName="Product_Profiling__c"
+                      onsuccess="{!c.hideSpinner}"
+                      onerror="{!c.handleError}"
+                      onload="{!c.hideSpinner}"              
+                      > 
+            
+           <div class="slds-grid slds-gutters">
+
+                <div class="slds-col slds-size_3-of-12">
+                    <span>  
+                        <lightning:input name="productName" readonly="true" value="{!item.Product_Name__r.Name}" label="Product"/>                  
+                	</span>
+                	<lightning:layoutItem class="slds-hide">
+    					<lightning:inputField fieldName="Product_Name__c"/>
+					</lightning:layoutItem>
+                        
+                </div>
+
+                <div class="slds-col slds-size_3-of-12">
+                    <span>
+                        <lightning:inputField fieldName="Status__c" id="{!item.Id}" variant="label-stacked" />
+                    </span>
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                    <span>
+                    <lightning:inputField fieldName="Quantity__c" variant="label-stacked"/>
+                	</span>
+                </div>
+                <div class="slds-col slds-size_3-of-12">
+               		<span>
+                    	<lightning:inputField fieldName="Date_of_purchase__c" variant="label-stacked"/>
+                    </span>
+               </div>
+               <div class="slds-col slds-size_1-of-12">
+                    <span>
+                        
+                    	<lightning:buttonIcon name="{!item.Id}" onclick="{!c.deleteProduct}" class="slds-p-top_large" iconName="utility:delete" size="large" variant="bare" alternativeText="Delete" title="Delete"/>
+                	</span>
+               </div>
+              </div>
+
+            </lightning:recordEditForm> 
+  
+        </aura:iteration>
+		</div>            
+    	{!v.deleteButton}
+    	<div class="slds-m-top_medium slds-float--right sticky-button_bottom-container">
+            <!--<footer class="slds-modal__footer"> -->   
+            	<lightning:button variant="brand" type="submit" name="save" label="Save" onclick="{!c.setValues}"/>
+        	<!--</footer> -->
+       	</div>
+            
+</aura:component>

@@ -1,0 +1,20 @@
+<template>
+
+    <c-lookup
+    selection={initialSelection}
+    errors={errors}
+    onsearch={handleLookupSearch}
+    onselectionchange={handleLookupSelectionChange}
+    label={label}
+    placeholder="Search..."
+    is-multi-entry={isMultiEntry}
+    new-record-options={newRecordOptions}
+    
+></c-lookup>
+
+
+<template if:true={loading}>
+    <lightning-spinner alternative-text="Loading"></lightning-spinner>
+</template>
+    
+</template>

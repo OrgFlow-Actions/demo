@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" >
+	<aura:attribute name="UserId" type="Id"/>
+    <aura:attribute name="isVisible" type="Boolean"/>
+    <aura:attribute name="filterTest" type="String"/>
+    <aura:attribute name="showTitle" type="Boolean" default="false"/>
+    <aura:attribute name="showHeader" type="Boolean" default="false"/>
+    <aura:attribute name="showSharing" type="Boolean" default="false"/>
+    <aura:attribute name="dashboardDevName" type="String"/>
+    <aura:attribute name="userFilter" type="Boolean" default="true"/>
+    <aura:attribute name="datasetName" type="String"/>
+    
+    <aura:handler name="init" value="{! this }" action="{! c.getUserInfo }" />
+    
+    <aura:if isTrue="{!v.userFilter}">
+    <wave:waveDashboard developerName="{!v.dashboardDevName}" height="400" hideOnError="true" rendered="true" showTitle="{!v.showTitle}" showSharing="{!v.showSharing}" showHeader="{!v.showHeader}" openLinksInNewWindow="true">       	 
+        	<aura:set attribute="filter" value="{!v.filterTest}"/> 
+    </wave:waveDashboard>
+    <aura:set attribute="else">
+        <wave:waveDashboard developerName="{!v.dashboardDevName}" height="400" hideOnError="true" rendered="true" showTitle="{!v.showTitle}" showSharing="{!v.showSharing}" showHeader="{!v.showHeader}" openLinksInNewWindow="true"/>       	    
+    </aura:set>
+    </aura:if>       
+</aura:component>

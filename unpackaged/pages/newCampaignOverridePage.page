@@ -1,0 +1,1187 @@
+<apex:page standardController="Campaign" extensions="newCampaignOverride"  lightningStylesheets="true" showHeader="true">
+    
+    <apex:sectionHeader subtitle="New Campaign" title="Campaign"/>
+    
+    <apex:form >
+        <apex:pageBlock title="New Campaign">
+            <apex:pageMessages id="pageErrors"/>
+            <apex:pageBlockButtons location="both">
+                <apex:actionStatus id="mySaveStatus1">
+                    <apex:facet name="stop">
+                        <apex:commandButton action="{!save1}" status="mySaveStatus1" value="Save" disabled="false" rerender="pageErrors"/>
+                    </apex:facet>
+                    <apex:facet name="start">
+                        <apex:commandButton action="{!save1}" status="mySaveStatus1" value="Processing..." disabled="true" rerender="pageErrors"/> </apex:facet>
+                </apex:actionStatus>
+                <apex:commandButton action="{!cancel1}" immediate="true" value="Cancel"/>
+            </apex:pageBlockButtons>
+            
+            
+            <!--Here start page for Course/Event/Exhibition record type 
+            <!-- Inside Sales Campaign record type-->
+            <apex:outputPanel id="Inside_Sales_Campaign" rendered="{!rTypename = 'Inside_Sales_Campaign'}"> 
+                <apex:pageBlockSection columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Name}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.IsActive}" />
+                    <apex:Inputfield value="{!Campaign.Type}" required="True" />
+                    <apex:Inputfield value="{!Campaign.SBU_Focus__c}" />
+                    <apex:Inputfield value="{!Campaign.Campaign_Category__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Parent_Campaign_DI__c}" />
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.External_Project_ID__c}" />
+                    <apex:Inputfield value="{!Campaign.Campaign_Region_DE__c}" />
+                    <apex:Inputfield value="{!Campaign.Status}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_City__c}" required="True"/>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_State__c}" />
+                    <apex:Inputfield value="{!Campaign.HQ_Campaign_Coordinator__c}" />
+                    <apex:Inputfield value="{!Campaign.Course_Level_D__c}" />
+                    <apex:Inputfield value="{!Campaign.HQ_second_Campaign_Coordinator__c}" />
+                    <apex:Inputfield value="{!Campaign.Credits__c}" />
+                    <apex:Inputfield value="{!Campaign.Campaign_Coordinator__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Credits_provided_by__c}" />
+                    <apex:Inputfield value="{!Campaign.Campaign_Approver__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Third_Party_Type__c}" />
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Cost_Centre__c}" />
+                    <apex:Inputfield value="{!Campaign.StartDate}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.EndDate}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Primary_Language__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Marketing_Start_Date__c}" />
+                    <apex:Inputfield value="{!Campaign.Campaign_Start_Time__c}" />
+                    <apex:Inputfield value="{!Campaign.Marketing_End_Date__c}" />
+                    <apex:Inputfield value="{!Campaign.Campaign_End_Time__c}" />
+                    <apex:Inputfield value="{!Campaign.Organizer_additional_information_AT__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.RSVP_by_AU__c}" /-->
+                    <apex:Inputfield value="{!Campaign.Course_California_Only__c}" />
+                    <!--apex:Inputfield value="{!Campaign.Equipment_AU__c}"  style="width:80%"/-->
+                    <apex:Inputfield value="{!Campaign.California_Course_Name__c}"  style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Declaration_to_the_order_Council_FR__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.California_Course_Description__c}"  style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Declaration_approved_by_HQ_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Post_event_registration_to_council__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Speaker_Education__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Promotion_Program__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.MISE_EN_FORME_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.CAVITE_D_ACCES_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.of_Material_Moteurs_XS__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.of_Material_Moteurs_XSS__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.of_Material_Moteurs_NSK_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.of_Material_Thermaprep_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Speaker_Contract_signed_up_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Contrat_d_honoraires__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Initial_Training_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Continuing_Training_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Validation_of_the_material_by_the_HQ_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Comments_Implants_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Comments_REST_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Comments_ENDO_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Comments_MANT_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Fibre_Lasers_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Goggles_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Surgical_Drapes_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Latex_Gloves_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Scalpels_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Carrots_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Pig_Jaws_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Blood_FR__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_OBJECTIVES}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Objectives__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.PREP__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.REST_Material_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_R_servation_de_materiel_et_Invitations_FR}" columns="2" collapsible="false" rendered="{!$User.User_Country_Text__c = 'France'||$Profile.Name='#System: System Administrator'}">
+                    <apex:Inputfield value="{!Campaign.Equipment_needed_FR__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Visuel_plaquette_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Hands_on_date_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Scientific_thema_FR__c}" required="True"  style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_delivery_date_and_time__c}" />
+                    <apex:Inputfield value="{!Campaign.Surgical_hands_on_on_models_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Equipment_delivery_address_FR__c}"  style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Surgical_hands_on_on_cadavers_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Equipment_Contact_person_and_phone__c}" />
+                    <apex:Inputfield value="{!Campaign.Expertease_guided_surgery_hands_on_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Equipment_take_back_date__c}" />
+                    <apex:Inputfield value="{!Campaign.Prosthetic_hands_on_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Equipment_of_work_station_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Pack_Empreinte_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Equipment_of_Implant_units_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Pack_Hygiene_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Equipment_of_dummy_implants_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Other_equipment_Name_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Equipment_of_mandibles_FR__c}" />
+                    <apex:Inputfield value="{!Campaign.Other_equipment_Number_FR__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Other_equipment_Quantity_FR__c}" />
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Campaign_Participant_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.of_Event_Seats__c}" />
+                    <apex:Inputfield value="{!Campaign.of_Participants_Reported__c}" />
+                    <apex:Inputfield value="{!Campaign.Est_of_participants__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Minimal_Participants_required__c}" />
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Target_Group_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Geographical_Target__c}" />
+                    <apex:Inputfield value="{!Campaign.Target_Group__c}" />
+                    <apex:Inputfield value="{!Campaign.Target_Country__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Target_Type__c}" />
+                    <apex:Inputfield value="{!Campaign.Strategy__c}" />
+                    <!--apex:Inputfield value="{!Campaign.ATLANTIS_Conus__c}" /-->
+                    <apex:Inputfield value="{!Campaign.Brand__c}" required="True"/>
+                    <!--apex:Inputfield value="{!Campaign.Profile_EV__c}" /-->
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Standard_Participation_Fee}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Standard_Participation_Fee__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.VAT__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Location_Accommodation}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Venue__c}" />
+                    <apex:Inputfield value="{!Campaign.Primary_Contact_Person_at_Venue__c}" />
+                    <apex:Inputfield value="{!Campaign.Primary_Hotel__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Hotel_Check_in_Date__c}" />
+                    <apex:Inputfield value="{!Campaign.Hotel_Check_Out_Date__c}" />
+                    <apex:Inputfield value="{!Campaign.Single_Room_Rate_Per_Night__c}" />
+                    <apex:Inputfield value="{!Campaign.Double_Room_Rate_Per_Night__c}" />
+                    <apex:Inputfield value="{!Campaign.Hotel_Information__c}"  style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Visa_required__c}" />
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Budget_Actual_Revenue_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Participation_Fees_Budget__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Budget_Actual_Cost_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Honorarium_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Food_Beverage_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Entertainment_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Advertising_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Mailing_Printing_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Venue_Expenses_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Hotel_Accommodation__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Travel_Transfer_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Speaker_Travel_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Gifts_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Equipment_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Third_Party_Sponsorship_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Other_Budget__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Description_Information}" columns="1" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Description}"  style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Program__c}"  style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}" /-->
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Last_Approval_Change_Date__c}" />
+                    <apex:Inputfield value="{!Campaign.Approval_Status_DI__c}" />
+                    <apex:Inputfield value="{!Campaign.Has_Sessions__c}" />
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <!--Here starts page for Digital Marketing Campaign record type 
+                Digital Marketing Campaign record type-->
+            <apex:outputPanel id="Digital_Marketing_Campaign" rendered="{!rTypename = 'Digital_Marketing_Campaign'}"> 
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_INFORMATION}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Name}"/>
+                    <apex:Inputfield value="{!Campaign.IsActive}"/>
+                    <apex:Inputfield value="{!Campaign.Type}"/>
+                    <apex:Inputfield value="{!Campaign.Parent_Campaign_DI__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Status}"/>
+                    <apex:Inputfield value="{!Campaign.StartDate}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.EndDate}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}"/>
+                    <apex:Inputfield value="{!Campaign.Source_Origin__c}"/>
+                    <apex:Inputfield value="{!Campaign.Country__c}"/>
+                    <apex:Inputfield value="{!Campaign.Email_Template__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Convert_To__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Brands__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Include_in_Dealer_Community__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Notify_Dealer_Sales_Rep_by_Email__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Synchronize_to_Eloqua__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.TargetMarket__c}"/>
+                </apex:pageBlockSection>
+            	<apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}" />
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+
+                <!--Here starts page for In-person & Virtual Event Campaign record type 
+                In-person & Virtual Event Campaign record type-->
+                <apex:outputPanel id="InPersonEventCampaign" rendered="{!rTypename = 'InPersonEventCampaign'}"> 
+                    <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_INFORMATION}" columns="2" collapsible="false">
+                        <apex:Inputfield value="{!Campaign.Name}"/>
+                        <apex:Inputfield value="{!Campaign.IsActive}"/>
+                        <apex:Inputfield value="{!Campaign.Type}"/>
+                        <apex:Inputfield value="{!Campaign.Parent_Campaign_DI__c}"/>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.Status}"/>
+                        <apex:Inputfield value="{!Campaign.StartDate}"/>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.EndDate}"/>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.CurrencyIsoCode}"/>
+                        <apex:Inputfield value="{!Campaign.Source_Origin__c}"/>
+                        <apex:Inputfield value="{!Campaign.Country__c}"/>
+                        <apex:Inputfield value="{!Campaign.Email_Template__c}"/>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.Convert_To__c}"/>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.Brands__c}" required="true"/>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.Include_in_Dealer_Community__c}"/>
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.Notify_Dealer_Sales_Rep_by_Email__c}"/>
+                        <!--<apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.Synchronize_to_Eloqua__c}"/> -->
+                        <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                        <apex:Inputfield value="{!Campaign.TargetMarket__c}"/>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                        <apex:Inputfield value="{!Campaign.Campaign_Country__c}" />
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+            
+            <!-- Course/Event/Exhibition record type-->
+            <apex:outputPanel id="Course_Event_Exhibition" rendered="{!rTypename = 'DI_Campaign'}"> 
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_INFORMATION}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Name}"/>
+                    <apex:Inputfield value="{!Campaign.IsActive}"/>
+                    <apex:Inputfield value="{!Campaign.Type}" required="true"/>
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.SBU_Focus__c.Label}"/>
+                        <apex:actionRegion immediate="TRUE">
+                            <apex:InputField value="{!Campaign.SBU_Focus__c}" > 
+                                <apex:actionSupport event="onchange" action="{!SBU}" reRender="SBUfields"  />
+                            </apex:InputField>
+                        </apex:actionRegion>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Category__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Country__c}"/>
+                    <apex:Inputfield value="{!Campaign.Parent_Campaign_DI__c}"/>
+                    <apex:Inputfield value="{!Campaign.Status}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.StartDate}"/>
+                    <apex:Inputfield value="{!Campaign.NA_Initiative__c}"/>
+                    <apex:Inputfield value="{!Campaign.EndDate}"/>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Start_Time__c}"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Coordinator__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_End_Time__c}"/>
+                    <apex:Inputfield value="{!Campaign.HQ_Campaign_Coordinator__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.HQ_second_Campaign_Coordinator__c}"/>
+                    <apex:Inputfield value="{!Campaign.Organizer_additional_information_AT__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Approver__c}" required="true"/>
+                    <!--apex:Inputfield value="{!Campaign.RSVP_by_AU__c}" /-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Equipment_AU__c}"/-->
+                    <apex:Inputfield value="{!Campaign.NA_Program_Module__c}" style="width:95%"/>
+                    <apex:Inputfield value="{!Campaign.Declaration_to_order_council_email__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.Course_California_Only__c}"/>
+                    <apex:Inputfield value="{!Campaign.Declaration_to_the_order_Council_FR__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.California_Course_Name__c}"/>
+                    <apex:Inputfield value="{!Campaign.Contrat_d_honoraires__c}"/>
+                    <apex:Inputfield value="{!Campaign.California_Course_Description__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Post_event_registration_to_council__c}"/>
+                </apex:pageBlockSection> 
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_OBJECTIVES}" collapsible="false" columns="2">
+                    <apex:Inputfield value="{!Campaign.Describe_the_business_needs_goals__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Objectives__c}" style="width:95%"/>
+                </apex:pageBlockSection> 
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_DETAILS}" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.External_Project_ID__c}"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Region_DE__c}"/>
+                    <apex:Inputfield value="{!Campaign.Venue__c}"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_State__c}"/>
+                    <apex:Inputfield value="{!Campaign.Primary_Contact_Person_at_Venue__c}"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_City__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.Primary_Language__c}"/>
+                    <apex:Inputfield value="{!Campaign.Course_Level_D__c}"/>
+                    <apex:Inputfield value="{!Campaign.Promotion_Program__c}"/>
+                    <apex:Inputfield value="{!Campaign.Credits__c}"/>
+                    <apex:Inputfield value="{!Campaign.Speaker_Education__c}"/>
+                    <apex:Inputfield value="{!Campaign.Credits_provided_by__c}"/>
+                    <apex:Inputfield value="{!Campaign.Cost_Centre__c}"/>
+                    <apex:Inputfield value="{!Campaign.Third_Party_Type__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.External_Organizer__c}"/>
+                    
+                </apex:pageBlockSection>
+                <apex:outputPanel id="SBUfields"> 
+                    <apex:pageBlockSection title="{!$Label.newCampaignOverride_PRODUCT_FOCUS}" collapsible="false">
+                        <apex:Inputfield value="{!Campaign.Brand__c}" rendered="{!Campaign.SBU_Focus__c  != null && CONTAINS(Campaign.SBU_Focus__c  , 'Implants')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_ORTH__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Orthodontics')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_IMAG__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Imaging Systems')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_PREV__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Preventive')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_INST__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Instruments')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_REST__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Restorative')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_TRCE__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Treatment Centers')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_ENDO__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Endodontics')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_CDCM__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'CAD/CAM')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_PROS__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Prosthetics')}"/>
+                        
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_TARGET_GROUP_DETAILS}" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Geographical_Target__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Group__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Country__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.Profession__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Strategy__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Type__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.ATLANTIS_Conus__c}"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Profile_EV__c}"/-->
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Reservation_info_All_SBU_FR}" rendered="{!$User.User_Country_Text__c = 'France'||$Profile.Name='#System: System Administrator'}">
+                    <apex:Inputfield value="{!Campaign.Hands_on_date_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_Contact_person_and_phone__c}"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_delivery_date_and_time__c}"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_take_back_date__c}"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_delivery_address_FR__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_of_work_station_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_needed_FR__c}" required="true"/>
+                    <apex:Inputfield value="{!Campaign.Validation_of_the_material_by_the_HQ_FR__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Scientific_thema_FR__c}" required="true" style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Reservation_de_mat_rial_Restorative_SBU_FR}" collapsible="false" rendered="{!$User.User_Country_Text__c = 'France'||$Profile.Name='#System: System Administrator'}">
+                    <apex:Inputfield value="{!Campaign.PREP__c}"/>
+                    <apex:Inputfield value="{!Campaign.REST_Material_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Comments_REST_FR__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.of_Material_Moteurs_XS__c}"/>
+                    <apex:Inputfield value="{!Campaign.OTHER_MATERIAL_QUANTITY_AND_NAME__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.of_Material_Moteurs_XSS__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.of_Material_Moteurs_NSK_FR__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.of_Material_Thermaprep_FR__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.KITS_RESTO_DIRECT_FR__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.KITS_RESTO_INDIRECT_FR__c}"/>
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Reservation_de_mat_rial_ENDO_SBU_FR}" collapsible="false" rendered="{!$User.User_Country_Text__c = 'France'||$Profile.Name='#System: System Administrator'}">
+                    <apex:Inputfield value="{!Campaign.Initial_Training_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Continuing_Training_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.ENGINES_of_X_SMART_WO__c}"/>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_TANKS_THERMAPREP_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.ENGINES_of_X_SMART__c}"/>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_OBTURATORS_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.ENGINES_of_NSK__c}"/>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_THERMAFILS_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.TRAINING_KITS_PROTAPER_GOLD_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_TOP_SEAL_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.TRAINING_KITS_PROTAPER_NEXT_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_RANGE_TO_CHECK_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.TRAINING_KITS_RECIPROC_BLUE_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_THERMACUT_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.TRAINING_KITS_WAVE_ONE_GOLD_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.OBTURATION_POST_SPACE_BUR_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.CAVITY_ACCESS_RED_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.RTE_RETRAIT_ASS_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.CAVITY_ACCESS_GREEN_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.RTE_D1_Proteper_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Comments_ENDO_FR__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.RTE_D2_Proteper_FR__c}"/>
+                    
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.RTE_C_018_Range__c}"/>
+                    
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.RTE_C_025_ASS_FR__c}"/>
+                    
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.RTE_C_021_r_FR__c}"/>
+                    
+                    
+                    
+                    
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_R_servation_de_mat_riel_SBU_IMPLANT_FR}" collapsible="false" rendered="{!$User.User_Country_Text__c = 'France'||$Profile.Name='#System: System Administrator'}">
+                    <apex:Inputfield value="{!Campaign.Equipment_of_Implant_units_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Surgical_hands_on_on_models_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Equipment_of_dummy_implants_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Surgical_hands_on_on_cadavers_FR__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Equipment_of_mandibles_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Prosthetic_hands_on_FR__c}"/>
+                    <apex:Inputfield value="{!Campaign.Comments_Implants_FR__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Pack_Empreinte_FR__c}"/>
+                    
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Pack_Hygiene_FR__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Other_equipment_Name_FR__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Other_equipment_Quantity_FR__c}"/>
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Reservation_de_mat_riel_SBU_EQUIPEMENT_FR}" collapsible="false" rendered="{!$User.User_Country_Text__c = 'France'||$Profile.Name='#System: System Administrator'}">
+                    <apex:Inputfield value="{!Campaign.Fibre_Lasers_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Goggles_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Surgical_Drapes_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Latex_Gloves_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Scalpels_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Pig_Jaws_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Blood_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Carrots_FR__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Comments_MANT_FR__c}" style="width:80%"/>
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_PARTICIPANT_AND_SEAT_MANAGEMENT}" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.of_Event_Seats__c}"/>
+                    <apex:Inputfield value="{!Campaign.of_Participants_Reported__c}"/>
+                    <apex:Inputfield value="{!Campaign.Est_of_participants__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Minimal_Participants_required__c}"/>
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_ACCOMMODATION}" collapsible="false" >
+                    <apex:Inputfield value="{!Campaign.Primary_Hotel__c}"/>
+                    <apex:Inputfield value="{!Campaign.Hotel_Information__c}"/>
+                    <apex:Inputfield value="{!Campaign.Hotel_Check_in_Date__c}"/>
+                    <apex:Inputfield value="{!Campaign.Single_Room_Rate_Per_Night__c}"/>
+                    <apex:Inputfield value="{!Campaign.Hotel_Check_Out_Date__c}"/>
+                    <apex:Inputfield value="{!Campaign.Double_Room_Rate_Per_Night__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Visa_required__c}"/>
+                    
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_PARTICIPATION_FEES_AND_COSTS}" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Standard_Participation_Fee__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.VAT__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_REVENUE_INFORMATION_PARTICIPATION_FEES}" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Participation_Fees_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_BUDGET_ACTUAL_COSTS_DETAILS}" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Honorarium_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Food_Beverage_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Entertainment_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Advertising_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Mailing_Printing_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Venue_Expenses_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Hotel_Accommodation__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Travel_Transfer_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Speaker_Travel_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Gifts_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Equipment_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Third_Party_Sponsorship_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Other_Budget__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Description_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Description}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Program__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" collapsible="false">
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}"/-->
+                    
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--<apex:Inputfield value="{!Campaign.CampaignMemberRecordType}"/>-->
+                    <apex:Inputfield value="{!Campaign.Last_Approval_Change_Date__c}"/>
+                    <apex:Inputfield value="{!Campaign.Approval_Status_DI__c}"/>
+                    <apex:Inputfield value="{!Campaign.Has_Sessions__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}" required="true"/>
+                </apex:pageBlockSection>
+            </apex:outputPanel>             
+            <!-- Campaign Session record type-->
+            <apex:outputPanel id="Campaign_Session" rendered="{!rTypename = 'DI_Campaign_Session'}"> <!--Campaign Session record type -->
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_SESSION_INFORMATION}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Name}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Parent_Event__c}"/>
+                    <apex:Inputfield value="{!Campaign.Venue_Room_Hall__c}"/>
+                    <apex:Inputfield value="{!Campaign.Country__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Status}"/>
+                    <apex:Inputfield value="{!Campaign.Credits_provided_by__c}"/>
+                    <apex:Inputfield value="{!Campaign.Session_Start_Date_Time__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Session_End_Date_Time__c}"/>
+                    <apex:Inputfield value="{!Campaign.Session_Max_Occupancy__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Organizer_additional_information_AT__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Internal_training__c}"/>
+                    <!--apex:Inputfield value="{!Campaign.Profile_EV__c}"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Multiple_Sessions_Logistics_Details__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_SESSION_INFORMATIO}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Hands_on_Demonstration__c}"/>
+                    <apex:Inputfield value="{!Campaign.Simultaneous_Translation__c}"/>
+                    <apex:Inputfield value="{!Campaign.Session_Length__c}"/>
+                    <apex:Inputfield value="{!Campaign.Consecutive_trans__c}"/>
+                    <apex:Inputfield value="{!Campaign.Confirmed_Moderator__c}"/>
+                    <apex:Inputfield value="{!Campaign.Session_Length_Unit__c}"/>
+                    <apex:Inputfield value="{!Campaign.Primary_Language__c}"/>
+                    <apex:Inputfield value="{!Campaign.Confirmed_Speaker__c}"/>
+                    <apex:Inputfield value="{!Campaign.Session_Topic__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Lecture_Title__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Lecture_Abstract_D__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Description_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Description}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Additional_Information__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Internal_Comments_D__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Equipment__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_TARGET_GROUP_DETAILS}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Strategy__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Group__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Country__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Type__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Profession__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Migrated_Fields_from_old_implementation_SE_HQ_Only}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Standard_Lecture_Title_D__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Program_Will_later_be_replaced_with_the_information_entere}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Program__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}"/-->
+                    <!--apex:Inputfield value="{!Campaign.Product_Area__c}"/-->
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <!-- NA: Trade Show record type-->
+            <apex:outputPanel id="NA_Trade_Show_block" rendered="{!rTypename = 'NATradeShow'}"> 
+                <apex:pageBlockSection title="Trade Show Request Form" columns="2" collapsible="false">
+                    
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Status}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Approver__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Coordinator__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Name}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Dates" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.StartDate}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.EndDate}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Program Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Brand__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Target_Group__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Strategy__c}"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Venue" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Contact_Name_at_Venue__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Name_of_Venue__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Venue_Address__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_City__c}" required="True" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_State__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Speaker Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Technical_Advisor_Requested__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Speaker_Requested__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Alternative_Speaker__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <!--apex:pageBlockSection title="Materials Needed: Please attach request form(s) after saving this record!" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.NA_Materials__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection-->
+                <apex:pageBlockSection title="Sponsorship" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Sponsorship_Amount__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Make_Check_Payable_to__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Mail_Check_To__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Costs" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Honorarium_Budget__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Honorarium_Cost_Notes__c}"/>
+                    <apex:Inputfield value="{!Campaign.Speaker_Travel_Budget__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Speaker_Travel_Cost_Notes__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Additional Comments" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Additional_Comments__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Region_DE__c}"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}" required="True"/>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <!-- NA: Sponsorship record type-->
+            <apex:outputPanel id="NA_Sponsorship" rendered="{!rTypename = 'NA_Sponsorship'}">
+                <apex:pageBlockSection title="Sponsorship Information" columns="2" collapsible="false">
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Status}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Approver__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Coordinator__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Name}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.NA_Co_Sponsor_of_Event__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Brand__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.ATLANTIS_Conus__c}"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Profile_EV__c}"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Strategy__c}" required="True"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}" required="True"/-->
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Product_Area__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem-->
+                    <apex:Inputfield value="{!Campaign.Target_Group__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Sponsorship Information: Please attach documentation after saving this record!" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Sponsorship_Amount__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Make_Check_Payable_to__c}" required="True" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Mail_Check_To__c}" required="True" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Additional Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_City__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.StartDate}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.EndDate}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Additional_Comments__c}"  style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Region_DE__c    }"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <!-- NA: Program/Education (CE and Non-CE) record type-->
+            <apex:outputPanel id="NA_Program_Education" rendered="{!rTypename = 'NA_Activity_Request_Form'}">
+                <apex:pageBlockSection title="" columns="2" collapsible="false">
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Coordinator__c}" required="True"/>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Approver__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Status}"/>
+                    <apex:Inputfield value="{!Campaign.Name}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.NA_Initiative__c}"/>
+                    <apex:Inputfield value="{!Campaign.NA_Co_Sponsor_of_Event__c}"/>
+                    <apex:Inputfield value="{!Campaign.NA_Program_Module__c}" required="True" style="width:100%"/>
+                    
+                    
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="CE & Non-CE Program Information" columns="1" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Type}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Course_Level_D__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Course_Title_and_Description__c}" style="width:42%"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Program_Goals_and_Topics__c}" style="width:42%"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Est_of_participants__c}" required="True"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Brand__c}" required="True"/>
+                    
+                    <!--apex:Inputfield value="{!Campaign.ATLANTIS_Conus__c}"/-->
+                    
+                    <!--apex:Inputfield value="{!Campaign.Profile_EV__c}"/-->
+                    
+                    <!--apex:Inputfield value="{!Campaign.Strategy__c}" /-->
+                    
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}"/-->
+                    
+                    <!--apex:Inputfield value="{!Campaign.Product_Area__c}"/-->
+                    
+                    <apex:Inputfield value="{!Campaign.Target_Group__c}"/>
+                    
+                    <apex:Inputfield value="{!Campaign.Target_Type__c}" />
+                    
+                    <!--apex:Inputfield value="{!Campaign.Other_Implant_Companies_in_the_Area__c}"/-->
+                    
+                    <apex:Inputfield value="{!Campaign.Open_Program_Post_on_Website__c}"/>
+                    
+                    
+                    
+                    
+                    
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Date & Time" columns="2" collapsible="false" >
+                    <apex:Inputfield value="{!Campaign.StartDate}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Start_Time__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.EndDate}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_End_Time__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Alternative_Program_Dates__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Registration_Time_Start__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Registration_Time_End__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Meal_Start_Time__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Meal_End_Time__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Program_Start__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Program_End__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Tuition" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Tuition__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Tuition_Clinician__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Tuition_Staff__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Tuition_Laboratory__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="CE Credits" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Credits__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Credits_provided_by__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Third_Party_Type__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Speaker Info (Speaker Requested OR TA Requested is required)" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Speaker_Requested__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Technical_Advisor_Requested__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Alternative_Speaker__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Arrival_Airport__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Speaker_s_Flight_to_Arrive_Deadline__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Speaker_Hotel_Recommendation__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Venue Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Name_of_Venue__c}" required="True"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Contact_Name_at_Venue__c}"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Venue_Phone_Number__c}"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Venue_Address__c}" style="width:80%"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_City__c}" required="True"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_State__c}"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Venue_Room_Hall__c}"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Has_Venue_been_contacted__c}"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Meals_Included__c}" required="True"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Additional_Information__c}" style="width:80%"/>
+                     <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Materials Needed: Please attach request form(s) after saving this record!" columns="2" collapsible="false">
+                    <!--apex:Inputfield value="{!Campaign.NA_Materials__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem-->
+                    <apex:Inputfield value="{!Campaign.Invitation_Course_Flyer_Required__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Invitation_Course_Flyer_Style__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Invitation_Course_Flyer_Format__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Invitation_Course_Flyer_Quantity__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.RSVP_to__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.CoSponsor_RSVP_Name_and_Contact_Info__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.RSVP_deadline__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Mailing_list_provided_by__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Sponsorship Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Sponsorship_Amount__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Make_Check_Payable_to__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Mail_Check_To__c}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Use Notes for indicating party responsible for payment & if costs will be split" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.ExpectedRevenue}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Honorarium_Budget__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Honorarium_Cost_Notes__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Speaker_Travel_Budget__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Speaker_Travel_Cost_Notes__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Mailing_Printing_Budget__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Printing_and_Mailing_Cost_Notes__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Venue_Expenses_Budget__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Venue_Food_AV_Cost_Notes__c}" style="width:80%"/>
+                    <apex:Inputfield value="{!Campaign.Other_Budget__c}"/>
+                    <apex:Inputfield value="{!Campaign.Other_Cost_Notes__c}" style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Final Comments" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Additional_Comments__c}" style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Additional Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Region_DE__c}" />
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}" required="True"/>
+                </apex:pageBlockSection>
+                
+            </apex:outputPanel>
+            <!-- DNA Campaign record type-->
+            <apex:outputPanel id="DNA_Campaign" rendered="{!rTypename = 'DNA_Campaign'}">
+                <apex:pageBlockSection title="Campaign Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Name}"/>
+                    <apex:Inputfield value="{!Campaign.IsActive}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Status}"/>
+                    <apex:Inputfield value="{!Campaign.StartDate}"/>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.EndDate}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Product__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Campaign Objectives" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Objectives__c}" style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="USC Information" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Type}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.SBU_Focus__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}"/-->
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Description_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Description}" style="width:80%"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Program__c}" style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Last_Approval_Change_Date__c}"/>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <!-- Mailing record type-->
+            <apex:outputPanel id="Mailing" rendered="{!rTypename = 'DI_Mailing'}">
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_INFORMATION}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Name}" required="True"/>
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.SBU_Focus__c.Label}"/>
+                        <apex:actionRegion immediate="TRUE">
+                            <apex:InputField value="{!Campaign.SBU_Focus__c}" > 
+                                <apex:actionSupport event="onchange" action="{!SBU}" reRender="MailSBUfields"  />
+                            </apex:InputField>
+                        </apex:actionRegion>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Type}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Status}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Category__c}" required="True"/>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.StartDate}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Coordinator__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.EndDate}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Approver__c}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Marketing_Start_Date__c}"/>
+                    <apex:Inputfield value="{!Campaign.Marketing_End_Date__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_OBJECTIVES}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Objectives__c}" style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_CAMPAIGN_DETAILS}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}"/>
+                    <apex:Inputfield value="{!Campaign.Country__c}"/>
+                </apex:pageBlockSection>
+                <apex:outputPanel id="MailSBUfields"> 
+                    <apex:pageBlockSection title="{!$Label.newCampaignOverride_PRODUCT_FOCUS}" collapsible="false" columns="2">
+                        <apex:Inputfield value="{!Campaign.Brand__c}" rendered="{!Campaign.SBU_Focus__c  != null && CONTAINS(Campaign.SBU_Focus__c  , 'Implants')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_ORTH__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Orthodontics')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_IMAG__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Imaging Systems')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_PREV__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Preventive')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_INST__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Instruments')}" styleClass="standardisedSelect"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_REST__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Restorative')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_TRCE__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Treatment Centers')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_ENDO__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Endodontics')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_CDCM__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'CAD/CAM')}"/>
+                        <apex:Inputfield value="{!Campaign.Product_Focus_PROS__c}" rendered="{!Campaign.SBU_Focus__c != null && CONTAINS(Campaign.SBU_Focus__c  , 'Prosthetics')}"/>
+                        
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_TARGET_GROUP_DETAILS}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Geographical_Target__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Group__c}"/>
+                    <apex:Inputfield value="{!Campaign.Target_Country__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Target_Type__c}"/>
+                    <apex:Inputfield value="{!Campaign.Strategy__c}" />
+                    <apex:Inputfield value="{!Campaign.Profession__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_BUDGET_ACTUAL_COST_DETAILS}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Advertising_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Mailing_Printing_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Gifts_Budget__c}"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Other_Budget__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Description_Information}" columns="2" collapsible="false">
+                    <apex:Inputfield value="{!Campaign.Description}" style="width:80%"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                    <!--apex:Inputfield value="{!Campaign.Audience__c}"/-->
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}" required="True"/>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <!--apex:Inputfield value="{!Campaign.Product_Area__c}"/-->
+                    <apex:Inputfield value="{!Campaign.Approval_Status_DI__c}"/>
+                    <apex:pageBlockSectionItem > 
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Last_Approval_Change_Date__c}"/>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <!-- Parent Campaign record type-->
+            <apex:outputPanel id="Parent_Campaign" rendered="{!rTypename = 'DI_Parent_Campaign'}">
+                <apex:pageBlockSection columns="2">
+                    <apex:Inputfield value="{!Campaign.Name}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.IsActive}" />
+                    <apex:Inputfield value="{!Campaign.Type}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Status}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Category__c}"/>
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.OwnerId.Label}"></apex:outputLabel><apex:outputtext value="{!$User.FirstName & " " & $User.LastName}"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:Inputfield value="{!Campaign.Campaign_Country__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.HQ_Campaign_Coordinator__c}"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_City__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.Campaign_Coordinator__c}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.StartDate}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.CurrencyIsoCode}" required="True"/>
+                    <apex:Inputfield value="{!Campaign.EndDate}" required="True"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_Description_Information}" columns="2" collapsible="false">
+                    <apex:inputTextarea value="{!Campaign.Description}" style="width:80%" rows="6"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="{!$Label.newCampaignOverride_System_Information}" columns="2" collapsible="false">
+                    <apex:pageBlockSectionItem >  </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >  
+                        <apex:outputLabel value="{!$ObjectType.Campaign.fields.RecordtypeId.Label}"></apex:outputLabel><apex:outputtext value="{!rTypename}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

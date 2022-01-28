@@ -1,0 +1,87 @@
+<!--	
+Author: 	Richard Trum (Glimt) 2019-10-09 	
+Description:   	Lightning component for managing campaign members in a flow
+ -->
+
+<aura:component implements="lightning:availableForFlowScreens" controller="CampaignMemberController">
+    <!--Declare Event Handlers--> 
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+     
+    <!--Declare Attributes-->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="memberList" type="CampaignMember[]" />   
+    <aura:attribute name="isSelectAll" type="boolean" default="false"/>
+    <aura:attribute name="selectedMembers" type="CampaignMember[]" />
+     
+    <!-- User interface -->
+    <div class="slds-m-around_xx-large">
+        <h1 class="slds-text-heading--medium">Campaign members</h1>
+        <br/>
+        <!--Contact List Table-->
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer" role="grid">      
+            <thead>  
+                <tr class="slds-text-title--caps">
+                    <th>           
+                        <label class="slds-checkbox">
+                            <ui:inputCheckbox value="{!v.isSelectAll}" change="{!c.handleSelectAllContact}" aura:id="selectAll"/>
+                            <span class="slds-checkbox_faux" />
+                            <span class="slds-form-element__label"></span>
+                        </label>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Account">Account</div>
+                    </th>
+                     
+                    <th scope="col">
+                        <div class="slds-truncate" title="Phone">Phone</div>
+                    </th>
+                     
+                    <th scope="col">
+                        <div class="slds-truncate" title="Email">Email</div>
+                    </th>
+
+                    <th scope="col">
+                        <div class="slds-truncate" title="Email">Status</div>
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>        
+                <aura:iteration items="{!v.memberList}" var="con">
+                    <tr>
+                        <th>
+                            <div class="slds-checkbox_add-button">
+  								<input type="checkbox" class="slds-assistive-text" aura:id="checkContact" id="{!con.Id}" value="false" name="checkbox" onchange="{!c.handleSelectedContacts}" />
+  								<label for="{!con.Id}" class="slds-checkbox_faux">
+    									<span class="slds-assistive-text">Add member</span>
+  								</label>
+							</div>
+                        
+                        </th>
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!con.Full_Name__c}">{!con.Full_Name__c}</div>
+                        </th>
+                        <td>
+                            <div class="slds-truncate" title="{!con.Account__r.Name}">{!con.Account__r.Name}</div>
+                        </td>
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!con.Phone}">{!con.Phone}</div>
+                        </th>
+                        <td>
+                            <div class="slds-truncate" title="{!con.Email}">{!con.Email}</div>
+                        </td>
+                        <td>
+                            <div class="slds-truncate" title="{!con.Status}">{!con.Status}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <div>
+        <br/>
+        </div>
+    </div>
+</aura:component>

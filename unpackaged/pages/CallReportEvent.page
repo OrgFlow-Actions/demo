@@ -1,0 +1,376 @@
+<apex:page sidebar="{!ShowSidebar}" showHeader="{!ShowHeader}" standardController="Event" extensions="EventWithCallReport" docType="html-5.0">
+    <apex:form >
+            <apex:includeScript value="https://code.jquery.com/jquery-1.12.2.min.js" />
+            <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"/>
+            <apex:includeScript value="/jslibrary/1460765816000/sfdc/Activity.js"/>
+            
+            <apex:variable var="WhoIdPickerId" value="whoIdPicker"/>            
+        
+            <script type="text/javascript">
+                j$ = jQuery.noConflict();
+            </script>
+            <style>
+                span.lookupInput{
+                    margin-left:4px;
+                }
+            </style>
+
+            <apex:actionFunction name="RerenderCallReport" reRender="pnl_callReport">
+                <apex:param name="IsXHRRequest" value="true" assignTo="{!IsXHRRequest}"/>
+            </apex:actionFunction>
+        
+            <apex:pageBlock title="{!$Label.CallReport_PageTitle}">
+                <apex:pageblockButtons >
+                    <apex:commandButton action="{!saveCallReport}" value="{!$Label.CallReport_Save}" />
+                     <apex:commandButton action="{!saveNewCallReport}" value="{!$Label.SaveNew}" />
+                    
+                    <!-- Used for Order Management - added by Richard Trum -->
+                    <apex:outputpanel id="pnl_order">                    
+                    <apex:commandButton rendered="{!AND($ObjectType.OrderItem.Accessible, NOT(OR(TEXT($User.User_Country__c) == 'USA', TEXT($User.User_Country__c) == 'Canada', TEXT($User.User_Country__c) == 'UK', TEXT($User.User_Country__c) == 'Ireland')))}" id="orderDirect" action="{!CreateDirectOrder}" value="{!$Label.Order_direct}" />
+                    <!--apex:commandButton rendered="{!AND($ObjectType.OrderItem.Accessible, NOT(OR(TEXT($User.User_Country__c) == 'USA', TEXT($User.User_Country__c) == 'Canada')))}" id="orderIndirect" action="{!CreateIndirectOrder}" value="{!$Label.Order_indirect}" /-->                    
+                    </apex:outputpanel>
+                    <!--- End of Order Management lines --->
+                    
+                    <apex:commandButton action="{!cancel}" value="{!$Label.CallReport_Cancel}" /> 
+                    <apex:commandButton action="{!deleteCallReport}" value="{!$Label.CallReport_Delete}" rendered="{!Event.Id != null}" />              
+                </apex:pageblockButtons>
+                
+                <apex:pageMessages showDetail="false" escape="false" /> 
+                
+                <apex:outputPanel id="pnl_eventType">
+                    <apex:pageBlockSection title="{!$Label.CallReport_Header_EventType}" collapsible="false">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Event.fields.Customer_Facing_Event__c.Label}" for="{!Event.Customer_Facing_Event__c}" />
+                            <apex:actionRegion immediate="true">
+                                <apex:inputField value="{!Event.Customer_Facing_Event__c}">  
+                                    <apex:actionSupport event="onclick" action="{!OnCFEChange}" reRender="pnl_callReport, pnl_coTravel, pnl_educationalEventInformation, pnl_eventType">
+                                        <apex:param name="IsXHRRequest" value="true" assignTo="{!IsXHRRequest}"/>
+                                    </apex:actionSupport>
+                                </apex:inputField>
+                            </apex:actionRegion>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Event.fields.Event_Status__c.Label}" for="{!Event.Event_Status__c}" />
+                            <apex:actionRegion immediate="true">
+                                <apex:selectList value="{!Event.Event_Status__c}" multiselect="false" size="1" required="true">
+                                    <apex:actionSupport event="onchange" reRender="pnl_callReport">
+                                        <apex:param name="IsXHRRequest" value="true" assignTo="{!IsXHRRequest}"/>
+                                    </apex:actionSupport>
+                                    <apex:selectOptions value="{!EventStatusOptions}"></apex:selectOptions>
+                                </apex:selectList>
+                            </apex:actionRegion>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Event.fields.Astra_Tech_Type__c.Label}" for="{!Event.Astra_Tech_Type__c}" />
+                            <apex:actionRegion immediate="true">
+                                <apex:inputField value="{!Event.Astra_Tech_Type__c}" required="true">
+                                    <apex:actionSupport event="onchange" reRender="pnl_educationalEventInformation">
+                                        <apex:param name="IsXHRRequest" value="true" assignTo="{!IsXHRRequest}"/>
+                                    </apex:actionSupport>
+                                </apex:inputField>
+                            </apex:actionRegion>
+                        </apex:pageBlockSectionItem>
+                        <apex:inputField value="{!Event.OwnerId}" />
+                        <apex:inputField value="{!Event.Activity_Subtype__c}" />
+                        <apex:inputField value="{!Event.Business_Initiative__c}"/>  
+                        <apex:inputField value="{!Event.Subject}" />
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel ></apex:outputLabel>
+                            <apex:outputLabel >{!$Label.CallReport_DefaultSubjectHint}</apex:outputLabel>                            
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem />
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:actionRegion immediate="true">
+                
+                    <apex:outputPanel id="pnl_customerToMeet">
+                        <apex:pageBlockSection title="{!$Label.CallReport_Header_CustomerToMeet}" collapsible="false" columns="1" >                              
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel >{!$ObjectType.Event.fields.WhoId.Label}</apex:outputLabel>
+                                <c:EventRelations ComponentId="{!WhoIdPickerId}" searchFieldPlaceholder="{!$Label.Invitee_Search_Prompt}" showUsers="false" EventRelationPickerState="{!WhoIdPickerState}" EnablePrimarySelection="true" OnPicklistChangeScript="ToggleRecurrence();" />
+                            </apex:pageBlockSectionItem>
+                            <!-- This field is required to be on the page in order for the SOQL query to include it in the controller -->
+                            <apex:inputField value="{!Event.WhoId}" rendered="false" />
+                            <apex:inputField value="{!Event.WhatId}" id="inf_whatId" />                                         
+                        </apex:pageBlockSection> 
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel id="pnl_calendar">
+                        <apex:pageBlockSection title="{!$Label.CallReport_Header_Calendar}" collapsible="false" >
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Event.fields.StartDateTime.Label}" />
+                                <c:DateTimePicker Model="{!StartTimePicker}" IsStartTime="true" Id="StartTime" GroupName="EventTime" DisableDatePart="{!IsRecurrenceInstance || IsRecurrenceSeries}" />
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:inputField value="{!Event.StartDateTime}" required="true" styleClass="dateTimePicker start-time-input"/>  -->    
+                            <apex:inputField value="{!Event.Location}" id="inf_location" onchange="locationHasBeenManuallyChanged('{!$Component.Location_Was_Automatically_Calculated}');"/>  
+                            
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Event.fields.EndDateTime.Label}" />
+                                <c:DateTimePicker Model="{!EndTimePicker}" IsEndTime="true" Id="EndTime" GroupName="EventTime" DisableDatePart="{!IsRecurrenceInstance || IsRecurrenceSeries}" />
+                            </apex:pageBlockSectionItem>
+                            <!--<apex:inputField value="{!Event.EndDateTime}" required="true" styleClass="dateTimePicker end-time-input"/>     -->                      
+                            <apex:inputField value="{!Event.IsAllDayEvent}" onchange="toggleAllDayEvent(this)" styleClass="allDayEvent" />      
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Event.fields.Send_Calendar_Invites__c.Label}" for="{!Event.Send_Calendar_Invites__c}" />
+                                <apex:inputCheckbox value="{!Event.Send_Calendar_Invites__c}" />
+                            </apex:pageBlockSectionItem>                        
+                            <apex:inputField value="{!Event.ShowAs}"/> 
+                        </apex:pageBlockSection>  
+                        <apex:inputHidden value="{!Event.Location_Was_Automatically_Calculated__c}" id="Location_Was_Automatically_Calculated"/>
+                    </apex:outputPanel>
+                    
+                </apex:actionRegion> 
+                
+                <apex:outputPanel id="pnl_objective">                
+                    <apex:pageBlockSection title="{!$Label.CallReport_Header_Objective}" collapsible="false" >
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Event.fields.SBU__c.Label}" for="{!Event.SBU__c}" />
+                            <apex:inputField value="{!Event.SBU__c}" id="inf_SBU"> 
+                                <apex:actionSupport event="onchange" action="{!UpdateOtherSBUsDiscussedOptions}" reRender="pnl_callReport">
+                                    <apex:param name="IsXHRRequest" value="true" assignTo="{!IsXHRRequest}"/>
+                                </apex:actionSupport>
+                            </apex:inputField> 
+                        </apex:pageBlockSectionItem>
+                        <apex:inputField value="{!Event.Demonstration__c}"/>     
+                        <apex:inputTextarea value="{!Event.Objective__c}" rows="6" cols="40" />
+                        <apex:inputField value="{!Event.Presentation__c}"/>   
+                        <!--<apex:inputField value="{!Event.NA_of_Open_Implant_GET_Opps__c}"/> --> 
+                        <apex:inputField value="{!Event.new_customer_acquisition_DE__c}"/>  
+                        <apex:inputField value="{!Event.Number_of_implants_TR__c}"/>    
+                        <apex:inputField value="{!Event.Number_of_patients_TR__c}"/>    
+                        <!--<apex:inputField value="{!Event.Send_Mailing__c}"/> -->    
+                        <!--<apex:inputField value="{!Event.NA_GET_Qualified__c}"/> -->    
+                        <!--<apex:inputField value="{!Event.NA_GET_Mailing_Sent__c}"/> -->  
+                        <!--<apex:inputField value="{!Event.NA_Which_mailing_should_be_sent__c}"/> --> 
+                    </apex:pageBlockSection>
+                </apex:outputPanel>            
+                   
+                <apex:outputPanel id="pnl_callReport">
+                    <apex:pageBlockSection title="{!$Label.CallReport_Header_CallReport}" collapsible="false" columns="1" rendered="{!Event.Event_Status__c='Completed' && Event.Customer_Facing_Event__c && EventRecurrenceState.RecurrenceType=='None'}">
+                        <apex:inputTextarea tabindex="501" value="{!Event.Call_Report__r.Call_Notes__c}" rows="6" cols="100"/>   
+                        <apex:inputField taborderhint="502" value="{!Event.Call_Report__r.Met_with_Decision_Maker__c}"/>   
+                        <apex:inputField taborderhint="503" value="{!Event.Call_Report__r.Met_with_Assistant__c}"/>   
+                        <apex:inputField taborderhint="505" value="{!Event.Call_Report__r.Placed_Order__c}"/>   
+                        <apex:inputField taborderhint="506" value="{!Event.Call_Report__r.Left_Sample__c}"/>   
+                        <apex:inputField taborderhint="507" value="{!Event.Call_Report__r.Courses__c}"/>
+                        <apex:inputField taborderhint="508" value="{!Event.Call_Report__r.track_event__c}"/>                        
+                                                       
+                        <apex:pageBlockSectionItem dataStyle="{!IF(ISBLANK(Event.Call_Report__r.Assigned_To_User_Country__c), '', 'display:none')}" labelStyle="{!IF(ISBLANK(Event.Call_Report__r.Assigned_To_User_Country__c), '', 'display:none')}" >
+                            <apex:outputLabel value="{!$ObjectType.Call_Report__c.fields.Assigned_To_User_Country__c.Label}" for="{!Event.Call_Report__r.Assigned_To_User_Country__c}" />
+                            <apex:inputField value="{!Event.Call_Report__r.Assigned_To_User_Country__c}" />
+                        </apex:pageBlockSectionItem>
+                                                
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_ENDO__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Endodontics')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_IMPL__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Implants')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_ORTH__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Orthodontics')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_PREV__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Preventive')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_PROS__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Prosthetics')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_REST__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Restorative')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_CDCM__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'CAD/CAM')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_INST__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Instruments')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_TRCE__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Treatment Centers')}" styleClass="standardisedSelect"/>
+                        <apex:inputField value="{!Event.Call_Report__r.Products_discussed_IMAG__c}" rendered="{!Event.SBU__c != null && CONTAINS(Event.SBU__c, 'Imaging Systems')}" styleClass="standardisedSelect"/>
+                        
+                        <apex:selectList value="{!Event.Call_Report__r.Other_SBU_discussed__c}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!OtherSBUsDiscussedOptions}" />
+                        </apex:selectList>
+                        <apex:inputTextarea value="{!Event.Call_Report__r.Other_SBU_notes__c}" rows="6" cols="100"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>         
+                
+                <apex:outputPanel id="pnl_coTravel">    
+                    <apex:pageBlockSection title="{!$Label.CallReport_Header_CoTravel}" collapsible="false" rendered="{!Event.Customer_Facing_Event__c}">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Event.fields.Co_travel__c.Label}" for="{!Event.Co_travel__c}" />
+                            <apex:actionRegion immediate="true">
+                                <apex:inputField value="{!Event.Co_travel__c}">
+                                    <apex:actionSupport event="onchange" action="{!UpdateCoTravel}" reRender="pnl_coTravel" status="as_addInvitee">
+                                        <apex:param name="IsXHRRequest" value="true" assignTo="{!IsXHRRequest}"/>
+                                    </apex:actionSupport>
+                                </apex:inputField>   
+                            </apex:actionRegion>
+                        </apex:pageBlockSectionItem>
+                        <apex:inputField rendered="{!Event.Co_travel__c='Dealer/Distributor'}" value="{!Event.Dealer_Customer__c}"/>
+                        <apex:inputField rendered="{!Event.Co_travel__c='Manager'}" value="{!Event.Co_Travel_Manager__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:outputPanel id="pnl_educationalEventInformation">
+                    <apex:pageBlockSection title="{!$Label.CallReport_Header_Educational}" collapsible="false" rendered="{!Event.Astra_Tech_Type__c=='Educational Event' && Event.Customer_Facing_Event__c}" columns="1">
+                        <apex:inputField value="{!Event.Create_Campiagn__c}"/> 
+                        <apex:inputField value="{!Event.Event_Speaker__c}"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:outputPanel id="pnl_recurrence" rendered="{!ShowRecurrencePanel}">
+                    <c:EventRecurrence state="{!EventRecurrenceState}" task="{!Event}" isSeries="{!IsRecurrenceSeries}" OnRecurrenceTypeChangeScript="RerenderCallReport(true);ToggleSharedActivities(this);" />
+                </apex:outputPanel>
+                
+                <apex:pageBlockSection title="{!$Label.CallReport_Header_Invitees}" collapsible="false" columns="1">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >{!$Label.CallReport_InviteesLabel}</apex:outputLabel>
+                        <c:EventRelations ComponentId="inviteesPicker" searchFieldPlaceholder="{!$Label.Invitee_Search_Prompt}" showContacts="false" showLeads="false" EventRelationPickerState="{!InviteesPickerState}" />
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>   
+        
+                <div style="display:none;">
+                    <!-- This is require in order to ensure that the #datePicker div is rendered -->
+                    <apex:inputField value="{!Event.StartDateTime}" />        
+                    <apex:inputField value="{!Event.EndDateTime}" />
+                </div>                           
+               
+                <apex:inputField value="{!Event.ActivityDate}" rendered="false" />
+                <apex:inputField value="{!Event.DurationInMinutes}" rendered="false" />
+            </apex:pageBlock>
+        
+            <script type="text/javascript">
+                j$ = jQuery.noConflict();
+                j$(document).ready(function() {
+                   rebind(); 
+                });
+        
+                function ToggleSharedActivities(recurrenceTypeElement) {
+                    var recurrenceType = j$(recurrenceTypeElement).val();
+                    
+                    j$("#{!WhoIdPickerId}__type option[value='Contact']").data("selected-items-limit", recurrenceType == 'None'?50:1);
+                    
+                    {!WhoIdPickerId}EventRelationsPicker_HasChanged();
+                }
+        
+                function ToggleRecurrence() {
+                    var eventRelations = j$("#{!WhoIdPickerId}__wrapper").data("event-relations");
+                    if(!Array.isArray(eventRelations))
+                        return;
+                    
+                    j$(".recurrence-type-select").prop("disabled", eventRelations.length > 1);
+                }
+        
+                function rebind(){
+                    j$(".dateTimePicker").each(function(index, value){
+                        var originalElement = j$(value).attr("type", "hidden");                        
+                        var parentElement = originalElement.parent();     
+                        
+                        var isStartTime = originalElement.hasClass("start-time-input");
+                        var isEndTime = originalElement.hasClass("end-time-input");
+                                            
+                        var datePart = j$('<input size="10" type="text" />');
+                        var timePart = j$('<input autocomplete="off" size="8" type="text" onchange="updateDateTimeField(this)" />');
+                        
+                        var datePartId = originalElement.attr("id") + ":datePart";
+                        var timePartId = originalElement.attr("id") + ":timePart";
+                        
+                        var dateTimeSplit = originalElement.val().split(' ');
+                        var timeValue = dateTimeSplit[1];
+                        if(dateTimeSplit.length >= 3){
+                            timeValue += ' ' + dateTimeSplit[2];
+                        }
+                        
+                        datePart
+                            .attr("tabindex", originalElement.attr("tabIndex"))
+                            .attr("id", datePartId)
+                            .addClass("datePart")
+                            .data("originalElementId", originalElement.attr("id"))
+                            .val(dateTimeSplit[0])
+                            .on("focus", function(){
+                                DatePicker.pickDate(true, this.id, false);
+                            })
+                            .on("change", function(){                            
+                                updateDateTimeField(this);
+                            });
+                        
+                        timePart
+                            .attr("tabindex", originalElement.attr("tabIndex"))
+                            .attr("id", timePartId)
+                            .addClass("timePart")
+                            .data("originalElementId", originalElement.attr("id"))
+                            .val(timeValue)
+                            .on("focus", function(){
+                                SimpleTimePicker.pickTime(this.id);
+                            });
+                        
+                        if(isStartTime){
+                            datePart
+                                .addClass("start-date-part")
+                                .on("focus", function(){     
+                                    var startDateId = j$(".start-date-part").attr("id");
+                                    var startTimeId = j$(".start-time-part").attr("id");
+                                    
+                                    ActivityFunction.saveStartTime(startDateId, startTimeId);
+                                })
+                                .on("change", function(){
+                                    var startDateId = j$(".start-date-part").attr("id");
+                                    var startTimeId = j$(".start-time-part").attr("id");
+                                    var endDateId = j$(".end-date-part").attr("id");
+                                    var endTimeId = j$(".end-time-part").attr("id");
+                                    
+                                    ActivityFunction.updateEndTime(startDateId, startTimeId, endDateId, endTimeId);
+                                });
+                            
+                            timePart
+                                .addClass("start-time-part")
+                                .on("focus", function(){    
+                                    var startDateId = j$(".start-date-part").attr("id");
+                                    var startTimeId = j$(".start-time-part").attr("id");  
+                                    
+                                    ActivityFunction.saveStartTime(startDateId, startTimeId);
+                                });
+                        }
+                        
+                        if(isEndTime){
+                            datePart.addClass("end-date-part");
+                            timePart.addClass("end-time-part");
+                        }
+                        
+                        parentElement.empty();
+                        
+                        parentElement.append(originalElement);
+                        parentElement.append(datePart);
+                        parentElement.append(' ');
+                        parentElement.append(timePart);
+                    });
+                    
+                    toggleAllDayEvent(j$(".allDayEvent"));
+                }
+                
+                function updateDateTimeField(sender){
+                    
+                    // Update the end time if the start time has changed
+                    if(j$(sender).hasClass("start-time-part") || j$(sender).hasClass("start-date-part")){
+                        var startDateId = j$(".start-date-part").attr("id");
+                        var startTimeId = j$(".start-time-part").attr("id");
+                        var endDateId = j$(".end-date-part").attr("id");
+                        var endTimeId = j$(".end-time-part").attr("id");
+                        
+                        ActivityFunction.updateEndTime(startDateId, startTimeId, endDateId, endTimeId);
+                            
+                        var dateTimeValue = j$(getIdSelector(endDateId)).val() + " " + j$(getIdSelector(endTimeId)).val();
+                        
+                        j$(".end-time-input").val(dateTimeValue);
+                    }
+                    
+                    var datePartId = j$(getIdSelector(j$(sender).data("originalElementId"))).attr("id") + ":datePart";
+                    var timePartId = j$(getIdSelector(j$(sender).data("originalElementId"))).attr("id") + ":timePart";
+                        
+                    var dateTimeValue = j$(getIdSelector(datePartId)).val() + " " + j$(getIdSelector(timePartId)).val();
+                                        
+                    j$(getIdSelector(j$(sender).data("originalElementId"))).val(dateTimeValue).trigger("change");    
+                }
+        
+                function toggleAllDayEvent(sender){
+                    var isAllDayEvent = j$(sender).is(":checked");    
+                    
+                    j$(".timePart").toggle(!isAllDayEvent);
+                }
+                
+                function getIdSelector(originalId) { 
+                    return "#" + originalId.replace( /(:|\.|\[|\]|,)/g, "\\\\$1" );                 
+                }
+                
+                function locationHasBeenManuallyChanged(id){
+                    j$(getIdSelector(id)).val(false)
+                }
+            </script>        
+            
+    </apex:form>
+</apex:page>

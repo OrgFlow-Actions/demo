@@ -1,0 +1,21 @@
+<template>
+    <div class="slds-p-bottom_large">
+        <c-ogsm-new-objectives 
+            record-id={recordId} 
+            onobjectivecreated={newObjectiveHandle}
+            >
+        </c-ogsm-new-objectives>
+    </div> 
+    
+    <c-custom-datatable
+        data={records}
+        columns={columns}
+        key-field="id"
+        onrichtextchange={richTextChengeHandle}
+        onpicklistchanged={picklistChangeHandle}
+        onrowaction={handleRowAction} 
+        onsave={handleSave}
+        hide-checkbox-column
+        >
+    </c-custom-datatable>
+</template>

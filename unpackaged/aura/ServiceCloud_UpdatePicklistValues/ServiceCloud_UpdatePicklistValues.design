@@ -1,0 +1,22 @@
+<design:component>
+   <design:attribute name="recordId" label="Record Id" />
+   <design:attribute name="resultId" label="Result Id" />
+   <design:attribute name="objType" label="Object API name" />
+   <design:attribute name="recordTypeId" label="Record Type ID" />
+   <design:attribute name="fieldName" label="Field API name" />
+   <design:attribute name="dependentField" label="Dependent field API name" />
+   <design:attribute name="dependentField2" label="Second dependent field API name" />
+   <design:attribute name="dependentField3" label="Third dependent field API name" />
+   <design:attribute name="fieldDisabled" label="Main field disabled?" /> 
+   <design:attribute name="defaultValue" label="Default field value" />
+   <design:attribute name="defaultDepValue" label="Default dependent field value" />
+   <design:attribute name="defaultSecondDepValue" label="Default value, second dependent field" /> 
+   <design:attribute name="defaultThirdDepValue" label="Default value, third dependent field" />
+   <design:attribute name="depresultId" label="Dependent result ID" />
+   <design:attribute name="depresultId2" label="Second dependent result ID" />
+    <design:attribute name="depresultId3" label="Third dependent result ID" />
+    <design:attribute name="field1req" label="Main field required" />
+	<design:attribute name="field2req" label="Dependent field required" />
+    <design:attribute name="field3req" label="Second dependent field required" />
+    <design:attribute name="field4req" label="Third dependent field required" />
+</design:component>

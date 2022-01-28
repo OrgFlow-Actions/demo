@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" type="String" label="Record Id"/>
+            <property name="JSONInput" type="String" label="Record Creation Fields"/>
+            <property name="requiredCreateFields" type="String" label="Record Creation Required Fields" />
+            <property name="required" type="Boolean" label="Required"/>
+            <property name="objectApiName" type="String" label="Object API Name"/>
+            <property name="iconName" type="String" label="Icon"/>
+            <property name="titleField" type="String" label="Title Field"/>
+            <property name="subFieldOne" type="String" label="Sub-Field 1"/>
+            <property name="subFieldTwo" type="String" label="Sub-Field 2"/>
+            <property name="queryString" type="String" label="Query String"/>
+            <property name="visibleRows" type="Integer" label="# Visible Rows" />
+            <property name="selectedContactId" type="String" label="Selected Contact (deprecrated)" role="outputOnly"/>
+            <property name="selectedRecordId" type="String" label="Selected Record Id" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

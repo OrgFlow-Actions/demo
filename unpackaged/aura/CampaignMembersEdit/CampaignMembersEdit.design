@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="recordId" label="Campaign ID" />
+    <design:attribute name="selectedMembers" label="Selected members"/>	
+</design:component>

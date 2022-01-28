@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <description>Event Fields for FLS check</description>
+  <label>Event Fields</label>
+  <pluralLabel>Event Fields</pluralLabel>
+  <visibility>Public</visibility>
+</CustomObject>

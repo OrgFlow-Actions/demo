@@ -1,0 +1,10 @@
+<apex:page standardcontroller="Account">
+ 
+    <wave:dashboard dashboardId="0FK0J000000PBPGWA4"
+                    showTitle="true"
+                    height="475px"
+                    openLinksInNewWindow="true"
+                    rendered="true"
+                    filter="{'datasets':{'AccountAndProductRoles_New':[{'fields':['a.as.OneSF_Id__c'], 'filter':{'operator': 'matches', 'values':['{!Account.OneSF_Id__c}']}}]}}">
+    </wave:dashboard>
+</apex:page>

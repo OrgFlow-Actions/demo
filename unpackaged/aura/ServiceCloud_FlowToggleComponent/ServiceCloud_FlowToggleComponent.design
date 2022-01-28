@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="output" label="Output" />
+    <design:attribute name="type" label="Field type (boolean types only)" />
+    <design:attribute name="label" label="Field label" />
+    <design:attribute name="defaultToggle" label="Default value" />
+</design:component>

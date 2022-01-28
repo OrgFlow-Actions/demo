@@ -1,0 +1,15 @@
+<apex:page standardController="Report_Package__c" recordSetVar="Report_Packages" extensions="ReportPackageController" action="{!fetchRecords}">
+
+<apex:form >
+<table style="border-spacing:3px">
+<apex:repeat value="{!ReportList}" var="RepLink" id="ReportsTable">
+<tr>
+<td>
+<a href="{!RepLink.Link__c}" target="_blank">{!RepLink.Description__c}</a>
+</td>
+</tr>
+</apex:repeat>
+</table>
+</apex:form>
+
+</apex:page>

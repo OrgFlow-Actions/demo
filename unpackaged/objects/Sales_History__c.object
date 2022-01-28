@@ -1,0 +1,2076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>DI_Compact_Layout</compactLayoutAssignment>
+  <compactLayouts>
+    <fullName>DI_Compact_Layout</fullName>
+    <fields>Document_Archive__c</fields>
+    <fields>Invoice_Number__c</fields>
+    <fields>Invoice_Date__c</fields>
+    <fields>Product__c</fields>
+    <fields>Quantity__c</fields>
+    <fields>Price__c</fields>
+    <fields>Tot_Price__c</fields>
+    <fields>Sales_Owner__c</fields>
+    <label>DI Compact Layout</label>
+  </compactLayouts>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>Detailed Sales History of Products Sold to Accounts</description>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableEnhancedLookup>true</enableEnhancedLookup>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>false</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>ATL_Abut_Implant_Manufacturer_Grouped__c</fullName>
+    <description>Groups ATL Implant Manufacturer into DI Implant Systems and Competitive Implant Systems.</description>
+    <externalId>false</externalId>
+    <formula>CASE( Implant_system__c , 
+"BioHorizons", "Comp System",
+"Osstem", "Comp System", 
+"Biomet 3i", "Comp System", 
+"Camlog", "Comp System", 
+"Keystone Dental", "Comp System", 
+"Mis", "Comp System",
+"Nobel Biocare", "Comp System", 
+"Straumann", "Comp System", 
+"Sybron Implant Solutions", "Comp System", 
+"Zimmer Dental", "Comp System", 
+"Ankylos (D)", "DI System", 
+"Astra Tech (D)", "DI System", 
+"XiVE/Frialit (D)", "DI System",
+"Astra Tech Implant System EV", "DI System",
+"Astra Tech TX", "DI System", 
+ "N/A" 
+)</formula>
+    <inlineHelpText>Groups ATL Implant Manufacturer into DI Implant Systems and Competitive Implant Systems.</inlineHelpText>
+    <label>ATL Abut Implant Manufacturer Grouped</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>AWO_Case_No_D__c</fullName>
+    <description>This fields shows the EXPECTED AWO-case number. This fields is created from the Order number on ALL Atlantis sales, which means that it can be created from sales not entered in AWO.</description>
+    <externalId>false</externalId>
+    <formula>IF(AND(BEGINS(Product_Group_2__c, "ID2") ,NOT( ISNULL( Order_Number__c ) )) , MID( Order_Number__c , 4,  LEN( Order_Number__c ) -3) , NULL)</formula>
+    <inlineHelpText>This fields shows the EXPECTED AWO-case number. This fields is created from the Order number on ALL Atlantis sales, which means that it can be created from sales not entered in AWO.</inlineHelpText>
+    <label>AWO Case No</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>AWO_Link__c</fullName>
+    <description>Opens the Order in AWO</description>
+    <externalId>false</externalId>
+    <formula>IF( ISNUMBER( Our_Reference__c ), HYPERLINK("https://www.atlantisweborder.com/orders/show/"&amp; Our_Reference__c,   AWO_Case_No_D__c  ), NULL)</formula>
+    <inlineHelpText>Opens the Order in AWO</inlineHelpText>
+    <label>AWO-Link</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Abutment_Implant_System__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (CONTAINS(Product__r.RecordType.DeveloperName, "Global") ,IF(
+Product__r.PG2_Code__c ="ID21" ||Product__r.PG2_Code__c ="ID22" || Product__r.PG2_Code__c ="ID23", 
+/* checks if this is Atlantis */  
+
+CASE( Implant_system__c, 
+"Dentsply Friadent", LEFT( Atlantis_Interface_D__c , FIND( " ", Atlantis_Interface_D__c)),
+"Astra Tech", "Astra Tech Implant System",
+"Astra Tech (D)","Astra Tech Implant System",
+"Ankylos (D)","Ankylos",
+"XiVE/Frialit (D)","XiVE",
+Implant_system__c) ,
+/* If Atlantis, check if manufacturer is Friadent and add the first word in the implant interface (Ankylos, Frialit, XiVe). if Astra Tech, change to Astra Tech Implant System to match Implant brand, other - add implant manufacturer */ 
+
+IF(Product__r.PG2_Code__c ="II12", Brand__c ,"") ) 
+/*If not Atlantis check if Stock Abutments. If so Add Brand, if not leave blank */
+ , 
+ IF(
+
+Product__r.GlobalSKUMapping__r.PG2_Code__c ="ID21" ||Product__r.GlobalSKUMapping__r.PG2_Code__c ="ID22" || Product__r.GlobalSKUMapping__r.PG2_Code__c ="ID23", 
+/* checks if this is Atlantis */  
+
+CASE( Implant_system__c, 
+"Dentsply Friadent", LEFT( Atlantis_Interface_D__c , FIND( " ", Atlantis_Interface_D__c)),
+"Astra Tech", "Astra Tech Implant System",
+"Astra Tech (D)","Astra Tech Implant System",
+"Ankylos (D)","Ankylos",
+"XiVE/Frialit (D)","XiVE",
+Implant_system__c) ,
+/* If Atlantis, check if manufacturer is Friadent and add the first word in the implant interface (Ankylos, Frialit, XiVe). if Astra Tech, change to Astra Tech Implant System to match Implant brand, other - add implant manufacturer */ 
+
+IF(Product__r.GlobalSKUMapping__r.PG2_Code__c ="II12", Brand__c ,"") ) )
+/*If not Atlantis check if Stock Abutments. If so Add Brand, if not leave blank */</formula>
+    <label>Abutment Implant System</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account_Account_No__c</fullName>
+    <description>The current ERP number of this customer concatenated with the country code.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>The current ERP number of this customer concatenated with the country code.</inlineHelpText>
+    <label>ERP Number From Integration</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account_Owner__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.Owner.FirstName&amp;" "&amp;Account__r.Owner.LastName</formula>
+    <label>Account Owner</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Account__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Name</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Sales History</relationshipLabel>
+    <relationshipName>SalesHistory</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Article_Description__c</fullName>
+    <description>Use Product field instead!</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Use Product field instead!</inlineHelpText>
+    <label>Article Description OLD</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Article__c</fullName>
+    <description>Article (SKU) + Product name</description>
+    <externalId>false</externalId>
+    <formula>Name  &amp; " "  &amp;  Product__r.Name</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Article (SKU) + Product name</inlineHelpText>
+    <label>Article &amp; Product Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Atlantis_Interface_D__c</fullName>
+    <description>This field shows Attr 4 (Implant type) for the Atlantis abutment</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field shows Attr 4 (Implant type) for the Atlantis abutment</inlineHelpText>
+    <label>ATLANTIS Interface</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Atlantis_Scanner_Brand_D__c</fullName>
+    <description>This field is integrated with Atlantis Attrb 5 (Scanner ID)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is integrated with Atlantis Attrb 5 (Scanner ID)</inlineHelpText>
+    <label>ATL Scanner Brand</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Brand__c</fullName>
+    <description>Limited to Products that has a brand definition in Movex, otherwise N/A</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"),
+Product__r.GlobalSKUMapping__r.Brand__c,
+Product__r.Brand__c)</formula>
+    <inlineHelpText>Limited to Products that has a brand definition in Movex, otherwise N/A</inlineHelpText>
+    <label>Brand</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Business_Area_Code_TEXT_HQ__c</fullName>
+    <description>Used to be able to build RUS-field on Business Area Code. To be updated either by workflow, by integration or by an APEX-trigger. Used for EV Launch.</description>
+    <externalId>false</externalId>
+    <label>Business Area Code TEXT (HQ)</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Business_Area_Code__c</fullName>
+    <description>Limited to Products that has a definition in Movex, otherwise N/A</description>
+    <externalId>false</externalId>
+    <formula>IF (CONTAINS(Product__r.RecordType.DeveloperName, "Local"), Product__r.GlobalSKUMapping__r.Business_Area_Code__c, Product__r.Business_Area_Code__c)</formula>
+    <inlineHelpText>Limited to Products that has a definition in Movex, otherwise N/A</inlineHelpText>
+    <label>Business Area Code</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Campaign_Code__c</fullName>
+    <description>This field is integrated from Movex field 'Campaign Code' (Stat.1.Code). In Movex, a value is set on the Invoice level, which means that all invoice lines/ Sales history records with the corresponding invoice number always contain this code.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If this field contains information the sales comes from a specific campaign or congress like EAO.</inlineHelpText>
+    <label>Campaign Code</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Check_Product_4__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+If( Product__r.GlobalSKUMapping__r.PG4_Code__c =  Product_Group_HQ__c ,"Yes","No"), 
+If( Product__r.PG4_Code__c =  Product_Group_HQ__c ,"Yes","No"))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Check Product 4</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Continent__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE (Country_Code__c, "US", "North America", "CA", "North America", "AU", "Asia/Pacific", "NZ" , "Asia/Pacific", "JP", "Asia/Pacific", "Europe")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Continent</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Contract__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Lookup field to the Corresponding Purchasing Contract or Voucher when a relation exists</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Lookup field to the Corresponding Purchasing Contract or Voucher when a relation exists</inlineHelpText>
+    <label>Contract/Voucher</label>
+    <referenceTo>Contract</referenceTo>
+    <relationshipLabel>Sales History</relationshipLabel>
+    <relationshipName>Sales_History</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Country_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>LEFT( Account_Account_No__c , 2)</formula>
+    <label>Country Code</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Customer_Order_Number__c</fullName>
+    <description>This is the customer' order number.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the customer' order number.</inlineHelpText>
+    <label>Customer Order Number</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Days_to_reach_Expiry_HQ__c</fullName>
+    <description>To calculate the number days left before the expiration date.</description>
+    <externalId>false</externalId>
+    <formula>IF ( ISBLANK(Maintenance_Expiry_Date__c) &amp;&amp; ISBLANK(Voucher_Expiry_Date__c),NULL, Case ( SIMPLANT_Sales_Category_HQ__c ,"Maintenance", Maintenance_Expiry_Date__c - TODAY(), "Vouchers",  Voucher_Expiry_Date__c - TODAY(),NULL))</formula>
+    <label>Days to reach Expiry (HQ)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Discount_Amount__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Already subtracted from the Total Value (Tot Price)</inlineHelpText>
+    <label>Discount Amount</label>
+    <precision>14</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Discount_Model__c</fullName>
+    <externalId>false</externalId>
+    <label>Discount Model</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Document_Archive__c</fullName>
+    <description>View invoice in Document Archive (within Dentsply domain or via VPN only)</description>
+    <externalId>false</externalId>
+    <formula>/* HYPERLINK("http://a3.astratech.net/a3DirectStart.asp?COMPONENT=OpenCollector_Invoice_0_Collector&amp;view=A&amp;selectionbox_Invoiceno="  &amp; Invoice_Number__c  &amp; "&amp;selectionbox_Orderno=" &amp;  Order_Number__c &amp;"&amp;View=A", "View invoice","_blank")*/
+
+HYPERLINK("http://a3.astratech.net/a3DirectStart.asp?COMPONENT=OpenCollector_Invoice_0_Collector" &amp;
+
+IF( (Country_Code__c ='DE'|| Country_Code__c ='US'||Country_Code__c ='PL'||Country_Code__c ='CA' )&amp;&amp;Value(Invoice_Year__c)&gt;=2017,'2017','') &amp;
+
+
+
+"&amp;view=A&amp;selectionbox_Orderno=" &amp;
+
+Order_Number__c &amp;
+
+
+"&amp;selectionbox_Division=" &amp;
+
+IF( (Country_Code__c &lt;&gt;'DE' &amp;&amp; Country_Code__c &lt;&gt;'US'&amp;&amp; Country_Code__c &lt;&gt;'CA' ),'',Country_Code__c) &amp;
+
+
+"&amp;selectionbox_Invoiceno=" &amp;
+
+IF( (Country_Code__c &lt;&gt;'DE' &amp;&amp; Country_Code__c &lt;&gt;'US' &amp;&amp; Country_Code__c &lt;&gt;'PL' &amp;&amp; Country_Code__c &lt;&gt;'CA' ),'',Invoice_Number__c) &amp;
+
+
+"&amp;view=A"
+,
+
+ $Label.View_Invoice 
+
+,
+
+"_blank"
+)</formula>
+    <inlineHelpText>View invoice in Document Archive (within Dentsply domain or via VPN only)</inlineHelpText>
+    <label>Document Archive</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Dummy_Date_Field_HQ__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Field to be used when needing to update all Invoice Lines to for example have a trigger to fire. Not used in any reports and not visible to any users except System Admins</inlineHelpText>
+    <label>Dummy Date Field (HQ)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>ERP_Number__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.Movex__c</formula>
+    <label>ERP Number</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>EvLaunch_IsIncluded__c</fullName>
+    <externalId>false</externalId>
+    <formula>NOT(ISNULL(Account__r.First_ATIS_EV_Tray_Sales_Date__c)) &amp;&amp;
+Account__r.Sold_ATIS_EV_Trays__c &gt; 0 &amp;&amp;
+Invoice_Date__c &gt;= Account__r.First_ATIS_EV_Tray_Sales_Date__c</formula>
+    <label>EV Launch Include</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Free_Prod__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (Price__c  = 0 , "Free Prod", "Invoiced")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Free Prod</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>GDWUniqueKey__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <externalId>true</externalId>
+    <label>GDW Unique Key</label>
+    <length>100</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>GlobalSKU_From_Source_HQ__c</fullName>
+    <description>The mapped GlobalSKU in the sales line. To use this field to compare our mapping in the Product Object.</description>
+    <externalId>false</externalId>
+    <label>GlobalSKU From Source (HQ)</label>
+    <length>100</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Global_Brand_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product__r.GlobalSKUMapping__r.BrandCodeGDW__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Global Brand Code</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Global_Brand_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product__r.GlobalSKUMapping__r.BrandDescGDW__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Global Brand Description</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Global_SKU_From_Salesline__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The GlobalSKU written on the Invoiceline.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The GlobalSKU written on the Invoiceline.</inlineHelpText>
+    <label>Global SKU From Salesline</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Sales History (Global SKU From Salesline)</relationshipLabel>
+    <relationshipName>Sales_History1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Gross_price__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Quantity__c=0, 0, Product__r.List_Price__c*Quantity__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total gross price = Quantity multiplied by the List Price on the Local SKU</inlineHelpText>
+    <label>Gross price (currency)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Guide_Payment_Method_Front__c</fullName>
+    <description>Shows if the surgical guide is paid by  voucher or regular billing.</description>
+    <externalId>false</externalId>
+    <formula>Case ( Guide_Payment_Method__c , "1","Voucher","0","Regular",NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Shows if the surgical guide is paid by  voucher or regular billing.</inlineHelpText>
+    <label>Guide Payment Method</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Guide_Payment_Method__c</fullName>
+    <description>Linked to Movex attribute 5</description>
+    <externalId>false</externalId>
+    <label>Guide Payment Method (HQ)</label>
+    <length>18</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ISUS_Prostheses__c</fullName>
+    <description>We can't use Product Category in Roll ups because it refers to another object, so this field use the Product Group fields to give Yes or No</description>
+    <externalId>false</externalId>
+    <formula>CASE(LEFT(Product_Group_HQ__c, 4) ,
+"ID42", "Yes",
+"ID41","Yes",
+"ID43","Yes",
+"ID44","Yes",
+"No")
+
+/* OLD formula
+
+CASE(Product_Group_2__c,"ID42 ISUS Bridge", "Yes","ID41 ISUS Bar","Yes","ID43 ISUS Hybrid","Yes","ID44 ISUS 2in1","Yes","No")
+
+*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ISUS Prostheses?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Implant_Connections__c</fullName>
+    <description>Similar to existing field!</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+IF( Product__r.GlobalSKUMapping__r.PG1_Code__c = "ID4" &amp;&amp; CONTAINS(Name, "-"), VALUE(RIGHT( Name , LEN(TRIM(Name))-FIND("-", Name) )) , null), 
+IF( Product__r.PG1_Code__c = "ID4" &amp;&amp; CONTAINS(Name, "-"), VALUE(RIGHT( Name , LEN(TRIM(Name))-FIND("-", Name) )) , null))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Implant Connections</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Implant_system__c</fullName>
+    <externalId>false</externalId>
+    <label>ATL Implant Manufacturer</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Implants_Qty__c</fullName>
+    <description>Used by Benelux to calculate the quantity only for implants but to include all the items in the value</description>
+    <externalId>false</externalId>
+    <formula>IF( Product_Category__c ="Implants",  Quantity__c , 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Implants Qty</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Internal_Order_for_analysis_only__c</fullName>
+    <description>For analysis only, should not appear in any page layouts or search criterias if you are not a System administrator. The number 1 should appear if the order type is marked as an internal order type, else 0</description>
+    <externalId>false</externalId>
+    <formula>IF(AND
+( OR
+  (CONTAINS
+   ( Order_Type__c, "7"
+   ),CONTAINS
+   ( Order_Type__c, "8"
+   ),CONTAINS
+   ( Order_Type__c, "9"
+   ),CONTAINS
+   ( Order_Type__c, "F"
+   ),CONTAINS
+   ( Order_Type__c, "P"
+   ),CONTAINS
+   ( Order_Type__c, "Q"
+   ),CONTAINS
+   ( Order_Type__c, "R"
+   ),CONTAINS
+   ( Order_Type__c, "S"
+   ),CONTAINS
+   ( Order_Type__c, "T"
+   ),CONTAINS
+   ( Order_Type__c, "SQZ"
+   ),CONTAINS
+   ( Order_Type__c, "SQG"
+   )
+  ),  
+
+NOT
+  ( OR
+   ( CONTAINS
+    (Order_Type__c, "0"
+    ),CONTAINS
+    (Order_Type__c, "1"
+    ),CONTAINS
+    (Order_Type__c, "2"
+    ),CONTAINS
+    (Order_Type__c, "3"
+    ),CONTAINS
+    (Order_Type__c, "4"
+    )
+   )
+  ) 
+,OR(Order_Type__c="AUR",Order_Type__c="ES8",Order_Type__c="ES9",Order_Type__c="ESR",Order_Type__c="GB7",Order_Type__c="GB9",Order_Type__c="GBR",Order_Type__c="GBT",Order_Type__c="NL7",Order_Type__c="NL8",Order_Type__c="NLR",Order_Type__c="NO8",Order_Type__c="NO9",Order_Type__c="NOS",Order_Type__c="NOT",Order_Type__c="PL7",Order_Type__c="PLR",Order_Type__c="PLS",Order_Type__c="PT8",Order_Type__c="SE7",Order_Type__c="SE8",Order_Type__c="SE9",Order_Type__c="SER",Order_Type__c="US7")),1,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>For analysis only, should not appear in any page layouts or search criterias if you are not a System administrator. The number 1 should appear if the order type is marked as an internal order type, else 0</inlineHelpText>
+    <label>Internal Order? (for analysis only)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Invoice_Date1Y__c</fullName>
+    <description>The Invoice date -1 year. Used in analytics (like one-click reports)</description>
+    <externalId>false</externalId>
+    <formula>Invoice_Date__c -365</formula>
+    <inlineHelpText>The Invoice date -1 year. Used in analytics (like one-click reports)</inlineHelpText>
+    <label>Invoice Date -1Y</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Invoice_Date_1Y__c</fullName>
+    <description>The invoice date plus one year. Used for comparision of YTD and LYTD sales figures. For analysis only</description>
+    <externalId>false</externalId>
+    <formula>Invoice_Date__c +365</formula>
+    <inlineHelpText>The invoice date plus one year. Used for comparision of YTD and LYTD sales figures. For analysis only</inlineHelpText>
+    <label>Invoice Date +1Y</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Invoice_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Invoice Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Invoice_Month_1_HQ__c</fullName>
+    <description>Used by France https://emea.salesforce.com/00O20000006geE0</description>
+    <externalId>false</externalId>
+    <formula>IF (Month( Invoice_Date__c )= Month (Today()),"This Month",NUll)</formula>
+    <label>Same Current Month? (HQ)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Invoice_Month__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ((MONTH ( Invoice_Date__c  ) = 1 ) , "01 Jan",
+IF ((MONTH ( Invoice_Date__c  ) = 2 ) , "02 Feb",
+IF ((MONTH ( Invoice_Date__c  ) = 3 ) , "03 Mar",
+IF ((MONTH ( Invoice_Date__c  ) = 4 ) , "04 Apr",
+IF ((MONTH ( Invoice_Date__c  ) = 5 ) , "05 May",
+IF ((MONTH ( Invoice_Date__c  ) = 6 ) , "06 Jun",
+IF ((MONTH ( Invoice_Date__c  ) = 7 ) , "07 Jul",
+IF ((MONTH ( Invoice_Date__c  ) = 8 ) , "08 Aug",
+IF ((MONTH ( Invoice_Date__c  ) = 9 ) , "09 Sep",
+IF ((MONTH ( Invoice_Date__c  ) = 10 ) , "10 Oct",
+IF ((MONTH ( Invoice_Date__c  ) = 11 ) , "11 Nov",
+IF ((MONTH ( Invoice_Date__c  ) = 12 ) , "12 Dec", " "))))))))))))</formula>
+    <label>Invoice Month</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Invoice_Number__c</fullName>
+    <externalId>false</externalId>
+    <label>Invoice Number</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Invoice_Quarter_Year__c</fullName>
+    <description>The Quarter+Year when the Invoice is placed. For analysis</description>
+    <externalId>false</externalId>
+    <formula>Invoice_Quarter__c &amp;"/"&amp; Invoice_Year__c</formula>
+    <inlineHelpText>The Quarter+Year when the Invoice is placed. For analysis</inlineHelpText>
+    <label>Invoice Quarter+Year</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Invoice_Quarter__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( MONTH( Invoice_Date__c ) , 
+1, "Q1", 
+2, "Q1", 
+3, "Q1", 
+4, "Q2", 
+5, "Q2",
+6, "Q2", 
+7, "Q3",
+8, "Q3", 
+9, "Q3", 
+10, "Q4",
+11, "Q4", 
+12, "Q4", 
+null)</formula>
+    <label>Invoice Quarter</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Invoice_Year__c</fullName>
+    <description>The Year when the Invoice is placed. For analysis</description>
+    <externalId>false</externalId>
+    <formula>TEXT(YEAR( Invoice_Date__c ))</formula>
+    <inlineHelpText>The Year when the Invoice is placed. For analysis</inlineHelpText>
+    <label>Invoice Year</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Invoice_Year_numeric__c</fullName>
+    <description>Only used in calculations - should not appear in any page layouts etc</description>
+    <externalId>false</externalId>
+    <formula>VALUE( Invoice_Year__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Only used in calculations - should not appear in any page layouts etc</inlineHelpText>
+    <label>Invoice Year (numeric)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IsWonLost_Abutments__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISNULL(Invoice_Date__c)) &amp;&amp; NOT(ISNULL(Product__c)) &amp;&amp; NOT(ISNULL(Quantity__c)) &amp;&amp; BEGINS(Product_Group_HQ__c, "ID21"), "Yes", "No")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>For Won/Lost (Abuts)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IsWonLost_ISUS__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+NOT(ISNULL(Invoice_Date__c)) &amp;&amp;
+NOT(ISNULL(Product__c)) &amp;&amp;
+NOT(ISNULL(Quantity__c)) &amp;&amp;
+(
+  BEGINS(Product_Group_HQ__c, "ID41") ||
+  BEGINS(Product_Group_HQ__c, "ID42") ||
+  BEGINS(Product_Group_HQ__c, "ID43") ||
+  BEGINS(Product_Group_HQ__c, "ID44")
+), "Yes", "No")</formula>
+    <label>For Won/Lost (ISUS)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>IsWonLost_Implants__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISNULL(Invoice_Date__c)) &amp;&amp; NOT(ISNULL(Product__c)) &amp;&amp; NOT(ISNULL(Quantity__c)) &amp;&amp; BEGINS(Product_Group_HQ__c, "II11"), "Yes", "No")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>For Won/Lost (Implants)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Lab_Referral_Postal_Code__c</fullName>
+    <description>Shows the clinical postal code that has been referred from the Atlantis Web Order system. The formula is copying the Project Element field, but only for Atlantis sales for AWO-customers</description>
+    <externalId>false</externalId>
+    <formula>IF( Account__r.Atlantis_Web_Order_Customer__c = TRUE  &amp;&amp;  (Product_Group_1__c = "ID2 Atlantis" || Product_Group_1__c = "ID4 ATLANTIS ISUS" ),  Postal_Code_D_NA__c , null)</formula>
+    <inlineHelpText>Shows the clinical postal code that has been referred from the Atlantis Web Order system.</inlineHelpText>
+    <label>Lab Referral Postal Code</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Lab_based_Scanning__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( CONTAINS(Name, "S"), "Yes", IF(LEFT(Product_Group_HQ__c, 2)="ID2", "No",""))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ATL Lab-based scanning</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Last_quarter_sales__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(CEILING( MONTH ( Invoice_Date__c ) / 3 ) = CEILING( MONTH ( Today() ) / 3 )-1 &amp;&amp;  Year ( Invoice_Date__c ) =Year ( today() ),Tot_Price__c,null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Last quarter sales</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Maintenance_Expiry_Date__c</fullName>
+    <description>Updated Manually by Leuven</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set manually by Leuven/SIMPLANT team</inlineHelpText>
+    <label>Maintenance Expiry Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Moving_Annual_Total__c</fullName>
+    <externalId>false</externalId>
+    <formula>If (AND( (Invoice_Date__c +365) &gt; TODAY(), Invoice_Date__c &lt;=TODAY()), "True", "False")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Moving Annual Total</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>My_Sales__c</fullName>
+    <description>If this field shows a "YES" = My sales, otherwise "NO". Use this field for filtering and to simulate "My sales" on reports and views</description>
+    <externalId>false</externalId>
+    <formula>IF( Sales_Owner__c  =  $User.Id , "YES", "NO")</formula>
+    <inlineHelpText>If this field shows a "YES" = My sales, otherwise "NO". Use this field for filtering and to simulate "My sales" on reports and views</inlineHelpText>
+    <label>Is My Sales?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>No_longer_exist_in_BPW__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field to be used to identify fields that no longer exist in BPW and therefore should be deleted from SFDC.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field to be used to identify fields that no longer exist in BPW and therefore should be deleted from SFDC.</inlineHelpText>
+    <label>No longer exist in BPW (HQ)</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>OneSF_Id__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account__r.OneSF_Id__c</formula>
+    <label>OneSF Id</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Order_Number__c</fullName>
+    <description>This is the Astra Tech order number that this row corresponds to. Note that it is not until the article has been invoiced that the sales history record appears in Salesforce.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the Astra Tech order number that this row corresponds to. Note that it is not until the article has been invoiced that the sales history record appears in Salesforce.</inlineHelpText>
+    <label>Order Number</label>
+    <length>11</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Order_Type__c</fullName>
+    <description>Shows the Order Type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Shows the Order Type</inlineHelpText>
+    <label>Order Type</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Our_Reference__c</fullName>
+    <description>Our Reference on the Order/Invoice. Comes from the field OREF in Movex</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Our Reference on the Order/Invoice. Comes from the field OREF in Movex</inlineHelpText>
+    <label>Our Reference</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Payer_Customer_Group__c</fullName>
+    <externalId>false</externalId>
+    <formula>Payer_Lookup__r.Customer_Group__c</formula>
+    <label>Payer Customer Group</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Payer_Lookup__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Payer Lookup</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Sales History (Payer Lookup)</relationshipLabel>
+    <relationshipName>Sales_History</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Payer_Movex_D_JP__c</fullName>
+    <description>Showing the Paying Accounts Movex #.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Showing the Paying Accounts Movex #.</inlineHelpText>
+    <label>Payer ERP # (D-JP)</label>
+    <length>15</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Payer_Name_D_JP__c</fullName>
+    <description>Showing the name of the Paying Account.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Showing the name of the Paying Account.</inlineHelpText>
+    <label>Payer Name (D-JP) OLD</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Payer_Sales_Channel__c</fullName>
+    <externalId>false</externalId>
+    <formula>Payer_Lookup__r.Payer_Customer_Group_D_JP__c</formula>
+    <inlineHelpText>Payer Customer Group taken from Payer Account</inlineHelpText>
+    <label>Payer Sales Channel</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Postal_Code_D_NA__c</fullName>
+    <description>The Project Element field in Movex. For Atlantis orders it refers to the postal code of the clinic from where the lab sales is originating. Only used for Dental lab sales</description>
+    <externalId>false</externalId>
+    <label>Project Element</label>
+    <length>8</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Prd_Grp_2_Article__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product_Group_2__c  &amp; " / " &amp;  Name</formula>
+    <label>Prd Grp 2 / Article</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Previous_Month__c</fullName>
+    <description>Sets a value if the invoice date belongs to the month previous to TODAYs month - used in reports to compare the sales in previous month with the sales in the same month earlier years. Should not be visible on any Page Layouts</description>
+    <externalId>false</externalId>
+    <formula>IF(MONTH(TODAY())=(MONTH( Invoice_Date__c )+1), TEXT(MONTH( Invoice_Date__c )),IF(MONTH(TODAY())=1&amp;&amp;MONTH(Invoice_Date__c )=12,TEXT(MONTH(Invoice_Date__c)),null))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Previous Month</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Price_List_Code_D_JP__c</fullName>
+    <description>Field used in JP to know what price list category was used. Field Price List Description(D-JP) shows the corresponding desciption. Brought over from Movex. 
+J1 = Direct Sales 
+J4= SASAKI 
+J5= Other Dealer 
+J6= Other Dealer 
+J7= Other Dealer 
+J8= Other Dealer 
+J9= Other Dealer 
+JA= Other Dealer</description>
+    <externalId>false</externalId>
+    <label>Price List Code (D-JP)</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Price_List_Description_D_JP__c</fullName>
+    <description>Field set by a field update based on field Price List Code. Used in JP only.</description>
+    <externalId>false</externalId>
+    <label>Price List Description (D-JP)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Direct Sales</fullName>
+          <default>false</default>
+          <label>Direct Sales</label>
+        </value>
+        <value>
+          <fullName>SASAKI</fullName>
+          <default>false</default>
+          <label>SASAKI</label>
+        </value>
+        <value>
+          <fullName>Other Dealer</fullName>
+          <default>false</default>
+          <label>Other Dealer</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Price__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Unit Price</inlineHelpText>
+    <label>Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>ProductStructureChanged__c</fullName>
+    <description>TRUE if the product structure of the Sales History record differs from that of its corresponding Product record.</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+IF(ProductStructure__c = Product__r.GlobalSKUMapping__r.ProductStructure__c , FALSE, TRUE), 
+IF(ProductStructure__c = Product__r.ProductStructure__c , FALSE, TRUE))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>TRUE if the product structure of the Sales History record differs from that of its corresponding Product record.</inlineHelpText>
+    <label>Product Structure Changed (HQ)</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>ProductStructure__c</fullName>
+    <description>Shows the full product structure of the Sales History record.</description>
+    <externalId>false</externalId>
+    <formula>null</formula>
+    <inlineHelpText>Shows the full product structure of the Sales History record.</inlineHelpText>
+    <label>Product Structure (HQ)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Category__c</fullName>
+    <description>Limited to products that has a definition in Movex, otherwise it will be N/A</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.Product_Category__c, 
+Product__r.Product_Category__c)</formula>
+    <inlineHelpText>Limited to products that has a definition in Movex, otherwise it will be N/A</inlineHelpText>
+    <label>Product Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_GPP__c</fullName>
+    <description>Global Product Platform</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.GPP_Code__c + " " +  Product__r.GlobalSKUMapping__r.GPP_Desc__c, 
+Product__r.GPP_Code__c + " " +  Product__r.GPP_Desc__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Global Product Platform</inlineHelpText>
+    <label>Product GPP</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_1__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.PG1_Code__c + " " +  Product__r.GlobalSKUMapping__r.PG1_Desc__c, 
+Product__r.PG1_Code__c + " " +  Product__r.PG1_Desc__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Group 1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_2_Brand__c</fullName>
+    <description>Concatenation of Product group 2, description and brand "II11 Implants - Astra Tech Implant System". Use in report - should not appear in any page layouts</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.PG2_Code__c  &amp;  " " &amp; Product__r.GlobalSKUMapping__r.PG2_Desc__c  &amp; " - " &amp;   Product__r.GlobalSKUMapping__r.Brand__c, 
+Product__r.PG2_Code__c  &amp;  " " &amp; Product__r.PG2_Desc__c  &amp; " - " &amp;   Product__r.Brand__c)</formula>
+    <inlineHelpText>Concatenation of Product group 2, description and brand "II11 Implants - Astra Tech Implant System". Use in report - should not appear in any page layouts</inlineHelpText>
+    <label>Product Group 2 - Brand</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_2__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.PG2_Code__c + " " +  Product__r.GlobalSKUMapping__r.PG2_Desc__c, 
+Product__r.PG2_Code__c + " " +  Product__r.PG2_Desc__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Group 2</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_3_OLD__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Group 3 OLD</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_3__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.PG3_Code__c + " " +  Product__r.GlobalSKUMapping__r.PG3_Desc__c, 
+Product__r.PG3_Code__c + " " +  Product__r.PG3_Desc__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Group 3</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_4__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.PG4_Code__c + " " +  Product__r.GlobalSKUMapping__r.PG4_Desc__c, 
+Product__r.PG4_Code__c + " " +  Product__r.PG4_Desc__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Group 4</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_Changed_HQ_del__c</fullName>
+    <description>Checks for differences in Product Structure and Article Description between Sales History Record and related Product record. If change is detected, then "Yes"</description>
+    <externalId>false</externalId>
+    <formula>null</formula>
+    <inlineHelpText>Checks for differences in Product Structure and Article Description between Sales History Record and related Product record. If change is detected, then "Yes"</inlineHelpText>
+    <label>XXXProduct Group Changed (HQ)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group_HQ__c</fullName>
+    <description>Used only for Roll up summary fields and Formula fields, avoid to use it in reports</description>
+    <externalId>false</externalId>
+    <label>Product Group 4 Code (HQ)</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Group__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product__r.PG4_Code__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>TBD Product Group 4 OLD</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Line__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.Product_Line__c, 
+Product__r.Product_Line__c)</formula>
+    <inlineHelpText>Limited to products that has a definition in Movex, otherwise it will be N/A</inlineHelpText>
+    <label>Product Line</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>A lookup field to Product object , we use SFDC ID to update this field</description>
+    <externalId>false</externalId>
+    <label>Product Name</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Sales History</relationshipLabel>
+    <relationshipName>Sales_History</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Purchasing_Contract_External_ID__c</fullName>
+    <description>The External ID of the Purchasing Contract (or Voucher). Should not appear in any page layouts</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The External ID of the Purchasing Contract (or Voucher). Should not appear in any page layouts</inlineHelpText>
+    <label>Purchasing Contract External ID</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Quantity_Test__c</fullName>
+    <externalId>false</externalId>
+    <label>Quantity Test</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Quantity__c</fullName>
+    <externalId>false</externalId>
+    <label>Quantity</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>READ_ME__c</fullName>
+    <externalId>false</externalId>
+    <label>Read Me</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Record_Transfered_to_Another_Account__c</fullName>
+    <description>This fields is for checking Data Quality. If this field = "1", it means that the Movex# doesn't corresponds and that the sales has been moved to another account (possibly through a merge). This gives errors in the integration.</description>
+    <externalId>false</externalId>
+    <formula>IF( Account_Account_No__c  &lt;&gt;  Account__r.Movex__c , 1, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This fields is for checking Data Quality. If this field = "1", it means that the Movex# doesn't corresponds and that the sales has been moved to another account (possibly through a merge). This gives errors in the integration.</inlineHelpText>
+    <label>Record Transfered to Another Account?</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Remake_For_analysis_only__c</fullName>
+    <description>Returns Quantity if this is Invoice line is a Remake or else 0. Used only for Atlantis sales</description>
+    <externalId>false</externalId>
+    <formula>IF( AND(CONTAINS( Name , "R"), LEFT( Product_Group_1__c , 2)="ID2" ) ,   Quantity__c , 0)</formula>
+    <inlineHelpText>Returns Quantity if this is Invoice line is a Remake or else 0. Used only for Atlantis sales. Used for analysis</inlineHelpText>
+    <label>Remake? (For analysis only)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Returned_Prod__c</fullName>
+    <externalId>false</externalId>
+    <formula>if  (Quantity__c  &lt; 0 , "Returned Prod" , "Shipped Prod")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Returned Prod</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>SBU__c</fullName>
+    <description>Strategic Business Unit</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+Product__r.GlobalSKUMapping__r.SBU_Code__c + " " + Product__r.GlobalSKUMapping__r.SBU_Name__c, 
+Product__r.SBU_Code__c + " " + Product__r.SBU_Name__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Strategic Business Unit</inlineHelpText>
+    <label>SBU Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>SIMPLANT_Guide_Type__c</fullName>
+    <description>Linked to Attribute 1 in Movex</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Surgical Guide Type - CLassic, Pilot, Safe, Univ</inlineHelpText>
+    <label>SIMPLANT Guide Type</label>
+    <length>18</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>SIMPLANT_Sales_Category_HQ__c</fullName>
+    <description>Important field to build reports on SIMPLANT sales, just filter on this field by using these different values : Licenses, Maintenance, Guides, Conversion, Value Pack, Vouchers, Hardware, Guides (Old), Licenses (Old).</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+IF (  Business_Area_Code__c ="DD2", IF ( NOT(ISBLANK(Product__r.GlobalSKUMapping__r.SIMPLANT_Product_Category_HQ__c)) ,Product__r.GlobalSKUMapping__r.SIMPLANT_Product_Category_HQ__c,
+
+CASE( Product__r.GlobalSKUMapping__r.PG3_Code__c , 
+"ID820", "Licenses",
+"ID821", "Maintenance",
+"ID822", "Guides",
+"ID823", "Conversion",
+"ID824", "Value Pack",
+"ID825", "Vouchers", 
+"ID826", "Hardware", 
+"ID851", "Hardware", 
+"ID852", "Hardware",
+"ID811", "Guides (Old)",
+"ID853", "Guides (Old)",
+"ID861", "Licenses (Old)",
+
+"Others")),
+
+
+"Non Simplant"), 
+IF (  Business_Area_Code__c ="DD2", IF ( NOT(ISBLANK(Product__r.SIMPLANT_Product_Category_HQ__c)) ,Product__r.SIMPLANT_Product_Category_HQ__c,
+
+CASE( Product__r.PG3_Code__c , 
+"ID820", "Licenses",
+"ID821", "Maintenance",
+"ID822", "Guides",
+"ID823", "Conversion",
+"ID824", "Value Pack",
+"ID825", "Vouchers", 
+"ID826", "Hardware", 
+"ID851", "Hardware", 
+"ID852", "Hardware",
+"ID811", "Guides (Old)",
+"ID853", "Guides (Old)",
+"ID861", "Licenses (Old)",
+
+"Others")),
+
+
+"Non Simplant")
+)</formula>
+    <label>SIMPLANT Sales Category HQ</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>SWmaint_Value__c</fullName>
+    <description>Used to show unearned revenue of Vouchers Package and Maintenance fees</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used to show unearned revenue of Vouchers Package and Maintenance fees</inlineHelpText>
+    <label>Unearned Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Sales_Attribute_1__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Attribute 1</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_Attribute_2__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Attribute 2</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_Attribute_3__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Attribute 3</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_Attribute_4__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Attribute 4</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_Attribute_5__c</fullName>
+    <externalId>false</externalId>
+    <label>Sales Attribute 5</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_History_External_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Used to get a unique reference number. Based on CustomerPrefix+InvoiceDate+InvoiceNumber+LineNumber+CustomerOrderNumber+DeliveryIndex(Only M3)+ERPId+CompanyCode. Used for Upserts, should not be visible</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Used to get a unique reference number. Based on CustomerPrefix+InvoiceDate+InvoiceNumber+LineNumber+CustomerOrderNumber+DeliveryIndex(Only M3)+ERPId+CompanyCode. Used for Upserts, should not be visible</inlineHelpText>
+    <label>Sales History External ID</label>
+    <length>100</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_History_HQ__c</fullName>
+    <externalId>false</externalId>
+    <formula>1</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sales History # (HQ)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_Owner_Salesman_ID_HQ__c</fullName>
+    <description>Used for verification. Should not appear on any screens</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used for verification. Should not appear on any screens</inlineHelpText>
+    <label>Sales Owner Salesman ID (HQ)</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Sales_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The Person who should get credit for the sale. Note that if this individual can not be tracked in Salesforce, the owner of the Account will be set as Sales Owner</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Person who should get credit for the sale. Note that if this individual can not be tracked in Salesforce, the owner of the Account will be set as Sales Owner</inlineHelpText>
+    <label>Sales Owner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Sales_History</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Sales_in_year_of_implants_won_date__c</fullName>
+    <description>This field is used for i.e asp analytics on sales to recently won customer. should not be available in reports or page layout</description>
+    <externalId>false</externalId>
+    <formula>IF( YEAR( Account__r.LastWonEventYearMonth_Implants__c )= YEAR( Invoice_Date__c )  , True, false)</formula>
+    <inlineHelpText>This field is used for i.e asp analytics on sales to recently won customer. should not be available in reports or page layout</inlineHelpText>
+    <label>Sales in year of implants won date?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Sales_within_12M_after_Implants_Won_Date__c</fullName>
+    <description>This field is checked if the sales occured within 365 days after the Implants won date</description>
+    <externalId>false</externalId>
+    <formula>IF( Account__r.LastWonEventYearMonth_Implants__c &lt;= Invoice_Date__c  &amp;&amp; Account__r.LastWonEventYearMonth_Implants__c +365  &gt;=  Invoice_Date__c , True, False)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field is checked if the sales occured within 365 days after the Implants won date</inlineHelpText>
+    <label>Sales within 12M after Implants Won Date</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Tot_Price__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Quantity__c =0,  Price__c , Price__c *  Quantity__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total Value =  Quantity multiplied by the Price</inlineHelpText>
+    <label>Total Price (Currency)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Total_Deferred_Revenue__c</fullName>
+    <description>Calculates 1/12 the value of unearned revenue and multiple it by the number of passed months. BETA- not to show for reps</description>
+    <externalId>false</externalId>
+    <formula>IF (SWmaint_Value__c &lt;&gt;0 &amp;&amp;  Product_Group_3__c ="ID821 Simplant software Maintenance", 
+
+(
+
+(SWmaint_Value__c/12) * Floor((Today()-Invoice_Date__c )/ 30.25)
+
+),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Calculates 1/12 the value of unearned revenue and multiple it by the number of passed months. BETA- not to show for reps</inlineHelpText>
+    <label>Total Deferred Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+  </fields>
+  <fields>
+    <fullName>Total_ISUS_Implant_Connections__c</fullName>
+    <externalId>false</externalId>
+    <formula>(IF( ISUS_Prostheses__c = "Yes",  VALUE(RIGHT( Name ,  LEN(TRIM(Name))-FIND("-",  Name) )) , 0)) *  Quantity__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total ISUS Implant Connections</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Total_Value__c</fullName>
+    <description>Total value is a numerice field that is the equivalent to the currency field Total Price. It is used to track local currency or multiple currencies in reports. Should not appear in any page layouts</description>
+    <externalId>false</externalId>
+    <formula>Tot_Price__c</formula>
+    <inlineHelpText>Total value is a numerice field that is the equivalent to the currency field Total Price. It is used to track local currency or multiple currencies in reports. Should not appear in any page layouts</inlineHelpText>
+    <label>Total Value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>UseCase__c</fullName>
+    <description>Groups ATL Implant sales into use cases DI Implant Systems and Competitive Implant Systems.</description>
+    <externalId>false</externalId>
+    <formula>CASE(Implant_system__c, 
+  "BioHorizons", "Comp System", 
+  "Biomet 3i", "Comp System", 
+  "Camlog", "Comp System", 
+  "Keystone Dental", "Comp System", 
+  "Nobel Biocare", "Comp System", 
+  "Straumann", "Comp System", 
+  "Sybron Implant Solutions", "Comp System", 
+  "Zimmer Dental", "Comp System", 
+  "Ankylos (D)", "DI System", 
+  "Astra Tech (D)", "DI System", 
+  "XiVE/Frialit (D)", "DI System", 
+  "N/A" 
+)</formula>
+    <inlineHelpText>Groups ATL Implant sales into use cases DI Implant Systems and Competitive Implant Systems.</inlineHelpText>
+    <label>ATL Implant Use Case</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Voucher_Expiry_Date__c</fullName>
+    <description>Manual input by subsidiaries, the data originated in SoftAdmin</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Manual input by subsidiaries, the data originated in SoftAdmin</inlineHelpText>
+    <label>Voucher Expiry Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Voucher_Validity__c</fullName>
+    <description>Valid :Can be used to purchase more guides
+Processed: Can't be used.
+updated manually by Leuven</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Valid :Can be used to purchase more guides
+Processed: Can't be used.</inlineHelpText>
+    <label>Voucher Validity</label>
+    <length>30</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Warranty_For_analysis_only__c</fullName>
+    <description>Returns Quantity if this is Invoice line is a Warranty or else 0. Used only for Atlantis sales</description>
+    <externalId>false</externalId>
+    <formula>IF( AND(CONTAINS( Name , "W"), LEFT( Product_Group_1__c , 2)="ID2" ) ,   Quantity__c  , 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Returns Quantity if this is Invoice line is a Warranty or else 0. Used only for Atlantis sales. For analysis</inlineHelpText>
+    <label>Warranty? (For analysis only)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>WonLostCategory__c</fullName>
+    <description>Used by the WonLost logic to determine the proper Product Category.</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(Product__r.RecordType.DeveloperName, "Local"), 
+CASE( Product__r.GlobalSKUMapping__r.Product_Category__c,
+  "Implants", "Implants",
+  "Stock Abutments", "Stock Abutments",
+  "Abutments", "Abutments",
+  "ISUS Prostheses", "ISUS",
+  "N/A"),
+
+CASE( Product__r.Product_Category__c,
+  "Implants", "Implants",
+  "Stock Abutments", "Stock Abutments",
+  "Abutments", "Abutments",
+  "ISUS Prostheses", "ISUS",
+  "N/A"
+) 
+)</formula>
+    <label>WonLostCategory</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>YTDperiod__c</fullName>
+    <description>This field gets the value YTD (YEAR) - i.e YTD (2009) when the invoice line is within the YTD period. Otherwise it is blank. 
+It is used to compare multiple YTD periods with each other. 
+If this field is used in the filter criteria like this: "YTD Period not equal to blank" it means that you are comparing YTD figures.
+This field should not appear in any page layouts</description>
+    <externalId>false</externalId>
+    <formula>IF( TODAY() -  Invoice_Date__c   &lt; 0, "Error",  /* Invoice date appears in the future */
+    IF( YEAR( Invoice_Date__c ) =   YEAR( TODAY() ) , TRIM(" YTD (" &amp;  TEXT(YEAR( Invoice_Date__c ))  &amp; ")"), /*Invoice date appears this year within the YTD scope */
+       IF( 
+ YEAR(Invoice_Date__c)  &lt; YEAR(TODAY())   &amp;&amp; ( MONTH(Invoice_Date__c)&lt; MONTH(TODAY())   || ( MONTH(Invoice_Date__c)= MONTH(TODAY())   &amp;&amp;   DAY(Invoice_Date__c) &lt;=  DAY(TODAY())   )) 
+
+ 
+
+
+ , TRIM(" YTD (" &amp; TEXT(YEAR( Invoice_Date__c ))  &amp; ")"), /*Invoice date appears in previous year within the YTD scope */
+
+"") ) ) /*Invoice date appears outside of the YTD scope */</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field gets the value YTD (YEAR) - i.e YTD (2009) when the invoice line is withing the YTD period. Otherwise it is blank. 
+It is used to compare multiple YTD periods with each other.</inlineHelpText>
+    <label>YTD period</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>YrMonth__c</fullName>
+    <externalId>false</externalId>
+    <label>YrMonth</label>
+    <length>10</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>friadent_temp_remove__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( CONTAINS( Sales_History_External_ID__c , " ") ,1, 0)</formula>
+    <label>friadent temp remove</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>is_is_the_primary_contract_external_id__c</fullName>
+    <description>The external ID of the Contract or Voucher if that exists</description>
+    <externalId>true</externalId>
+    <label>is is the primary contract external id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <label>Sales History</label>
+  <listViews>
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Article_Description__c</columns>
+    <columns>Invoice_Date__c</columns>
+    <columns>Invoice_Number__c</columns>
+    <columns>Quantity__c</columns>
+    <columns>Price__c</columns>
+    <columns>Account__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+      <field>Country_Code__c</field>
+      <operation>equals</operation>
+      <value>DE</value>
+    </filters>
+    <label>All</label>
+  </listViews>
+  <listViews>
+    <fullName>ITcheck</fullName>
+    <columns>Invoice_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Product__c</columns>
+    <columns>Quantity__c</columns>
+    <columns>Price__c</columns>
+    <columns>Tot_Price__c</columns>
+    <columns>Sales_Owner__c</columns>
+    <columns>Account_Account_No__c</columns>
+    <columns>Order_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+      <field>CREATED_DATE</field>
+      <operation>greaterOrEqual</operation>
+      <value>TODAY</value>
+    </filters>
+    <filters>
+      <field>Country_Code__c</field>
+      <operation>equals</operation>
+      <value>NL,BE,LU</value>
+    </filters>
+    <label>NL Check</label>
+    <language>en_US</language>
+    <sharedTo>
+      <role>Dentsply_IH_CEO</role>
+    </sharedTo>
+  </listViews>
+  <listViews>
+    <fullName>Yesterday_Sales</fullName>
+    <columns>Invoice_Date__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>NAME</columns>
+    <columns>Account_Account_No__c</columns>
+    <columns>Product__c</columns>
+    <columns>Product_Group_4__c</columns>
+    <columns>Quantity__c</columns>
+    <columns>Price__c</columns>
+    <columns>Tot_Price__c</columns>
+    <columns>Country_Code__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+      <field>CREATED_DATE</field>
+      <operation>greaterOrEqual</operation>
+      <value>YESTERDAY</value>
+    </filters>
+    <label>Yesterday's Sales</label>
+    <language>en_US</language>
+  </listViews>
+  <nameField>
+    <label>Article (SKU)</label>
+    <type>Text</type>
+  </nameField>
+  <pluralLabel>Sales History</pluralLabel>
+  <searchLayouts>
+    <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Invoice_Number__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Invoice_Date__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Product_Group_2__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Price__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Quantity__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Tot_Price__c</customTabListAdditionalFields>
+    <customTabListAdditionalFields>Document_Archive__c</customTabListAdditionalFields>
+    <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Invoice_Date__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Invoice_Number__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Quantity__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Price__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Product_Group_4__c</lookupDialogsAdditionalFields>
+    <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Invoice_Date__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Invoice_Number__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Order_Number__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Quantity__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Price__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Product_Group_4__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Document_Archive__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Order_Type__c</searchResultsAdditionalFields>
+  </searchLayouts>
+  <sharingModel>ControlledByParent</sharingModel>
+  <visibility>Public</visibility>
+  <webLinks>
+    <fullName>View_full_order_invoice_sales</fullName>
+    <availability>online</availability>
+    <description>This link provides a report of all sales of this order/invoice</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>View full order/invoice sales</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/00O20000004HfBO?pv0={!Sales_History__c.Order_Number__c}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>View_invoice_in_Document_Archive</fullName>
+    <availability>online</availability>
+    <description>Opens a link to StreamServe for further information about the invoice
+-&gt;-&gt;modify to match a change done in september when Streamserver link changed in germany</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>View invoice in Document Archive</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://prod-acp.internal.dentsply.net/#/generaldata/generalList/836B9A96-43D4-4688-A713-95CB76233D55/{!IF( (Sales_History__c.Country_Code__c ='DE'|| Sales_History__c.Country_Code__c ='US'||Sales_History__c.Country_Code__c ='PL'||Sales_History__c.Country_Code__c ='CA' )&amp;&amp;Value(Sales_History__c.Invoice_Year__c)&gt;=2017,'3e639930-953d-45da-ab67-baec81d80707','1b69f069-d687-4953-88a9-9415c9f00e9d')}/mode/popout/filter/Division%20eq%20{!IF( (Sales_History__c.Country_Code__c &lt;&gt;'DE' &amp;&amp; Sales_History__c.Country_Code__c &lt;&gt;'US'&amp;&amp; Sales_History__c.Country_Code__c &lt;&gt;'CA' ),'',Sales_History__c.Country_Code__c)}%20and%20Orderno%20eq%20{!(Sales_History__c.Order_Number__c)}%20and%20Invoiceno%20eq%20{!IF( (Sales_History__c.Country_Code__c &lt;&gt;'DE' &amp;&amp; Sales_History__c.Country_Code__c &lt;&gt;'US' &amp;&amp; Sales_History__c.Country_Code__c &lt;&gt;'PL' &amp;&amp; Sales_History__c.Country_Code__c &lt;&gt;'CA' ),'',Sales_History__c.Invoice_Number__c)}</url>
+  </webLinks>
+</CustomObject>

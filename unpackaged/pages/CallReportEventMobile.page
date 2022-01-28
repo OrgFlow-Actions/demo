@@ -1,0 +1,1409 @@
+<!--
+  @description       : 
+  @author            : kdoruibin@salesforce.com
+  @group             : 
+  @last modified on  : 05-04-2021
+  @last modified by  : kdoruibin@salesforce.com
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   04-27-2021   kdoruibin@salesforce.com  TFUS-000003027: create order button hidden
+-->
+<apex:page standardController="Event" extensions="EventWithCallReport" standardStylesheets="false" docType="html-5.0" sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/> 
+        <apex:stylesheet value="{!URLFOR($Resource.MobileDesignTemplates, 'common/css/app.min.css')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.MobileDesignTemplates, 'common/js/jQuery2.0.2.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.MobileDesignTemplates, 'common/js/jquery.touchwipe.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.MobileDesignTemplates, 'common/js/main.min.js')}"/>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js" />
+        
+        <style>
+            ul.list-view.item-lookup{
+                padding-left: 0px;
+                padding-right: 0px;
+                border: 1px solid #ccc;
+                background-color: #fff;
+            }
+        
+        ul.list-view.item-lookup:not(.item-lookup-multiple) li.search-ui, ul.list-view.item-lookup li.search-result{
+            display: none;
+        }
+        
+        ul.list-view.item-lookup li.selected{
+            background-color: #eee;
+        }
+        
+        ul.list-view.item-lookup li.search-ui, ul.list-view.item-lookup li.search-result{
+            padding-left: 40px;
+            padding-right: 40px;
+            background-color: #efefef;
+        }
+        
+        ul.list-view.item-lookup li div.actions{
+            display:none;
+        }
+        
+        ul.list-view.item-lookup li div.actions a{
+            display:block;
+            margin-top:7.5px;
+            text-align:center;
+            font-size:1.4em;
+            padding:7.5px 0 7.5px 0;
+            background-color: #efefef;
+        }
+        
+        ul.list-view.item-lookup > li:first-child div.actions a.make-primary {
+            display:none;
+        }
+        
+        .error{
+            background-color: #f2dede;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .error-message{
+            font-weight: bold;
+            color: #a94442;
+        }
+        
+        /* This CSS is a workaround for a scrolling bug in iOS https://stackoverflow.com/questions/21342057/ipad-scrolling-to-top-of-iframe */
+        html, body, .app-wrapper
+        {
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            -webkit-overflow-scrolling: touch;
+        }
+        </style>
+        </head>
+        <body>
+            <script type="text/javascript">
+                var __sfdcSessionId = '{!GETSESSIONID()}';
+        </script>         
+        <apex:includeScript value="/soap/ajax/36.0/connection.js"/>
+        <apex:includeScript value="/soap/ajax/36.0/apex.js"/>        
+        
+        <div class="app-wrapper">
+            <!--<div class="app-content">-->
+            
+            <div>
+                <form style="display:none;">
+                    <div class="list-view-header">{!$Label.CallReport_Header_EventType}</div>
+                    <section class="border-bottom">
+                        <div class="content">
+                            <div data-field-for="Event.Customer_Facing_Event__c"> 
+                                <h3>{!$ObjectType.Event.fields.Customer_Facing_Event__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-checkbox">
+                                        <input type="checkbox" data-checked="{!Event.Customer_Facing_Event__c}" id="Event.Customer_Facing_Event__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Event_Status__c"> 
+                                <h3>{!$ObjectType.Event.fields.Event_Status__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control">
+                                        <select data-value="{!Event.Event_Status__c}" id="Event.Event_Status__c">
+                                            <apex:repeat value="{!EventStatusPicklistValues}" var="ple">
+                                                <option value="{!ple.Value}">{!ple.Label}</option>
+                                            </apex:repeat>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Astra_Tech_Type__c"> 
+                                <h3>{!$ObjectType.Event.fields.Astra_Tech_Type__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control">
+                                        <select data-value="{!Event.Astra_Tech_Type__c}" id="Event.Astra_Tech_Type__c" class="dependant-picklist" data-dependant-on="Event.Customer_Facing_Event__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Activity_Subtype__c"> 
+                                <h3>{!$ObjectType.Event.fields.Activity_Subtype__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control">
+                                        <select data-value="{!Event.Activity_Subtype__c}" id="Event.Activity_Subtype__c" >                                                                             
+                                            <option value="">{!$Label.CallReport_NoValue}</option>
+                                            <apex:repeat value="{!EventSubtypeValues}" var="ple">
+                                                <option value="{!ple.Value}">{!ple.Label}</option>
+                                            </apex:repeat>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Subject"> 
+                                <h3>{!$ObjectType.Event.fields.Subject.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control">
+                                        <input type="text" value="{!Event.Subject}" id="Event.Subject" placeholder="{!$Label.CallReport_DefaultSubjectHint}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.OwnerId"> 
+                                <h3>{!$ObjectType.Event.fields.OwnerId.Label}</h3>
+                                <ul id="Event.OwnerId" class="list-view item-lookup" data-item-id="{!Event.OwnerId}">
+                                    <li class="current-value">
+                                        <h2>{!IF(Owner == null, $Label.CallReport_TapToPick, Owner.Name)}</h2>
+                                        <p>
+                                            {!Event.Owner.Type}
+                                        </p>
+                                    </li>
+                                    <li class="search-ui">
+                                        <select>
+                                            <option value="User">{!$ObjectType.User.LabelPlural}</option>
+                                        </select>
+                                    </li>
+                                    <li class="search-ui">
+                                        <input type="text" placeholder="{!$Label.CallReport_SearchPlaceholder}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <br/>
+                            <div data-field-for="Event.Business_Initiative__c"> 
+                                <h3>{!$ObjectType.Event.fields.Business_Initiative__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <select data-value="{!Event.Business_Initiative__c}" id="Event.Business_Initiative__c">                                      
+                                            <option value="">{!$Label.CallReport_NoValue}</option>
+                                            <apex:repeat value="{!BusinessInitiativeValues}" var="ple">
+                                                <option value="{!ple.Value}">{!ple.Label}</option>
+                                            </apex:repeat>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="list-view-header">{!$Label.CallReport_Header_CustomerToMeet}</div>
+                    <section class="border-bottom">
+                        <div class="content">
+                            <div data-field-for="Event.WhoId"> 
+                                <h3>{!$Label.CallReport_SharedActivities_NameFieldLabel}</h3>   
+                                <div class="form-control-group">
+                                    <div class="form-control">
+                                        <ul id="Event.WhoId" class="list-view item-lookup item-lookup-multiple" data-item-id="{!Event.WhoId}" data-is-invitee="false" data-is-parent="true" data-is-what="false" data-limit-Contact="50" data-limit-Lead="1">
+                                            <li class="search-ui">
+                                                <select>
+                                                    <option value="Contact,Lead">{!$ObjectType.Contact.LabelPlural} + {!$ObjectType.Lead.LabelPlural}</option>
+                                                    <option value="Contact">{!$ObjectType.Contact.LabelPlural}</option>
+                                                    <option value="Lead">{!$ObjectType.Lead.LabelPlural}</option>
+                                                </select>
+                                            </li>
+                                            <li class="search-ui">
+                                                <input type="text" placeholder="{!$Label.CallReport_SearchPlaceholder}" />
+                                                <p class="limit-message" style="display:none;">
+                                                    {!$Label.CallReport_SharedActivities_LimitReached}
+                                                </p>
+                                            </li>
+                                        </ul>   
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.WhatId"> 
+                                <h3>{!$ObjectType.Event.fields.WhatId.Label}</h3>
+                                <ul id="Event.WhatId" class="list-view item-lookup" data-item-id="{!Event.WhatId}">
+                                    <li class="current-value">
+                                        <h2 id="account-name">{!IF(ISBLANK(WhatName), $Label.CallReport_TapToPick, WhatName)}</h2>
+                                        <p>
+                                            {!WhatType}
+                                        </p>
+                                    </li>
+                                    <li class="search-ui">
+                                        <select>
+                                            <option value="Account,Opportunity">{!$ObjectType.Account.LabelPlural} + {!$ObjectType.Opportunity.LabelPlural}</option>
+                                            <option value="Account">{!$ObjectType.Account.LabelPlural}</option>
+                                            <option value="Opportunity">{!$ObjectType.Opportunity.LabelPlural}</option>
+                                        </select>
+                                    </li>
+                                    <li class="search-ui">
+                                        <input type="text" placeholder="{!$Label.CallReport_SearchPlaceholder}" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="list-view-header">{!$Label.CallReport_Header_Calendar}</div>
+                    <section class="border-bottom">
+                        <div class="content">
+                            <div data-field-for="Event.StartDateTime"> 
+                                <h3>{!$ObjectType.Event.fields.StartDateTime.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="date" value="{!StartDateString}" id="Event.StartDateTime" class="date-with-time start-time-input"  />
+                                        <input type="time" value="{!StartTimeString}" id="Event.StartDateTime-Time" class="do-not-save visible-when start-time-input" data-visibility-control="Event.IsAllDayEvent" data-visibility-when="false" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.EndDateTime"> 
+                                <h3>{!$ObjectType.Event.fields.EndDateTime.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="date" value="{!EndDateString}" id="Event.EndDateTime" class="date-with-time end-time-input"  />
+                                        <input type="time" value="{!EndTimeString}" id="Event.EndDateTime-Time" class="do-not-save visible-when end-time-input" data-visibility-control="Event.IsAllDayEvent" data-visibility-when="false"/>
+                                        <input type="hidden" value="{!EventLengthInMinutes}" id="EventLengthInMinutes" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.IsAllDayEvent"> 
+                                <h3>{!$ObjectType.Event.fields.IsAllDayEvent.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-checkbox">
+                                        <input type="checkbox" data-checked="{!Event.IsAllDayEvent}" id="Event.IsAllDayEvent" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.ShowAs"> 
+                                <h3>{!$ObjectType.Event.fields.ShowAs.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <select data-value="{!Event.ShowAs}" id="Event.ShowAs" >                                    
+                                            <option value="">{!$Label.CallReport_NoValue}</option>
+                                            <apex:repeat value="{!ShowTimeAsPicklistValues}" var="ple">
+                                                <option value="{!ple.Value}">{!ple.Label}</option>
+                                            </apex:repeat>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Send_Calendar_Invites__c"> 
+                                <h3>{!$ObjectType.Event.fields.Send_Calendar_Invites__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-checkbox">
+                                        <input type="checkbox" data-checked="{!Event.Send_Calendar_Invites__c}" id="Event.Send_Calendar_Invites__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Location"> 
+                                <h3>{!$ObjectType.Event.fields.Location.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="text" value="{!Event.Location}" id="Event.Location" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="list-view-header">{!$Label.CallReport_Header_Objective}</div>
+                    <section class="border-bottom">
+                        <div class="content">
+                            <div data-field-for="Event.SBU__c"> 
+                                <h3>{!$ObjectType.Event.fields.SBU__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <select data-value="{!Event.SBU__c}" id="Event.SBU__c" multiple="multiple">                                
+                                            <option value="">{!$Label.CallReport_NoValue}</option>
+                                            <apex:repeat value="{!EventSBUPicklistValues}" var="ple">
+                                                <option value="{!ple.Value}">{!ple.Label}</option>
+                                            </apex:repeat>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Demonstration__c"> 
+                                <h3>{!$ObjectType.Event.fields.Demonstration__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-checkbox">
+                                        <input type="checkbox" data-checked="{!Event.Demonstration__c}" id="Event.Demonstration__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Presentation__c"> 
+                                <h3>{!$ObjectType.Event.fields.Presentation__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-checkbox">
+                                        <input type="checkbox" data-checked="{!Event.Presentation__c}" id="Event.Presentation__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Objective__c"> 
+                                <h3>{!$ObjectType.Event.fields.Objective__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="text" value="{!Event.Objective__c}" id="Event.Objective__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.new_customer_acquisition_DE__c"> 
+                                <h3>{!$ObjectType.Event.fields.new_customer_acquisition_DE__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-checkbox">
+                                        <input type="checkbox" data-checked="{!Event.new_customer_acquisition_DE__c}" id="Event.new_customer_acquisition_DE__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Number_of_implants_TR__c"> 
+                                <h3>{!$ObjectType.Event.fields.Number_of_implants_TR__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="number" value="{!Event.Number_of_implants_TR__c}" id="Event.Number_of_implants_TR__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-field-for="Event.Number_of_patients_TR__c"> 
+                                <h3>{!$ObjectType.Event.fields.Number_of_patients_TR__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="number" value="{!Event.Number_of_patients_TR__c}" id="Event.Number_of_patients_TR__c" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div data-field-for="Event.NA_of_Open_Implant_GET_Opps__c"> 
+                                <h3>{!$ObjectType.Event.fields.NA_of_Open_Implant_GET_Opps__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="number" pattern="\d*" value="{!Event.NA_of_Open_Implant_GET_Opps__c}" id="Event.NA_of_Open_Implant_GET_Opps__c" />
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!--<div data-field-for="Event.NA_GET_Qualified__c"> 
+                                <h3>{!$ObjectType.Event.fields.NA_GET_Qualified__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-checkbox">
+                                        <input type="checkbox" value="true" data-checked="{!Event.NA_GET_Qualified__c}" id="Event.NA_GET_Qualified__c" />
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!--<div data-field-for="Event.Send_Mailing__c"> 
+                                <div class="visible-when" data-visibility-control="Event.NA_GET_Qualified__c" data-visibility-when="true">
+                                    <h3>{!$ObjectType.Event.fields.Send_Mailing__c.Label}</h3>
+                                    <div class="form-control-group">
+                                        <div class="form-control form-control-date">
+                                            <select data-value="{!Event.Send_Mailing__c}" id="Event.Send_Mailing__c">                                      
+                                                <option value="">{!$Label.CallReport_NoValue}</option>
+                                                <apex:repeat value="{!SendMailingPicklistValues}" var="ple">
+                                                    <option value="{!ple.Value}">{!ple.Label}</option>
+                                                </apex:repeat>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!--<div data-field-for="Event.NA_Which_mailing_should_be_sent__c"> 
+                                <div class="visible-when" data-visibility-control="Event.Send_Mailing__c" data-visibility-when="Yes">
+                                    <h3>{!$ObjectType.Event.fields.NA_Which_mailing_should_be_sent__c.Label}</h3>
+                                    <div class="form-control-group">
+                                        <div class="form-control form-control-date">
+                                            <select data-value="{!Event.NA_Which_mailing_should_be_sent__c}" id="Event.NA_Which_mailing_should_be_sent__c">                                      
+                                                <option value="">{!$Label.CallReport_NoValue}</option>
+                                                <apex:repeat value="{!WhichMailingPicklistValues}" var="ple">
+                                                    <option value="{!ple.Value}">{!ple.Label}</option>
+                                                </apex:repeat>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!--<div data-field-for="Event.NA_GET_Mailing_Sent__c"> 
+                                <h3>{!$ObjectType.Event.fields.NA_GET_Mailing_Sent__c.Label}</h3>
+                                <div class="form-control-group">
+                                    <div class="form-control form-control-date">
+                                        <input type="date" value="{!Event.NA_GET_Mailing_Sent__c}" id="Event.NA_GET_Mailing_Sent__c" />
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </section>
+                    
+                    <div class="visible-when" data-visibility-control="Event.Customer_Facing_Event__c" data-visibility-when="true"> 
+                        <div class="visible-when" data-visibility-control="Event.Event_Status__c" data-visibility-when="Completed"> 
+                            <div class="list-view-header">{!$Label.CallReport_Header_CallReport}</div>   
+                            <section class="border-bottom">
+                                <div class="content">
+                                    <div data-field-for="Call_Report__c.Call_Notes__c">
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Call_Notes__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-date">
+                                                <textarea value="{!Event.Call_Report__r.Call_Notes__c}" id="Call_Report__c.Call_Notes__c">{!Event.Call_Report__r.Call_Notes__c}</textarea>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Met_with_Decision_Maker__c">                                        
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Met_with_Decision_Maker__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-checkbox">
+                                                <input type="checkbox" data-checked="{!Event.Call_Report__r.Met_with_Decision_Maker__c}" id="Call_Report__c.Met_with_Decision_Maker__c" />
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Met_with_Assistant__c"> 
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Met_with_Assistant__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-checkbox">
+                                                <input type="checkbox" data-checked="{!Event.Call_Report__r.Met_with_Assistant__c}" id="Call_Report__c.Met_with_Assistant__c" />
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Placed_Order__c"> 
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Placed_Order__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-checkbox">
+                                                <input type="checkbox" data-checked="{!Event.Call_Report__r.Placed_Order__c}" id="Call_Report__c.Placed_Order__c" />
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Left_Sample__c"> 
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Left_Sample__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-checkbox">
+                                                <input type="checkbox" data-checked="{!Event.Call_Report__r.Left_Sample__c}" id="Call_Report__c.Left_Sample__c" />
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Courses__c"> 
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Courses__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-checkbox">
+                                                <input type="checkbox" data-checked="{!Event.Call_Report__r.Courses__c}" id="Call_Report__c.Courses__c" />
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Assigned_To_User_Country__c" style="{!IF(ISBLANK(Event.Call_Report__r.Assigned_To_User_Country__c), '', 'display:none')}"> 
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Assigned_To_User_Country__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-date">
+                                                <select data-value="{!Event.Call_Report__r.Assigned_To_User_Country__c}" id="Call_Report__c.Assigned_To_User_Country__c" >
+                                                    <option value="">{!$Label.CallReport_NoValue}</option>
+                                                    <apex:repeat value="{!UserCountriesPicklistValues}" var="ple">
+                                                        <option value="{!ple.Value}">{!ple.Label}</option>
+                                                    </apex:repeat>
+                                                </select>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_ENDO__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Endodontics">                                
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_ENDO__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_ENDO__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_ENDO__c" />
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_IMPL__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Implants">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_IMPL__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_IMPL__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_IMPL__c" />
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_ORTH__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Orthodontics">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_ORTH__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_ORTH__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_ORTH__c" />
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_PREV__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Preventive">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_PREV__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_PREV__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_PREV__c" />
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_PROS__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Prosthetics">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_PROS__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_PROS__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_PROS__c" />
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_REST__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Restorative">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_REST__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_REST__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_REST__c" />
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_CDCM__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="CAD/CAM">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_CDCM__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_CDCM__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_CDCM__c" />
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_INST__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Instruments">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_INST__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_INST__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_INST__c" />
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_TRCE__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Treatment Centers">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_TRCE__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_TRCE__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_TRCE__c" />
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Products_discussed_IMAG__c"> 
+                                        <div class="visible-when" data-visibility-control="Event.SBU__c" data-visibility-when="Imaging Systems">  
+                                            <h3>{!$ObjectType.Call_Report__c.fields.Products_discussed_IMAG__c.Label}</h3>
+                                            <div class="form-control-group">
+                                                <div class="form-control form-control-date">
+                                                    <select multiple="multiple" data-value="{!Event.Call_Report__r.Products_discussed_IMAG__c}" class="dependant-picklist" data-dependant-on="Call_Report__c.Assigned_To_User_Country__c" id="Call_Report__c.Products_discussed_IMAG__c" />
+                                                </div>
+                                            </div>
+                                        </div>        
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Other_SBU_discussed__c"> 
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Other_SBU_discussed__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-date">
+                                                <select data-value="{!Event.Call_Report__r.Other_SBU_discussed__c}" id="Call_Report__c.Other_SBU_discussed__c">                              
+                                                    <option value=""> - - None - - </option>
+                                                    <apex:repeat value="{!EventSBUPicklistValues}" var="ple">
+                                                        <option value="{!ple.Value}">{!ple.Label}</option>
+                                                    </apex:repeat>
+                                                </select>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                    <div data-field-for="Call_Report__c.Other_SBU_notes__c"> 
+                                        <h3>{!$ObjectType.Call_Report__c.fields.Other_SBU_notes__c.Label}</h3>
+                                        <div class="form-control-group">
+                                            <div class="form-control form-control-date">
+                                                <textarea value="{!Event.Call_Report__r.Other_SBU_notes__c}" id="Call_Report__c.Other_SBU_notes__c" >{!Event.Call_Report__r.Other_SBU_notes__c}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="visible-when" data-visibility-control="Event.Customer_Facing_Event__c" data-visibility-when="true"> 
+                        <div class="list-view-header">{!$Label.CallReport_Header_CoTravel}</div>              
+                        <section class="border-bottom">
+                            <div class="content">
+                                <div data-field-for="Event.Co_travel__c"> 
+                                    <h3>{!$ObjectType.Event.fields.Co_travel__c.Label}</h3>
+                                    <div class="form-control-group">
+                                        <div class="form-control form-control-date">
+                                            <select data-value="{!Event.Co_Travel__c}" id="Event.Co_Travel__c" >
+                                                <option value="">{!$Label.CallReport_NoValue}</option>
+                                                <apex:repeat value="{!CoTravelPicklistValues}" var="ple">
+                                                    <option value="{!ple.Value}">{!ple.Label}</option>
+                                                </apex:repeat>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-field-for="Event.Dealer_Customer__c"> 
+                                    <div class="visible-when" data-visibility-control="Event.Co_Travel__c" data-visibility-when="Dealer/Distributor">
+                                        <h3>{!$ObjectType.Event.fields.Dealer_Customer__c.Label}</h3>
+                                        <ul id="Event.Dealer_Customer__c" class="list-view item-lookup" data-item-id="{!Event.Dealer_Customer__c}">
+                                            <li class="current-value">                                                
+                                                <h2>{!IF(ISBLANK(DealerName), $Label.CallReport_TapToPick, DealerName)}</h2>
+                                                <p>
+                                                    {!$ObjectType.Account.Label}
+                                                </p>
+                                            </li>
+                                            <li class="search-ui">
+                                                <select>
+                                                    <option value="Account">{!$ObjectType.Account.LabelPlural}</option>
+                                                </select>
+                                            </li>
+                                            <li class="search-ui">
+                                                <input type="text" placeholder="{!$Label.CallReport_SearchPlaceholder}" />
+                                            </li>
+                                        </ul>                                   
+                                    </div>
+                                </div>
+                                <div data-field-for="Event.Co_Travel_Manager__c"> 
+                                    <div class="visible-when" data-visibility-control="Event.Co_Travel__c" data-visibility-when="Manager">
+                                        <h3>{!$ObjectType.Event.fields.Co_Travel_Manager__c.Label}</h3>
+                                        <ul id="Event.Co_Travel_Manager__c" class="list-view item-lookup" data-item-id="{!Manager.Id}">
+                                            <li class="current-value">                                                
+                                                <h2>{!IF(Manager == null, $Label.CallReport_TapToPick, Manager.Name)}</h2>
+                                                <p>
+                                                    {!$ObjectType.User.Label}
+                                                </p>
+                                            </li>
+                                            <li class="search-ui">
+                                                <select>
+                                                    <option value="User">{!$ObjectType.User.LabelPlural}</option>
+                                                </select>
+                                            </li>
+                                            <li class="search-ui">
+                                                <input type="text" placeholder="{!$Label.CallReport_SearchPlaceholder}" />
+                                            </li>
+                                        </ul>                                   
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="visible-when" data-visibility-control="Event.Astra_Tech_Type__c" data-visibility-when="Educational Event">
+                        <div class="list-view-header">{!$Label.CallReport_Header_Educational}</div>     
+                        <section class="border-bottom">
+                            <div class="content">
+                                <div data-field-for="Event.Create_Campiagn__c"> 
+                                    <h3>{!$ObjectType.Event.fields.Create_Campiagn__c.Label}</h3>
+                                    <div class="form-control-group">
+                                        <div class="form-control form-control-checkbox">
+                                            <input type="checkbox" data-checked="{!Event.Create_Campiagn__c}" id="Event.Create_Campiagn__c" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-field-for="Event.Event_Speaker__c"> 
+                                    <h3>{!$ObjectType.Event.fields.Event_Speaker__c.Label}</h3>
+                                    <div class="form-control-group">
+                                        <div class="form-control form-control-date">
+                                            <input type="text" value="{!Event.Event_Speaker__c}" id="Event.Event_Speaker__c" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    
+                    <section >
+                        <div >
+                            <button class="slds-button slds-button_brand" style=" padding: 10px; text-decoration: none; font-family: salesforce sans,Arial, sans-serif;font-size:12px; display: block; width:100%; " id="saveeventbutton" onclick="save(); return false;">{!$Label.CallReport_Save}</button>
+                            
+                            <!--button id="saveeventbutton" onclick="save(); this.disabled = true;document.getElementById('createorderbutton').disabled = true; return false;">{!$Label.CallReport_Save}</button-->
+                            <!--a href="#"  onclick="save();  return false;">{!$Label.CallReport_Save}
+class="data-capture-buttons one-buttons"
+class="slds-button-group"
+</a-->
+                        </div>
+                    </section>
+                    
+                    <!-- Section used for Order Management, added by Richard Trum -->                   
+                    
+                    
+                    
+                    
+                    
+                    <section >
+                        
+                        <div style="display: none">
+                            <apex:outputpanel rendered="{!AND($ObjectType.OrderItem.Accessible, NOT(OR(TEXT($User.User_Country__c) == 'USA', TEXT($User.User_Country__c) == 'Canada', TEXT($User.User_Country__c) == 'UK', TEXT($User.User_Country__c) == 'Ireland')))}">
+                                <button class="slds-button slds-button_brand" style=" padding: 10px; text-decoration: none; font-family: salesforce sans,Arial, sans-serif;font-size:12px; display: block; width:100%;" id="createorderbutton" onclick="saveCreateDirectOrder(); return false;">Create order</button>
+                                <!--a href="#" onclick="saveCreateDirectOrder(); return false;">Create order</a-->
+                            </apex:outputpanel>
+                        </div>
+                        
+                    </section>
+                    
+                    <!-- <section class="data-capture-buttons one-buttons">    
+
+<div class="content">
+<apex:outputpanel rendered="{!AND($ObjectType.OrderItem.Accessible, NOT(OR(TEXT($User.User_Country__c) == 'USA', TEXT($User.User_Country__c) == 'Canada', TEXT($User.User_Country__c) == 'UK', TEXT($User.User_Country__c) == 'Ireland')))}">
+<a href="#" onclick="saveCreateIndirectOrder(); return false;">Create dealer order</a>
+</apex:outputpanel>
+</div>
+
+</section> -->
+                    
+                    <!-- End of Order Management section -->
+                    
+                    
+                </form>
+            </div>
+        </div>
+        
+        <!-- Required to make SF retrieve these fields -->
+        <input type="hidden" value="{!Event.StartDateTime}" />
+        <input type="hidden" value="{!Event.EndDateTime}" />
+        <input type="hidden" value="{!Event.ActivityDate}" />
+        <input type="hidden" value="{!Event.DurationInMinutes}" />
+        <input type="hidden" value="{!Event.OwnerId}" />
+        <input type="hidden" value="{!Event.Co_travel__c}" />
+        <input type="hidden" value="{!Event.SBU__c}" />
+        <input type="hidden" value="{!Event.WhoId}" />
+        <input type="hidden" value="{!Event.WhatId}" />
+        <input type="hidden" value="{!Event.Send_Calendar_Invites__c}" />
+        <input type="hidden" value="{!Event.IsRecurrence}" />
+        <input type="hidden" value="{!Event.RecurrenceActivityId}" />
+        
+        <script type='text/javascript' src='/canvas/sdk/js/publisher.js'></script>
+        <script> 
+            // Tell SF1 that this page can be submitted
+            Sfdc.canvas.publisher.subscribe({name: "publisher.showPanel",
+                                             onData:function(e) {
+                                                 Sfdc.canvas.publisher.publish({name:"publisher.setValidForSubmit", payload:"true"});
+                                             }});
+        
+        // Listen to the submit event
+        Sfdc.canvas.publisher.subscribe({ name: "publisher.post",
+                                         onData: function(e) {
+                                             save();
+                                         }}); 
+        </script>
+        
+        <script>           
+        sforce.connection.sessionId = '{!$Api.Session_ID}'; 
+        var __objectDescriptions = [];   
+        
+        $("#Event\\.SBU__c").on("change", function(){
+            var selectedSbus = $(this).val();
+            if(selectedSbus === null){
+                return;
+            }                
+            
+            $("#Call_Report__c\\.Other_SBU_discussed__c option:gt(0)").each(function(){
+                var optionValue = $(this).attr("value");
+                $(this).prop("disabled", selectedSbus.indexOf(optionValue) > -1);                          
+            });
+        });
+        
+        $(".end-time-input").on("change", function(){
+            var startTimeString = document.getElementById("Event.StartDateTime").value;
+            startTimeString += "T" + document.getElementById("Event.StartDateTime-Time").value;
+            
+            var endTimeString = document.getElementById("Event.EndDateTime").value;
+            endTimeString += "T" + document.getElementById("Event.EndDateTime-Time").value;
+            
+            var startTime = moment(startTimeString);
+            var endTime = moment(endTimeString);
+            
+            var duration = moment.duration(endTime.diff(startTime));
+            
+            $("input#EventLengthInMinutes").val(duration.asMinutes());
+        });
+        
+        $(".start-time-input").on("change", function(){                    
+            var startTimeString = document.getElementById("Event.StartDateTime").value;
+            startTimeString += "T" + document.getElementById("Event.StartDateTime-Time").value;// + ":00.000";
+            
+            var lengthOfEventInMinutes = $("input#EventLengthInMinutes").val();
+            var endTime = moment(startTimeString).add(lengthOfEventInMinutes, 'minutes');
+            
+            document.getElementById("Event.EndDateTime").value = endTime.format('YYYY-MM-DD');
+            document.getElementById("Event.EndDateTime-Time").value = endTime.format('HH:mm');
+        });
+        
+        $("ul.item-lookup, ul.item-lookup-multiple").each(function(){
+            var isMultiple = $(this).hasClass("item-lookup-multiple");
+            
+            if(!isMultiple){
+                $(this).find("li.current-value").on("click", function(){
+                    $(this).toggleClass("selected")
+                    .siblings("li.search-ui, li.search-result")
+                    .toggle()
+                    .find("input")
+                    .focus();
+                });
+            }
+            
+            $(this).find("li.search-ui select").on("change", search);
+            $(this).find("li.search-ui input").on("keyup", search);
+            
+            function search(){
+                var parentLi = $(this).parent("li");
+                var parentUl = parentLi.parent("ul");     
+                
+                var typeInput = parentUl.find("select");
+                var queryInput = parentUl.find("input");
+                
+                if(queryInput.val().length <=1){
+                    return;
+                }
+                
+                var callback = {
+                    onSuccess: function(queryResult, source) {                             
+                        parentLi.siblings("li.search-result").remove();
+                        
+                        var records = queryResult.getArray('searchRecords');
+                        
+                        for (var i = 0; i < records.length; i++) {
+                            var result = records[i].record;                            
+                            var secondaryData = "";
+                            
+                            switch(result.type.toString()) {
+                                case "Contact":
+                                case "Opportunity":
+                                    secondaryData = result.Account.Name;
+                                    break;
+                                case "User":
+                                    secondaryData = result.UserRole.Name;
+                                    break;
+                                case "Lead":
+                                    secondaryData = result.Company
+                                    break;
+                            }
+                            
+                            secondaryData = "(" + result.type + ") " + secondaryData;
+                            
+                            var searchResult = $("<li />")
+                            .addClass("search-result")
+                            .append($("<h2>").text(result.Name))
+                            .append($("<p>").text(secondaryData))
+                            .attr("data-item-id", result.Id) // Required in order to allow selection by id
+                            .data("id", result.Id)
+                            .data("name", result.Name)
+                            .data("type", result.type)
+                            .data("secondary-info", secondaryData)
+                            .show()
+                            .on("click", function(){                                                            
+                                var id = $(this).data("id");
+                                var name = $(this).data("name");
+                                var secondaryInfo = $(this).data("secondary-info")
+                                
+                                $(this).addClass("selected").hide();
+                                
+                                if(isMultiple){
+                                    addMultipleLookupItem(parentUl, id, $(this).data("type"), name, secondaryInfo);
+                                }
+                                else{
+                                    parentUl.find("li.search-ui, li.search-result").hide();
+                                    parentUl.find("li.search-ui input, li.search-ui select").blur();
+                                    
+                                    //parentUl.find("li.current-value").removeClass("selected");
+                                    parentUl.find(".selected").removeClass("selected");
+                                    parentUl.find("li.current-value h2").text(name);
+                                    parentUl.find("li.current-value p").text(secondaryInfo);
+                                    
+                                    parentUl.data("item-id", id);
+                                }
+                                
+                            });
+                            
+                            parentUl.append(searchResult);
+                        }
+                    },
+                    onFailure: function(error, source) {
+                        console.log(error);
+                    }
+                }
+                
+                var objectsToSearch = typeInput.val().split(',');
+                var returningObjects = [];
+                var selectedIds = getValuesFromMultipleItemPicker(parentUl);
+                var whereClause = "";
+                
+                if(selectedIds.length > 0){
+                    whereClause = "where id not in ('" + selectedIds.join("','") + "')";
+                }
+                
+                objectsToSearch.forEach(function(value){
+                    switch(value) {
+                        case "Contact":
+                            returningObjects.push("contact(id, name, Account.name " + whereClause + ")");
+                            break;
+                        case "User":
+                            returningObjects.push("user(id, name, UserRole.name " + whereClause + " and isactive = true)");
+                            break;
+                        case "Account":
+                            returningObjects.push("account(id, name " + whereClause + ")");
+                            break;
+                        case "Lead":
+                            returningObjects.push("lead(id, name, company " + whereClause + ")");
+                            break;
+                        case "Opportunity":
+                            returningObjects.push("opportunity(id, name, Account.name " + whereClause + ")");
+                            break;
+                    }
+                });                    
+                
+                sforce.connection.search("find {" + queryInput.val() + "} in all fields returning " + returningObjects.join() + " limit 6", callback);
+            };
+        });
+        
+        $("[data-field-for]").each(function(){
+            var fieldParts = $(this).data("field-for").split("."); 
+            var objectName = fieldParts[0];
+            var fieldName = fieldParts[1];
+            
+            var objectDescription = describeObject(objectName);
+            
+            var isVisible = false;
+            
+            objectDescription.getArray("fields").forEach(function(item, index){
+                if(item.name == fieldName){
+                    isVisible = true;
+                    
+                    return;
+                }
+            });
+            
+            if(!isVisible){
+                $(this).remove();
+            }
+        });
+        
+        $(".dependant-picklist").each(function(){                
+            var element = $(this);
+            
+            var id = element.attr("id");
+            var controlId = element.data("dependant-on");
+            
+            var controlElement = document.getElementById(controlId);
+            var controlElementIsBoolean = $(controlElement).is(":checkbox");
+            
+            var objectName = id.split('.')[0];
+            var dependantFieldName = id.split('.')[1];
+            var controlFieldName = controlId.split('.')[1];               
+            
+            var options = getDependentOptions(objectName, controlFieldName, dependantFieldName, controlElementIsBoolean);                
+            
+            $(controlElement).on("change", function(){
+                element.empty();
+                
+                var value = $(this).val();
+                
+                if(controlElementIsBoolean){
+                    value = $(this).is(":checked") ? 1 : 0;    
+                }
+                
+                if(options[value]){
+                    options[value].forEach(function(item, index){
+                        element.append($("<option />").attr("value", item.value).text(item.label));
+                    });
+                }
+            }).trigger("change");
+        });
+        
+        $(".visible-when").each(function(){
+            var element = $(this);
+            var controlElement = document.getElementById(element.data("visibility-control"));
+            var controlElementIsPicklist = $(controlElement).is("select");
+            var controlElementIsMultiPicklist = controlElementIsPicklist && $(controlElement).is("[multiple]");
+            
+            $(controlElement).on("change", function(){
+                var value = $(this).val();
+                
+                if($(this).is(":checkbox")){
+                    value = $(this).is(":checked").toString();    
+                }
+                
+                if(value){
+                    if(controlElementIsMultiPicklist){
+                        element.toggle(value.indexOf(element.data("visibility-when").toString()) > -1);                 
+                    }
+                    else{
+                        element.toggle(value.toString() === element.data("visibility-when").toString()); 
+                    }                         
+                }
+            }).trigger("change");
+        });        
+        
+        $(":checkbox").each(function(){
+            $(this).prop("checked", $(this).data("checked")).trigger("change");
+        }); 
+        
+        $("select").each(function(){
+            var value = $(this).data("value");
+            
+            if(value === undefined){
+                return;
+            }                
+            
+            var splitValue = value.split(";");
+            
+            if(splitValue != ""){
+                $(this).val(splitValue).trigger("change");
+            }
+        });
+        
+        
+        <apex:repeat value="{!WhoIdPickerState.EventRelationVMs}" var="vm">
+            addMultipleLookupItem($("ul#Event\\.WhoId"), '{!JSENCODE(vm.Id)}', '{!JSENCODE(vm.Type)}', '{!JSENCODE(vm.Name)}', '({!JSENCODE(vm.Type)}) {!JSENCODE(vm.SecondaryInfo)}');
+        </apex:repeat>
+        
+        $("form").show();//.fadeIn();
+        
+        function addMultipleLookupItem(target, id, type, primaryText, secondaryText){
+            var removeLink = $("<a/>")
+            .addClass("remove")
+            .text("{!$Label.CallReport_SharedActivities_Remove}")
+            .on("click", function() {
+                $(target).find("li.selected[data-item-id='"+ $(this).parents("li").data("item-id") +"']")
+                .removeClass("selected")
+                .show();
+                
+                $(this).parents("li").remove();
+                
+                multipleItemPickerHasChanged(target);
+                
+                //return false;
+            });
+            
+            
+            var makePrimaryLink = $("<a/>")
+            .addClass("make-primary")
+            .text("{!$Label.CallReport_SharedActivities_MakePrimary}")
+            .on("click", function() {                        
+                $(this).parents("li").prependTo(target);
+                
+                multipleItemPickerHasChanged(target);
+                
+                //return false;
+            });
+            
+            var actionsDiv = $("<div/>")
+            .addClass("actions")
+            .append(removeLink)
+            .append(makePrimaryLink);
+            
+            $("<li/>").addClass("current-value")
+            .append($("<h2/>").text(primaryText))
+            .append($("<p/>").text(secondaryText)) 
+            .append(actionsDiv)
+            .attr("data-item-id", id)
+            .data("item-id", id)
+            .data("item-type", type)
+            .on("click", function() {
+                // hide all except for this item's actions div so that we aren't always hiding befroe calling toggle
+                $(target).find("div.actions").not($(this).find("div.actions")).hide();
+                
+                $(this).find("div.actions").toggle();
+            })
+            .insertBefore(target.find("li.search-ui:first"));
+            
+            multipleItemPickerHasChanged(target);
+        }
+        
+        function getValuesFromMultipleItemPicker(target){
+            var values = [];
+            
+            $(target).find("li.current-value").each(function(){
+                values.push($(this).data("item-id"));
+            });
+            
+            return values;
+        }
+        
+        function multipleItemPickerHasChanged(target){
+            var selectedItems = $(target).find("li.current-value");
+            var hasSelectedItems = selectedItems.length > 0;
+            var itemType = selectedItems.data("item-type");  
+            var limit = $(target).data("limit-" + itemType);                
+            var limitIsReached = selectedItems.length >= limit;
+            
+            $(target).find("select").prop("disabled", hasSelectedItems);
+            $(target).find("input").prop("disabled", limitIsReached); 
+            $(target).find("p.limit-message").toggle(limitIsReached);     
+            
+            if(limitIsReached){      
+                // clear search box
+                $(target).find("input").val("");
+                
+                // clear search results
+                $(target).find("li.search-result").remove();
+            }
+            
+            if(hasSelectedItems){                  
+                $(target).find("select").val(itemType);
+                $(target).data("item-id", selectedItems.first().data("item-id"));
+            }
+            else{
+                $(target).find("select")[0].selectedIndex = 0;
+            }
+        }
+        
+        function getObject(objectName, id){
+            var e = new sforce.SObject(objectName);
+            
+            //e.sobjectType = objectName;
+            
+            if(id != ''){
+                e.Id = id;
+            }
+            
+            var returnObject = false;
+            
+            $("input[id^='" + objectName + ".']:visible,textarea[id^='" + objectName + ".']:visible,select[id^='" + objectName + ".']:visible").each(function(){
+                returnObject = true;
+                
+                if($(this).hasClass("do-not-save")){
+                    return;    
+                }
+                
+                var fieldName = $(this).attr("id").split(".")[1];
+                
+                if($(this).is(":checkbox")){
+                    e[fieldName] = $(this).is(":checked");
+                }
+                else if($(this).is("select")){
+                    var value = [];
+                    
+                    $(this).find("option[value]:selected").each(function(){
+                        var selectedValue = $(this).attr("value");
+                        
+                        if(selectedValue != ""){
+                            value.push(selectedValue);
+                        }
+                    }); 
+                    
+                    e[fieldName] = value.join(';');
+                }
+                    else if($(this).hasClass("date-with-time")){
+                        var value = $(this).val();
+                        
+                        value += "T" + document.getElementById($(this).attr("id") + "-Time").value + ":00.000+{!DateTimeOffset}";
+                        //value += " " + document.getElementById($(this).attr("id") + "-Time").value + ":00.000";//+{!DateTimeOffset}";
+                        
+                        var timestamp = moment(value).unix();
+                        
+                        if(!isNaN(timestamp)){
+                            e[fieldName] = timestamp * 1000; // Convert seconds to milliseconds
+                        }
+                    }
+                        else if($(this).is("[type='date']")){
+                            var timestamp = moment($(this).val()).unix();
+                            
+                            if(!isNaN(timestamp)){
+                                e[fieldName] = timestamp * 1000; // Convert seconds to milliseconds
+                            }
+                        }
+                            else{
+                                var value = $(this).val();
+                                
+                                if(value == '') {
+                                    value = null;
+                                }                                   
+                                
+                                e[fieldName] = value;
+                            }
+            });
+            
+            $("ul.item-lookup[id^='" + objectName + ".']:visible").each(function(){                    
+                var value = $(this).data("item-id");
+                var fieldName = $(this).attr("id").split(".")[1];
+                
+                if(value == ''){
+                    value = null;    
+                }
+                
+                e[fieldName] = value;
+            });
+            
+            return returnObject ? e : null;
+        }
+        
+        function save(){
+            $(".error").removeClass("error");
+            $(".error-message").remove();
+            //alert('{!text($User.User_Country__c)}');
+            //alert('{!$ObjectType.OrderItem.Accessible}');
+            document.getElementById('saveeventbutton').disabled = true;
+            //AND($ObjectType.OrderItem.Accessible, NOT(OR(TEXT($User.User_Country__c) == 'USA', TEXT($User.User_Country__c) == 'Canada', TEXT($User.User_Country__c) == 'UK', TEXT($User.User_Country__c) == 'Ireland')))}
+            if('{!$ObjectType.OrderItem.Accessible}' === 'true' && !('{!TEXT($User.User_Country__c)}' === 'USA'  || '{!TEXT($User.User_Country__c)}' === 'Canada' || '{!TEXT($User.User_Country__c)}' === 'UK' || '{!TEXT($User.User_Country__c)}' === 'Ireland' )){
+                        //    document.getElementById('createorderbutton').disabled = true;
+            }
+            var cr = getObject("Call_Report__c", "{!Event.Call_Report__r.Id}");
+            var e = getObject("Event", "{!Event.Id}");
+            var whoIds = [];
+            $("ul#Event\\.WhoId li.current-value").each(function(){
+                whoIds.push($(this).data("item-id"));
+            });
+            // For some reason, this property is not valid on this type, but it is valid for events
+            if(cr){
+                delete cr.type;
+            }
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.EventWithCallReport.SaveMobile}', 
+                e, cr, whoIds, 
+                function(result, event){  
+                    document.getElementById('saveeventbutton').disabled = false;
+                    if('{!$ObjectType.OrderItem.Accessible}' === 'true' && !('{!TEXT($User.User_Country__c)}' === 'USA'  || '{!TEXT($User.User_Country__c)}' === 'Canada' || '{!TEXT($User.User_Country__c)}' === 'UK' || '{!TEXT($User.User_Country__c)}' === 'Ireland' )){
+                    // document.getElementById('createorderbutton').disabled = false;
+                        }
+                    result.Errors.forEach(function(item, index){
+                        alert(item);
+                    });                        
+                    
+                    if(result.WasSuccessful){
+                        if('{!$CurrentPage.Parameters.bypassPublisher}' === 'true'){
+                            // window.history.back();
+                            var productURL = ('/' + result.evnt.Id);
+                            sforce.one.navigateToURL(productURL);
+                        }
+                        else{
+                            Sfdc.canvas.publisher.publish({ name: "publisher.close", payload:{ refresh:"true" }});
+                        }
+                    }
+                }, 
+                {escape: true}
+            );
+        }
+        
+        function saveCreateDirectOrder(){
+            
+            $(".error").removeClass("error");
+            $(".error-message").remove();
+            
+            document.getElementById('saveeventbutton').disabled = true;
+            // document.getElementById('createorderbutton').disabled = true;
+            
+            var cr = getObject("Call_Report__c", "{!Event.Call_Report__r.Id}");
+            var e = getObject("Event", "{!Event.Id}");
+            var whoIds = [];
+            
+            
+            $("ul#Event\\.WhoId li.current-value").each(function(){
+                whoIds.push($(this).data("item-id"));
+            });
+            
+            
+            if(cr){
+                delete cr.type;
+            }
+            
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.EventWithCallReport.SaveMobile}', 
+                e, cr, whoIds, 
+                function(result, event){  
+                    document.getElementById('saveeventbutton').disabled = false;
+                    // document.getElementById('createorderbutton').disabled = false;
+                    result.Errors.forEach(function(item, index){
+                        alert(item);
+                    });                        
+                    
+                    if(result.WasSuccessful){
+                        if('{!$CurrentPage.Parameters.bypassPublisher}' === 'true'){
+                            var productURL = ('/apex/Order_Direct_CFE?scontrolCaching=1&id=' + result.evnt.Id)
+                            sforce.one.navigateToURL(productURL);
+                            //window.history.back();
+                        }
+                        else{
+                            var productURL = ('/apex/Order_Direct_CFE?scontrolCaching=1&id=' + e.Id)
+                            sforce.one.navigateToURL(productURL);
+                        }
+                    }
+                }, 
+                {escape: true}
+            );
+            
+        }
+        
+        
+        function saveCreateIndirectOrder(){
+            $(".error").removeClass("error");
+            $(".error-message").remove();
+            
+            var cr = getObject("Call_Report__c", "{!Event.Call_Report__r.Id}");
+            var e = getObject("Event", "{!Event.Id}");
+            var whoIds = [];
+            
+            
+            $("ul#Event\\.WhoId li.current-value").each(function(){
+                whoIds.push($(this).data("item-id"));
+            });
+            
+            // For some reason, this property is not valid on this type, but it is valid for events
+            if(cr){
+                delete cr.type;
+            }
+            
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.EventWithCallReport.SaveMobile}', 
+                e, cr, whoIds, 
+                function(result, event){                        
+                    result.Errors.forEach(function(item, index){
+                        alert(item);
+                    });                        
+                    
+                    if(result.WasSuccessful){
+                        if('{!$CurrentPage.Parameters.bypassPublisher}' == 'true'){
+                            var productURL = ('/apex/Order_Indirect_CFE?scontrolCaching=1&id=' + result.evnt.Id)
+                            sforce.one.navigateToURL(productURL);
+                            //window.history.back();
+                        }
+                        else{
+                            Sfdc.canvas.publisher.publish({ name: "publisher.close", payload:{ refresh:"true" }});
+                        }
+                    }
+                }, 
+                {escape: true}
+            );
+            
+        }
+        
+        
+        function getDependentOptions(objName, ctrlFieldName, depFieldName, ctrlFieldIsBoolean) {
+            // Isolate the Describe info for the relevant fields                
+            var objDesc = describeObject(objName);
+            var ctrlFieldDesc, depFieldDesc;
+            var found = 0;
+            for (var i=0; i<objDesc.fields.length; i++) {
+                var f = objDesc.fields[i];
+                if (f.name == ctrlFieldName) {
+                    ctrlFieldDesc = f;
+                    found++;
+                } else if (f.name == depFieldName) {
+                    depFieldDesc = f;
+                    found++;
+                }
+                if (found==2) break; 
+            }
+            
+            // Set up return object
+            var dependentOptions = {};                
+            var ctrlValues;
+            
+            if(ctrlFieldIsBoolean){
+                ctrlValues = [{label:0}, {label:1}];
+            }
+            else{
+                ctrlValues = ctrlFieldDesc.picklistValues;
+            }               
+            
+            for (var i=0; i<ctrlValues.length; i++) {
+                dependentOptions[ctrlValues[i].label] = [];
+            }
+            
+            var base64 = new sforce.Base64Binary("");
+            function testBit (validFor, pos) {
+                var byteToCheck = Math.floor(pos/8);
+                var bit = 7 - (pos % 8);
+                return ((Math.pow(2, bit) & validFor.charCodeAt(byteToCheck)) >> bit) == 1;
+            }
+            
+            // For each dependent value, check whether it is valid for each controlling value
+            var depValues = depFieldDesc.picklistValues;
+            for (var i=0; i<depValues.length; i++) {
+                var thisOption = depValues[i];
+                var validForDec = base64.decode(thisOption.validFor);
+                for (var ctrlValue=0; ctrlValue<ctrlValues.length; ctrlValue++) {
+                    if (testBit(validForDec, ctrlValue)) {
+                        dependentOptions[ctrlValues[ctrlValue].label].push({value: thisOption.value, label: thisOption.label});
+                    }
+                }
+            }
+            
+            return dependentOptions;
+        }
+        
+        function describeObject(objName){
+            if(__objectDescriptions[objName] == null){
+                __objectDescriptions[objName] = sforce.connection.describeSObject(objName)
+            }
+            
+            return __objectDescriptions[objName]; 
+        }
+        
+        </script>
+    </body>
+</apex:page>

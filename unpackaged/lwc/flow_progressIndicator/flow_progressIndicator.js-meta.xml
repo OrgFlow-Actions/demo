@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="currentStage" label="Current Stage" type="String" role="inputOnly" />
+            <property name="stages" label="Active Stages" type="String[]" role="inputOnly" />
+            <property name="type" label="Type" type="String" default="base" role="inputOnly" />
+            <property name="variant" label="Variant" type="String" default="base" role="inputOnly" />
+            <property name="selectedStage" label="selectedStage" type="String" role="outputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

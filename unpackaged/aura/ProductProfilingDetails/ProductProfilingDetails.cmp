@@ -1,0 +1,92 @@
+<aura:component controller="ProductProfilingHierarchyController" implements="lightning:availableForFlowScreens" access="global" >
+		<aura:handler name="init" value="{!this}" action="{!c.init}" />
+      	<aura:attribute name="selectedProducts" type="Product_Profiling__c[]" default="[]" />
+    	<aura:attribute name="selectedProductsWrapper" type="ProductProfilingBundle[]" default="[]" />
+    	<aura:attribute name="outputProducts" type="Product_Profiling__c[]" default="[]" />
+    	<aura:attribute name="columns" type="List"/>
+    	<aura:attribute name="options" type="List" default="[
+    		{'label': 'Prospect', 'value': 'Prospect'},
+    		{'label': 'Low Usage', 'value': 'Low Usage'},
+    		{'label': 'Medium Usage', 'value': 'Medium Usage'},
+            {'label': 'High Usage', 'value': 'High Usage'}, 
+          	{'label': 'Installed', 'value': 'Installed'}, 
+          	{'label': 'Not Interested', 'value': 'Not Interested'},
+            {'label': 'Lapsed Usage', 'value': 'Lapsed Usage'},
+    	]"/>
+		<div style="overflow:initial">  	
+    	<aura:iteration items="{!v.outputProducts}" var="item">
+            
+           <!-- Desktop experience -->
+            
+           <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+               
+           <div class="slds-grid slds-gutters">
+		
+                <div class="slds-col slds-size_3-of-12">
+                    <span>
+                    
+                    <!--<aura:if isTrue="{!item.Product_Name__r.Name != null }">
+                        <lightning:input name="productName" readonly="true" value="{!item.Product_Name__r.Name}" label="Product"/>
+                   
+                    <aura:set attribute="else"> -->
+                    	<lightning:input name="productName" readonly="true" value="{!item.productName}" label="Product"/>
+                   <!--</aura:set>
+                        </aura:if>  -->   
+                        
+                	</span>
+                </div>   
+                <div class="slds-col slds-size_2-of-12">
+                    <span>
+                    <lightning:combobox aura:id="{!item.Non_Erp_Product_ID__c}" name="{!item.Non_Erp_Product_ID__c}" label="Status" value="{!item.Status__c}" placeholder="Select Progress" options="{!v.options}"/>
+                    </span>
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                    <span>
+                    <lightning:input name="{!item.Quantity__c}" label="Quantity" value="{!item.Quantity__c}" />
+                	</span>
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+               		<span>
+                        <lightning:input type="date" name="{!item.Date_of_purchase__c}" label="Date" value="{!item.Date_of_purchase__c}"/>
+                    </span>
+               </div>
+               <div class="slds-col slds-size_3-of-12">
+               		<span>
+                        <lightning:input type="text" name="{!item.Notes__c}" label="Notes" value="{!item.Notes__c}"/>
+                    </span>
+               </div>
+              </div> 
+               
+              <!-- Mobile experience -->
+              <aura:set attribute="else">
+              	
+                  <lightning:card variant="Narrow">
+                      <aura:set attribute="title">
+                         <!--<aura:if isTrue="{!item.Product_Name__r.Name != null }">
+                        	{!item.Product_Name__r.Name}
+                   
+                    		<aura:set attribute="else"> -->
+                    			{!item.productName}
+                   			<!--</aura:set>
+                          </aura:if> -->   
+                     </aura:set> 
+                      <p class="slds-p-horizontal_small">
+                      	<lightning:combobox aura:id="{!item.Non_Erp_Product_ID__c}" name="{!item.Non_Erp_Product_ID__c}" label="Status" value="{!item.Status__c}" placeholder="Select Progress" options="{!v.options}"/>
+					 	<lightning:input name="{!item.Quantity__c}" label="Quantity" value="{!item.Quantity__c}" />
+                      	<lightning:input type="date" name="{!item.Date_of_purchase__c}" label="Date" value="{!item.Date_of_purchase__c}"/>              
+                      </p>
+                     </lightning:card>
+					
+              </aura:set>    
+               
+            </aura:if>
+        </aura:iteration>
+    	</div>
+    	<aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+            <div><p><br/><br/><br/></p></div>
+    	</aura:if>   
+    	<aura:if isTrue="{!$Browser.formFactor != 'PHONE'}">
+            <div><p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></p></div>
+    	</aura:if>   
+        
+</aura:component>

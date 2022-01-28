@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Lightning_Program</content>
+    <formFactor>Large</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Lightning_Program</content>
+    <formFactor>Small</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>Used to track programs that an Account is participating at. Example could be a loyalty Program. 
+
+Note that the API label says LoyaltyProgram since that was the first design of it and intention for it - but has been relabeled to have a broader meaning and sense since whereas types of programs has arised as a need.</description>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>false</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>Private</externalSharingModel>
+  <fields>
+    <fullName>AllowMultipleMembersPerAccount__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>https://dentsplysirona.lightning.force.com/lightning/r/Project__c/a1T6M0000050T5yUAE/view</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check to allow multiple program member records with the same account.</inlineHelpText>
+    <label>Allow Multiple Members per Account</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>AllowMultipleMembersPerContact__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>https://dentsplysirona.lightning.force.com/lightning/r/Project__c/a1T6M0000050T5yUAE/view</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check to allow multiple program members with the same Contact</inlineHelpText>
+    <label>Allow Multiple Members per Contact</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>AllowProgramMembers__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>https://dentsplysirona.lightning.force.com/lightning/r/Project__c/a1T6M0000050T5yUAE/view</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Allow users to add program members to this program</inlineHelpText>
+    <label>Allow Program Members</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>ContactRequired__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>TFUS-000002932</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this field to require a Contact during program member registration</inlineHelpText>
+    <label>Contact Required</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Country__c</fullName>
+    <description>https://dentsplysirona.lightning.force.com/lightning/r/Project__c/a1T6M0000050T5yUAE/view</description>
+    <externalId>false</externalId>
+    <label>Country</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetName>Country_Code_2_digit</valueSetName>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+  </fields>
+  <fields>
+    <fullName>EndDate__c</fullName>
+    <externalId>false</externalId>
+    <label>End Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Notifications__c</fullName>
+    <description>TFUS-000002384. Controls whether a chatter post will be created that notifies users in the parent account territory once a program registration has been activated.</description>
+    <externalId>false</externalId>
+    <label>Notifications</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Send Chatter Notification to Territory Users</fullName>
+          <default>false</default>
+          <label>Send Chatter Notification to Territory Users</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ProgramDescription__c</fullName>
+    <description>210318: TFUS-000002864 &amp; TFUS-000002865
+This field is used to show guidance on the account program member page.</description>
+    <externalId>false</externalId>
+    <label>Program Description</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+  </fields>
+  <fields>
+    <fullName>StartDate__c</fullName>
+    <externalId>false</externalId>
+    <label>Start date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Active</fullName>
+          <default>false</default>
+          <label>Active</label>
+        </value>
+        <value>
+          <fullName>Inactive</fullName>
+          <default>false</default>
+          <label>Inactive</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Subtype__c</fullName>
+    <description>https://dentsplysirona.lightning.force.com/lightning/r/Project__c/a1T6M0000050T5yUAE/view</description>
+    <externalId>false</externalId>
+    <label>Subtype</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <controllingField>Type__c</controllingField>
+      <restricted>true</restricted>
+      <valueSetName>Account_Program_Subtype</valueSetName>
+      <valueSettings>
+        <controllingFieldValue>Loyalty program</controllingFieldValue>
+        <valueName>Cerec Club</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>Rewards Program</controllingFieldValue>
+        <valueName>Lab Alliance</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>Rewards Program</controllingFieldValue>
+        <valueName>One DS</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>Rewards Program</controllingFieldValue>
+        <valueName>One DS Pro</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>Rewards Program</controllingFieldValue>
+        <valueName>One DSO</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>Loyalty program</controllingFieldValue>
+        <valueName>Other</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>Loyalty program</controllingFieldValue>
+        <valueName>SureSmile Advantage</valueName>
+      </valueSettings>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetName>Account_Program_Type</valueSetName>
+    </valueSet>
+  </fields>
+  <label>Account Program</label>
+  <listViews>
+    <fullName>All_Account_Programs1</fullName>
+    <columns>NAME</columns>
+    <columns>AllowMultipleMembersPerAccount__c</columns>
+    <columns>AllowMultipleMembersPerContact__c</columns>
+    <columns>AllowProgramMembers__c</columns>
+    <columns>ContactRequired__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+      <field>Status__c</field>
+      <operation>equals</operation>
+      <value>Active</value>
+    </filters>
+    <label>All Account Programs</label>
+  </listViews>
+  <nameField>
+    <label>Account Program Name</label>
+    <type>Text</type>
+  </nameField>
+  <pluralLabel>Account Programs</pluralLabel>
+  <searchLayouts />
+  <sharingModel>Private</sharingModel>
+  <startsWith>Vowel</startsWith>
+  <visibility>Public</visibility>
+</CustomObject>

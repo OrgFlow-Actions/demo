@@ -1,0 +1,11 @@
+:host {
+    position: absolute;
+    left: 1rem;
+    top: -1.75rem;
+}
+.slds-popover__header {
+    padding: var(--lwc-spacingSmall);
+}
+.full-width {
+    min-width: 100% !important;
+}

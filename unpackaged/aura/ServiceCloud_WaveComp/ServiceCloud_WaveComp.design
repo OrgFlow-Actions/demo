@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="dashboardDevName" label="Dashboard developer name" />
+    <design:attribute name="userFilter" label="Filter on current user?" />
+    <design:attribute name="datasetName" label="Name of dataset" />
+</design:component>

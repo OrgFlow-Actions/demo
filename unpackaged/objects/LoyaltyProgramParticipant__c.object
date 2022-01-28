@@ -1,0 +1,1751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Account_Program_Member_Record_Page</content>
+    <formFactor>Large</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <comment>Action override created by Lightning App Builder during activation.</comment>
+    <content>Account_Program_Member_Record_Page</content>
+    <formFactor>Small</formFactor>
+    <skipRecordTypeSelect>false</skipRecordTypeSelect>
+    <type>Flexipage</type>
+  </actionOverrides>
+  <allowInChatterGroups>true</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <enableActivities>true</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>true</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>AcceptedTermsAndConditions__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <label>Accepted Terms and Conditions</label>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>AccountPlan__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Account Plan</label>
+    <referenceTo>Account_Plan__c</referenceTo>
+    <relationshipLabel>Account Program Members</relationshipLabel>
+    <relationshipName>Account_Program_Members</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Account__c</fullName>
+    <externalId>false</externalId>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Account Program Members</relationshipLabel>
+    <relationshipName>LoyaltyProgramParticipants</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>AdvancedProfiling__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Advanced Profiling</label>
+    <referenceTo>AdvancedProfiling__c</referenceTo>
+    <relationshipLabel>Account Program Members</relationshipLabel>
+    <relationshipName>Account_Program_Members</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Canada_Consultation_Interview_Export__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK("/lightning/r/Report/00O6M000008JVUTUA4/view?fv0="&amp;Id,
+"Export Details of Interview for Consultation Calculator")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Canada Consultation Interview Export</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Equipment with Voucher</fullName>
+          <default>false</default>
+          <label>Equipment with Voucher</label>
+        </value>
+        <value>
+          <fullName>Voucher Only</fullName>
+          <default>false</default>
+          <label>Voucher Only</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>ConsumableOrderNumber__c</fullName>
+    <externalId>false</externalId>
+    <label>Consumable Order Number</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Account Program Members</relationshipLabel>
+    <relationshipName>Account_Program_Members</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Dealer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Dealer</label>
+    <lookupFilter>
+      <active>true</active>
+      <errorMessage>Value does not exist or does not match filter criteria. (Account Type must be a Distributor)</errorMessage>
+      <filterItems>
+        <field>Account.OneAccount_Type__c</field>
+        <operation>equals</operation>
+        <value>Distributor, DNA Distributor</value>
+      </filterItems>
+      <filterItems>
+        <field>Account.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>CIM Account</value>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Account Program Members (Dealer)</relationshipLabel>
+    <relationshipName>Account_Program_Members</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>DistributorRep__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The contacts available in this lookup must be related 
+to the previously selected Distributor (Dealer)</inlineHelpText>
+    <label>Distributor Rep</label>
+    <lookupFilter>
+      <active>true</active>
+      <errorMessage>Value does not exist or does not match filter criteria. (The Distributor Rep must be related to the previously selected Dealer)</errorMessage>
+      <filterItems>
+        <field>$Source.Dealer__c</field>
+        <operation>equals</operation>
+        <valueField>Contact.AccountId</valueField>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Account Program Members (Distributor Rep)</relationshipLabel>
+    <relationshipName>Account_Program_Members1</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Email__c</fullName>
+    <description>Email of the person signing the T&amp;C</description>
+    <externalId>false</externalId>
+    <label>Email</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>EquipmentInvoiceNumber__c</fullName>
+    <externalId>false</externalId>
+    <label>Equipment Invoice Number</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>ExternalId__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Random string generated on insert. Used as external id to be sent out via email to customers to not expose the real Salesforce Id.</description>
+    <externalId>true</externalId>
+    <label>External Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>FirstName__c</fullName>
+    <description>First Name of the person agreeing to the T&amp;C.</description>
+    <externalId>false</externalId>
+    <label>First Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>LastName__c</fullName>
+    <description>Last Name of the person signing the T&amp;C</description>
+    <externalId>false</externalId>
+    <label>Last Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Level__c</fullName>
+    <description>https://dentsplysirona.lightning.force.com/lightning/r/Project__c/a1T6M0000050T5yUAE/view</description>
+    <externalId>false</externalId>
+    <label>Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <controllingField>Subtype__c</controllingField>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>SureSmile Advantage Starter</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage Starter</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage Omni</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage Omni</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage Omni+</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage Omni+</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage Prime</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage Prime</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage Prime+</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage Prime+</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage Pro</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage Pro</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage Pro+</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage Pro+</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage LegenDS</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage LegenDS</label>
+        </value>
+        <value>
+          <fullName>SureSmile Advantage LegenDS+</fullName>
+          <default>false</default>
+          <label>SureSmile Advantage LegenDS+</label>
+        </value>
+      </valueSetDefinition>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage LegenDS</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage LegenDS+</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage Omni</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage Omni+</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage Prime</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage Prime+</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage Pro</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage Pro+</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <valueName>SureSmile Advantage Starter</valueName>
+      </valueSettings>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>LoyaltyProgram__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Account Program</label>
+    <referenceTo>LoyaltyProgram__c</referenceTo>
+    <relationshipLabel>Account Program Members</relationshipLabel>
+    <relationshipName>LoyaltyProgramParticipants</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Membership_Expiry_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Membership Expiry Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Notes__c</fullName>
+    <externalId>false</externalId>
+    <label>Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+  </fields>
+  <fields>
+    <fullName>PaymentPreference__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment Preference</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <controllingField>Subtype__c</controllingField>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Quarterly Payouts</fullName>
+          <default>false</default>
+          <label>Quarterly Payouts</label>
+        </value>
+        <value>
+          <fullName>Annual Rebate Voucher</fullName>
+          <default>false</default>
+          <label>Annual Rebate Voucher</label>
+        </value>
+        <value>
+          <fullName>Annual Cash Payout</fullName>
+          <default>false</default>
+          <label>Annual Cash Payout</label>
+        </value>
+        <value>
+          <fullName>Annual Product Credit Voucher</fullName>
+          <default>false</default>
+          <label>Annual Product Credit Voucher</label>
+        </value>
+      </valueSetDefinition>
+      <valueSettings>
+        <controllingFieldValue>One DS Pro</controllingFieldValue>
+        <valueName>Annual Cash Payout</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>One DS Pro</controllingFieldValue>
+        <valueName>Annual Product Credit Voucher</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>One DS</controllingFieldValue>
+        <controllingFieldValue>Cerec Club</controllingFieldValue>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <controllingFieldValue>One DSO</controllingFieldValue>
+        <controllingFieldValue>Lab Alliance</controllingFieldValue>
+        <controllingFieldValue>Other</controllingFieldValue>
+        <valueName>Annual Rebate Voucher</valueName>
+      </valueSettings>
+      <valueSettings>
+        <controllingFieldValue>One DS</controllingFieldValue>
+        <controllingFieldValue>Cerec Club</controllingFieldValue>
+        <controllingFieldValue>SureSmile Advantage</controllingFieldValue>
+        <controllingFieldValue>One DSO</controllingFieldValue>
+        <controllingFieldValue>Lab Alliance</controllingFieldValue>
+        <controllingFieldValue>Other</controllingFieldValue>
+        <valueName>Quarterly Payouts</valueName>
+      </valueSettings>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>PracticeName__c</fullName>
+    <description>Practice Name of the person signing the T&amp;C.</description>
+    <externalId>false</externalId>
+    <label>Practice Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>PurchaseDateOfEquipment__c</fullName>
+    <externalId>false</externalId>
+    <label>Purchase Date of Equipment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>RemitAddress__c</fullName>
+    <description>TFUS-000002383</description>
+    <externalId>false</externalId>
+    <label>Remit-To Address</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>SalesRep__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Sales Rep</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Account_Program_Members</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Status__c</fullName>
+    <defaultValue>'Pending'</defaultValue>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Open</fullName>
+          <default>false</default>
+          <label>Open</label>
+        </value>
+        <value>
+          <fullName>Pending</fullName>
+          <default>false</default>
+          <label>Pending</label>
+        </value>
+        <value>
+          <fullName>Active</fullName>
+          <default>false</default>
+          <label>Active</label>
+        </value>
+        <value>
+          <fullName>Inactive</fullName>
+          <default>false</default>
+          <label>Inactive</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>SubscribeDate__c</fullName>
+    <defaultValue>TODAY()</defaultValue>
+    <externalId>false</externalId>
+    <label>Date of subscription</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Subtype__c</fullName>
+    <description>https://dentsplysirona.lightning.force.com/lightning/r/Project__c/a1T6M0000050T5yUAE/view</description>
+    <externalId>false</externalId>
+    <label>Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetName>Account_Program_Subtype</valueSetName>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>TermsAndConditionsConsentDate__c</fullName>
+    <externalId>false</externalId>
+    <label>Terms and Conditions Consent Date</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+  </fields>
+  <fields>
+    <fullName>TermsAndConditionsDocumentLink__c</fullName>
+    <description>Link to the T&amp;C document that the customer accepted</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Link to the T&amp;C document that the customer accepted</inlineHelpText>
+    <label>Terms and Conditions Document Link</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+  </fields>
+  <fields>
+    <fullName>UniqueRecordIdentifier__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Populated by process builder. Only one member per account and account program allowed.</description>
+    <externalId>true</externalId>
+    <label>Unique Record Identifier</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>VoucherType__c</fullName>
+    <externalId>false</externalId>
+    <label>Voucher Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Endo</fullName>
+          <default>false</default>
+          <label>Endo</label>
+        </value>
+        <value>
+          <fullName>Ortho</fullName>
+          <default>false</default>
+          <label>Ortho</label>
+        </value>
+        <value>
+          <fullName>Resto</fullName>
+          <default>false</default>
+          <label>Resto</label>
+        </value>
+        <value>
+          <fullName>Implants</fullName>
+          <default>false</default>
+          <label>Implants</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Account Program Member</label>
+  <nameField>
+    <displayFormat>LPP-{0000}</displayFormat>
+    <label>Account Program Member Name</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Account Program Members</pluralLabel>
+  <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+  <recordTypeTrackHistory>false</recordTypeTrackHistory>
+  <recordTypes>
+    <active>true</active>
+    <fullName>Clinical_Accelerator</fullName>
+    <label>Clinical Accelerator</label>
+    <picklistValues>
+      <picklist>Category__c</picklist>
+      <values>
+        <fullName>Equipment with Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Voucher Only</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Level__c</picklist>
+      <values>
+        <fullName>SureSmile Advantage LegenDS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage LegenDS%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Starter</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>PaymentPreference__c</picklist>
+      <values>
+        <fullName>Annual Cash Payout</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Product Credit Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Rebate Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Quarterly Payouts</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Status__c</picklist>
+      <values>
+        <fullName>Active</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Inactive</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subtype__c</picklist>
+      <values>
+        <fullName>Cerec Club</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Alliance</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>VoucherType__c</picklist>
+      <values>
+        <fullName>Endo</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Implants</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Ortho</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Resto</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <fullName>Loyalty_Program</fullName>
+    <label>Loyalty Program</label>
+    <picklistValues>
+      <picklist>Category__c</picklist>
+      <values>
+        <fullName>Equipment with Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Voucher Only</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Level__c</picklist>
+      <values>
+        <fullName>SureSmile Advantage LegenDS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage LegenDS%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Starter</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>PaymentPreference__c</picklist>
+      <values>
+        <fullName>Annual Cash Payout</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Product Credit Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Rebate Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Quarterly Payouts</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Status__c</picklist>
+      <values>
+        <fullName>Active</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Pending</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subtype__c</picklist>
+      <values>
+        <fullName>Cerec Club</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Alliance</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>VoucherType__c</picklist>
+      <values>
+        <fullName>Endo</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Implants</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Ortho</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Resto</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <fullName>Pricing_Discount_Program</fullName>
+    <label>Pricing/Discount Program</label>
+    <picklistValues>
+      <picklist>Category__c</picklist>
+      <values>
+        <fullName>Equipment with Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Voucher Only</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Level__c</picklist>
+      <values>
+        <fullName>SureSmile Advantage LegenDS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage LegenDS%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Starter</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>PaymentPreference__c</picklist>
+      <values>
+        <fullName>Annual Cash Payout</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Product Credit Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Rebate Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Quarterly Payouts</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Status__c</picklist>
+      <values>
+        <fullName>Active</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Inactive</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Open</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Pending</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subtype__c</picklist>
+      <values>
+        <fullName>Cerec Club</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Alliance</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>VoucherType__c</picklist>
+      <values>
+        <fullName>Endo</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Implants</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Ortho</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Resto</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <fullName>Rewards_Program</fullName>
+    <label>Rewards Program</label>
+    <picklistValues>
+      <picklist>Category__c</picklist>
+      <values>
+        <fullName>Equipment with Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Voucher Only</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Level__c</picklist>
+      <values>
+        <fullName>SureSmile Advantage LegenDS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage LegenDS%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Starter</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>PaymentPreference__c</picklist>
+      <values>
+        <fullName>Annual Cash Payout</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Product Credit Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Rebate Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Quarterly Payouts</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Status__c</picklist>
+      <values>
+        <fullName>Active</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Inactive</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Open</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Pending</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subtype__c</picklist>
+      <values>
+        <fullName>Cerec Club</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Alliance</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>VoucherType__c</picklist>
+      <values>
+        <fullName>Endo</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Implants</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Ortho</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Resto</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <fullName>Standard_Program</fullName>
+    <label>Standard Program</label>
+    <picklistValues>
+      <picklist>Category__c</picklist>
+      <values>
+        <fullName>Equipment with Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Voucher Only</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Level__c</picklist>
+      <values>
+        <fullName>SureSmile Advantage LegenDS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage LegenDS%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Starter</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>PaymentPreference__c</picklist>
+      <values>
+        <fullName>Annual Cash Payout</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Product Credit Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Rebate Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Quarterly Payouts</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Status__c</picklist>
+      <values>
+        <fullName>Active</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Inactive</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subtype__c</picklist>
+      <values>
+        <fullName>Cerec Club</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Alliance</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>VoucherType__c</picklist>
+      <values>
+        <fullName>Endo</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Implants</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Ortho</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Resto</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <recordTypes>
+    <active>true</active>
+    <fullName>Subscription_Program</fullName>
+    <label>Subscription Program</label>
+    <picklistValues>
+      <picklist>Category__c</picklist>
+      <values>
+        <fullName>Equipment with Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Voucher Only</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Level__c</picklist>
+      <values>
+        <fullName>SureSmile Advantage LegenDS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage LegenDS%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Omni%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Prime%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Pro%2B</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage Starter</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>PaymentPreference__c</picklist>
+      <values>
+        <fullName>Annual Cash Payout</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Product Credit Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Annual Rebate Voucher</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Quarterly Payouts</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Status__c</picklist>
+      <values>
+        <fullName>Active</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Inactive</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Open</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Pending</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>Subtype__c</picklist>
+      <values>
+        <fullName>Cerec Club</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Lab Alliance</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DS Pro</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>One DSO</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Other</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>SureSmile Advantage</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+    <picklistValues>
+      <picklist>VoucherType__c</picklist>
+      <values>
+        <fullName>Endo</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Implants</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Ortho</fullName>
+        <default>false</default>
+      </values>
+      <values>
+        <fullName>Resto</fullName>
+        <default>false</default>
+      </values>
+    </picklistValues>
+  </recordTypes>
+  <searchLayouts />
+  <sharingModel>ControlledByParent</sharingModel>
+  <startsWith>Vowel</startsWith>
+  <validationRules>
+    <fullName>VR_DigitalWorkflow</fullName>
+    <active>true</active>
+    <description>Prevents activation if a field in the Digital Workflow section has not been populated.</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = 'Loyalty_Program'
+  ,ISPICKVAL(Account__r.Country__c,"CA")
+  ,ISPICKVAL(Status__c,"Active")
+  ,OR(
+  	ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DS")
+    ,ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DS Pro")
+    ,ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DSO")
+  )
+  ,OR(
+    ISBLANK(TEXT(AdvancedProfiling__r.GuidedImplantPlacement__c))
+    ,ISBLANK(TEXT(AdvancedProfiling__r.ImplantRestoration__c))
+    ,ISBLANK(TEXT(AdvancedProfiling__r.Crowns__c))
+    ,ISBLANK(TEXT(AdvancedProfiling__r.Bridges__c))
+    ,ISBLANK(TEXT(AdvancedProfiling__r.ClearAlignerTherapyOrtho__c))
+    ,ISBLANK(TEXT(AdvancedProfiling__r.Appliances__c))
+  )
+)</errorConditionFormula>
+    <errorMessage>You need to complete the Digital Workflow section to set the Status as Active</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>VR_FuturePracticePlans</fullName>
+    <active>true</active>
+    <description>Prevents setting the status as Active if the Future Practice Plans section has not been completed</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = 'Loyalty_Program'
+  ,ISPICKVAL(Account__r.Country__c,"CA")
+  ,ISPICKVAL(Status__c,"Active")
+  ,OR(
+  	ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DS")
+    ,ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DS Pro")
+    ,ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DSO")
+  )
+  ,OR(
+  ISBLANK(TEXT(AccountPlan__r.AddSurgicalOperatory__c))
+  ,ISBLANK(TEXT(AccountPlan__r.HygieneOperatory__c))
+  ,ISBLANK(TEXT(AccountPlan__r.PurchasingExistingPractice__c))
+  ,ISBLANK(TEXT(AccountPlan__r.OpeningNewPractice__c))
+  ,ISBLANK(TEXT(AccountPlan__r.Relocating__c))
+  ,ISBLANK(TEXT(AccountPlan__r.AddingAssociates__c))
+  ,ISBLANK(TEXT(AccountPlan__r.DigitalScanner__c))
+  ,ISBLANK(TEXT(AccountPlan__r.MillOven__c))
+  ,ISBLANK(TEXT(AccountPlan__r.CBCT3D__c))
+  ,ISBLANK(TEXT(AccountPlan__r.Pan__c))
+  ,ISBLANK(TEXT(AccountPlan__r.ChairDeliverySystemTreatmentCent__c))
+	)
+)</errorConditionFormula>
+    <errorMessage>You need to complete the Future Practice Plans section to set the Status as Active</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>VR_ModifyAPorAP</fullName>
+    <active>true</active>
+    <description>Account plan and Advanced profiling cannot be modified.
+TFUS-000003419: Excluded System Admin profile from the rule</description>
+    <errorConditionFormula>AND(NOT( $User.Profile__c = '#System: System Administrator' ),RecordType.DeveloperName = 'Loyalty_Program'
+,ISPICKVAL(Account__r.Country__c,"CA")
+,OR(ISCHANGED( AccountPlan__c ) , 
+ISCHANGED(  AdvancedProfiling__c  )))</errorConditionFormula>
+    <errorMessage>You're not allowed to remove or modify the associated account plan or advanced Profiling record attached to this record.</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>VR_PreventativeAndRestorative</fullName>
+    <active>true</active>
+    <description>Prevents setting the status as Active if the Preventative and Restorative section has not been completed.</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = 'Loyalty_Program'
+	,ISPICKVAL(Account__r.Country__c,"CA")
+  ,ISPICKVAL(Status__c,"Active")
+  ,OR(
+  	ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DS")
+    ,ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DS Pro")
+    ,ISPICKVAL(LoyaltyProgram__r.Subtype__c,"One DSO")
+  )
+  ,OR(
+  ISBLANK(AdvancedProfiling__r.ofFillingsClassIMonth__c)
+  ,ISBLANK(AdvancedProfiling__r.ofFillingsClassIIMonth__c)
+  ,ISBLANK(AdvancedProfiling__r.ofFillingsClassIIIIVVMonth__c)
+  ,ISBLANK(AdvancedProfiling__r.OfCrownsMonth__c)
+  ,ISBLANK(AdvancedProfiling__r.OfBridgesMonth__c)
+  ,ISBLANK(TEXT(AdvancedProfiling__r.Composite__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.CoreBuildUpMaterials__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.MatrixMaterials__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.FinishingPolishing__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.ImpressionMaterials__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.Cement__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.CADCAMBlocks__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.BoneRegenerative__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.Anesthetic__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.Adhesive__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.TemporaryFillingMaterials__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.ProphyPaste__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.FluorideVarnish__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.CavitronInserts__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.ImplantAbutmentsCoverScrews__c))
+  ,ISBLANK(TEXT(AdvancedProfiling__r.PlasticsForAppliances__c))
+	)
+)</errorConditionFormula>
+    <errorMessage>You need to complete the Preventative and Restorative section to set the Status as Active</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>VR_TermsAndConditionsAccepted</fullName>
+    <active>true</active>
+    <description>Prevents setting the Status to Active if the customer has not accepted the T&amp;C</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = 'Loyalty_Program'
+,ISPICKVAL(Account__r.Country__c,"CA")
+    ,ISPICKVAL(Status__c,"Active")
+    ,NOT(AcceptedTermsAndConditions__c)
+)</errorConditionFormula>
+    <errorMessage>The customer needs to accept the Terms and Conditions to set the Status as Active</errorMessage>
+  </validationRules>
+  <validationRules>
+    <fullName>VR_UpdatePaymentPreferences</fullName>
+    <active>true</active>
+    <description>TFUS-000003676</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(PaymentPreference__c),
+NOT(CONTAINS($Profile.Name, 'CRM Analyst')),
+NOT(CONTAINS($Profile.Name, '#System:'))
+)</errorConditionFormula>
+    <errorDisplayField>PaymentPreference__c</errorDisplayField>
+    <errorMessage>You cannot change the payment preferences. Ask your admin for details.</errorMessage>
+  </validationRules>
+  <visibility>Public</visibility>
+</CustomObject>

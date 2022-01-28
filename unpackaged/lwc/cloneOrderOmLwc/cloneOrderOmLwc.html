@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-grid slds-wrap slds-is-relative slds-p-around_medium">
+        <template if:true={displayContractsCombo}>
+            <div class="slds-large-size_1-of-6">
+
+            </div>
+            <div class="slds-size_6-of-6 slds-large-size_4-of-6">
+                <lightning-combobox
+                    label="Contract"
+                    name="contract"
+                    value={selectedContractId}
+                    placeholder={labels.selectContract}
+                    options={contractsOptions}
+                    onchange={handleContractChange} >
+                </lightning-combobox>
+            </div>
+            <div class="slds-large-size_1-of-6">
+
+            </div>
+        </template>
+        <div class="slds-large-size_1-of-6">
+
+        </div>
+        <div class="slds-size_6-of-6 slds-large-size_4-of-6 slds-p-vertical_small">
+            <button class="slds-button slds-button_brand slds-button_stretch" onclick={cloneOrder}>{labels.cloneOrderLabel}</button>
+        </div>
+        <div class="slds-large-size_1-of-6">
+
+        </div>
+        <div class="slds-large-size_1-of-6">
+
+        </div>
+        <div class="slds-size_6-of-6 slds-large-size_4-of-6 slds-p-bottom_small">
+            <button class="slds-button slds-button_neutral slds-button_stretch" onclick={closeQuickAction}>{labels.cancelLabel}</button>
+        </div>
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+    </div>
+</template>

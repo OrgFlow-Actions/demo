@@ -1,0 +1,17 @@
+<design:component>
+	<design:attribute name="recordId" label="recordId"/>
+	<design:attribute name="docConfigId" label="docConfigId"/>
+    
+    <design:attribute name="docConfigIds" label="DocConfigs to retrieve" description="Supply a list of DocConfig Ids. The list has to be comma(,) seperated." />
+    <design:attribute name="targetType" label="Target Type (PDF or DOCX)" description="Target Type (PDF or DOCX), default is PDF" default="PDF" datasource="PDF,DOCX" />
+    <design:attribute name="alternativeName" label="Alternative Name." description="Alternative Name." />
+    <design:attribute name="locale" label="locale" description="Locale eg nl_BE." />
+    <design:attribute name="packId" label="Pack Id" description="Pack Id" />
+    <design:attribute name="pdfActionType" label="'MERGE', empty or 'NONE'" description="Action to perform on any PDF in the pack" default="NONE" datasource="MERGE,NONE"/>
+    <design:attribute name="deliveryOverwrite" label="Change the delivery" description="Choose how to deliver the document." datasource="FILES,FILES_OVERWRITE,FILES_ADD_VERSION,ATTACHMENTS,ATTACHMENTS_OVERWRITE,BASE64" />
+    <design:attribute name="doDownloadAfterGenerate" default="true" label="Auto download enabled" description="Download the generated document for quick opening." />
+	<design:attribute name="doShowPreviewAfterGenerate" default="true" label="Show Preview in modal enabled" description="Preview the generated document for quick validation." />
+	<design:attribute name="boxHeight" default="600" label="Height of PDF Viewer" description="You can define the height of the PDF previewer, aligned to your config." />
+    <design:attribute name="actionPackIds" label="Packs to retrieve" description="Supply a list of Pack Ids. The list has to be comma(,) seperated." />
+
+</design:component>

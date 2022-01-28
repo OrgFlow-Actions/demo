@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <customSettingsType>List</customSettingsType>
+  <description>Connection info for CIM.</description>
+  <enableFeeds>false</enableFeeds>
+  <fields>
+    <fullName>CIMPassword__c</fullName>
+    <externalId>false</externalId>
+    <label>CIMPassword</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>CIMUrl__c</fullName>
+    <externalId>false</externalId>
+    <label>CIMUrl</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>CIMUserId__c</fullName>
+    <externalId>false</externalId>
+    <label>CIMUserId</label>
+    <length>50</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <label>CIMConnection</label>
+  <visibility>Public</visibility>
+</CustomObject>

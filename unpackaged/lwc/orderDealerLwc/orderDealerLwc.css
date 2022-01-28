@@ -1,0 +1,37 @@
+.selected {
+  border: 3px solid rgb(0, 112, 210);
+}
+
+.slds-box {
+  padding: 0.1rem !important;
+}
+
+.sticky-header {
+  top: 0;
+  position: sticky;
+  z-index: 1;
+}
+
+.sticky-footer {
+  bottom: 0;
+  position: sticky;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .sticky-footer {
+    padding-bottom: 60px;
+  }
+}
+
+.body-mobile-height {
+  min-height: 77vh;
+}
+
+.body-desktop-height {
+  min-height: 60vh;
+}
+
+td {
+  min-height: 2.75rem;
+}

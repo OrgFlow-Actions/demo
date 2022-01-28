@@ -1,0 +1,35 @@
+<!--
+  @description       : 
+  @author            : kdoruibin@salesforce.com
+  @group             : 
+  @last modified on  : 04-30-2021
+  @last modified by  : kdoruibin@salesforce.com
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   04-09-2021   kdoruibin@salesforce.com   removed call notes
+-->
+<apex:page standardController="Account" lightningStylesheets="true" extensions="ActivityHistoryControllerExtension">
+    <apex:form >
+        <apex:sectionHeader title="View Activity History"/>
+        <center><apex:commandButton action="{!showMyActivities}" value="My Activities" reRender="outerPanel"/>
+        <apex:commandButton action="{!doCancel}" value="Cancel"/></center>
+        <apex:outputPanel id="outerPanel" >
+            <apex:repeat value="{!ActivityHistory}" var="a" >
+                <apex:pageBlock >
+                    <apex:pageBlockSection columns="1" showHeader="false"  >
+                        <apex:outputField value="{!a.Subject}" />
+                        <apex:outputField value="{!a.Objective__c}" />
+                        <apex:outputField label="Related To" value="{!a.What.Name}" />
+                        <apex:outputField value="{!a.Owner.Name}" />
+                        <apex:outputField label="Due Date" value="{!a.ActivityDate}" />
+                        <apex:outputField value="{!a.Event_Status__c}" />
+                        <apex:outputField value="{!a.Status}" />
+                        <apex:outputField value="{!a.Customer_Facing_Event__c}" />
+                        <apex:outputField value="{!a.Description}" />
+                        <!-- <apex:outputField value="{!a.Call_Report__r.Call_Notes__c}" /> -->
+                    </apex:pageBlockSection>  
+              </apex:pageBlock> 
+            </apex:repeat> 
+        </apex:outputPanel> 
+    </apex:form>
+</apex:page>

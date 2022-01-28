@@ -1,0 +1,15 @@
+<aura:component implements="lightning:availableForFlowActions,lightning:availableForFlowScreens">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="objectToCreate" type="String"/>
+    <aura:attribute name="recordTypeId" type="String"/>
+    <aura:attribute name="defaultFieldValues" type="String"/>
+    <aura:attribute name="hasNavigated" type="Boolean"/>
+
+    <aura:html tag="style">
+        .slds-modal__container{
+        width: 50% !important;
+        }
+    </aura:html>
+    <c:navigateToCreateRecord recordId="{!v.recordId}" defaultFieldValuesString="{!v.defaultFieldValues}"
+        onnavigatetonewrecord="{!c.navigateToNewRecord}"></c:navigateToCreateRecord>
+</aura:component>

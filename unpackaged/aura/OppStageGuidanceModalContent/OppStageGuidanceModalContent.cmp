@@ -1,0 +1,31 @@
+<aura:component>
+    <aura:handler event="c:ModalEventOm" action="{!c.handleSubmit}" />
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <!-- external attributes -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="objectType" type="String" />
+    <aura:attribute name="stepName" type="String" />
+    <aura:attribute name="modalSuccess" type="Boolean" />
+    <!-- <aura:attribute name="mode" type="String" /> -->
+    <!-- internal attributes -->
+    <aura:attribute name="isLoading" type="Boolean" />
+
+    <div class="slds-is-relative">
+        <lightning:recordEditForm aura:id="recordForm" recordId="{!v.recordId}" objectApiName="{!v.objectType}"
+            onload="{!c.handleLoad}" onsubmit="{!c.handleSubmit}" onsuccess="{!c.handleSuccess}">
+            <lightning:inputField aura:id="stageField" fieldName="StageName" readonly="true" />
+            <lightning:inputField fieldName="Win_Loss_Reason__c" required="true" />
+            <lightning:inputField fieldName="Win_Loss_Description__c" />
+            <div class="slds-m-top_small slds-align_absolute-center">
+                <lightning:button label="Cancel" onclick="{!c.handleCancel}" />
+                <lightning:button type="submit" variant="brand" label="Submit" />
+            </div>
+        </lightning:recordEditForm>
+        <!-- <lightning:recordForm aura:id="recordForm" recordId="{!v.recordId}" objectApiName="{!v.objectType}"
+                            fields="Win_Loss_Reason__c" columns="1" mode="edit" onsubmit="{!c.handleSubmit}" oncancel="{!c.handleCancel}" onsuccess="{!c.handleSuccess}" /> -->
+        <aura:if isTrue="{!v.isLoading}">
+            <lightning:spinner alternativeText="loading"></lightning:spinner>
+        </aura:if>
+    </div>
+
+</aura:component>

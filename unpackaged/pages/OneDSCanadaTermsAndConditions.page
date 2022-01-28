@@ -1,0 +1,177 @@
+<!--
+  @description       : 
+  @author            : kdoruibin@salesforce.com
+  @group             : 
+  @last modified on  : 05-03-2021
+  @last modified by  : kdoruibin@salesforce.com
+  Modifications Log 
+  Ver   Date         Author                     Modification
+  1.0   05-03-2021   kdoruibin@salesforce.com   Initial Version
+-->
+<apex:page docType="html-5.0" showHeader="false" applyBodyTag="false" controller="OneDsCanadaTermsAndConditions_CC">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    </head>    
+    <apex:slds />
+        <div class="slds-scope">
+            <header class="slds-page-header" style="height:14vh;">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container">
+                                    <!-- <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                        <use xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Resource.DentsplySironaLogo, '#Layer_1')}"></use>
+                                    </svg> -->
+                                    <apex:image url="{!URLFOR($Resource.DentsplySironaLogo, '#Layer_1')}" style="max-height:6vh;" />
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <!-- <h1>
+                                            <span>DentsplySirona</span>
+                                            <span class="slds-page-header__title slds-truncate" title="One DS Rewards Terms and Conditions Canada">One DS Rewards Terms and Conditions Canada</span>
+                                        </h1> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <body>
+                <apex:form id="tcForm">
+                    <div class="slds-grid slds-grid_align-center slds-wrap" style="position:relative; top:-5vh;">
+                        <div class="slds-col slds-size_1-of-1" style="max-width:640px;">
+
+                            <article class="slds-card">
+                                <div class="slds-card__header slds-grid">
+                                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                        <div class="slds-media__body">
+                                            <h1>
+                                                <!-- <span>DentsplySirona</span> -->
+                                                <span class="slds-page-header__title" title="{!title}">{!title}</span>
+                                            </h1>
+                                        </div>
+                                    </header>
+                                </div>
+                                <div class="slds-card__body slds-card__body_inner" style="margin-top:0; margin-bottom:0;">
+                                    <div class="slds-grid slds-grid_align-center slds-wrap">
+                                        <div class="slds-p-horizontal_medium slds-col slds-size_1-of-1">
+                                            <apex:pageMessages />
+                                            <apex:outputPanel rendered="{!(isSubmitted == false && error == false)}">
+                                                <apex:outputPanel rendered="{!hasAccepted == false}">
+                                                    <div class="slds-panel__header">
+                                                        <div class="slds-text-body_regular">
+                                                            {!infoText}
+                                                        </div>
+                                                    </div>
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!hasAccepted == true}">
+                                                    <div class="slds-panel__header">
+                                                        <div class="slds-text-body_regular">
+                                                            {!successMessage}
+                                                        </div>
+                                                    </div>
+                                                </apex:outputPanel>
+                                                <div class="slds-panel__body">
+                                                    <div class="slds-form-element">
+                                                        <a class="slds-button" target="_blank" href="{!documentLink}">{!termsAndConditionsLabel}</a>
+                                                    </div>
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="form-element-01">{!firstNameLabel}</label>
+                                                        <div class="slds-form-element__control">
+                                                            <!-- <input type="text" id="form-element-01" placeholder="Placeholder Text" class="slds-input" /> -->
+                                                            <apex:input id="form-element-01" required="true" type="text" value="{!firstName}" disabled="{!hasAccepted}" styleClass="slds-input"></apex:input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="form-element-02">{!lastNameLabel}</label>
+                                                        <div class="slds-form-element__control">
+                                                            <!-- <input type="text" id="form-element-02" placeholder="Placeholder Text" class="slds-input" /> -->
+                                                            <apex:input id="form-element-02" required="true" type="text" value="{!lastName}" disabled="{!hasAccepted}" styleClass="slds-input"></apex:input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="form-element-03">{!practiceNameLabel}</label>
+                                                        <div class="slds-form-element__control">
+                                                            <!-- <input type="text" id="form-element-03" placeholder="Placeholder Text" class="slds-input" /> -->
+                                                            <apex:input id="form-element-03" required="true" type="text" value="{!practiceName}" disabled="{!hasAccepted}" styleClass="slds-input"></apex:input>
+                                                        </div>
+                                                    </div>
+                                                    <apex:outputPanel rendered="{!NOT(ISBLANK(paymentPreference))}">
+                                                        <div class="slds-form-element">
+                                                            <label class="slds-form-element__label" for="form-element-04">{!paymentPreferenceLabel}</label>
+                                                            <div class="slds-form-element__control">
+                                                                <!-- <input type="text" id="form-element-03" placeholder="Placeholder Text" class="slds-input" /> -->
+                                                                <apex:input id="form-element-04" required="true" type="text" value="{!paymentPreference}" disabled="true" styleClass="slds-input"></apex:input>
+                                                            </div>
+                                                        </div>
+                                                    </apex:outputPanel>
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="form-element-05">{!emailLabel}</label>
+                                                        <div class="slds-form-element__control">
+                                                            <!-- <input type="text" id="form-element-04" placeholder="Placeholder Text" class="slds-input" /> -->
+                                                            <apex:input id="form-element-05" required="true" type="email" value="{!email}" disabled="true" styleClass="slds-input"></apex:input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element">
+                                                        <legend class="slds-form-element__label">{!consentLabel}</legend>
+                                                        <!-- <label class="slds-form-element__label" for="form-element-05">Email</label> -->
+                                                        <div class="slds-form-element__control">
+                                                            <!-- <input type="text" id="form-element-05" placeholder="Placeholder Text" class="slds-input" /> -->
+                                                            <!-- <div class="slds-checkbox"> -->
+                                                                <apex:inputCheckbox id="form-element-06" required="true" value="{!hasAccepted}" disabled="{!hasAccepted}"></apex:inputCheckbox>
+                                                                <label class="slds-checkbox__label" for="form-element-06">
+                                                                    <span class="slds-checkbox_faux"></span>
+                                                                    <span class="slds-form-element__label">{!consentStatement}</span>
+                                                                </label>
+                                                            <!-- </div> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element slds-p-top_small slds-p-bottom_medium">
+                                                        <div class="slds-form-element__control">
+                                                            <apex:commandButton action="{!accept}" value="{!submitLabel}" status="pageStatus" styleClass="slds-button slds-button_brand" disabled="{!hasAccepted}"
+                                                                rerender="tcForm">
+                                                                <apex:param assignTo="{!customerId}" value="{!$CurrentPage.parameters.Id}" />
+                                                            </apex:commandButton>
+                                                            <span>
+                                                                <apex:actionStatus id="pageStatus">
+                                                                    <apex:facet name="start">
+                                                                        <apex:outputPanel >
+                                                                            <img src="/img/loading32.gif" width="25" height="25" />
+                                                                            <!-- <apex:outputLabel value="Loading..." /> -->
+                                                                        </apex:outputPanel>
+                                                                    </apex:facet>
+                                                                </apex:actionStatus>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!(isSubmitted == true && error == false)}">
+                                                <div class="slds-p-around_medium">
+                                                    <div class="slds-text-body_regular slds-p-bottom_medium">
+                                                        {!successMessage}
+                                                    </div>
+                                                </div>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel rendered="{!error}">
+                                                <div class="slds-p-around_medium">
+                                                    <div class="slds-text-body_regular">
+                                                        {!errorMessage}
+                                                    </div>
+                                                </div>
+                                            </apex:outputPanel>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </apex:form>
+            </body>
+        </div>
+</apex:page>

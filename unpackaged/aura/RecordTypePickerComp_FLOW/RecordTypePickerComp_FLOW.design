@@ -1,0 +1,20 @@
+<design:component >
+    <design:attribute
+        name="recordId"
+        label="Record ID"
+        description="Record ID of the source record"
+        required="true"/>
+    <design:attribute
+        name="objectToCreate"
+        label="Object to Create"
+        description="API Name of the object to create"
+        required="true"/>
+    <design:attribute
+        name="recordTypeLabel"
+        label="Record Type Label"
+        description="Optionally set this to bypass record type selection screen"/>
+    <design:attribute
+        name="recordTypeId"
+        label="Record Type Id"
+        description="Output variable"/>
+</design:component>

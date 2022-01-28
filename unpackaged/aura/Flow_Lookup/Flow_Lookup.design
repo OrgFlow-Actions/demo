@@ -1,0 +1,8 @@
+<design:component>
+   <design:attribute name="recordId" label="Record Id" />
+   <design:attribute name="resId" label="Result Id" />
+   <design:attribute name="objType" label="Object API name" />
+   <design:attribute name="recordTypeId" label="Record Type ID" />
+   <design:attribute name="fieldN" label="Field API name" />
+   <design:attribute name="defaultVal" label="Default field value" />
+</design:component>

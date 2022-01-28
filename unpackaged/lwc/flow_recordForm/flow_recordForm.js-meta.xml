@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" type="String" label="Record Id"/>
+            <property name="sObjectName" type="String" label="SObject API Name"/>
+            <property name="title" type="String" label="Title"/>
+            <property name="icon" type="String" label="Icon" description="e.g. standard:contact_list"/>
+            <property name="variant" type="String" label="Variant" description="base, narrow"/>
+            <property name="fields" type="String" label="Fields"/>
+            <property name="requiredFields" type="String" label="Required Fields"/>
+            <property name="columns" type="Integer" label="Columns"/>
+            <property name="mode" type="String" label="Mode" description="edit, view, readonly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

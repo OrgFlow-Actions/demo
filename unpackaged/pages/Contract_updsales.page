@@ -1,0 +1,71 @@
+<apex:page StandardController="Contract" extensions="updateContract" showHeader="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+
+<head>
+<style>
+    html, body, p, h1 { font-family: salesforce sans, sans-serif; font-size: 14px; font-color: #ffffff; background-color: #ffffff;}
+    input { border-style:none;padding-right:2%;padding-left:2%;background-color: #dcdcdc; font-size: 14px;font-family: salesforce sans, sans-serif;}
+    .FlowPageBlockBtns.FlowDropdown {font-family: salesforce sans, sans-serif; font-size: 0px;}
+    .FlowTextArea {font-family: salesforce sans, sans-serif; font-size: 0px;}
+    .FlowText {font-family: salesforce sans, sans-serif; font-size: 0px;}
+
+</style>
+
+<script type="text/javascript">
+function navObj2(){
+var myUrl2 = "{!Contract.ID}"
+sforce.one.navigateToSObject(myUrl2, "detail");
+
+function navProduct(){
+<!--var productURL = "/{!Contract.ID}"-->
+<!--var myUrl2 = "{!Contract.ID}"-->
+if ({!$User.UIThemeDisplayed} = "Theme4t") {
+window.opener.location.href="/{!$CurrentPage.parameters.id}";
+window.top.close();
+
+<!--sforce.one.navigateToSObject(myUrl2, "detail");-->
+}else{
+window.opener.location.href="/{!$CurrentPage.parameters.id}";
+window.top.close();
+
+<!--sforce.one.navigateToSObject(myUrl2, "detail");-->
+}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<apex:outputPanel layout="none" rendered="{!stepName != 'FLOW'}">
+
+<apex:form >
+<apex:variable var="test" value="{!Contract.ID}"/>
+<br/>
+<div style="text-align:center;">
+<h3 style="padding:10px; align:right;">Are you sure that you want<br/>to update the sales history?</h3><br/><br/>
+<apex:commandButton value="Update" action="{!navFlow}" style="padding:10px"/>
+<apex:commandButton value="Close" onclick="navProduct()" style="padding:10px"/>
+</div>
+</apex:form>
+
+</apex:outputPanel>
+
+<apex:outputPanel layout="none" rendered="{!stepName == 'FLOW'}">
+
+<flow:interview name="Contract_Update_sales_history">
+    <apex:param name="Contract_ID" value="{!Contract.Id}"/>
+</flow:interview>
+
+<div style="text-align:center;">
+<apex:form >
+<!--<apex:actionFunction name="doAction" oncomplete="navProduct()"/>-->
+<apex:commandButton value="Close" oncomplete="navProduct()" style="padding:10px"/>
+</apex:form>
+</div>
+
+</apex:outputPanel>
+
+</body>
+
+</apex:page>

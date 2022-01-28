@@ -1,0 +1,12 @@
+<aura:component controller="KOLInfoController" implements="flexipage:availableForAllPageTypes" access="global" >
+      
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:attribute name="reportLink" type="URL"/>
+
+    <lightning:card title="Find a Speaker" class="slds-card_boundary" iconName="custom:custom11">
+        <aura:set attribute="title">
+            <b><a href="{!v.reportLink}">Find a Speaker</a></b>      
+        </aura:set>
+    </lightning:card>
+
+</aura:component>

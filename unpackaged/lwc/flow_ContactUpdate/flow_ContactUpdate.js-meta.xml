@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen, lightning__RecordPage">
+            <property name="recordId" type="String" label="Record Id"/>
+            <property name="sObjectName" type="String" label="SObject API Name"/>
+            <property name="accountField" type="String" label="SObject Account field (API Name)"/>
+            <property name="recordTypeId" type="String" label="Contact Record Type Id"/>
+            <!--<property name="fields" type="String" label="Fields"/> --><property name="layoutFields" type="String" label="Layout Fields"/>
+            <!--<property name="readOnly" type="Boolean" label="Read Only"/>
+            <property name="preventDefault" type="Boolean" label="Prevent Save"/> --></targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

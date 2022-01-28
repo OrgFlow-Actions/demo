@@ -1,0 +1,13 @@
+<aura:component controller="LightningAccountController" implements="lightning:actionOverride,flexipage:availableForAllPageTypes,force:appHostable,force:LightningQuickAction" access="global">
+    <aura:attribute name="ComponentName" type="String"/>
+	<aura:attribute name="UserId" type="Id"/>
+    <aura:attribute name="ThisUser" type="User"/>
+	<aura:attribute name="isVisible" type="Boolean"/>
+    <aura:registerEvent name="checkUserAcess" type="c:UserAccessEv" />
+    <aura:handler name="init" value="{! this }" action="{! c.getContactData }" />
+	
+ 	<!-- <aura:if isTrue="{!v.isVisible}">
+    </aura:if> -->
+ 
+        
+</aura:component>

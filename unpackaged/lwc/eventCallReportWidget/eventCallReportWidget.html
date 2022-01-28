@@ -1,0 +1,111 @@
+<template>
+    <c-lightning-card card-title="Call Report" card-icon-name="standard:visit_templates"
+        spinner-variant={spinnerVariant} enable-edit-mode={enableEditMode} is-loading={isLoading} is-edit-mode={isEditMode} error={error}
+        onmodechange={handleCardAction} onmysubmit={handleUserSubmit} custom-desktop-edit-actions="true">
+        <div slot="edit-actions">
+            <template if:true={isDesktopFormFactor}>
+                <div class="slds-align_absolute-center slds-p-vertical_medium">
+                    <lightning-button class="slds_float_left" variant="brand" disabled={disableSaveAndComplete}
+                        name="save-and-complete" label="Save & Complete" type="submit" onclick={handleUserSubmitAndComplete}>
+                    </lightning-button>
+                    <lightning-button class="slds-m-left_xx-small" variant="brand" name="save"
+                        label="Save" type="submit" onclick={handleUserSubmit}></lightning-button>
+                </div>
+            </template>
+        </div>
+        <div class="slds-form slds-form_stacked slds-p-horizontal_medium">
+            <!-- <template if:true={error}>
+                <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                    <h2>{error.message}</h2>
+                </div>
+                <p class="slds-text-title slds-text-color_error slds-p-around_x-small">{error.detail}</p>
+            </template> -->
+            <!-- EDIT FORM -->
+            <template if:true={isEditMode}>
+                <lightning-record-edit-form record-id={callReportId} object-api-name="Call_Report__c"
+                    onload={handleFormLoad} onsubmit={handleSubmit} onsuccess={handleSuccess} onerror={handleError}>
+                    <lightning-input-field field-name="Call_Notes__c"></lightning-input-field>
+                    <lightning-input-field class="productGroup" field-name="ProductGroup__c"
+                        value={productGroupEditForm} onchange={handleSbuInputChange}></lightning-input-field>
+                    <lightning-input-field class="impl slds-hide" field-name="Products_discussed_IMPL__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="endo slds-hide" field-name="Products_discussed_ENDO__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="orth slds-hide" field-name="Products_discussed_ORTH__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="prev slds-hide" field-name="Products_discussed_PREV__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="pros slds-hide" field-name="Products_discussed_PROS__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="rest slds-hide" field-name="Products_discussed_REST__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="cdcm slds-hide" field-name="Products_discussed_CDCM__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="inst slds-hide" field-name="Products_discussed_INST__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="trce slds-hide" field-name="Products_discussed_TRCE__c">
+                    </lightning-input-field>
+                    <lightning-input-field class="imag slds-hide" field-name="Products_discussed_IMAG__c">
+                    </lightning-input-field>
+                    <lightning-input-field field-name="Assigned_To_User_Country__c" value={userCountry}
+                        class={showHideUserCountry}></lightning-input-field>
+                </lightning-record-edit-form>
+
+                
+                <template if:false={isDesktopFormFactor}>
+                    <div class="slds-align_absolute-center slds-p-vertical_medium">
+                        <lightning-button class="slds_float_left" variant="brand" disabled={disableSaveAndComplete} name="save-and-complete"
+                            label="Save & Complete" type="submit" onclick={handleUserSubmitAndComplete}>
+                        </lightning-button>
+                    </div>
+                </template>
+            </template>
+
+            <!-- VIEW FORM -->
+            <template if:false={isEditMode}>
+                <lightning-record-view-form record-id={callReportId} object-api-name="Call_Report__c"
+                    onload={handleFormLoad}>
+                    <template if:true={callNotes}>
+                        <lightning-output-field field-name="Call_Notes__c"></lightning-output-field>
+                    </template>
+                    <!-- <template if:true={productGroup}> -->
+                    <template if:true={callReportProductGroup}>
+                        <lightning-output-field class="productGroup" field-name="ProductGroup__c">
+                        </lightning-output-field>
+                    </template>
+                    <template if:false={callReportProductGroup}>
+                        <template if:true={eventSbu}>
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="event-sbu-field">Product Group
+                                    (EVENT)</label>
+                                <div id="event-sbu-field" class="slds-form-element__control">
+                                    <lightning-formatted-text value={eventSbu}></lightning-formatted-text>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                    <lightning-output-field class="impl slds-hide" field-name="Products_discussed_IMPL__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="endo slds-hide" field-name="Products_discussed_ENDO__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="orth slds-hide" field-name="Products_discussed_ORTH__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="prev slds-hide" field-name="Products_discussed_PREV__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="pros slds-hide" field-name="Products_discussed_PROS__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="rest slds-hide" field-name="Products_discussed_REST__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="cdcm slds-hide" field-name="Products_discussed_CDCM__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="inst slds-hide" field-name="Products_discussed_INST__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="trce slds-hide" field-name="Products_discussed_TRCE__c">
+                    </lightning-output-field>
+                    <lightning-output-field class="imag slds-hide" field-name="Products_discussed_IMAG__c">
+                    </lightning-output-field>
+                </lightning-record-view-form>
+            </template>
+        </div>
+    </c-lightning-card>
+</template>

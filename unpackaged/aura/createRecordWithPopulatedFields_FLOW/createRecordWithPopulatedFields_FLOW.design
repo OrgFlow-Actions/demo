@@ -1,0 +1,31 @@
+<!--
+ - Created by kdoruibin on 22/11/2019.
+ -->
+
+<design:component>
+    <design:attribute
+            name="recordId"
+            label="Record ID"
+            description="Record ID of the source record"
+            required="true"/>
+    <design:attribute
+            name="objectToCreate"
+            label="Object to Create"
+            description="API Name of the object to create"
+            required="true"/>
+    <design:attribute 
+            name="defaultFieldMapString" 
+            label="Default Field Map"
+            description='Map of fields to to prepopulate with known values. Input in format {"targetField1":"value1","targetField2":"value2"}'
+            required="true" />
+    <design:attribute
+            name="fieldMapString"
+            label="Field Map"
+            description='Map of fields to retrieve values and target fields to prepopulate with values. Input in format {"SourceField1":"targetField1","sourceField2":"targetField2"}'
+            required="true"/>
+    <design:attribute
+            name="recordTypeLabel"
+            label="Record Type Label"
+            description="Target record type. Use this only if the Lightning Component is called as a Flow Action"
+            required="false"/>
+</design:component>

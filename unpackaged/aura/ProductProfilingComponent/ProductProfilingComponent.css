@@ -1,0 +1,12 @@
+.THIS .slds-modal__content{
+	max-height: 600px !important;
+    position:relative;
+    overflow:initial;
+}
+.THIS .slds-table_header-fixed_container{
+    min-height: 50px;
+}
+
+.THIS .slds-text-heading_small{
+    font-size :medium;
+}

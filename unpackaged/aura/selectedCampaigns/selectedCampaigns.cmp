@@ -1,0 +1,231 @@
+<aura:component controller="ModifyCampaignDetails" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <lightning:workspaceAPI aura:id="workspace" />
+    <aura:attribute name="campaigns" type="List" />
+    <aura:attribute name="campaigns2" type="List" />
+    <aura:attribute name="selectedCount" type="integer" default="0" />
+    <aura:attribute name="displayedSection" type="string" default="section1" />
+    <aura:attribute name="childAttr" type="String" />
+    <aura:attribute name="followRadioButton" type="Boolean" />
+    <aura:attribute name="completeRadioButton" type="Boolean" default="true" />
+    <aura:attribute name="task" type="Task" default="{'sobjectType': 'Task',
+                         'ActivityDate': '',
+                         'IsReminderSet': '',
+                         'Subject': '', 
+                         'OwnerId': '',
+                         'Priority': '',
+                         'Status': '',
+                         'IsReminderSet': '',
+						 'ReminderDateTime':'',
+                         'Description': '',                            
+                       }" />
+    <aura:attribute name="selectedCampaigns" type="List" />
+    <aura:attribute name="picklistValuesAct" type="List" />
+    <aura:attribute name="picklistValuesTyp" type="List" />
+    <aura:attribute name="picklistValuesStat" type="List" />
+    <aura:attribute name="radioOptionValue" type="String" />
+    <aura:attribute name="noteValue" type="List" />
+    <aura:attribute name="errorMessage" type="String" />
+	<aura:attribute name="errorMessage1" type="String" />
+    <aura:attribute name="rvalue" type="String" default="option1" />
+    <aura:attribute name="options1" type="list" />
+    <aura:attribute name="options2" type="list" />
+    <aura:attribute name="options3" type="list" />
+    <aura:attribute name="selCampIdList" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   
+    <div aura:id="firstsection" class="{!if(v.displayedSection == 'section1','slds-show','slds-hide')}">
+        <div class="slds-page-header">
+            <span class="slds-badge">Selected Campaigns:{!v.selectedCount}</span>
+        </div>
+        <div class="slds-text-align_left slds-m-left_small slds-text-color_error">{!v.errorMessage}</div>
+        <div class="slds-scrollable_y" style="height: 15rem; width: 100%;">
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+                <tr class="slds-text-title--caps">
+                    <th style="width:3.25rem;" class="slds-text-align--right">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <label class="slds-checkbox">
+                                    <!--header checkbox for select all-->
+                                    <ui:inputCheckbox aura:id="box3" change="{!c.selectAll}" />
+                                    <span class="slds-checkbox--faux"></span>
+                                    <span class="slds-form-element__label text"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Campaign Name">Name</span>
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Campaign Member Status">Member Status</span>
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Campaign Offer Codes">Offer Codes</span>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.campaigns}" var="campaign">
+                    <tr>
+                        <td scope="row" class="slds-text-align--right" style="width:3.25rem;">
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <label class="slds-checkbox">
+                                        <ui:inputCheckbox text="{!campaign.Id}" aura:id="boxPack" value="" change="{!c.checkboxSelect}" />
+                                        <span class="slds-checkbox--faux"></span>
+                                        <span class="slds-form-element__label text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" title="{!campaign.Name}">{!campaign.Name}</div>
+                        </td>
+                        <aura:iteration items="{!campaign.CampaignMembers}" var="camMem">
+                            <td scope="row">
+                                <div class="slds-truncate" title="{!camMem.Status}">{!camMem.Status}</div>
+                            </td>
+                        </aura:iteration>
+                        <td scope="row">
+                            <div class="slds-truncate" >
+                                <aura:iteration items="{!campaign.Campaign_Offer_Codes__r}" var="camOff" indexVar="index">
+                                    <aura:if isTrue="{!(index == (campaign.Campaign_Offer_Codes__r.length -1))}"> 
+                                        {!camOff.Offer_Code__r.Name}
+                                        <aura:set attribute="else">
+                                            {!camOff.Offer_Code__r.Name},
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:iteration>
+                            </div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        </div>
+        <div class="slds-grid slds-p-right_small slds-grid--align-end">
+            <lightning:button variant="brand" label="Next" onclick="{! c.showSelectedCampaigns }" />        
+        </div> 
+    </div> 
+
+    <div aura:id="secondsection" class="{!if(v.displayedSection == 'section2','slds-show','slds-hide')}">
+        <div class="slds-scrollable_y" style="height: 18rem; width: 100;">
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+            <thead>
+                <tr class="slds-text-title--caps">
+                    <th>
+                        <span class="slds-truncate slds-col slds-size_2-of-3" title="Campaign Name">Name</span>
+                    </th>
+                    <th>
+                        <span class="slds-truncate slds-col slds-size_3-of-3" title="Notes">Notes</span>
+                    </th>
+                    <th>
+                        <span class="slds-truncate slds-col slds-size_2-of-3" title="Activity Result">Activity Result</span>
+                    </th>
+                    <th>
+                        <span class="slds-truncate slds-col slds-size_2-of-3" title="Contact Type">Contact Type</span>
+                    </th>
+                    <th>
+                        <span class="slds-truncate slds-col slds-size_2-of-3" title="Campaign Member Status">Member Status</span>
+                    </th>
+                    <th>
+                        <span class="slds-truncate" title="Offer Code(s)">Offer Code(s)</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <div class="slds-text-align_left slds-m-left_small slds-text-color_error">{!v.errorMessage1}</div> 
+                <aura:iteration items="{!v.selectedCampaigns}" var="selcampaign">
+                    <tr>
+                        <td scope="row">
+                            <div class="slds-truncate " title="{!selcampaign.Name}">{!selcampaign.Name}</div>
+                        </td>
+                        <td scope="row">
+                            <lightning:input class="slds-form-element slds-size--5-of-5" aura:id="Notes" value="{!selcampaign.Notes}" />
+                        </td>
+                        <td scope="row">
+                            <lightning:select value="{!selcampaign.pick1}" >
+                                <option value="">Choose one...</option>
+                                <aura:iteration items="{!v.options1}" var="item1">
+                                    <option value="{!item1.value}">
+                                        {!item1.label}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </td>
+                        <td scope="row">
+                            <lightning:select value="{!selcampaign.pick2}">
+                                <option value="">Choose one...</option>
+                                <aura:iteration items="{!v.options2}" var="item2">
+                                    <option value="{!item2.value}">
+                                        {!item2.label}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </td>
+                        <td scope="row">
+                            <lightning:select value="{!selcampaign.pick3}" >
+                                <option value="">Choose one...</option>
+                                <aura:iteration items="{!v.options3}" var="item3">
+                                    <option value="{!item3.value}">
+                                        {!item3.label}
+                                    </option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </td>
+                        <td scope="row">
+                            <div class="slds-truncate" >
+                                <aura:iteration items="{!selcampaign.Campaign_Offer_Codes__r}" var="camOff" indexVar="index">
+                                    <aura:if isTrue="{!(index == (selcampaign.Campaign_Offer_Codes__r.length -1))}"> 
+                                        {!camOff.Offer_Code__r.Name}
+                                        <aura:set attribute="else">
+                                            {!camOff.Offer_Code__r.Name},
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:iteration>
+                            </div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        </div>    
+        <div class="slds-grid slds-p-right_small slds-grid--align-end">
+           <lightning:button variant="brand" label="Previous" onclick="{! c.showPrev }" />
+            <lightning:button variant="brand" label="Next" onclick="{! c.showNext }" /> 
+        </div>
+    </div>
+    <div style="margin : 102 px" aura:id="thirdsection" class="{!if(v.displayedSection == 'section3','slds-show','slds-hide')}">
+		<div >
+            <span class="slds-text-heading_medium slds-text-title_bold slds-m-left_medium">How would you like to proceed?</span> 
+        </div>
+        <div class=" slds-m-top_small slds-m-left_medium">
+            <ui:inputRadio text="FollowUpTask" label="Create a follow-up task for myself." name="Role" change="{!c.onGroup}" /><br />
+            <ui:inputRadio text="Complete" label="Complete - I'm finished." name="Role" change="{!c.onGroup}" /><br />
+		</div>
+        <div class="slds-grid slds-wrap slds-m-left_medium ">
+			<aura:if isTrue="{!v.followRadioButton}">
+                <div class="form-group slds-text-title_bold slds-text-heading_small">
+                    <ui:inputDate displayDatePicker="true" class="field slds-text-title_bold" aura:id="activityDate" label="Due Date"  value="{!v.task.ActivityDate}" change="{!c.populateRemDate}" />
+                   <!-- <lightning:input type="date" class="field slds-text-title_bold" aura:id="activityDate" label="Due Date" value="{!v.task.ActivityDate}" />
+                 -->
+                </div>
+                <div class="form-group slds-text-title_bold slds-text-heading_large ">
+                    <lightning:input type="datetime" class="ReminderDate field form-control" aura:id="today" label="Reminder Time" value="{!v.task.ReminderDateTime}" />
+                </div>
+                <div class="form-group slds-text-title_bold slds-text-heading_large">
+                    <lightning:input label="Subject" class="form-control" value="{!v.task.Subject}" />
+                </div>
+                <div class="form-group slds-text-title_bold slds-text-heading_large">
+                    <lightning:input label="Comments" class="form-control" value="{!v.task.Description}" />
+                </div>
+            </aura:if>
+        </div>
+        <div class="slds-grid slds-p-right_small slds-grid--align-end">
+            <lightning:button variant="brand" label="Previous" onclick="{! c.showPrev1 }" />
+            <lightning:button variant="brand" label="Submit" onclick="{! c.showNext1 }" /> 
+        </div>
+    </div>
+</aura:component>

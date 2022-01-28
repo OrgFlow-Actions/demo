@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="text" label="Row 1" />
+    <design:attribute name="text2" label="Row 2" />
+    <design:attribute name="header" label="Header" />
+    <design:attribute name="approvedExtension" label="Approved extension?" />
+</design:component>

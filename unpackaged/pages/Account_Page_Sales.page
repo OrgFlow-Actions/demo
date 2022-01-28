@@ -1,0 +1,5 @@
+<apex:page sidebar="true" standardController="Account"> 
+<wave:dashboard dashboardId="0FK0J000000PBMBWA4" showTitle="false" height="600px" 
+openLinksInNewWindow="true" 
+filter="{'datasets':{'AccountSalesDetail':[{'fields':['OneSF_Id__c'], 'filter':{'operator': 'matches', 'values':['{!Account.OneSF_Id__c}']}, 'selection':{'operator':'matches','values':['{!Account.OneSF_Id__c}']}}]}}" /> 
+</apex:page>

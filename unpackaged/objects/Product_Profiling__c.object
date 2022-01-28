@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>false</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>ControlledByParent</externalSharingModel>
+  <fields>
+    <fullName>Account__c</fullName>
+    <externalId>false</externalId>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Products Profiling</relationshipLabel>
+    <relationshipName>Products_Profiling</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Competitor_Product__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product_Name__r.Competitor_Product__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Competitor Product</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Products Profiling</relationshipLabel>
+    <relationshipName>Products_Profiling</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Created_by_My_Direct_Reports__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CreatedBy.ManagerId = $User.Id, True, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Created by My Direct Reports</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Created_by_me__c</fullName>
+    <description>Create as per this request
+https://dentsplysirona.my.salesforce.com/5000J00001FHkTJ
+Dynamic Checkbox that shows if the logged in user created the products profiling.</description>
+    <externalId>false</externalId>
+    <formula>IF(CreatedById == $User.Id, TRUE, FALSE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Created by me</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Date_of_purchase__c</fullName>
+    <description>Requested in case 00144434.</description>
+    <externalId>false</externalId>
+    <label>Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Intention_to_buy_date__c</fullName>
+    <externalId>false</externalId>
+    <label>Intention to buy date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Manufacturer__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product_Name__r.Manufacturer__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Manufacturer</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Non_Erp_Product_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product_Name__r.Id</formula>
+    <label>Non Erp Product ID</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Notes__c</fullName>
+    <description>Add notes about any specifics about this product usage.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Add any specific notes about this product.</inlineHelpText>
+    <label>Notes</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Opportunity__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Opportunity</label>
+    <lookupFilter>
+      <active>true</active>
+      <filterItems>
+        <field>Opportunity.AccountId</field>
+        <operation>equals</operation>
+        <valueField>$Source.Account__c</valueField>
+      </filterItems>
+      <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Products Profiling</relationshipLabel>
+    <relationshipName>Products_Profiling</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Product_Category__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product_Name__r.Product_Category__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Product_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>Product Name</label>
+    <referenceTo>Non_ERP_Products__c</referenceTo>
+    <relationshipLabel>Products Profiling</relationshipLabel>
+    <relationshipName>Products_Profiling</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+  </fields>
+  <fields>
+    <fullName>Product__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK("/lightning/r/Product_Profiling__c/"&amp;  Id &amp; "/view",  Product_Name__r.Name, "_self")</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Quantity__c</fullName>
+    <description>This has been requested in case 00144434.</description>
+    <externalId>false</externalId>
+    <label>Quantity</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Remote__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Requested by Japan as part of Lightning project to track Cerec and CT remote - requested on Account bu suggested solution here on product profiling instead.</description>
+    <externalId>false</externalId>
+    <label>Remote Service</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+  </fields>
+  <fields>
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Prospect</fullName>
+          <default>false</default>
+          <label>Prospect</label>
+        </value>
+        <value>
+          <fullName>Low Usage</fullName>
+          <default>false</default>
+          <label>Low Usage</label>
+        </value>
+        <value>
+          <fullName>Medium Usage</fullName>
+          <default>false</default>
+          <label>Medium Usage</label>
+        </value>
+        <value>
+          <fullName>High Usage</fullName>
+          <default>false</default>
+          <label>High Usage</label>
+        </value>
+        <value>
+          <fullName>Installed</fullName>
+          <default>false</default>
+          <label>Installed</label>
+        </value>
+        <value>
+          <fullName>Not Interested</fullName>
+          <default>false</default>
+          <label>Not Interested</label>
+        </value>
+        <value>
+          <fullName>Lapsed Usage</fullName>
+          <default>false</default>
+          <label>Lapsed Usage</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>T35_Name_UK__c</fullName>
+    <externalId>false</externalId>
+    <formula>Product_Name__r.T35_Name_UK__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>T35 Name (UK)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Unique_Key_Product_Contact__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Unique Key for avoiding duplicates</description>
+    <externalId>false</externalId>
+    <label>Unique Key Product Contact</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+  </fields>
+  <fields>
+    <fullName>Value__c</fullName>
+    <description>TFUS-000001248</description>
+    <externalId>false</externalId>
+    <label>Value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+  </fields>
+  <label>Product Profiling</label>
+  <nameField>
+    <displayFormat>PP{000000000}</displayFormat>
+    <label>Profiling Id</label>
+    <type>AutoNumber</type>
+  </nameField>
+  <pluralLabel>Products Profiling</pluralLabel>
+  <searchLayouts>
+    <searchFilterFields>Competitor_Product__c</searchFilterFields>
+    <searchFilterFields>Manufacturer__c</searchFilterFields>
+    <searchFilterFields>Product_Name__c</searchFilterFields>
+  </searchLayouts>
+  <sharingModel>ControlledByParent</sharingModel>
+  <visibility>Public</visibility>
+  <webLinks>
+    <fullName>AccountProductProfilingClassicFlow</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>/flow/Product_Profiling_Create_Product_Profiling_from_Contact?recordId={!Account.Id}&amp;retUrl=%2F{!Account.Id}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>ContactProductProfilingClassicFlow</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>/flow/Product_Profiling_Create_Product_Profiling_from_Contact?recordId={!Contact.Id}&amp;retUrl=%2F{!Contact.Id}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>New_Product_Profiling</fullName>
+    <availability>online</availability>
+    <description>Used on the contact related list for Lightning to populate the account automatically</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New Product Profiling</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/apex/Product_profilling_new_override_page?conid={!Contact.Id}</url>
+  </webLinks>
+  <webLinks>
+    <fullName>New_Product_Profiling_Contact</fullName>
+    <availability>online</availability>
+    <description>Populates the Account when product profiling created from contact - used for Classic only</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Product Profiling</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/a1o/e? 
+ 
+&amp;CF00N0J00000AQS4u={!Account.Name}
+&amp;CF00N0J00000AQS4u_lkid={!Contact.Contact_s_Account_ID__c}
+&amp;CF00N0J000009r46y={!Contact.Full_Name__c}
+&amp;CF00N0J000009r46y_lkid={!Contact.Id}
+&amp;retURL=%2F{!Contact.Id}</url>
+  </webLinks>
+</CustomObject>

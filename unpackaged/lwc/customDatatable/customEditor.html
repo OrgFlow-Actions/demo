@@ -1,0 +1,18 @@
+<template>
+    <div >
+        
+       
+        <label>
+            <span class="slds-m-right_small">{columnLabel}</span>
+            <lightning-helptext content="Limited to 300 characters"></lightning-helptext>
+        </label>
+        <lightning-textarea 
+            data-inputable="true" 
+            value={editedValue} 
+            max-length="300"
+            message-when-too-long="Value is too long"
+            
+        >
+        </lightning-textarea> 
+    </div>
+</template>

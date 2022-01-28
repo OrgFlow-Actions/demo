@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-p-vertical_medium">
+        <lightning-progress-indicator current-step={currentStage} type={type} variant={variant} has-error={hasError}>
+            <template for:each={stages} for:item="step">
+                <lightning-progress-step label={step} value={step} key={step} onclick={handleClick}></lightning-progress-step>
+            </template>
+        </lightning-progress-indicator>    
+    </div>
+</template>

@@ -1,0 +1,130 @@
+<apex:component >
+   	<apex:attribute name="ID" type="string" description="A unique ID for this control" required="true" />
+   	<apex:attribute name="Model" type="DateTimePickerVM" description="" required="true" />
+   	<apex:attribute name="IsStartTime" type="boolean" description="" required="false" default="false" />
+   	<apex:attribute name="IsEndTime" type="boolean" description="" required="false" default="false" />
+   	<apex:attribute name="GroupName" type="string" description="" required="false" />     
+   	<apex:attribute name="OnChange" type="string" description="Javascript to be executed when the value is changed" required="false" />     
+   	<apex:attribute name="DisableDatePart" type="boolean" description="Whether or not the date input field should be disabled" required="false" default="false" />     
+    
+    <script type="text/javascript">
+    	function saveStartTime(sender){            
+            var groupName = j$(sender).data('group-name');
+            
+            var startDateId = j$(".start-date-part-" + groupName)[0].id;
+            var startTimeId = j$(".start-time-part-" + groupName)[0].id;
+            
+			ActivityFunction.saveStartTime(startDateId, startTimeId);            
+        }
+    
+    	function updateEndTime(sender){            
+            var groupName = j$(sender).data('group-name');
+            
+            var startDateId = j$(".start-date-part-" + groupName)[0].id;
+            var startTimeId = j$(".start-time-part-" + groupName)[0].id;
+            var endDateId = j$(".end-date-part-" + groupName)[0].id;
+            var endTimeId = j$(".end-time-part-" + groupName)[0].id;
+            
+            ActivityFunction.updateEndTime(startDateId, startTimeId, endDateId, endTimeId);
+        }
+    
+    	j$(function(){
+            j$(".timePart").on("focus", function(e){
+                var sender = j$(this);
+                var position = j$(this).position();
+            
+                sender.next("ol.timePicker")
+                    .css("top", position.top + sender.outerHeight())
+                    .css("left", position.left)
+                    .css("width", sender.outerWidth())   
+                    .find("li")
+                    .removeClass("currentValue")
+                    .on("click", function(){
+                        sender.val(j$(this).text()).trigger("change");
+                    
+                        j$("ol.timePicker").hide();
+                    });
+                
+                var selectedElement = sender.next("ol.timePicker")
+                        .find("li:contains('" + sender.val() + "')")
+                        .addClass("currentValue");            
+                
+                sender.next("ol.timePicker").show();
+                
+                if(selectedElement.length !== 0){
+                    sender.next("ol.timePicker").scrollTop(selectedElement.offset().top);
+                }    
+                
+            });
+        });
+    
+    	j$("body").on("click", function(e){
+            if (j$(e.target).is('.timePart')){
+                e.stopPropagation();
+                
+                return;
+            }
+            
+            j$("ol.timePicker").hide();
+        });
+    
+    </script>
+    
+
+    <apex:inputtext value="{!Model.DatePart}"
+                    id="date"
+                    size="10"
+                    html-data-group-name="{!GroupName}"
+                    styleclass="datePart {!IF(IsStartTime, 'start-date-part-' + GroupName, '')} {!IF(IsEndTime, 'end-date-part-' + GroupName, '')}"
+                    onfocus="DatePicker.pickDate(true, this.id, false); {!IF(IsStartTime, 'saveStartTime(this);', '')}"
+                    onchange="{!IF(IsStartTime, 'updateEndTime(this);', '')} {!OnChange}"
+                    disabled="{!DisableDatePart}" />
+    &nbsp;
+    <apex:inputtext value="{!Model.TimePart}"
+                    id="time"
+                    size="8"
+                    html-data-group-name="{!GroupName}"
+                    styleclass="timePart {!IF(IsStartTime, 'start-time-part-' + GroupName, '')} {!IF(IsEndTime, 'end-time-part-' + GroupName, '')}"
+                    onfocus="{!IF(IsStartTime, 'saveStartTime(this);', '')}"
+                    onchange="{!IF(IsStartTime, 'updateEndTime(this);', '')} {!OnChange}" />
+    
+    <ol class="timePicker">
+        <apex:repeat value="{!Model.TimeOptions}" var="timeOption">
+        	<li>{!timeOption}</li>
+        </apex:repeat>        
+    </ol>
+    
+    <style>
+        ol.timePicker{
+        	height: 12.7em;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        	border: 1px solid #b7c6b2;
+            position: absolute;
+            z-index: 51;
+            background: #fff;
+        	display: none;
+        }     
+        
+        ol.timePicker li{
+        	text-align: left;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 4px;
+            padding-right: 12px;
+        	margin: 0px;
+        	list-style-type: none;
+        	white-space: nowrap;
+        }
+        
+        ol.timePicker li:hover{
+        	cursor: pointer;
+        	background-color: #e0f0fb;
+        }
+        
+        ol.timePicker li.currentValue{
+        	background-color: #C7D7E2;
+        }
+    </style>
+    
+</apex:component>

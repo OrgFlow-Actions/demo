@@ -1,0 +1,7 @@
+<design:component>
+    	<design:attribute name="recordId" label="Account ID" />
+    	<design:attribute name="dealerId" label="Dealer ID" />
+    	<design:attribute name="category" label="Category" />
+    	<design:attribute name="brand" label="Brand" />    
+    	<design:attribute name="selectedUsers" label="Selected users"/>	
+</design:component>

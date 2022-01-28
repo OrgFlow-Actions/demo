@@ -1,0 +1,87 @@
+<template>
+
+    <lightning-card title="Contract: Performance levers">
+        
+        <lightning-record-view-form record-id={recordId} object-api-name={sObjectName}>
+        
+            <table>
+
+                <tr>
+                    <td></td>
+                    <td>Material</td>
+                    <td>Equipment</td>
+                </tr>
+                <tr>
+                    <td width="280px">
+                        <b>Max. erlaubt Performance Rabatt</b>
+                    </td>
+                    <td width="70px">
+                        <lightning-output-field field-name="Allowed_discount_materials__c" variant="label-hidden"></lightning-output-field>
+                         </td>
+                    <td>
+                        <lightning-output-field field-name="Allowed_discount_equipment__c" variant="label-hidden"></lightning-output-field>
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <lightning-accordion class="example-accordion" active-section-name="A" allow-multiple-sections-open>
+
+                <lightning-accordion-section name="A" label="Manager Approval">
+
+                </lightning-accordion-section>
+
+                <lightning-accordion-section name="B" label="Zusätzlichen Rabatt">
+                    <table>
+                        <tr>
+                            <td style="text-align:left;"><i>Zusätzlichen Rabatt</i></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td width="280px">Webshop Rabatt</td>
+                            <td width="70px">
+                                <lightning-output-field field-name="Discount_model__r.Webshop_discount__c" variant="label-hidden"></lightning-output-field>
+                            </td>
+                            <td width="70px" style="font-size:10px;">
+                                <lightning-output-field field-name="Discount_model__r.Webshop_discount__c" variant="label-hidden"></lightning-output-field>
+                              </td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom: 1px solid black;">Skonto</td>
+                            <td style="border-bottom: 1px solid black;">
+                                <lightning-output-field field-name="Payment_discount__c" variant="label-hidden"></lightning-output-field>
+                            </td>
+                            <td style="border-bottom: 1px solid black;">
+                                <lightning-output-field field-name="Payment_discount__c" variant="label-hidden"></lightning-output-field>
+                            </td>
+                        </tr>
+        
+                    </table>
+
+                </lightning-accordion-section>
+
+            </lightning-accordion>
+
+
+            <table>
+                <tr>
+                    <td><b>Max. erlaubt Gesamtrabatt</b></td>
+                    <td style="padding:2px; ">
+                        <!--<apex:outputText value=""><b>{!Contract.Allowed_discount_materials__c + Contract.Discount_model__r.Webshop_discount__c + VALUE(Contract.Payment_discount__c)}%</b></apex:outputText> -->
+                    </td>
+                    <td style="padding:2px;">
+                        <!--apex:outputText value=""><b>{!Contract.Allowed_discount_equipment__c + Contract.Discount_model__r.Webshop_discount__c + VALUE(Contract.Payment_discount__c)}%</b></apex:outputText>-->
+                    </td>
+
+                </tr>
+
+            </table>
+
+        
+        </lightning-record-view-form>
+        
+    </lightning-card>
+
+</template>

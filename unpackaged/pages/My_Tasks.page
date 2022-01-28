@@ -1,0 +1,3 @@
+<apex:page lightningStylesheets="true" >
+    <apex:enhancedList type="Activity" height="500" rowsPerPage="50" / >
+</apex:page>

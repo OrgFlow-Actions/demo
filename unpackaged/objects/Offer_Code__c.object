@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Accept</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>CancelEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Clone</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Delete</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Edit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>List</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>New</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>SaveEdit</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>Tab</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Large</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <actionOverrides>
+    <actionName>View</actionName>
+    <formFactor>Small</formFactor>
+    <type>Default</type>
+  </actionOverrides>
+  <allowInChatterGroups>false</allowInChatterGroups>
+  <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+  <deploymentStatus>Deployed</deploymentStatus>
+  <description>Used by DNA Inside/Telesales Teams to associate Promotional Codes with Tasks and Campaigns</description>
+  <enableActivities>false</enableActivities>
+  <enableBulkApi>true</enableBulkApi>
+  <enableFeeds>false</enableFeeds>
+  <enableHistory>true</enableHistory>
+  <enableLicensing>false</enableLicensing>
+  <enableReports>true</enableReports>
+  <enableSearch>true</enableSearch>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <externalSharingModel>Private</externalSharingModel>
+  <fields>
+    <fullName>Campaign_Related__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Related Campaign</label>
+    <lookupFilter>
+      <active>true</active>
+      <filterItems>
+        <field>Campaign.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>DNA Campaign</value>
+      </filterItems>
+      <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Campaign</referenceTo>
+    <relationshipLabel>Offer Codes</relationshipLabel>
+    <relationshipName>Offer_Codes</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+  </fields>
+  <fields>
+    <fullName>Description__c</fullName>
+    <externalId>false</externalId>
+    <label>Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+  </fields>
+  <fields>
+    <fullName>Expiration_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Expiration Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Legacy_ID__c</fullName>
+    <externalId>false</externalId>
+    <label>Legacy ID</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Offer_Code_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  Start_Date__c &gt; TODAY(), "Planned", if( Expiration_Date__c  &gt;=
+TODAY() , "Valid Offer Code", "Expired"))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Offer Code Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+  </fields>
+  <fields>
+    <fullName>Offer_Code_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Offer Code Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Retention</fullName>
+          <default>false</default>
+          <label>Retention</label>
+        </value>
+        <value>
+          <fullName>Adoption</fullName>
+          <default>false</default>
+          <label>Adoption</label>
+        </value>
+        <value>
+          <fullName>Ad Hoc</fullName>
+          <default>false</default>
+          <label>Ad Hoc</label>
+        </value>
+        <value>
+          <fullName>Promotion</fullName>
+          <default>false</default>
+          <label>Promotion</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Start_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Start Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+  </fields>
+  <fields>
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>Source</fullName>
+          <default>false</default>
+          <label>Source</label>
+        </value>
+        <value>
+          <fullName>Special</fullName>
+          <default>false</default>
+          <label>Special</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <fields>
+    <fullName>Used_by_Country_SBU__c</fullName>
+    <externalId>false</externalId>
+    <label>Used by Country/SBU</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+      <restricted>true</restricted>
+      <valueSetDefinition>
+        <sorted>false</sorted>
+        <value>
+          <fullName>USA- DNA TeleSales Core</fullName>
+          <default>false</default>
+          <label>USA- DNA TeleSales Core</label>
+        </value>
+        <value>
+          <fullName>USA - DNA TeleSales Prosthetics</fullName>
+          <default>false</default>
+          <label>USA - DNA TeleSales Prosthetics</label>
+        </value>
+        <value>
+          <fullName>USA - Endo Maillefer</fullName>
+          <default>false</default>
+          <label>USA - Endo Maillefer</label>
+        </value>
+        <value>
+          <fullName>CAN - DNA Inside Sales</fullName>
+          <default>false</default>
+          <label>CAN - DNA Inside Sales</label>
+        </value>
+        <value>
+          <fullName>USA - Inside Sales ENDO</fullName>
+          <default>false</default>
+          <label>USA - Inside Sales ENDO</label>
+        </value>
+        <value>
+          <fullName>USA - Implants</fullName>
+          <default>false</default>
+          <label>USA - Implants</label>
+        </value>
+        <value>
+          <fullName>USA - Sales</fullName>
+          <default>false</default>
+          <label>USA - Sales</label>
+        </value>
+        <value>
+          <fullName>Iberia - Ambassador</fullName>
+          <default>false</default>
+          <label>Iberia - Ambassador</label>
+        </value>
+        <value>
+          <fullName>Iberia - Telesales</fullName>
+          <default>false</default>
+          <label>Iberia - Telesales</label>
+        </value>
+        <value>
+          <fullName>Germany - Lab</fullName>
+          <default>false</default>
+          <label>Germany - Lab</label>
+        </value>
+        <value>
+          <fullName>Germany - PRE</fullName>
+          <default>false</default>
+          <label>Germany - PRE</label>
+        </value>
+        <value>
+          <fullName>Austria - Lab</fullName>
+          <default>false</default>
+          <label>Austria - Lab</label>
+        </value>
+        <value>
+          <fullName>​​​​​​Austria - PRE</fullName>
+          <default>false</default>
+          <label>​​​​​​Austria - PRE</label>
+        </value>
+        <value>
+          <fullName>Indonesia</fullName>
+          <default>false</default>
+          <label>Indonesia</label>
+        </value>
+      </valueSetDefinition>
+    </valueSet>
+  </fields>
+  <label>Offer Code</label>
+  <listViews>
+    <fullName>All</fullName>
+    <columns>OWNER.ALIAS</columns>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Expiration_Date__c</columns>
+    <columns>Type__c</columns>
+    <columns>Description__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+  </listViews>
+  <listViews>
+    <fullName>All_Offer_Codes</fullName>
+    <columns>OBJECT_ID</columns>
+    <columns>Offer_Code_Type__c</columns>
+    <columns>NAME</columns>
+    <columns>Description__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Expiration_Date__c</columns>
+    <columns>Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Offer Codes</label>
+    <language>en_US</language>
+  </listViews>
+  <nameField>
+    <label>Offer Code Name</label>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+  </nameField>
+  <pluralLabel>Offer Codes</pluralLabel>
+  <searchLayouts>
+    <lookupDialogsAdditionalFields>Offer_Code_Status__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Offer_Code_Type__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+    <lookupDialogsAdditionalFields>Expiration_Date__c</lookupDialogsAdditionalFields>
+    <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Expiration_Date__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Offer_Code_Type__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+    <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+  </searchLayouts>
+  <sharingModel>Private</sharingModel>
+  <visibility>Public</visibility>
+</CustomObject>

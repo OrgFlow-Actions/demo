@@ -1,0 +1,15 @@
+<apex:page >
+    <apex:includeLightning />
+	<div id="auraLightning"></div>
+    <script>
+    $Lightning.use("c:orderCloneLightningOutApp", function() {
+        $Lightning.createComponent(
+            "c:cloneOrderOmCmp",
+            { recordId : "{!$CurrentPage.parameters.recordId}"},
+            "auraLightning",
+            function(cmp) {
+            }
+        );
+    });
+    </script>
+</apex:page>

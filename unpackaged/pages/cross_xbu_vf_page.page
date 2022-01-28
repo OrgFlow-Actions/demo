@@ -1,0 +1,64 @@
+<apex:page standardController="Opportunity" docType="html-5.0" renderAs="pdf" standardStylesheets="false">
+<head>
+        <style type="text/css">
+            TH {font-size: 13px; font-face: arial; background: #edeaea; border-width: 0; text-align: center; padding-left:10px; padding-right:10px;}
+            TD {padding-left:10px;padding-right:10px;}
+            TABLE {border: solid #FFFFFF; border-width: 0;font-size: 13px; font-face: arial;}
+            p {font-size: 14px; font-face: arial; text-align: left;}
+        </style>
+</head>
+<body>
+            
+            <img src="https://dentsplysirona.my.salesforce.com/servlet/servlet.ImageServer?id=0150J0000045Oy8&oid=00D200000001dDc" width="100%" /><br/><br/>
+            <img src="https://dentsplysirona.my.salesforce.com/servlet/servlet.ImageServer?id=0150J000004JEYR&oid=00D200000001dDc" width="170" /><br/><br/><br/><br/>
+        
+            <table>
+            <tr>
+            <td width="300px"><font face="arial" size="1">{!Opportunity.Account.Name}<br/>{!Opportunity.StageName}<br/>{!Opportunity.Amount}</font></td>
+            <td width="150px"><h3>{!$ObjectType.Opportunity.Label}</h3></td>
+            <td><h3>{!Opportunity.Name}</h3></td>
+            </tr>
+            <tr>
+            <td/>
+            <td><b>{!$ObjectType.Opportunity.fields.CreatedDate.Label}</b></td>
+            <td><b>{!$ObjectType.Opportunity.fields.CloseDate.Label}</b></td>
+            </tr>
+            <tr>
+            <td/>
+            <td><apex:outputText value=" {0,date,MMM d, yyyy}"><apex:param value="{!Opportunity.CreatedDate}"/></apex:outputText></td>
+            <td><apex:outputText value=" {0,date,MMM d, yyyy}"><apex:param value="{!Opportunity.CloseDate}"/></apex:outputText></td>
+            </tr>
+            
+            <!--<div text-align="right" rendered="{!Order.Distributor__r.Name <> null}">-->
+            <tr>
+            <td valign="top"/>
+            <td valign="top"><b>{!$ObjectType.Opportunity.fields.Primary_Contact__c.Label}:</b></td>
+            <td valign="top">{!Opportunity.Primary_Contact__r.Name}
+ 
+            </td>
+            </tr>
+            <!--</div>-->
+            
+            </table>
+            <table>
+            <tr><td/><td/><td/></tr>
+            <tr>
+            <td width="300px"/>
+            <td width="150px"><b>{!$ObjectType.Contact.Label}, Dentsply</b></td>
+            <td><b>{!$ObjectType.User.fields.Phone.Label}</b></td>
+            </tr>
+            <tr>
+            <td/>
+            <td>{!Opportunity.Owner.Name}</td>
+            <td>{!Opportunity.Owner.Phone}</td>
+            </tr>
+              </table>
+            
+            
+            
+        
+       
+
+         </body>
+
+</apex:page>
