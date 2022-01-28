@@ -1,4 +1,0 @@
-<design:component>
-    <design:attribute name="recordId" label="Record Id"/>
-	<design:attribute name="objectType" label="Object API name"/>
-</design:component>

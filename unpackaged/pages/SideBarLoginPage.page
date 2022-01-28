@@ -1,8 +1,0 @@
-<apex:page showHeader="false">
-<style>
-    body {
-        background-color: #027ec8;
-    }
-</style>
-<img src = "{!$Resource.SideBarLoginImage}" />
-</apex:page>

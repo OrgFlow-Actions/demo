@@ -1,3 +1,0 @@
-<design:component>
-	<design:attribute name="label" label="Label"/>
-</design:component>

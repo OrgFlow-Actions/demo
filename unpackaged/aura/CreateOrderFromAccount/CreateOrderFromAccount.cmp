@@ -1,3 +1,0 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="global">
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
-</aura:component>

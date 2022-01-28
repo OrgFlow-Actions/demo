@@ -1,4 +1,0 @@
-<design:component>
-	<design:attribute name="scriptText" label="Script text" />
-    <design:attribute name="callscript" label="Call script" />
-</design:component>

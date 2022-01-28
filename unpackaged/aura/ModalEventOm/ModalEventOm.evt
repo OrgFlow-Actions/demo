@@ -1,3 +1,0 @@
-<aura:event type="APPLICATION" description="Event to handle custom modals for OM2">
-    <aura:attribute name="message" type="Object" />
-</aura:event>

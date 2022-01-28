@@ -1,5 +1,0 @@
-<design:component>
-    
-    <design:attribute name="listInput" label="Input List"/>
-	
-</design:component>

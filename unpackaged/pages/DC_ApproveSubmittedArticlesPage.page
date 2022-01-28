@@ -1,2 +1,0 @@
-<apex:page standardController="Case" extensions="DC_AutoApprovalController" action="{!approveArticles}">
-</apex:page>

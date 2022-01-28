@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT" description="Calendar CFE event">
-    <aura:attribute name="updCFE" type="Boolean" default="false"/>
-</aura:event>
