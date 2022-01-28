@@ -1,0 +1,299 @@
+<apex:page controller="DC_CampaignFlowController" showChat="false" sidebar="false" action="{!init}">
+    <apex:includeScript value="{!URLFOR($Resource.DNA_Resources, 'js/functions.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.DNA_Resources, 'js/jquery.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.DNA_Resources, 'js/jquery.widgets.js')}"/>
+
+    <apex:stylesheet value="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <apex:stylesheet value="{!URLFOR($Resource.DNA_SLDS, 'styles/salesforce-lightning-design-system--normalize.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DNA_SLDS, 'styles/salesforce-lightning-design-system--defaults.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DNA_SLDS, 'styles/salesforce-lightning-design-system--components.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DNA_Resources, 'css/custom.css')}" />
+
+    <div class="slds">
+
+
+        <div class="slds-page-header">
+            <div class="slds-grid">
+                <span class="slds-icon_container slds-icon-standard-report slds-align-top slds-m-right--small">
+                    <i class="fa fa-phone slds-icon"></i>
+                </span>
+                <div class="slds-grow">
+                    <span class="slds-text-title--caps slds-line-height--reset">REPORT</span>
+                    <div class="slds-page-header__title slds-truncate">Inside Sales Call</div>
+                </div>
+                <div>
+                    <!--<a target="_blank" class="slds-button slds-button--brand" href="/setup/ui/recordtypeselect.jsp?ent=Order&retURL=/{!acc.Id}&save_new_url=/801/e?retURL=/{!acc.Id}&aid={!acc.Id}">Create Order</a>-->
+                    <a target="_blank" class="slds-button slds-button--brand" href="/apex/Order_Direct_Contact?Id={!selectedContactId}&VarCampMember={!campaignMemberId}&retURL=/{!acc.Id}">Create Order</a>                    
+                    
+                </div>
+            </div>
+
+            <ul class="slds-grid slds-page-header__detail-row">
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate slds-m-bottom--xx-small">Account</div>
+                    <a target="_blank" href="/{!cm.Contact.AccountId}"><apex:outputText value="{!cm.Contact.Account.Name}" /></a>
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate slds-m-bottom--xx-small">Contact</div>
+                    <a target="_blank" href="/{!cm.ContactId}"><apex:outputText value="{!cm.Contact.Name}" /></a>
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate slds-m-bottom--xx-small">Phone</div>
+                    <apex:outputText value="{!cm.Account__r.Phone}" styleClass="slds-text-body--regular slds-truncate" />
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate slds-m-bottom--xx-small">Fax</div>
+                    <apex:outputText value="{!cm.Account__r.Fax}" styleClass="slds-text-body--regular slds-truncate" />
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate slds-m-bottom--xx-small">Email</div>
+                    <apex:outputText value="{!cm.Contact.Email}" styleClass="slds-text-body--regular slds-truncate" />
+                </li>
+                <li class="slds-page-header__detail-block">
+                    <div class="slds-text-title slds-truncate slds-m-bottom--xx-small">Account Address</div>
+                    <apex:outputText value="{!fullAddress}" styleClass="slds-text-body--regular slds-truncate" />
+                </li>
+            </ul>
+            
+        </div>
+        
+        <div class="slds-p-around--large">
+            <apex:outputPanel layout="block" rendered="{!selectedCampaignId != null}" styleClass="slds-card">
+                <div class="slds-card__body">
+                    <flow:interview name="DNA_Campaign_Flow" buttonLocation="both" finishLocation="{!currentPage}">
+                        <apex:param value="{!cm}" name="cm"/>
+                        <apex:param value="{!responseSettingsName}" name="campaignRecordTypeName"/>
+                    </flow:interview>
+                </div>
+            </apex:outputPanel>
+
+
+
+            <apex:outputPanel layout="block" rendered="{!selectedCampaignId == null}" styleClass="slds-m-bottom--medium">
+                <apex:form rendered="{!areThereActiveCampigns}">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <div class="slds-text-heading--small slds-truncate">Contacts</div>
+                        </div>
+                        <div class="slds-card__body slds-grid slds-p-horizontal--small">
+                            <div class="slds-col contact-selector" id="contactSelector">
+                                <apex:inputHidden value="{!selectedContactId}" id="selectedContactId" />
+
+                                <div class="slds-select_container">
+                                    <div class="slds-item slds-grid slds-grid--vertical-align-center">
+                                        <span class="slds-icon_container slds-icon-standard-performance slds-m-right--x-small"><i class="fa fa-user slds-icon"></i></span>
+                                        <div class="slds-grow"></div>
+                                    </div>
+                                </div>
+
+
+                                <ul class="slds-subitems__list">
+                                <apex:repeat value="{!contacts}" var="contact">
+                                <li class="slds-item">
+                                    <div class="slds-radio">
+                                        <input type="radio" id="contact-{!contact.Id}" name="contacts" value="{!contact.Id}" />
+                                        <label class="slds-radio__label" for="contact-{!contact.Id}">
+                                            <div class="slds-grid slds-grid--vertical-align-center">
+                                                <span class="slds-radio--faux"></span>
+                                                <div class="slds-grow">
+                                                    <div>{!contact.Name}</div>
+                                                    <div class="slds-grid slds-text-title">
+                                <apex:outputText styleClass="slds-size--1-of-3" value="Title: {!contact.Title}" />
+                                <!--rendered="{!IF(contact.Title != null, true,false)}"-->
+                                <apex:outputText styleClass="slds-size--1-of-3" value="Contact Type: {!contact.Contact_Type__c}" />
+                                <!--rendered="{!IF(contact.Contact_Type__c != null, true,false)}"-->
+                                <apex:outputText styleClass="slds-size--1-of-3" value="Sub Contact Type: {!contact.Sub_Contact_Type__c}" />
+                                <!--rendered="{!IF(contact.Sub_Contact_Type__c != null, true,false)}"-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </li>
+                                </apex:repeat>
+                                </ul>
+
+                                <script>
+                                    $$(function(){
+                                        var section = $$('#contactSelector'),
+                                            input = $$(getId('{!$Component.selectedContactId}')),
+                                            selectedContact = section.find('.slds-select_container'),
+                                            list = section.find('.slds-subitems__list'),
+                                            radios = section.find('input:radio');
+
+                                        selectedContact.on('click',function(){
+                                //          selectedContact.hide();
+                                            list.show();
+                                        });
+                                        radios.on('click',function(){
+                                            var id = $$(this).val(),
+                                                title = $$(this).closest('.slds-radio').find('.slds-grow').html();
+
+                                            input.val(id);
+                                            selectedContact.find('.slds-grow').html(title);
+
+                                //          selectedContact.show();
+                                            list.hide();
+                                        });
+
+                                        radios.filter('#contact-'+input.val()).prop('selected', true).trigger('click');
+                                        list.hide();
+                                    });
+                                </script>
+                            </div>
+
+                            <div class="slds-m-left--small">
+                                <a href="/003/e?saveURL={!currentPage}&retURL={!currentPage}&accid={!acc.Id}" target="_self" class="slds-button slds-button--brand">Create Contact</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <div class="slds-text-heading--small slds-truncate">Active Campaigns</div>
+                        </div>
+                        <div class="slds-card__body slds-p-horizontal--small">
+                            <apex:dataTable value="{!campaigns}" var="campaign" styleClass="slds-table slds-table--bordered slds-table--cell-buffer slds-no-row-hover">
+                                <apex:column >
+                                    <apex:facet name="header"><span class="slds-text-title--caps">Name</span></apex:facet>
+                                    
+                                    <div class="slds-truncate">
+                                        <apex:commandLink value="{!campaign.Name}" action="{!onSelectCampaignAction}">
+                                            <apex:param assignTo="{!selectedCampaignId}" name="selectedCampaignId" value="{!campaign.Id}"/>
+                                        </apex:commandLink>
+                                    </div>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header"><span class="slds-text-title--caps">Status</span></apex:facet>
+                                    <div class="slds-truncate">{!campaign.Status}</div>
+                                </apex:column>
+                            </apex:dataTable>
+                        </div>
+                    </article>
+                </apex:form>
+                <apex:outputPanel rendered="{!areThereActiveCampigns == false}">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <div class="slds-text-heading--small slds-truncate">Active Campaigns</div>
+                        </div>
+                        <div class="slds-card__body slds-p-horizontal--small">
+                            <div class="slds-notify--alert slds-theme--warning slds-theme--alert-texture">No Active Campaigns</div>
+                        </div>
+                     </article>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <article class="slds-card">
+                
+                    <div class="slds-p-around--large">
+            <wave:dashboard dashboardId="0FK0J000000PBPIWA4" 
+        showTitle="true" 
+        height="500px" 
+        openLinksInNewWindow="true" 
+      filter=" {'datasets':{'AccountAndProductRoles_New':[{'fields':['ac.Id'], 'filter':{'operator': 'matches', 'values':['{!cm.Contact.AccountId}']}}]}} " />          
+                    </div>
+            </article>
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-text-heading--small slds-truncate">Order History</div>
+                </div>
+                <div class="slds-card__body slds-p-horizontal--small">
+                    <apex:dataTable value="{!orders}" var="order" styleClass="slds-table slds-table--bordered slds-table--cell-buffer slds-no-row-hover">
+                        
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Order Number</span></apex:facet>
+                            <div class="slds-truncate"><a target="_blank" href="/{!order.Id}"><apex:outputText value="{!order.OrderNumber}" /></a></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Order Type</span></apex:facet>
+                            <div class="slds-text-nowrap"><apex:outputText value="{!order.Order_Type__c}" /></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Status</span></apex:facet>
+                            <div class="slds-text-nowrap"><apex:outputText value="{!order.Status}" /></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Start Date</span></apex:facet>
+
+                            <div class="slds-text-nowrap">
+                                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                    <apex:param value="{!order.EffectiveDate}"/>
+                                </apex:outputText>
+                            </div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Distributor</span></apex:facet>
+                            <div class="slds-truncate">
+                                <a target="_blank" href="/{!order.Distributor__c}">
+                                    <apex:outputText value="{!order.Distributor__r.Name}" />
+                                </a>
+                            </div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Order Amount</span></apex:facet>
+                            <div class="slds-text-nowrap"><apex:outputText value="{!order.Order_Amount_global__c}" /></div>
+                        </apex:column>
+                    </apex:dataTable>
+                </div>
+            </article>
+
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-text-heading--small slds-truncate">Activity History &amp; Call Notes</div>
+                </div>
+                <div class="slds-card__body slds-p-horizontal--small">
+                    <apex:dataTable value="{!activities}" var="activity" columnsWidth="12%,12%,9%,9%,9%,12%" styleClass="slds-table slds-table--bordered slds-table--cell-buffer slds-no-row-hover">
+                        
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Subject</span></apex:facet>
+                            <div class="slds-truncate" title="{!activity.subject}"><a target="_blank" href="/{!activity.id}"><apex:outputText value="{!activity.subject}" /></a></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Related To</span></apex:facet>
+                            <div class="slds-truncate" title="{!activity.relatedToName}"><a target="_blank" href="/{!activity.relatedToId}"><apex:outputText value="{!activity.relatedToName}" /></a></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Due Date</span></apex:facet>
+
+                            <div class="slds-truncate">
+                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                    <apex:param value="{!activity.activityDate}"/>
+                                </apex:outputText>
+                            </div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Contact Type</span></apex:facet>
+                            <div class="slds-truncate"><apex:outputText value="{!activity.contactType}" /></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Event Status</span></apex:facet>
+                            <div class="slds-truncate"><apex:outputText value="{!activity.eventStatus}" /></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Task Status</span></apex:facet>
+                            <div class="slds-truncate"><apex:outputText value="{!activity.status}" /></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Assigned To</span></apex:facet>
+                            <div class="slds-truncate" title="{!activity.ownerName}"><a target="_blank" href="/{!activity.ownerId}"><apex:outputText value="{!activity.ownerName}" /></a></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Call Note</span></apex:facet>
+                            <div class="slds-truncate-text"><apex:outputText value="{!activity.callNote}" /></div>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header"><span class="slds-text-title--caps">Comments</span></apex:facet>
+                            <div class="slds-truncate-text"><apex:outputText value="{!activity.description}" /></div>
+                        </apex:column>
+                    </apex:dataTable>
+                </div>
+
+                <script>
+                    $$(function(){
+                        $$('.slds-truncate-text').truncateText(60);
+                    });
+                </script>
+            </article>
+        </div>
+
+    </div>
+</apex:page>

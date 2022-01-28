@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>41.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>A link placed on the account detail page - intended to be used mainly on the mobile to access sales data. The Desktop version woul dhave the same dashboard in the sales Tab</description>
+    <label>Lightning Account Page link</label>
+</ApexPage>
