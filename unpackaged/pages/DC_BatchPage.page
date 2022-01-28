@@ -1,0 +1,25 @@
+<apex:page controller="DC_PostalCodeProcessingController" title="Admin Page" cache="false">
+    <apex:stylesheet value="{!URLFOR($Resource.DNA_SLDS, 'styles/salesforce-lightning-design-system--defaults.css')}" />
+    <style type="text/css">
+       .info-panel
+       {
+           padding-top : 10px;
+       }    
+    </style>
+    <div class="slds">
+    <apex:form >  
+        <apex:pageBlock id="runProcessingPanel" title="Postal Code Batch Updates">
+            <apex:commandButton rendered="{!!runningJobExist}" action="{!StartJob}" value="Run Now"  reRender="runProcessingPanel" />
+            <apex:outputPanel id="statusPanel" rendered="{!runningJobExist}" layout="block" styleClass="info-panel">
+              <apex:actionPoller action="{!checkJob}" rerender="runProcessingPanel" interval="5"/>
+                {!batchStatus} 
+            </apex:outputPanel>
+            <br/>
+            <apex:outputPanel >
+               <apex:outputText value="{!finishedJobsStr}" escape="false"></apex:outputText> 
+            </apex:outputPanel>
+            
+        </apex:pageBlock>
+    </apex:form>
+    </div>
+</apex:page>
