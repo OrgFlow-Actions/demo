@@ -1,0 +1,2 @@
+<apex:page standardController="Case" extensions="DC_SubmitButtonController" action="{!submitArticlesForApproval}">
+</apex:page>
