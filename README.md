@@ -79,6 +79,8 @@ We've added our `Car` object to the `OFQA` sandbox, now let's deploy it to the `
 
 Create a pull request to merge the changes from the branch `sandbox/qa` into `sandbox/uat`. This is a good chance to see and review the changes being made- you'll see the diff between the two branches, and you can also leave comments or a review if you'd like to.
 
+You'll also notice that GitHub initiates a check called `Validate PR` on this pull request. This check consists of a workflow that takes advantage of GitHub's `pull_request` trigger to run a command with OrgFlow that performs a check-only deployment of the merge result. The results are then added to the pull request as a comment, allowing you to verify if all the components that have been changed are deployable.
+
 Once you're happy with the change, merge the pull request. **Do not squash and merge or rebase and merge- OrgFlow needs the entire commit history in order to facilitate some of its more advanced features** (see step 6).
 
 Go to the `Actions` tab again, and you'll notice that an action has automatically been triggered to deploy this change. We've just used a standard GitHub Action trigger to watch for changes to the branch, and then the workflow simply uses OrgFlow to deploy the change to the correct sandbox.
