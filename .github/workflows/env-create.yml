@@ -73,20 +73,25 @@ jobs:
           exit 1
           
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v0.4
+      - uses: orgflow-actions/configure-git@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Configure auth:
-      - uses: orgflow-actions/set-salesforce-auth@v0.2
+      - uses: orgflow-actions/set-salesforce-auth@v1
+        id: set-salesforce-auth
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           username: ${{ secrets.SALESFORCE_USERNAME }}
-          password: ${{ secrets.SALESFORCE_PASSWORD }}       
+          password: ${{ secrets.SALESFORCE_PASSWORD }} 
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }} 
           
       # Run OrgFlow command:
       - name: env:create
         run: |
-          orgflow env:create -e="${{ github.event.inputs.environmentName }}" -sb="${{ github.event.inputs.sandboxName }}" -b="${{ github.event.inputs.branchName }}" --useExistingSandbox --useExistingBranch      
+          orgflow env:create -e="${{ github.event.inputs.environmentName }}" -sb="${{ github.event.inputs.sandboxName }}" -b="${{ github.event.inputs.branchName }}" --useExistingSandbox --useExistingBranch --noConfirm
+        env:
+          ORGFLOW_ENCRYPTIONKEY: ${{ steps.set-salesforce-auth.outputs.encryption-key }}
       
       # Publish diagnostic bundles to artifacts (if any):
       - name: Publish diagnostic bundle as artifact

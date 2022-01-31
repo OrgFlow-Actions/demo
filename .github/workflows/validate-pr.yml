@@ -1,0 +1,79 @@
+name: Validate PR
+
+on:
+  pull_request:
+    types: [ opened, reopened ]
+
+# The env:flowmerge command needs to be able to push changes back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  env-merge:
+    name: Run a check-only deployment on the result of the merge
+    runs-on: ubuntu-latest
+    container: 
+      image: orgflow/cli:latest
+      env:
+        ORGFLOW_ACCEPTEULA: true
+
+    steps:
+      # List all the environments so that we can find and environment name based off the Git branch name:
+      - uses: orgflow-actions/env-list@v1
+        name: List environments
+        id: env-list
+        with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+      
+      # Filter the output from the previous step to find the environment name from the source branch...
+      - name: Get source environment
+        id: get-source-environment
+        run: |
+          echo '${{ steps.env-list.outputs.environments }}' |
+          jq '[.[] | select(.git.branch == "${{ github.head_ref }}") | .name] | select(. | length > 0)[0]' -r | 
+          ( read output; echo "::set-output name=environment-name::$output"; )
+        shell: bash
+
+      # ... and target environment:
+      - name: Get target environment
+        id: get-target-environment
+        run: |
+          echo '${{ steps.env-list.outputs.environments }}' |
+          jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r | 
+          ( read output; echo "::set-output name=environment-name::$output"; )
+        shell: bash
+
+      # Run a check-only merge of the two environments:
+      - uses: orgflow-actions/env-flowmerge@v1
+        if: ${{ steps.get-source-environment.outputs.environment-name != '' && steps.get-target-environment.outputs.environment-name != '' }}
+        id: env-flowmerge
+        with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+          source-environment: ${{ steps.get-source-environment.outputs.environment-name }}
+          target-environment: ${{ steps.get-target-environment.outputs.environment-name }}
+          check-only: true
+          salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
+          salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
+          git-token: ${{ secrets.GITHUB_TOKEN }}
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+      
+      # Post the results of the check-only merge as a comment on the PR:
+      - uses: orgflow-actions/comment-env-flowout-result@v1
+        if: ${{ steps.env-flowmerge.outputs.flow-out-into != '' }}
+        id: comment-result
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          env-flowout-result: ${{ steps.env-flowmerge.outputs.flow-out-into }}
+      
+      # Publish diagnostic bundles to artifacts (if any):
+      - name: Publish diagnostic bundle as artifact
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Diagnostic Bundles
+          path: |
+            /tmp/OrgFlow_Diagnostics_*.zip
+          retention-days: 3
+          if-no-files-found: ignore

@@ -2,9 +2,14 @@
 
 name: Flow out an environment
 on:
-  push:
-    branches-ignore: [ production ] # Remove this line to enable deployments to production. Note- we assume that the production environment is backed by a branch called `production`; if this is not the case, then you'll need to update this value.
-        
+  workflow_dispatch:
+    inputs:
+      environmentName:
+        description: >
+          Name of environment to flow out.
+
+          Make sure to enter the name of an environment that you have already created.
+        required: true
 jobs:
   flow-out:
     name: "Flow Environment Out"
@@ -43,48 +48,35 @@ jobs:
         if: ${{always() && env.SALESFORCE_PASSWORD == '' }}
         run: |
           echo 'Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details.'
-          exit 1
-          
-      # Get the branch name that triggered this action, and format it in a way that OrgFlow can understand it:
-      - id: get-branch
-        name: Get branch name
-        run: echo "BRANCHNAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          
-      # Use jq to scan the output from env:list to retrieve the environment name based on the branch:
-      - id: get-environment
-        name: Get OrgFlow environment from branch name
-        run: echo ORGFLOW_ENVIRONMENT=`orgflow env:list --output=json | jq '.[] | select(.git.branch == env.BRANCHNAME) | .name'` >> $GITHUB_ENV
-
-      # Print a message if there is no environment for this branch:
-      - id: environment-check
-        name: Print if this branch is not related to an environment
-        if: ${{ env.ORGFLOW_ENVIRONMENT == '' }}
-        run: echo "Branch '$BRANCHNAME' does not belong to any environment on this stack."      
+          exit 1 
           
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v0.4
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
+      - uses: orgflow-actions/configure-git@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Configure auth:
-      - uses: orgflow-actions/set-salesforce-auth@v0.2
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
+      - uses: orgflow-actions/set-salesforce-auth@v1
+        id: set-salesforce-auth
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           username: ${{ secrets.SALESFORCE_USERNAME }}
-          password: ${{ secrets.SALESFORCE_PASSWORD }}        
+          password: ${{ secrets.SALESFORCE_PASSWORD }}  
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}       
           
       # It's good practice flow in before you flow out, to avoid loss of data in the Salesforce org:
       - name: env:flowin
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         run: |
-          orgflow env:flowin -e="$ORGFLOW_ENVIRONMENT"
+          orgflow env:flowin -e="${{ github.event.inputs.environmentName }}"
+        env:
+          ORGFLOW_ENCRYPTIONKEY: ${{ steps.set-salesforce-auth.outputs.encryption-key }}
           
       # Flow out to deploy the changes from Git to Salesforce:
       - name: env:flowout
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         run: |
-          orgflow env:flowout -e="$ORGFLOW_ENVIRONMENT" --checkOnly      
+          orgflow env:flowout -e="${{ github.event.inputs.environmentName }}"
+        env:
+          ORGFLOW_ENCRYPTIONKEY: ${{ steps.set-salesforce-auth.outputs.encryption-key }} 
       
       # Publish diagnostic bundles to artifacts (if any):
       - name: Publish diagnostic bundle as artifact

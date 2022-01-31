@@ -51,7 +51,7 @@ jobs:
           exit 1
       
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v0.3
+      - uses: orgflow-actions/configure-git@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           

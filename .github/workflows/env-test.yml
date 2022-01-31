@@ -62,18 +62,21 @@ jobs:
       # The test results publisher requires that the repository is checked out:
       - uses: actions/checkout@v2 
         name: Checkout at hash for environment
-        # with:
-        #   ref: $ORGFLOW_SHA
 
       # Configure auth:
-      - uses: orgflow-actions/set-salesforce-auth@v0.2
+      - uses: orgflow-actions/set-salesforce-auth@v1
+        id: set-salesforce-auth
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           username: ${{ secrets.SALESFORCE_USERNAME }}
           password: ${{ secrets.SALESFORCE_PASSWORD }} 
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }} 
       
       # Run OrgFlow command:
       - name: env:test
-        run: orgflow env:test -e="${{ github.event.inputs.environmentName }}" --jUnitTo="${{ env.RUNNER_TEMP }}junit.xml" -c="Test_OrderPath_CC"
+        run: orgflow env:test -e="${{ github.event.inputs.environmentName }}" --jUnitTo="${{ env.RUNNER_TEMP }}junit.xml"
+        env:
+          ORGFLOW_ENCRYPTIONKEY: ${{ steps.set-salesforce-auth.outputs.encryption-key }}
 
       # Publish the test results using an action from the marketplace:
       - name: Generate test report
