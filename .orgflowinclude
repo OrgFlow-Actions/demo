@@ -13,3 +13,9 @@ unpackaged/~/ApexTrigger
 unpackaged/~/AuraDefinitionBundle
 unpackaged/~/LightningComponentBundle
 unpackaged/~/Scontrol
+
+
+!unpackaged/~/CustomObject/LearningAssignment
+!unpackaged/~/CustomObject/LearningAssignmentProgress
+!unpackaged/~/CustomObject/LearningLinkProgress
+!unpackaged/~/CustomObject/VoiceCall
