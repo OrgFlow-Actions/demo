@@ -52,14 +52,12 @@ jobs:
           
       # Configure Git:
       - uses: orgflow-actions/configure-git@v1
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       # Configure auth:
       - uses: orgflow-actions/set-salesforce-auth@v1
         id: set-salesforce-auth
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         with:
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           username: ${{ secrets.SALESFORCE_USERNAME }}
@@ -68,7 +66,6 @@ jobs:
           
       # It's good practice flow in before you flow out, to avoid loss of data in the Salesforce org:
       - name: env:flowin
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         run: |
           orgflow env:flowin -e="${{ github.event.inputs.environmentName }}"
         env:
@@ -76,7 +73,6 @@ jobs:
           
       # Flow out to deploy the changes from Git to Salesforce:
       - name: env:flowout
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
         run: |
           orgflow env:flowout -e="${{ github.event.inputs.environmentName }}"
         env:
