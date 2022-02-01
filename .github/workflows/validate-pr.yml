@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [ opened, reopened ]
 
+# The env:flowmerge command needs to be able to push changes back to the repo.
+permissions:
+  contents: write
+  
 jobs:
   env-merge:
     name: Run a check-only deployment on the result of the merge
