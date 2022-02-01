@@ -15,7 +15,10 @@ jobs:
     name: Create Stack
     runs-on: ubuntu-latest    
     container: 
-      image: orgflow/cli:latest
+      image: orgflow/cli-private:latest
+      credentials:
+          username: paynecrl97
+          password: ${{  secrets.DOCKERHUB_PASSWORD }}
     env:
       ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.    
       ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
@@ -51,9 +54,11 @@ jobs:
           exit 1
       
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v1
+      - uses: orgflow-actions/configure-git@v2.0.0
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           
       # Run OrgFlow command:
       - name: stack:create

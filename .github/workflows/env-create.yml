@@ -37,7 +37,12 @@ jobs:
     name: Create Environment
     runs-on: ubuntu-latest    
     container: 
-      image: orgflow/cli:latest
+      image: orgflow/cli-private:latest
+      credentials:
+        username: paynecrl97
+        password: ${{  secrets.DOCKERHUB_PASSWORD }}
+      env:
+        ORGFLOW_OUTPUTTEMPLATE_ERROR: ::error file=filename,line=0,endLine=0,title=ErrorTitle::$$msg$$
     env:
       ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
       ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
@@ -73,9 +78,11 @@ jobs:
           exit 1
           
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v1
+      - uses: orgflow-actions/configure-git@v2.0.0
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
 
       # Configure auth:
       - uses: orgflow-actions/set-salesforce-auth@v1
