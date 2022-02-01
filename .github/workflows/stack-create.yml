@@ -18,7 +18,7 @@ jobs:
       image: orgflow/cli-private:latest
       credentials:
           username: paynecrl97
-          password: ${{  secrets.DOCKERHUB_PASSWORD }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
     env:
       ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.    
       ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
@@ -28,6 +28,10 @@ jobs:
       
     steps:
       # Verify input:
+      - name: Print OrgFlow version
+        run: |
+          orgflow --version
+        shell: bash
       - name: Verify stack name
         id: verifyStackName
         if: ${{always() && env.ORGFLOW_STACKNAME == '' }}
