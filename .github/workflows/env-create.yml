@@ -42,7 +42,8 @@ jobs:
         username: paynecrl97
         password: ${{  secrets.DOCKERHUB_PASSWORD }}
       env:
-        ORGFLOW_OUTPUTTEMPLATE_ERROR: "::error file=filename,line=0,endLine=0,title=ErrorTitle::$$msg$$"
+        ORGFLOW_OUTPUTTEMPLATE_WARNING: "::warning  title=OrgFlow Warning::$$msg$$"
+        ORGFLOW_OUTPUTTEMPLATE_ERROR: "::error title=OrgFlow Error::$$msg$$"
     env:
       ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
       ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
