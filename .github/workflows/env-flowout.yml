@@ -22,6 +22,8 @@ jobs:
       ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }} 
       SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
       SALESFORCE_PASSWORD: ${{ secrets.SALESFORCE_PASSWORD }}   
+      ORGFLOW_OUTPUTTEMPLATE_WARNING: "::warning  title=OrgFlow Warning::$$msg$$"
+      ORGFLOW_OUTPUTTEMPLATE_ERROR: "::error title=OrgFlow Error::$$msg$$"
           
     steps:
       # Verify input:
@@ -51,9 +53,11 @@ jobs:
           exit 1 
           
       # Configure Git:
-      - uses: orgflow-actions/configure-git@v1
+      - uses: orgflow-actions/configure-git@v2
         with:
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
 
       # Configure auth:
       - uses: orgflow-actions/set-salesforce-auth@v1

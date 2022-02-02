@@ -13,10 +13,7 @@ jobs:
     name: Run a check-only deployment on the result of the merge
     runs-on: ubuntu-latest
     container: 
-      image: orgflow/cli-private:latest
-      credentials:
-        username: paynecrl97
-        password: ${{  secrets.DOCKERHUB_PASSWORD }}
+      image: orgflow/cli:latest
       env:
         ORGFLOW_ACCEPTEULA: true
         ORGFLOW_OUTPUTTEMPLATE_WARNING: "::warning  title=OrgFlow Warning::$$msg$$"
