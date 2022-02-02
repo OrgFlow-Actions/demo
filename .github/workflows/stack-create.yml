@@ -29,25 +29,25 @@ jobs:
       # Verify input:
       - name: Verify stack name
         id: verifyStackName
-        if: ${{always() && env.ORGFLOW_STACKNAME == '' }}
+        if: ${{always() && secrets.ORGFLOW_STACKNAME == '' }}
         run: |
           echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.
           exit 1
       - name: Verify license key
         id: verifyLicenseKey
-        if: ${{always() && env.ORGFLOW_LICENSEKEY == '' }}
+        if: ${{always() && secrets.ORGFLOW_LICENSEKEY == '' }}
         run: |
           echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.
           exit 1
       - name: Verify Salesforce username
         id: verifySalesforceUsername
-        if: ${{always() && env.SALESFORCE_USERNAME == '' }}
+        if: ${{always() && secrets.SALESFORCE_USERNAME == '' }}
         run: |
           echo 'Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details.'
           exit 1
       - name: Verify Salesforce password
         id: verifySalesforcePassword
-        if: ${{always() && env.SALESFORCE_PASSWORD == '' }}
+        if: ${{always() && secrets.SALESFORCE_PASSWORD == '' }}
         run: |
           echo 'Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details.'
           exit 1
