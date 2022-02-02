@@ -1,5 +1,5 @@
 # Creates a new OrgFlow stack for the current repo. In OrgFlow, a stack is a collection of environments, and maps to a single git repo. Your stack will get linked to this repo, and any environments that you create will be backed by branches within this repo.
-# NOTE: for simplicity, we assume some input- we'll name your production environment 'Production', and we'll commit all its metadata to a branch called 'main'.
+# NOTE: for simplicity, we assume some input- we'll name your production environment 'Production', and we'll commit all its metadata to a branch called 'production'.
 name: Create the stack
 
 on:
@@ -27,32 +27,14 @@ jobs:
       
     steps:
       # Verify input:
-      - name: Verify stack name
-        id: verifyStackName
-        if: ${{always() && env.ORGFLOW_STACKNAME == '' }}
+      - name: Verify input
+        id: verifyInput
         run: |
-          if ["$ORGFLOW_STACKNAMEx" == ""]; then echo "::error ::Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details." && exit 1; fi;
-          # echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.
-          # exit 1
-      # - name: Verify license key
-      #   id: verifyLicenseKey
-      #   if: ${{always() && secrets.ORGFLOW_LICENSEKEY == '' }}
-      #   run: |
-      #     echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.
-      #     exit 1
-      # - name: Verify Salesforce username
-      #   id: verifySalesforceUsername
-      #   if: ${{always() && secrets.SALESFORCE_USERNAME == '' }}
-      #   run: |
-      #     echo 'Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details.'
-      #     exit 1
-      # - name: Verify Salesforce password
-      #   id: verifySalesforcePassword
-      #   if: ${{always() && secrets.SALESFORCE_PASSWORD == '' }}
-      #   run: |
-      #     echo 'Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details.'
-      #     exit 1
-      
+          if ["$ORGFLOW_STACKNAME" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details." && exit 1; fi;
+          if ["$ORGFLOW_LICENSEKEY" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details." && exit 1; fi;
+          if ["$SALESFORCE_USERNAME" == ""]; then echo "::error tile=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details." && exit 1; fi;
+          if ["$SALESFORCE_PASSWORD" == ""]; then echo "::error tile=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details." && exit 1; fi;
+    
       # Configure Git (we can't use the orgflow-actions/configure-git action just yet, because it depends on the stack having already been created):
       - name: Configure Git
         run: |
