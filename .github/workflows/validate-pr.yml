@@ -20,6 +20,15 @@ jobs:
         ORGFLOW_OUTPUTTEMPLATE_ERROR: "::error title=OrgFlow Error::$$msg$$"
 
     steps:
+      # Verify input:
+      - name: Verify input
+        id: verifyInput
+        run: |
+          if ["$ORGFLOW_STACKNAME" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details." && exit 1; fi;
+          if ["$ORGFLOW_LICENSEKEY" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details." && exit 1; fi;
+          if ["$SALESFORCE_USERNAME" == ""]; then echo "::error tile=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details." && exit 1; fi;
+          if ["$SALESFORCE_PASSWORD" == ""]; then echo "::error tile=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details." && exit 1; fi;
+    
       # List all the environments so that we can find and environment name based off the Git branch name:
       - uses: orgflow-actions/env-list@v1
         name: List environments

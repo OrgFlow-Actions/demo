@@ -49,30 +49,13 @@ jobs:
     
     steps:
       # Verify input:
-      - name: Verify stack name
-        id: verifyStackName
-        if: ${{ always() && env.ORGFLOW_STACKNAME == '' }}
+      - name: Verify input
+        id: verifyInput
         run: |
-          echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.'
-          #exit 1
-      - name: Verify license key
-        id: verifyLicenseKey
-        if: ${{ always() && env.ORGFLOW_LICENSEKEY == '' }}
-        run: |
-          echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.'
-          exit 
-      - name: Verify Salesforce username
-        id: verifySalesforceUsername
-        if: ${{always() && env.SALESFORCE_USERNAME == '' }}
-        run: |
-          echo 'Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details.'
-          exit 1
-      - name: Verify Salesforce password
-        id: verifySalesforcePassword
-        if: ${{always() && env.SALESFORCE_PASSWORD == '' }}
-        run: |
-          echo 'Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details.'
-          exit 1
+          if ["$ORGFLOW_STACKNAME" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details." && exit 1; fi;
+          if ["$ORGFLOW_LICENSEKEY" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details." && exit 1; fi;
+          if ["$SALESFORCE_USERNAME" == ""]; then echo "::error tile=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details." && exit 1; fi;
+          if ["$SALESFORCE_PASSWORD" == ""]; then echo "::error tile=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details." && exit 1; fi;
           
       # Configure Git:
       - uses: orgflow-actions/configure-git@v2
