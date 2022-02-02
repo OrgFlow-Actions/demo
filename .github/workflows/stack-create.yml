@@ -31,7 +31,7 @@ jobs:
         id: verifyStackName
         if: ${{always() && env.ORGFLOW_STACKNAME == '' }}
         run: |
-          if ["$ORGFLOW_STACKNAME" == ""]; then echo "Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details." && exit 1 fi
+          if ["$ORGFLOW_STACKNAME" == ""]; then echo "::error ::Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details." && exit 1; fi;
           # echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.
           # exit 1
       # - name: Verify license key
