@@ -27,10 +27,6 @@ on:
           
           OrgFlow will create the branch from the head of `production` (if not already created). Make sure that the branch you provide is not already being used by another environment.
         required: true
-        
-# The env:create command needs to be able to push changes back to the repo.
-permissions:
-  contents: write  
 
 jobs:
   env-create:

@@ -17,28 +17,21 @@ jobs:
     runs-on: ubuntu-latest    
     container: 
       image: orgflow/cli:latest
-    env:
-      ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
-      ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
-      ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
-      ORGFLOW_OUTPUTTEMPLATE_WARNING: "::warning  title=OrgFlow Warning::$$msg$$"
-      ORGFLOW_OUTPUTTEMPLATE_ERROR: "::error title=OrgFlow Error::$$msg$$"
+      env:
+        ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
+        ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
+        ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
+        ORGFLOW_OUTPUTTEMPLATE_WARNING: "::warning  title=OrgFlow Warning::$$msg$$"
+        ORGFLOW_OUTPUTTEMPLATE_ERROR: "::error title=OrgFlow Error::$$msg$$"
 
     steps:
       # Verify input:
-      - name: Verify stack name
-        id: verifyStackName
-        if: ${{ always() && env.ORGFLOW_STACKNAME == '' }}
+      - name: Verify input
+        id: verifyInput
         run: |
-          echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.'
-          #exit 1
-      - name: Verify license key
-        id: verifyLicenseKey
-        if: ${{ always() && env.ORGFLOW_LICENSEKEY == '' }}
-        run: |
-          echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.'
-          exit 
-      
+          if ["$ORGFLOW_STACKNAME" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details." && exit 1; fi;
+          if ["$ORGFLOW_LICENSEKEY" == ""]; then echo "::error tile=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details." && exit 1; fi;
+
       # Run OrgFlow command:
       - name: env:unlock
         run: orgflow env:unlock -e="${{ github.event.inputs.environmentName }}"      

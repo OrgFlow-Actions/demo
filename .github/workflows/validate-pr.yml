@@ -3,10 +3,6 @@ name: Validate PR
 on:
   pull_request:
     types: [ opened, reopened, synchronize ]
-
-# The env:flowmerge command needs to be able to push changes back to the repo.
-permissions:
-  contents: write
   
 jobs:
   env-merge:
@@ -16,6 +12,10 @@ jobs:
       image: orgflow/cli:latest
       env:
         ORGFLOW_ACCEPTEULA: true
+        ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
+        ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
+        SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
+        SALESFORCE_PASSWORD: ${{ secrets.SALESFORCE_PASSWORD }}
         ORGFLOW_OUTPUTTEMPLATE_WARNING: "::warning  title=OrgFlow Warning::$$msg$$"
         ORGFLOW_OUTPUTTEMPLATE_ERROR: "::error title=OrgFlow Error::$$msg$$"
 

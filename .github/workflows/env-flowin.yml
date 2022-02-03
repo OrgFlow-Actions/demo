@@ -14,11 +14,7 @@ on:
       commitMessage:
         description: >
           Commit message.
-        required: false        
-
-# The env:flowin command needs to be able to push changes back to the repo.
-permissions:
-  contents: write  
+        required: false 
 
 jobs:
   flow-in:

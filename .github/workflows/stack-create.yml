@@ -4,11 +4,7 @@ name: Create the stack
 
 on:
   # This action is always manually executed.
-  workflow_dispatch:
-
-# The stack:create command needs to be able to push changes back to the repo.
-permissions:
-  contents: write  
+  workflow_dispatch:  
 
 jobs:
   stack-create:
