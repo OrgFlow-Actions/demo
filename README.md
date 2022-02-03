@@ -83,7 +83,9 @@ You'll also notice that GitHub initiates a check called `Validate PR` on this pu
 
 Once you're happy with the change, merge the pull request. **Do not squash and merge or rebase and merge- OrgFlow needs the entire commit history in order to facilitate some of its more advanced features** (see step 6).
 
-Go to the `Actions` tab again, and you'll notice that an action has automatically been triggered to deploy this change. We've just used a standard GitHub Action trigger to watch for changes to the branch, and then the workflow simply uses OrgFlow to deploy the change to the correct sandbox.
+Go to the `Actions` tab again, and run the workflow called `Flow out an environment`. Enter the environment name `UAT` (because this is the environment name that we chose when adding the `OFUAT` sandbox as an environment). This workflow will comapre the metadata in the `OFUAT` sandbox to the metadata in the `sandbox/uat` branch and then deploy any changes into the sandbox.
+
+Note that although we manually triggered this workflow, it'd also be possible to use the standard `push` GitHub Action trigger to watch for changes to the branch and then run this workflow.
 
 Wait for that action to complete, and then log into the `OFUAT` sandbox- you'll see that the car object is now in this sandbox too.
 
@@ -105,7 +107,7 @@ In a previous step, we used a similar (but different) action to flow in the chan
 
 Once that action has been completed, create another pull request to merge the changes from the branch `sandbox/qa` into `sandbox/uat`. You'll notice that the changes can be merged, so press the `Merge` button, and wait for the automatic deployment action to trigger again. Once that action is complete, you'll notice that the car object in the sandbox `OFUAT` has been updated with the changes from the other sandbox, and that the changes already in `OFUAT` were retained too.
 
-If you'd like to merge the changes back into the `OFQA` sandbox, then you simply need to create and merge another pull request (this time from the branch `sandbox/uat` into `sandbox/qa`).
+If you'd like to merge the changes back into the `OFQA` sandbox, then you simply need to create and merge another pull request (this time from the branch `sandbox/uat` into `sandbox/qa`), and then run the `Flow out an environment` workflow.
 
 ## Next steps
 
