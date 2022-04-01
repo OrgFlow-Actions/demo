@@ -1,98 +1,50 @@
-# Flow out an environment (push the metadata from Git into Salesforce).
+# Flow out an environment (sync metadata from Git to Salesforce)
 
 name: Flow out an environment
+
 on:
-  push:
-    branches-ignore: [ main ] # Remove this line to enable deployments to production. Note- we assume that the production environment is backed by a branch called `main`; if this is not the case, then you'll need to update this value.
-        
+  # This workflow is always manually executed.
+  workflow_dispatch:
+    inputs:
+      environmentName:
+        description: "Name of environment to flow out:"
+        required: true
+
 jobs:
   flow-out:
-    name: "Flow Environment Out"
-    runs-on: ubuntu-latest    
-    container: 
-      image: orgflow/cli:latest
-    env:
-      ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
-      ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
-      ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }} 
-      SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
-      SALESFORCE_PASSWORD: ${{ secrets.SALESFORCE_PASSWORD }}   
-          
+    name: Flow environment out
+    runs-on: ubuntu-latest
+
     steps:
-      # Verify input:
-      - name: Verify stack name
-        id: verifyStackName
-        if: ${{ always() && env.ORGFLOW_STACKNAME == '' }}
+      # Verify secrets:
+      - name: Verify secrets
         run: |
-          echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.'
-          #exit 1
-      - name: Verify license key
-        id: verifyLicenseKey
-        if: ${{ always() && env.ORGFLOW_LICENSEKEY == '' }}
-        run: |
-          echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.'
-          exit 
-      - name: Verify Salesforce username
-        id: verifySalesforceUsername
-        if: ${{always() && env.SALESFORCE_USERNAME == '' }}
-        run: |
-          echo 'Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details.'
-          exit 1
-      - name: Verify Salesforce password
-        id: verifySalesforcePassword
-        if: ${{always() && env.SALESFORCE_PASSWORD == '' }}
-        run: |
-          echo 'Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details.'
-          exit 1
-          
-      # Get the branch name that triggered this action, and format it in a way that OrgFlow can understand it:
-      - id: get-branch
-        name: Get branch name
-        run: echo "BRANCHNAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          
-      # Use jq to scan the output from env:list to retrieve the environment name based on the branch:
-      - id: get-environment
-        name: Get OrgFlow environment from branch name
-        run: echo ORGFLOW_ENVIRONMENT=`orgflow env:list --output=json | jq '.[] | select(.git.branch == env.BRANCHNAME) | .name'` >> $GITHUB_ENV
+          if ["${{ secrets.ORGFLOW_STACKNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.ORGFLOW_LICENSEKEY }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
 
-      # Print a message if there is no environment for this branch:
-      - id: environment-check
-        name: Print if this branch is not related to an environment
-        if: ${{ env.ORGFLOW_ENVIRONMENT == '' }}
-        run: echo "Branch '$BRANCHNAME' does not belong to any environment on this stack."      
-          
-      # Configure Git:
-      - uses: orgflow-actions/configure-git@v0.4
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
+      # Install and configure OrgFlow:
+      - name: Install OrgFlow
+        uses: orgflow-actions/setup@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
+          salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
+          git-username: ${{ github.actor }}
+          git-password: ${{ secrets.GITHUB_TOKEN }}
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+        env:
+          ORGFLOW_ACCEPTEULA: "true"
 
-      # Configure auth:
-      - uses: orgflow-actions/set-salesforce-auth@v0.2
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
-        with:
-          username: ${{ secrets.SALESFORCE_USERNAME }}
-          password: ${{ secrets.SALESFORCE_PASSWORD }}        
-          
-      # It's good practice flow in before you flow out, to avoid loss of data in the Salesforce org:
-      - name: env:flowin
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
+      # Run OrgFlow command to flow in environment:
+      # It's good practice to flow in before you flow out, to avoid loss of data in the Salesforce org:
+      - name: Run env:flowin
         run: |
-          orgflow env:flowin -e="$ORGFLOW_ENVIRONMENT"
-          
+          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}"
+
+      # Run OrgFlow command to flow out environment:
       # Flow out to deploy the changes from Git to Salesforce:
-      - name: env:flowout
-        if: ${{ env.ORGFLOW_ENVIRONMENT != '' }}
+      - name: Run env:flowout
         run: |
-          orgflow env:flowout -e="$ORGFLOW_ENVIRONMENT" --checkOnly      
-      
-      # Publish diagnostic bundles to artifacts (if any):
-      - name: Publish diagnostic bundle as artifact
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: Diagnostic Bundles
-          path: |
-            /tmp/OrgFlow_Diagnostics_*.zip
-          retention-days: 3
-          if-no-files-found: ignore
+          orgflow env:flowout --environment="${{ github.event.inputs.environmentName }}"

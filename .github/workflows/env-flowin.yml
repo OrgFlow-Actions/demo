@@ -1,88 +1,46 @@
-# Flow in an environment (pull the metadata from Salesforce into Git).
+# Flow in an environment (sync metadata from Salesforce into Git)
 
 name: Flow in an environment
+
 on:
-  # This action is always manually executed.
+  # This workflow is always manually executed.
   workflow_dispatch:
     inputs:
       environmentName:
-        description: >
-          Name of environment to flow in.
-
-          Make sure to enter the name of an environment that you have already created.
+        description: "Name of environment to flow in:"
         required: true
       commitMessage:
-        description: >
-          Commit message.
-        required: false        
-
-# The env:flowin command needs to be able to push changes back to the repo.
-permissions:
-  contents: write  
+        description: "Commit message (leave empty to use a default message):"
+        required: false
 
 jobs:
   flow-in:
-    name: "Flow Environment In"
-    runs-on: ubuntu-latest    
-    container: 
-      image: orgflow/cli:latest
-    env:
-      ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
-      ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
-      ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
-      SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
-      SALESFORCE_PASSWORD: ${{ secrets.SALESFORCE_PASSWORD }}
-    
-    steps:
-      # Verify input:
-      - name: Verify stack name
-        id: verifyStackName
-        if: ${{ always() && env.ORGFLOW_STACKNAME == '' }}
-        run: |
-          echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.'
-          #exit 1
-      - name: Verify license key
-        id: verifyLicenseKey
-        if: ${{ always() && env.ORGFLOW_LICENSEKEY == '' }}
-        run: |
-          echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.'
-          exit 
-      - name: Verify Salesforce username
-        id: verifySalesforceUsername
-        if: ${{always() && env.SALESFORCE_USERNAME == '' }}
-        run: |
-          echo 'Repository secret SALESFORCE_USERNAME has not been set. See the readme for more details.'
-          exit 1
-      - name: Verify Salesforce password
-        id: verifySalesforcePassword
-        if: ${{always() && env.SALESFORCE_PASSWORD == '' }}
-        run: |
-          echo 'Repository secret SALESFORCE_PASSWORD has not been set. See the readme for more details.'
-          exit 1
-          
-      # Configure Git:
-      - uses: orgflow-actions/configure-git@v0.4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+    name: Flow environment in
+    runs-on: ubuntu-latest
 
-      # Configure auth:
-      - uses: orgflow-actions/set-salesforce-auth@v0.2
-        with:
-          username: ${{ secrets.SALESFORCE_USERNAME }}
-          password: ${{ secrets.SALESFORCE_PASSWORD }}   
-          
-      # Run OrgFlow command:
-      - name: env:flowin
+    steps:
+      # Verify secrets:
+      - name: Verify secrets
         run: |
-          orgflow env:flowin -e="${{ github.event.inputs.environmentName }}" -m="${{ github.event.inputs.commitMessage }}"      
-      
-      # Publish diagnostic bundles to artifacts (if any):
-      - name: Publish diagnostic bundle as artifact
-        uses: actions/upload-artifact@v2
-        if: always()
+          if ["${{ secrets.ORGFLOW_STACKNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.ORGFLOW_LICENSEKEY }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
+
+      # Install and configure OrgFlow:
+      - name: Install OrgFlow
+        uses: orgflow-actions/setup@v1
         with:
-          name: Diagnostic Bundles
-          path: |
-            /tmp/OrgFlow_Diagnostics_*.zip
-          retention-days: 3
-          if-no-files-found: ignore
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
+          salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
+          git-username: ${{ github.actor }}
+          git-password: ${{ secrets.GITHUB_TOKEN }}
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+        env:
+          ORGFLOW_ACCEPTEULA: "true"
+
+      # Run OrgFlow command to flow in environment:
+      - name: Run env:flowin
+        run: |
+          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}" --message="${{ github.event.inputs.commitMessage }}"

@@ -1,0 +1,77 @@
+# Validate merge and deployment of a pull request
+
+name: Validate a pull request
+
+on:
+  # This workflow runs whenever a pull request is created or updated:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  env-merge:
+    name: Run a check-only deployment on the result of the merge
+    runs-on: ubuntu-latest
+
+    steps:
+      # Verify secrets:
+      - name: Verify secrets
+        run: |
+          if ["${{ secrets.ORGFLOW_STACKNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.ORGFLOW_LICENSEKEY }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
+
+      # Install and configure OrgFlow:
+      - name: Install OrgFlow
+        uses: orgflow-actions/setup@v1
+        with:
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
+          salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
+          git-username: ${{ github.actor }}
+          git-password: ${{ secrets.GITHUB_TOKEN }}
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+        env:
+          ORGFLOW_ACCEPTEULA: "true"
+
+      # List all environments and publish result as an output:
+      - name: Run env:list
+        id: env-list
+        run: |
+          orgflow env:list --output=json | jq . -c | ( read output; echo "::set-output name=environments::$output"; )
+
+      # Find the environment the source branch belongs to:
+      - name: Find source environment
+        id: find-source-environment
+        run: |
+          echo '${{ steps.env-list.outputs.environments }}' |
+          jq '[.[] | select(.git.branch == "${{ github.head_ref }}") | .name] | select(. | length > 0)[0]' -r | 
+          ( read output; echo "::set-output name=environment-name::$output"; )
+
+      # ... and same for the target branch:
+      - name: Find target environment
+        id: find-target-environment
+        run: |
+          echo '${{ steps.env-list.outputs.environments }}' |
+          jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r | 
+          ( read output; echo "::set-output name=environment-name::$output"; )
+
+      # Run OrgFlow command to do a check-only (validation) merge flow from source to target:
+      - name: Run env:flowmerge
+        if: ${{ steps.find-source-environment.outputs.environment-name != '' && steps.find-target-environment.outputs.environment-name != '' }}
+        id: env-flowmerge
+        run: |
+          json=$(orgflow env:flowmerge --from=${{ steps.find-source-environment.outputs.environment-name }} --into=${{ steps.find-target-environment.outputs.environment-name }} --checkOnly --output=json)
+          echo "::set-output name=result::$(echo $json | jq '. | del(.result.environments.into.flowOut.retrieve) | del(.result.environments.into.flowOut.result.attempts)' -c)"
+          echo "::set-output name=flow-in-from::$(echo $json | jq '.result.environments.from.flowIn' -c)"
+          echo "::set-output name=flow-in-into::$(echo $json | jq '.result.environments.into.flowIn' -c)"
+          echo "::set-output name=flow-out-into::$(echo $json | jq '.result.environments.into.flowOut | del(.retrieve) | del(.result.attempts)' -c)"
+
+      # Post result as a comment on this PR:
+      - uses: orgflow-actions/result-to-comment@v1
+        if: ${{ steps.env-flowmerge.outputs.flow-out-into != '' }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          result: ${{ steps.env-flowmerge.outputs.flow-out-into }}
+          template-path: env-flow-out.liquid

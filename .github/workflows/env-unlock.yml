@@ -1,53 +1,36 @@
-# Unlock an environment in the event that it gets into a state where it is permanently locked.
-# TIP- this can happen if a GitHub workflow gets cancelled, as the cancellation token does not get correctly forwarded to OrgFlow, so OrgFlow will not unlock the environment before exiting.
+# Unlock an environment (in case it's left locked)
 
 name: Unlock an environment
 
 on:
-  # This action is always manually executed.
+  # This workflow is always manually executed.
   workflow_dispatch:
     inputs:
       environmentName:
-        description: 'Name of environment to unlock.'
+        description: "Name of environment to unlock:"
         required: true
 
 jobs:
   env-unlock:
-    name: Unlock Environment
-    runs-on: ubuntu-latest    
-    container: 
-      image: orgflow/cli:latest
-    env:
-      ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.
-      ORGFLOW_STACKNAME: ${{ secrets.ORGFLOW_STACKNAME }}      
-      ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
+    name: Unlock environment
+    runs-on: ubuntu-latest
 
     steps:
-      # Verify input:
-      - name: Verify stack name
-        id: verifyStackName
-        if: ${{ always() && env.ORGFLOW_STACKNAME == '' }}
+      # Verify secrets:
+      - name: Verify secrets
         run: |
-          echo 'Repository secret ORGFLOW_STACKNAME has not been set. See the readme for more details.'
-          #exit 1
-      - name: Verify license key
-        id: verifyLicenseKey
-        if: ${{ always() && env.ORGFLOW_LICENSEKEY == '' }}
-        run: |
-          echo 'Repository secret ORGFLOW_LICENSEKEY has not been set. See the readme for more details.'
-          exit 
-      
-      # Run OrgFlow command:
-      - name: env:unlock
-        run: orgflow env:unlock -e="${{ github.event.inputs.environmentName }}"      
-      
-      # Publish diagnostic bundles to artifacts (if any):
-      - name: Publish diagnostic bundle as artifact
-        uses: actions/upload-artifact@v2
-        if: always()
+          if ["${{ secrets.ORGFLOW_STACKNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.ORGFLOW_LICENSEKEY }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the Readme for more details." && exit 1; fi;
+
+      # Install and configure OrgFlow:
+      - name: Install OrgFlow
+        uses: orgflow-actions/setup@v1
         with:
-          name: Diagnostic Bundles
-          path: |
-            /tmp/OrgFlow_Diagnostics_*.zip
-          retention-days: 3
-          if-no-files-found: ignore
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+        env:
+          ORGFLOW_ACCEPTEULA: "true"
+
+      # Run OrgFlow command to unlock environment:
+      - name: env:unlock
+        run: orgflow env:unlock --environment="${{ github.event.inputs.environmentName }}"

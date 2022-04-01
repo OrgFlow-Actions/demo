@@ -1,0 +1,20 @@
+# This is an include file used by OrgFlow. Edit this file to control which metadata types and components
+# are included in the flow of changes between Salesforce and the Git repository, and between the different
+# environments in your stack.
+
+# Please refer to https://docs.orgflow.io/reference/glossary/orgflow-include-file.html for details.
+
+unpackaged/~/CustomObject
+unpackaged/~/ApexClass
+unpackaged/~/ApexComponent
+unpackaged/~/ApexPage
+unpackaged/~/ApexTestSuite
+unpackaged/~/ApexTrigger
+unpackaged/~/AuraDefinitionBundle
+unpackaged/~/LightningComponentBundle
+unpackaged/~/Scontrol
+
+!unpackaged/~/CustomObject/LearningAssignment
+!unpackaged/~/CustomObject/LearningAssignmentProgress
+!unpackaged/~/CustomObject/LearningLinkProgress
+!unpackaged/~/CustomObject/VoiceCall
