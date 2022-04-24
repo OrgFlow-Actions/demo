@@ -25,13 +25,13 @@ This is a template repository, and you'll need to create a new repository (using
 
 ### 1. Set the required secrets
 
-You'll need to set some values before you can run the actions in this repository.
+You'll need to set some values before you can run the workflows in this repository.
 
 Go to **Settings > Secrets** and add the following secrets:
 
 | Name                  | Value                                                                                                                                                                                                              |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ORGFLOW_LICENSEKEY`  | Your OrgFlow license key (you can get one at https://www.orgflow.io/trial if you do not already have one)                                                                                                     |
+| `ORGFLOW_LICENSEKEY`  | Your OrgFlow license key (you can get one at https://www.orgflow.io/trial if you do not already have one)                                                                                                          |
 | `ORGFLOW_STACKNAME`   | The name of the stack that you'd like to create (e.g. `MyStack`)                                                                                                                                                   |
 | `SALESFORCE_USERNAME` | Your Salesforce production username                                                                                                                                                                                |
 | `SALESFORCE_PASSWORD` | Your Salesforce production password (remember to [add your security token to the end of your password](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) if needed) |
@@ -90,7 +90,7 @@ Go to the **Actions** tab again, and run the workflow named **Flow out an enviro
 
 Note that although we manually triggered this workflow, it would also be possible to use the standard `push` GitHub Action trigger to watch for changes to the branch and run this workflow whenever changes are pushed to the branch.
 
-Wait for that action to complete, and then log into the `OFUAT` sandbox - you'll see that the `Car` object is now in this sandbox too.
+Wait for that workflow to complete, and then log into the `OFUAT` sandbox - you'll see that the `Car` object is now in this sandbox too.
 
 ### 6. Advanced merging
 
@@ -102,13 +102,30 @@ Log into your `OFQA` sandbox and edit the label of the `Car` object. Change it t
 
 > TIP: If you're feeling adventurous, you can edit the label in **both** sandboxes - you'll end up with a _merge conflict_. OrgFlow fully embraces the occurrence of merge conflicts, and you can simply use standard Git conflict resolution techniques to resolve them, but that's beyond the scope of this basic guide.
 
-Now that we've made your changes, we need to get them into Git. Go to the **Actions** tab, and there's an action named **Flow in all environments**. This action has been set up to run on a schedule every night at 1 am, but why wait until then? Click the **Run workflow** drop-down, then click the green **Run workflow** button to manually trigger this workflow.
+Now that we've made your changes, we need to get them into Git. Go to the **Actions** tab, and there's a workflow named **Flow in all environments**. This workflow has been set up to run on a schedule every night at 1 am, but why wait until then? Click the **Run workflow** drop-down, then click the green **Run workflow** button to manually trigger this workflow.
 
-In a previous step, we used a similar (but different) action to flow in the changes from a **single** environment. This action queries OrgFlow for a list of all environments, and then will flow each one in. If you've been following this guide, then that's three environments in total (`Production`, `QA`, and `UAT`).
+In a previous step, we used a similar (but different) workflow to flow in the changes from a **single** environment. This workflow queries OrgFlow for a list of all environments, and then will flow each one in. If you've been following this guide, then that's three environments in total (`Production`, `QA`, and `UAT`).
 
-Once that action has completed, create another pull request to merge the changes from the branch `sandbox/qa` into `sandbox/uat`. You'll notice that the changes can be merged, so press the **Merge** button, and wait for the automatic deployment action to trigger again. Once that action is complete, you'll notice that the `Car` object in the sandbox `OFUAT` has been updated with the changes from the other sandbox, and that the changes already in `OFUAT` were retained too.
+Once that workflow has completed, create another pull request to merge the changes from the branch `sandbox/qa` into `sandbox/uat`. You'll notice that the changes can be merged, so press the **Merge** button, and wait for the automatic deployment workflow to trigger again. Once that workflow run is complete, you'll notice that the `Car` object in the sandbox `OFUAT` has been updated with the changes from the other sandbox, and that the changes already in `OFUAT` were retained too.
 
 If you'd like to merge the changes back into the `OFQA` sandbox, then you simply need to create and merge another pull request (this time from the branch `sandbox/uat` into `sandbox/qa`), and then run the **Flow out an environment** workflow.
+
+## Enumerating environments
+
+The **Flow in all environments** workflow shows an example of enumerating environments in your stack and performing some work (in this case an inbound flow) for a subset of them in parallel using a GitHub Actions matrix job in your workflow.
+
+You may have other jobs that you want to run against multiple environments only known at runtime. You can take advantage of the `env:list` command to retrieve all of the environment names in a stack and use a matrix strategy to run a job once for each environment.
+
+The trick here is to use a tool called [jq](https://stedolan.github.io/jq/) to transform the output from `env:list` into the format that GitHub Actions expects for a matrix definition. The correct jq syntax for this is `[.[] | .name]`. On top of this, `jq` offers a robust filtering syntax, for example if you only want to run your job on environments matching certain criteria.
+
+`jq` is pre-installed on GitHub-hosted runners, and it is also pre-installed in the official OrgFlow CLI Docker image.
+
+Here are some examples of useful `jq` commands you can apply on the output of `env:list`:
+
+- Get an environment by name: `jq '[.[] | select(.name == "myEnvironmentName")] | select(. | length > 0)[0]' -c`
+- Get an environment by Git branch: `jq '[.[] | select(.git.branch == "myGitBranch")] | select(. | length > 0)[0]' -c`
+- Get the name of the production environment: `jq '[.[] | select(.org.production == true) | .name] | select(. | length > 0)[0]' -c`
+- Get the names of all the environments and transform them into a format that GitHub Actions will accept as a matrix: `jq '[.[] | .name]' -c`
 
 ## Next steps
 
