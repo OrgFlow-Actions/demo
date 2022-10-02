@@ -1,10 +1,11 @@
-# Flow in all environments in stack (sync metadata from Salesforce into Git)
+# Merge production into all sandboxes (sometimes called 'upstream merge' or 'back promotion')
 
-# This workflow consists of two jobs:
-# - The first runs 'orgflow env:list' and transforms the output into a matrix
-# - The second uses the matrix created in the first step to run 'orgflow env:flowin' for each environment
+# This workflow consists of three jobs:
+# - The first runs 'orgflow env:list' to find environments tagged with 'upstreamMergeTarget' and transforms the output into a matrix
+# - The second runs 'orgflow env:flowin' to commit metadata changes into Git from your production Salesforce org
+# - The third uses the matrix created in the first step to run 'orgflow env:flowmerge' to merge production into each environment in the matrix
 
-name: Flow in all environments
+name: Merge production into all sandboxes
 
 on:
   schedule:
@@ -13,7 +14,7 @@ on:
 
 jobs:
   create-matrix:
-    name: List environments
+    name: List target environments
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -39,14 +40,39 @@ jobs:
       # Use jq to transform the output from env:list into the format expected for a matrix strategy:
       - name: Create matrix
         id: set-matrix
-        run: echo "::set-output name=matrix::`orgflow env:list --output=json | jq '[.[] | .name]' -c`"
+        run: echo "::set-output name=matrix::`orgflow env:list --withTags="upstreamMergeTarget" --output=json --nameonly | jq '.' -c`"
 
   env-flowin:
-    name: Flow in environment
+    # Flow in production once, so that we don't need to do it for every environment in the matrix.
+    name: Flow in production
     needs: create-matrix
     runs-on: ubuntu-latest
+
+    steps:
+      # Install and configure OrgFlow:
+      - name: Install OrgFlow
+        uses: orgflow-actions/setup@v1
+        with:
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
+          salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
+          git-username: ${{ github.actor }}
+          git-password: ${{ secrets.GITHUB_TOKEN }}
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+        env:
+          ORGFLOW_ACCEPTEULA: "true"
+
+      # Run OrgFlow command:
+      - name: Run env:flowin
+        run: |
+          orgflow env:flowin --environment="Production" --waitForLock=5
+
+  env-flowmerge:
+    name: Merge production into envrironment
+    needs: [ create-matrix, env-flowin ]
+    runs-on: ubuntu-latest
     strategy:
-      fail-fast: false # Even if an environment fails, do the rest
+      fail-fast: false # Even if an environment fails, do the rest.
       matrix:
         environmentName: ${{ fromJson(needs.create-matrix.outputs.matrix) }}
 
@@ -67,6 +93,6 @@ jobs:
           ORGFLOW_ACCEPTEULA: "true"
 
       # Run OrgFlow command:
-      - name: Run env:flowin
+      - name: Run env:flowmerge
         run: |
-          orgflow env:flowin --environment="${{ matrix.environmentName }}"
+          orgflow env:flowmerge --from="Production" --into="${{ matrix.environmentName }}" --noSourceIn --waitForLock=5

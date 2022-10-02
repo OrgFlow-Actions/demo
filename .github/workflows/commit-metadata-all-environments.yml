@@ -1,0 +1,72 @@
+# Flow in all environments in stack (sync metadata from Salesforce into Git)
+
+# This workflow consists of two jobs:
+# - The first runs 'orgflow env:list --nameonly' and transforms the output into a matrix
+# - The second uses the matrix created in the first step to run 'orgflow env:flowin' for each environment
+
+name: Commit Salesforce metadata changes for all environments
+
+on:
+  schedule:
+    - cron: "0 1 * * *" # Runs nightly at 01:00 UTC.
+  workflow_dispatch: # Can also be manually triggered, if needed.
+
+jobs:
+  create-matrix:
+    name: List environments
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+      # Verify secrets:
+      - name: Verify secrets
+        run: |
+          if ["${{ secrets.ORGFLOW_STACKNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.ORGFLOW_LICENSEKEY }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
+
+      # Install and configure OrgFlow:
+      - name: Install OrgFlow
+        uses: orgflow-actions/setup@v1
+        with:
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+        env:
+          ORGFLOW_ACCEPTEULA: "true"
+
+      # Use jq to transform the output from env:list into the format expected for a matrix strategy:
+      - name: Create matrix
+        id: set-matrix
+        run: echo "::set-output name=matrix::`orgflow env:list --output=json --nameonly | jq '.' -c`"
+
+  env-flowin:
+    name: Flow in environment
+    needs: create-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # Even if an environment fails, do the rest.
+      matrix:
+        environmentName: ${{ fromJson(needs.create-matrix.outputs.matrix) }}
+
+    steps:
+      # Install and configure OrgFlow:
+      - name: Install OrgFlow
+        uses: orgflow-actions/setup@v1
+        with:
+          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
+          salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
+          git-username: ${{ github.actor }}
+          git-password: ${{ secrets.GITHUB_TOKEN }}
+          stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
+          # Ensure artifact names are unique:
+          diag-artifact-name: orgflow_diag_${{ github.job }}_${{ matrix.environmentName }}_${{ github.run_attempt }}
+        env:
+          ORGFLOW_ACCEPTEULA: "true"
+
+      # Run OrgFlow command:
+      - name: Run env:flowin
+        run: |
+          orgflow env:flowin --environment="${{ matrix.environmentName }} --waitForLock=5"

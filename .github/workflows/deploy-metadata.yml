@@ -1,6 +1,6 @@
 # Flow out an environment (sync metadata from Git to Salesforce)
 
-name: Flow out an environment
+name: Deploy metadata
 
 on:
   # This workflow is always manually executed.
@@ -41,10 +41,10 @@ jobs:
       # It's good practice to flow in before you flow out, to avoid loss of data in the Salesforce org:
       - name: Run env:flowin
         run: |
-          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}"
+          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}" --waitForLock=5
 
       # Run OrgFlow command to flow out environment:
       # Flow out to deploy the changes from Git to Salesforce:
       - name: Run env:flowout
         run: |
-          orgflow env:flowout --environment="${{ github.event.inputs.environmentName }}"
+          orgflow env:flowout --environment="${{ github.event.inputs.environmentName }}" --waitForLock=5

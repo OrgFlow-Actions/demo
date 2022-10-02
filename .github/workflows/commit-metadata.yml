@@ -1,19 +1,22 @@
-# Run tests in an environment and publish the results
+# Flow in an environment (sync metadata from Salesforce into Git)
 
-name: Run tests in an environment
+name: Commit Salesforce metadata changes
 
 on:
   # This workflow is always manually executed.
   workflow_dispatch:
     inputs:
       environmentName:
-        description: "Name of the environment to run tests in:"
+        description: "Name of environment to flow in:"
         required: true
+      commitMessage:
+        description: "Commit message (leave empty to use a default message):"
+        required: false
 
 jobs:
-  env-test:
-    name: Run tests in environment
-    runs-on: ubuntu-latest    
+  flow-in:
+    name: Flow environment in
+    runs-on: ubuntu-latest
 
     steps:
       # Verify secrets:
@@ -24,11 +27,6 @@ jobs:
           if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
           if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
 
-      # TODO: Is this still needed?
-      # The test results publisher requires that the repository be checked out:
-      # - uses: actions/checkout@v2 
-      #   name: Checkout at hash for environment
-
       # Install and configure OrgFlow:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
@@ -36,19 +34,13 @@ jobs:
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
+          git-username: ${{ github.actor }}
+          git-password: ${{ secrets.GITHUB_TOKEN }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
           ORGFLOW_ACCEPTEULA: "true"
-      
-      # Run OrgFlow command to execute tests in Salesforce:
-      - name: Run env:test
-        run: orgflow env:test --environment="${{ github.event.inputs.environmentName }}" --jUnitTo="${{ env.RUNNER_TEMP }}junit.xml"
 
-      # Publish the test results using an action from the marketplace:
-      - name: Generate test report
-        uses: dorny/test-reporter@v1
-        if: always() # Even if some tests failed
-        with:
-          name: Test results
-          path: ${{ env.RUNNER_TEMP }}junit.xml
-          reporter: java-junit
+      # Run OrgFlow command to flow in environment:
+      - name: Run env:flowin
+        run: |
+          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}" --message="${{ github.event.inputs.commitMessage }} --waitForLock=5"
