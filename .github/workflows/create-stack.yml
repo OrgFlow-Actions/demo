@@ -48,7 +48,7 @@ jobs:
       # Run OrgFlow command to create stack:
       - name: Run stack:create
         run: |
-          orgflow stack:create --name="${{ secrets.ORGFLOW_STACKNAME }}" --gitRepoUrl="$GITHUB_SERVER_URL/${{ github.repository }}.git" --gitBranch=production --username="${{ secrets.SALESFORCE_USERNAME }}" --password="${{ secrets.SALESFORCE_PASSWORD }}" --productionEnvironmentName=Production
+          orgflow stack:create --name="${{ secrets.ORGFLOW_STACKNAME }}" --gitRepoUrl="$GITHUB_SERVER_URL/${{ github.repository }}.git" --gitBranch=main --username="${{ secrets.SALESFORCE_USERNAME }}" --password="${{ secrets.SALESFORCE_PASSWORD }}" --productionEnvironmentName=Production
 
       # Publish any diagnostic bundles as an artifact:
       # NOTE: Normally the 'orgflow-actions/setup' action would do this, but that action depends on the stack having already been created.

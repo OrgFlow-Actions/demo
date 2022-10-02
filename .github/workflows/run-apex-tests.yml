@@ -40,10 +40,10 @@ jobs:
         run: orgflow env:test --environment="${{ github.event.inputs.environmentName }}" --jUnitTo="junit.xml"
 
       # Publish the test results using an action from the marketplace:
-      - name: Generate test report
-        uses: dorny/test-reporter@v1
-        if: always() # Even if some tests failed
+      - name: Publish test results
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
         with:
-          name: Test results
-          path: junit.xml
-          reporter: java-junit
+          report_paths: junit.xml
+          detailed_summary: true
+          include_passed: true

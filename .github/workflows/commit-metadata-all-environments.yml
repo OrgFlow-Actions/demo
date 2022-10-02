@@ -69,4 +69,4 @@ jobs:
       # Run OrgFlow command:
       - name: Run env:flowin
         run: |
-          orgflow env:flowin --environment="${{ matrix.environmentName }} --waitForLock=5"
+          orgflow env:flowin --environment="${{ matrix.environmentName }}" --waitForLock=5

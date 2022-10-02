@@ -45,7 +45,6 @@ jobs:
   env-flowin:
     # Flow in production once, so that we don't need to do it for every environment in the matrix.
     name: Flow in production
-    needs: create-matrix
     runs-on: ubuntu-latest
 
     steps:

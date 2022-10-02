@@ -48,7 +48,7 @@ A _stack_ is a link between Salesforce and a Git repository, and also a collecti
 
 Go to the **Actions** tab in this repo, and run the workflow called **Create the stack**.
 
-When OrgFlow creates your stack, it will also create your first environment (named `Production`). This environment is connected to the production Salesforce org that you provided the username and password for. You will see that a Git branch called `production` has been created too, and that the metadata from your Salesforce org has been committed to this branch.
+When OrgFlow creates your stack, it will also create your first environment (named `Production`). This environment is connected to the production Salesforce org that you provided the username and password for. You will see that the metadata from your Salesforce org has been committed to the `main` branch.
 
 ### 3. Add another environment
 
@@ -62,7 +62,7 @@ Let's use the name `QA` for the new environment. Provide the name of your existi
 
 #### 3b. Add another environment (again)
 
-You'll want two sandbox environments on your stack (so that you don't need to make any changes to production), so repeat the step from above. This time, let's name the second environment `UAT`. Provide the name of your existing `OFUAT` sandbox, and `sandbox/uat` for the branch name. The branch will be created for you.
+You'll want two sandbox environments on your stack to get the most out of this demo, so repeat the step from above. This time, let's name the second environment `UAT`. Provide the name of your existing `OFUAT` sandbox, and `sandbox/uat` for the branch name. The branch will be created for you.
 
 ### 4. Change some metadata in Salesforce
 
