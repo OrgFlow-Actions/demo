@@ -43,4 +43,4 @@ jobs:
       # Run OrgFlow command to flow in environment:
       - name: Run env:flowin
         run: |
-          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}" --message="${{ github.event.inputs.commitMessage }} --waitForLock=5"
+          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}" --message="${{ github.event.inputs.commitMessage }}" --waitForLock=5
