@@ -1,22 +1,19 @@
-# Flow in an environment (sync metadata from Salesforce into Git)
+# Run tests in an environment and publish the results
 
-name: Flow in an environment
+name: Run Apex tests
 
 on:
   # This workflow is always manually executed.
   workflow_dispatch:
     inputs:
       environmentName:
-        description: "Name of environment to flow in:"
+        description: "Name of the environment to run tests in:"
         required: true
-      commitMessage:
-        description: "Commit message (leave empty to use a default message):"
-        required: false
 
 jobs:
-  flow-in:
-    name: Flow environment in
-    runs-on: ubuntu-latest
+  env-test:
+    name: Run tests in environment
+    runs-on: ubuntu-latest    
 
     steps:
       # Verify secrets:
@@ -34,13 +31,19 @@ jobs:
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
-          git-username: ${{ github.actor }}
-          git-password: ${{ secrets.GITHUB_TOKEN }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
           ORGFLOW_ACCEPTEULA: "true"
+      
+      # Run OrgFlow command to execute tests in Salesforce:
+      - name: Run env:test
+        run: orgflow env:test --environment="${{ github.event.inputs.environmentName }}" --jUnitTo="junit.xml"
 
-      # Run OrgFlow command to flow in environment:
-      - name: Run env:flowin
-        run: |
-          orgflow env:flowin --environment="${{ github.event.inputs.environmentName }}" --message="${{ github.event.inputs.commitMessage }}"
+      # Publish the test results using an action from the marketplace:
+      - name: Publish test results
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: junit.xml
+          detailed_summary: true
+          include_passed: true

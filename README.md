@@ -48,7 +48,7 @@ A _stack_ is a link between Salesforce and a Git repository, and also a collecti
 
 Go to the **Actions** tab in this repo, and run the workflow called **Create the stack**.
 
-When OrgFlow creates your stack, it will also create your first environment (named `Production`). This environment is connected to the production Salesforce org that you provided the username and password for. You will see that a Git branch called `production` has been created too, and that the metadata from your Salesforce org has been committed to this branch.
+When OrgFlow creates your stack, it will also create your first environment (named `Production`). This environment is connected to the production Salesforce org that you provided the username and password for. You will see that the metadata from your Salesforce org has been committed to the `main` branch.
 
 ### 3. Add another environment
 
@@ -60,9 +60,9 @@ Go to the **Actions** tab in this repo, and run the workflow called **Create an 
 
 Let's use the name `QA` for the new environment. Provide the name of your existing `OFQA` sandbox, and enter the branch name `sandbox/qa`. The branch will be created for you.
 
-#### 3b. Add another environment
+#### 3b. Add another environment (again)
 
-You'll want two sandbox environments on your stack (so that you don't need to make any changes to production), so repeat the step from above. This time, let's name the second environment `UAT`. Provide the name of your existing `OFUAT` sandbox, and `sandbox/uat` for the branch name. The branch will be created for you.
+You'll want two sandbox environments on your stack to get the most out of this demo, so repeat the step from above. This time, let's name the second environment `UAT`. Provide the name of your existing `OFUAT` sandbox, and `sandbox/uat` for the branch name. The branch will be created for you.
 
 ### 4. Change some metadata in Salesforce
 
@@ -76,7 +76,7 @@ We'll keep things simple and start with custom objects (if you have changed the 
 
 We've added our `Car` object to the `OFQA` sandbox, now let's flow it (merge and deploy it) to the `OFUAT` sandbox.
 
-Go to the **Actions** tab in this repo, and run the workflow called **Flow in an environment**. Enter the environment name `QA` (because this is the environment name that we chose when adding the `OFQA` sandbox as an environment), and optionally add a commit message (maybe "Adds Car object"). Run the workflow and wait for it to complete.
+Go to the **Actions** tab in this repo, and run the workflow called **Commit Salesforce metadata changes**. Enter the environment name `QA` (because this is the environment name that we chose when adding the `OFQA` sandbox as an environment), and optionally add a commit message (maybe "Adds Car object"). Run the workflow and wait for it to complete.
 
 You'll notice that the `Car` object is now in your repo (in the `sandbox/qa` branch).
 
@@ -86,7 +86,7 @@ You'll also notice that GitHub initiates a check called **Validate PR** on this 
 
 Once you're happy with the change, merge the pull request. **Do not squash or rebase - OrgFlow needs the entire commit history in order to facilitate some of its more advanced features** (see step 6).
 
-Go to the **Actions** tab again, and run the workflow named **Flow out an environment**. Enter the environment name `UAT` (because this is the environment name that we chose when adding the `OFUAT` sandbox as an environment). This workflow will comapre the metadata in the `sandbox/uat` branch to the metadata in the `OFUAT` sandbox and deploy any differences into the sandbox.
+Go to the **Actions** tab again, and run the workflow named **Deploy metadata**. Enter the environment name `UAT` (because this is the environment name that we chose when adding the `OFUAT` sandbox as an environment). This workflow will comapre the metadata in the `sandbox/uat` branch to the metadata in the `OFUAT` sandbox and deploy any differences into the sandbox.
 
 Note that although we manually triggered this workflow, it would also be possible to use the standard `push` GitHub Action trigger to watch for changes to the branch and run this workflow whenever changes are pushed to the branch.
 
@@ -102,30 +102,32 @@ Log into your `OFQA` sandbox and edit the label of the `Car` object. Change it t
 
 > TIP: If you're feeling adventurous, you can edit the label in **both** sandboxes - you'll end up with a _merge conflict_. OrgFlow fully embraces the occurrence of merge conflicts, and you can simply use standard Git conflict resolution techniques to resolve them, but that's beyond the scope of this basic guide.
 
-Now that we've made your changes, we need to get them into Git. Go to the **Actions** tab, and there's a workflow named **Flow in all environments**. This workflow has been set up to run on a schedule every night at 1 am, but why wait until then? Click the **Run workflow** drop-down, then click the green **Run workflow** button to manually trigger this workflow.
+Now that we've made your changes, we need to get them into Git. Go to the **Actions** tab, and there's a workflow named **Commit Salesforce metadata changes for all environments**. This workflow has been set up to run on a schedule every night at 1 am, but why wait until then? Click the **Run workflow** drop-down, then click the green **Run workflow** button to manually trigger this workflow.
 
 In a previous step, we used a similar (but different) workflow to flow in the changes from a **single** environment. This workflow queries OrgFlow for a list of all environments, and then will flow each one in. If you've been following this guide, then that's three environments in total (`Production`, `QA`, and `UAT`).
 
 Once that workflow has completed, create another pull request to merge the changes from the branch `sandbox/qa` into `sandbox/uat`. You'll notice that the changes can be merged, so press the **Merge** button, and wait for the automatic deployment workflow to trigger again. Once that workflow run is complete, you'll notice that the `Car` object in the sandbox `OFUAT` has been updated with the changes from the other sandbox, and that the changes already in `OFUAT` were retained too.
 
-If you'd like to merge the changes back into the `OFQA` sandbox, then you simply need to create and merge another pull request (this time from the branch `sandbox/uat` into `sandbox/qa`), and then run the **Flow out an environment** workflow.
+If you'd like to merge the changes back into the `OFQA` sandbox, then you simply need to create and merge another pull request (this time from the branch `sandbox/uat` into `sandbox/qa`), and then run the **Deploy metadata** workflow.
 
 ## Enumerating environments
 
-The **Flow in all environments** workflow shows an example of enumerating environments in your stack and performing some work (in this case an inbound flow) for a subset of them in parallel using a GitHub Actions matrix job in your workflow.
+The **Commit Salesforce metadata changes for all environments** workflow shows an example of enumerating environments in your stack and performing some work (in this case an inbound flow) for a subset of them in parallel using a GitHub Actions matrix job in your workflow.
 
-You may have other jobs that you want to run against multiple environments only known at runtime. You can take advantage of the `env:list` command to retrieve all of the environment names in a stack and use a matrix strategy to run a job once for each environment.
+You may have other jobs that you want to run against multiple environments only known at runtime. You can take advantage of the `env:list --output=json` command to retrieve all of the environment names in a stack and use a matrix strategy to run a job once for each environment. 
 
-The trick here is to use a tool called [jq](https://stedolan.github.io/jq/) to transform the output from `env:list` into the format that GitHub Actions expects for a matrix definition. The correct jq syntax for this is `[.[] | .name]`. On top of this, `jq` offers a robust filtering syntax, for example if you only want to run your job on environments matching certain criteria.
+The trick here is to use the `--nameOnly` switch and a tool called [jq](https://stedolan.github.io/jq/) to transform the output from `env:list --nameOnly --output=json` into the format that GitHub Actions expects for a matrix definition. The simplest syntax for this is `env:list --nameOnly --output=json | jq '.' -c`. On top of this, `jq` offers a robust filtering syntax, for example if you only want to run your job on environments matching certain criteria.
 
 `jq` is pre-installed on GitHub-hosted runners, and it is also pre-installed in the official OrgFlow CLI Docker image.
 
-Here are some examples of useful `jq` commands you can apply on the output of `env:list`:
+Here are some examples of useful `jq` commands you can apply to the output of `env:list`:
 
-- Get an environment by name: `jq '[.[] | select(.name == "myEnvironmentName")] | select(. | length > 0)[0]' -c`
-- Get an environment by Git branch: `jq '[.[] | select(.git.branch == "myGitBranch")] | select(. | length > 0)[0]' -c`
-- Get the name of the production environment: `jq '[.[] | select(.org.production == true) | .name] | select(. | length > 0)[0]' -c`
-- Get the names of all the environments and transform them into a format that GitHub Actions will accept as a matrix: `jq '[.[] | .name]' -c`
+- Get an environment by name: `env:list --output=json | jq '[.[] | select(.name == "myEnvironmentName")] | select(. | length > 0)[0]' -c`
+- Get an environment by Git branch: `env:list --output=json | jq '[.[] | select(.git.branch == "myGitBranch")] | select(. | length > 0)[0]' -c`
+- Get the name of the production environment: `env:list --output=json | jq '[.[] | select(.org.production == true) | .name] | select(. | length > 0)[0]' -c`
+- Get the names of all the environments and transform them into a format that GitHub Actions will accept as a matrix: `env:list --nameOnly --output=json | jq '.' -c`
+
+> TIP: You can use the [`env:tags:set`](https://docs.orgflow.io/reference/commands/env-tags-set.html) command to tag environments, and then use those tags to filter the environments returned by `env:list`. For example, to list only the environments tagged with `runNightlyApexTests`, you could do `env:list --withTags=runNightlyApexTests --output=json`.
 
 ## Next steps
 

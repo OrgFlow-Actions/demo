@@ -14,7 +14,17 @@ unpackaged/~/AuraDefinitionBundle
 unpackaged/~/LightningComponentBundle
 unpackaged/~/Scontrol
 
+# Exclude things that are only applicable to a DevHub org:
+!unpackaged/~/CustomObject/ActiveScratchOrg
+!unpackaged/~/CustomObject/NamespaceRegistry
+!unpackaged/~/CustomObject/ScratchOrgInfo
+
+# Exclude learning paths related standard objects because we can't rely on the Metadata API to consistently retrieve them, appearing and reappearing seemingly at random:
+!unpackaged/~/CustomObject/Learning
 !unpackaged/~/CustomObject/LearningAssignment
 !unpackaged/~/CustomObject/LearningAssignmentProgress
 !unpackaged/~/CustomObject/LearningLinkProgress
+!unpackaged/~/CustomObject/LearningItem
+!unpackaged/~/CustomObject/LearningItemAssignment
+!unpackaged/~/CustomObject/LearningItemProgress
 !unpackaged/~/CustomObject/VoiceCall

@@ -40,31 +40,34 @@ jobs:
         run: |
           orgflow env:list --output=json | jq . -c | ( read output; echo "::set-output name=environments::$output"; )
 
-      # Find the environment the source branch belongs to:
+      # Find the environment that the source branch belongs to:
       - name: Find source environment
         id: find-source-environment
         run: |
-          echo '${{ steps.env-list.outputs.environments }}' |
-          jq '[.[] | select(.git.branch == "${{ github.head_ref }}") | .name] | select(. | length > 0)[0]' -r | 
-          ( read output; echo "::set-output name=environment-name::$output"; )
-
-      # ... and same for the target branch:
+          set -e          
+          output=`echo '${{ steps.env-list.outputs.environments }}' | jq '[.[] | select(.git.branch == "${{ github.head_ref }}") | .name] | select(. | length > 0)[0]' -r` 
+          echo "::set-output name=environment-name::$output";
+          
+      # ... and then again for the target branch:
       - name: Find target environment
         id: find-target-environment
         run: |
-          echo '${{ steps.env-list.outputs.environments }}' |
-          jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r | 
-          ( read output; echo "::set-output name=environment-name::$output"; )
+          set -e          
+          output=`echo '${{ steps.env-list.outputs.environments }}' | jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r` 
+          echo "::set-output name=environment-name::$output";
+
+      # Print a message if at least one branch does not correspond to an environment (for example: a PR is created, but one of the branches is not a branch connected to an OrgFlow environment).
+      # In this case, we should end with success because otherwise this check could prevent the PR from being merged:
+      - name: End with success if one of the branches does not correspond an OrgFlow environment
+        if: ${{ steps.find-source-environment.outputs.environment-name == '' || steps.find-target-environment.outputs.environment-name == '' }}
+        run: echo "At least one branch ('${{ github.base_ref }}' or '${{ github.head_ref }}') does not correspond to an OrgFlow environment."
 
       # Run OrgFlow command to do a check-only (validation) merge flow from source to target:
       - name: Run env:flowmerge
         if: ${{ steps.find-source-environment.outputs.environment-name != '' && steps.find-target-environment.outputs.environment-name != '' }}
         id: env-flowmerge
         run: |
-          json=$(orgflow env:flowmerge --from=${{ steps.find-source-environment.outputs.environment-name }} --into=${{ steps.find-target-environment.outputs.environment-name }} --checkOnly --output=json)
-          echo "::set-output name=result::$(echo $json | jq '. | del(.result.environments.into.flowOut.retrieve) | del(.result.environments.into.flowOut.result.attempts)' -c)"
-          echo "::set-output name=flow-in-from::$(echo $json | jq '.result.environments.from.flowIn' -c)"
-          echo "::set-output name=flow-in-into::$(echo $json | jq '.result.environments.into.flowIn' -c)"
+          json=$(orgflow env:flowmerge --from=${{ steps.find-source-environment.outputs.environment-name }} --into=${{ steps.find-target-environment.outputs.environment-name }} --checkOnly --output=json --waitForLock=5)
           echo "::set-output name=flow-out-into::$(echo $json | jq '.result.environments.into.flowOut | del(.retrieve) | del(.result.attempts)' -c)"
 
       # Post result as a comment on this PR:

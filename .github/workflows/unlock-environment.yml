@@ -1,4 +1,7 @@
-# Unlock an environment (in case it's left locked)
+# Unlock an environment (in case it's left locked).
+# OrgFlow locks environments while it is operating on them.
+# If an OrgFlow command is abruptly terminated then the lock can fail to be released.
+# This workflow allows you to manually unlock an environment in case you have a need to do so.
 
 name: Unlock an environment
 
