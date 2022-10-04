@@ -56,7 +56,8 @@ jobs:
           output=`echo '${{ steps.env-list.outputs.environments }}' | jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r` 
           echo "::set-output name=environment-name::$output";
 
-      # Print a message if at least one branch does not correspond to an environment:
+      # Print a message if at least one branch does not correspond to an environment (for example: a PR is created, but one of the branches is not a branch connected to an OrgFlow environment).
+      # In this case, we should end with success because otherwise this check could prevent the PR from being merged:
       - name: End with success if one of the branches does not correspond an OrgFlow environment
         if: ${{ steps.find-source-environment.outputs.environment-name == '' || steps.find-target-environment.outputs.environment-name == '' }}
         run: echo "At least one branch ('${{ github.base_ref }}' or '${{ github.head_ref }}') does not correspond to an OrgFlow environment."

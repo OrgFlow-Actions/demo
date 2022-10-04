@@ -1,6 +1,6 @@
 # Flow in an environment (sync metadata from Salesforce into Git)
 
-name: Commit Salesforce metadata changes
+name: Commit metadata changes from org
 
 on:
   # This workflow is always manually executed.

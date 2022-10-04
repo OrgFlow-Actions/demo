@@ -1,4 +1,4 @@
-# Merge production into all sandboxes (sometimes called 'upstream merge' or 'back promotion')
+# Merge production into all sandboxes (sometimes called "upstream merge" or "back promotion")
 
 # This workflow consists of three jobs:
 # - The first runs 'orgflow env:list' to find environments tagged with 'upstreamMergeTarget' and transforms the output into a matrix
@@ -40,7 +40,7 @@ jobs:
       # Use jq to transform the output from env:list into the format expected for a matrix strategy:
       - name: Create matrix
         id: set-matrix
-        run: echo "::set-output name=matrix::`orgflow env:list --withTags="upstreamMergeTarget" --output=json --nameonly | jq '.' -c`"
+        run: echo "::set-output name=matrix::`orgflow env:list --withTags="upstreamMergeTarget" --output=json --nameOnly | jq '.' -c`"
 
   env-flowin:
     # Flow in production once, so that we don't need to do it for every environment in the matrix.

@@ -116,7 +116,7 @@ The **Commit Salesforce metadata changes for all environments** workflow shows a
 
 You may have other jobs that you want to run against multiple environments only known at runtime. You can take advantage of the `env:list --output=json` command to retrieve all of the environment names in a stack and use a matrix strategy to run a job once for each environment. 
 
-The trick here is to use the `--nameOnly` switch and a tool called [jq](https://stedolan.github.io/jq/) to transform the output from `env:list --nameOnly --output=json` into the format that GitHub Actions expects for a matrix definition. The correct jq syntax for this is `env:list --nameOnly --output=json | jq '.' -c`. On top of this, `jq` offers a robust filtering syntax, for example if you only want to run your job on environments matching certain criteria.
+The trick here is to use the `--nameOnly` switch and a tool called [jq](https://stedolan.github.io/jq/) to transform the output from `env:list --nameOnly --output=json` into the format that GitHub Actions expects for a matrix definition. The simplest syntax for this is `env:list --nameOnly --output=json | jq '.' -c`. On top of this, `jq` offers a robust filtering syntax, for example if you only want to run your job on environments matching certain criteria.
 
 `jq` is pre-installed on GitHub-hosted runners, and it is also pre-installed in the official OrgFlow CLI Docker image.
 

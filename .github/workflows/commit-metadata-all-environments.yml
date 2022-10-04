@@ -1,10 +1,10 @@
 # Flow in all environments in stack (sync metadata from Salesforce into Git)
 
 # This workflow consists of two jobs:
-# - The first runs 'orgflow env:list --nameonly' and transforms the output into a matrix
+# - The first runs 'orgflow env:list --nameOnly' and transforms the output into a matrix
 # - The second uses the matrix created in the first step to run 'orgflow env:flowin' for each environment
 
-name: Commit Salesforce metadata changes for all environments
+name: Commit metadata changes from org for all environments
 
 on:
   schedule:
@@ -39,7 +39,7 @@ jobs:
       # Use jq to transform the output from env:list into the format expected for a matrix strategy:
       - name: Create matrix
         id: set-matrix
-        run: echo "::set-output name=matrix::`orgflow env:list --output=json --nameonly | jq '.' -c`"
+        run: echo "::set-output name=matrix::`orgflow env:list --output=json --nameOnly | jq '.' -c`"
 
   env-flowin:
     name: Flow in environment

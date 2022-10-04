@@ -1,6 +1,6 @@
 # Flow out an environment (sync metadata from Git to Salesforce)
 
-name: Deploy metadata
+name: Deploy metadata changes to org
 
 on:
   # This workflow is always manually executed.
