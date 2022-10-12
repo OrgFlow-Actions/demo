@@ -40,7 +40,8 @@ jobs:
       # Use jq to transform the output from env:list into the format expected for a matrix strategy:
       - name: Create matrix
         id: set-matrix
-        run: echo "::set-output name=matrix::`orgflow env:list --output=json --nameOnly`"
+        run: |
+          echo "::set-output name=matrix::`orgflow env:list --output=json --nameOnly`"
 
   env-flowin:
     name: Flow in environment
