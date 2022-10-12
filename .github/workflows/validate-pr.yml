@@ -38,7 +38,7 @@ jobs:
       - name: Run env:list
         id: env-list
         run: |
-          orgflow env:list --output=json | jq . -c | ( read output; echo "::set-output name=environments::$output"; )
+          orgflow env:list --output=json | ( read output; echo "::set-output name=environments::$output"; )
 
       # Find the environment that the source branch belongs to:
       - name: Find source environment
