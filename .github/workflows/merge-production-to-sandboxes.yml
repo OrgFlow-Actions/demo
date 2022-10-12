@@ -8,8 +8,9 @@
 name: Merge production into all sandboxes
 
 on:
-  schedule:
-    - cron: "0 1 * * *" # Runs nightly at 01:00 UTC.
+  # Uncomment to run this workflow on a schedule:
+  #schedule:
+  #  - cron: "0 1 * * *" # Runs nightly at 01:00 UTC.
   workflow_dispatch: # Can also be manually triggered, if needed.
 
 jobs:
