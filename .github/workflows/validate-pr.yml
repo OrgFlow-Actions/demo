@@ -21,12 +21,10 @@ jobs:
           if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
           if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
 
-      # Check out the merge result of the PR
-      - name: Check out merge result
+      # Check out the last merge commit of the PR merge branch:
+      # See https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
+      - name: Check out merge commit
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.merge_commit_sha }}
-          path: merge_result
 
       # Install and configure OrgFlow:
       - name: Install OrgFlow
@@ -60,7 +58,7 @@ jobs:
         if: steps.find-target-environment.outputs.environment-name != ''
         id: env-flowout
         run: |
-          json=$(orgflow env:flowout --environment=${{ steps.find-target-environment.outputs.environment-name }} --useLocalRepo=$GITHUB_WORKSPACE/merge_result --checkOnly --output=json --waitForLock=5)
+          json=$(orgflow env:flowout --environment=${{ steps.find-target-environment.outputs.environment-name }} --useLocalRepo=$GITHUB_WORKSPACE --checkOnly --output=json --waitForLock=5)
           echo "::set-output name=flow-out::$(echo $json | jq '. | del(.retrieve) | del(.result.attempts)' -c)"
 
       # Post result as a comment on this PR:

@@ -9,7 +9,7 @@ name: Commit metadata changes from org for all environments
 on:
   # Uncomment to run this workflow on a schedule:
   #schedule:
-  #  - cron: "0 1 * * *" # Run nightly at 01:00 UTC.
+  #  - cron: "0 9,12,15,18 * * *" # Run four times throughout workday (09:00, 12:00, 15:00 and 18:00 UTC).
   workflow_dispatch: # Can also be manually triggered, if needed.
 
 jobs:
