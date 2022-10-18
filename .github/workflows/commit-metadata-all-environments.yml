@@ -7,8 +7,9 @@
 name: Commit metadata changes from org for all environments
 
 on:
-  schedule:
-    - cron: "0 1 * * *" # Runs nightly at 01:00 UTC.
+  # Uncomment to run this workflow on a schedule:
+  #schedule:
+  #  - cron: "0 9,12,15,18 * * *" # Run four times throughout workday (09:00, 12:00, 15:00 and 18:00 UTC).
   workflow_dispatch: # Can also be manually triggered, if needed.
 
 jobs:
@@ -39,7 +40,8 @@ jobs:
       # Use jq to transform the output from env:list into the format expected for a matrix strategy:
       - name: Create matrix
         id: set-matrix
-        run: echo "::set-output name=matrix::`orgflow env:list --output=json --nameOnly | jq '.' -c`"
+        run: |
+          echo "::set-output name=matrix::`orgflow env:list --output=json --nameOnly`"
 
   env-flowin:
     name: Flow in environment

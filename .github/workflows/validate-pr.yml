@@ -21,6 +21,11 @@ jobs:
           if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
           if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
 
+      # Check out the last merge commit of the PR merge branch:
+      # See https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
+      - name: Check out merge commit
+        uses: actions/checkout@v3
+
       # Install and configure OrgFlow:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
@@ -34,47 +39,33 @@ jobs:
         env:
           ORGFLOW_ACCEPTEULA: "true"
 
-      # List all environments and publish result as an output:
-      - name: Run env:list
-        id: env-list
-        run: |
-          orgflow env:list --output=json | jq . -c | ( read output; echo "::set-output name=environments::$output"; )
-
-      # Find the environment that the source branch belongs to:
-      - name: Find source environment
-        id: find-source-environment
-        run: |
-          set -e          
-          output=`echo '${{ steps.env-list.outputs.environments }}' | jq '[.[] | select(.git.branch == "${{ github.head_ref }}") | .name] | select(. | length > 0)[0]' -r` 
-          echo "::set-output name=environment-name::$output";
-          
-      # ... and then again for the target branch:
+      # Find the environment that the target branch belongs to:
       - name: Find target environment
         id: find-target-environment
         run: |
-          set -e          
-          output=`echo '${{ steps.env-list.outputs.environments }}' | jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r` 
+          set -e
+          output=`orgflow env:list --output=json | jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r` 
           echo "::set-output name=environment-name::$output";
 
-      # Print a message if at least one branch does not correspond to an environment (for example: a PR is created, but one of the branches is not a branch connected to an OrgFlow environment).
-      # In this case, we should end with success because otherwise this check could prevent the PR from being merged:
-      - name: End with success if one of the branches does not correspond an OrgFlow environment
-        if: ${{ steps.find-source-environment.outputs.environment-name == '' || steps.find-target-environment.outputs.environment-name == '' }}
-        run: echo "At least one branch ('${{ github.base_ref }}' or '${{ github.head_ref }}') does not correspond to an OrgFlow environment."
+      # Print a message if target branch does not correspond to an environment.
+      # End with success to still allow PRs unrelated to OrgFlow to be merged.
+      - name: End with success if target branch does not correspond to an environment
+        if: steps.find-target-environment.outputs.environment-name == ''
+        run: echo "Target branch '${{ github.base_ref }}' does not correspond to an OrgFlow environment."
 
-      # Run OrgFlow command to do a check-only (validation) merge flow from source to target:
-      - name: Run env:flowmerge
-        if: ${{ steps.find-source-environment.outputs.environment-name != '' && steps.find-target-environment.outputs.environment-name != '' }}
-        id: env-flowmerge
+      # Run OrgFlow command to do a check-only (validation) outbound flow of merge result to target:
+      - name: Run env:flowout
+        if: steps.find-target-environment.outputs.environment-name != ''
+        id: env-flowout
         run: |
-          json=$(orgflow env:flowmerge --from=${{ steps.find-source-environment.outputs.environment-name }} --into=${{ steps.find-target-environment.outputs.environment-name }} --checkOnly --output=json --waitForLock=5)
-          echo "::set-output name=flow-out-into::$(echo $json | jq '.result.environments.into.flowOut | del(.retrieve) | del(.result.attempts)' -c)"
+          json=$(orgflow env:flowout --environment=${{ steps.find-target-environment.outputs.environment-name }} --useLocalRepo=$GITHUB_WORKSPACE --checkOnly --output=json --waitForLock=5)
+          echo "::set-output name=flow-out::$(echo $json | jq '. | del(.retrieve) | del(.result.attempts)' -c)"
 
       # Post result as a comment on this PR:
       - uses: orgflow-actions/result-to-comment@v1
-        if: ${{ steps.env-flowmerge.outputs.flow-out-into != '' }}
+        if: steps.env-flowout.outputs.flow-out != ''
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
-          result: ${{ steps.env-flowmerge.outputs.flow-out-into }}
+          result: ${{ steps.env-flowout.outputs.flow-out }}
           template-path: env-flow-out.liquid

@@ -8,8 +8,9 @@
 name: Merge production into all sandboxes
 
 on:
-  schedule:
-    - cron: "0 1 * * *" # Runs nightly at 01:00 UTC.
+  # Uncomment to run this workflow on a schedule:
+  #schedule:
+  #  - cron: "0 1 * * *" # Runs nightly at 01:00 UTC.
   workflow_dispatch: # Can also be manually triggered, if needed.
 
 jobs:
@@ -40,7 +41,7 @@ jobs:
       # Use jq to transform the output from env:list into the format expected for a matrix strategy:
       - name: Create matrix
         id: set-matrix
-        run: echo "::set-output name=matrix::`orgflow env:list --withTags="upstreamMergeTarget" --output=json --nameOnly | jq '.' -c`"
+        run: echo "::set-output name=matrix::`orgflow env:list --withTags="upstreamMergeTarget" --output=json --nameOnly`"
 
   env-flowin:
     # Flow in production once, so that we don't need to do it for every environment in the matrix.
