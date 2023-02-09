@@ -34,6 +34,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
+          version: 1
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
