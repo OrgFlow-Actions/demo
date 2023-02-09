@@ -12,6 +12,12 @@ on:
       commitMessage:
         description: "Commit message (leave empty to use a default message):"
         required: false
+        
+# This action uses GitHub's built in token authentication for Git repositories.  
+# Read more at https://docs.github.com/en/actions/security-guides/automatic-token-authentication.
+permissions:
+  # Ensure that OrgFlow can push changes back to the remote repository:
+  contents: write
 
 jobs:
   flow-in:
