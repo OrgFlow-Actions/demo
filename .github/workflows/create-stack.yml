@@ -6,6 +6,12 @@ on:
   # This workflow is always manually executed.
   workflow_dispatch:
 
+# This action uses GitHub's built in token authentication for Git repositories.  
+# Read more at https://docs.github.com/en/actions/security-guides/automatic-token-authentication.
+permissions:
+  # Ensure that OrgFlow can push changes back to the remote repository:
+  contents: write
+
 jobs:
   stack-create:
     name: Create stack
