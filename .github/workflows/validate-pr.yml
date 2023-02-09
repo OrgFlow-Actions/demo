@@ -46,7 +46,7 @@ jobs:
         run: |
           set -e
           output=`orgflow env:list --output=json | jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r` 
-          echo "::set-output name=environment-name::$output";
+          echo "environment-name=$output" >> $GITHUB_OUTPUT;
 
       # Print a message if target branch does not correspond to an environment.
       # End with success to still allow PRs unrelated to OrgFlow to be merged.
@@ -60,7 +60,7 @@ jobs:
         id: env-flowout
         run: |
           json=$(orgflow env:flowout --environment=${{ steps.find-target-environment.outputs.environment-name }} --useLocalRepo=$GITHUB_WORKSPACE --checkOnly --output=json --waitForLock=5)
-          echo "::set-output name=flow-out::$(echo $json | jq '. | del(.retrieve) | del(.result.attempts)' -c)"
+          echo "flow-out=$(echo $json | jq '. | del(.retrieve) | del(.result.attempts)' -c)" >> $GITHUB_OUTPUT
 
       # Post result as a comment on this PR:
       - uses: orgflow-actions/result-to-comment@v1
