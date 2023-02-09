@@ -11,6 +11,12 @@ on:
   #schedule:
   #  - cron: "0 9,12,15,18 * * *" # Run four times throughout workday (09:00, 12:00, 15:00 and 18:00 UTC).
   workflow_dispatch: # Can also be manually triggered, if needed.
+  
+# This action uses GitHub's built in token authentication for Git repositories.  
+# Read more at https://docs.github.com/en/actions/security-guides/automatic-token-authentication.
+permissions:
+  # Ensure that OrgFlow can push changes back to the remote repository:
+  contents: write
 
 jobs:
   create-matrix:
@@ -32,6 +38,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
+          version: 1
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
@@ -41,7 +48,7 @@ jobs:
       - name: Create matrix
         id: set-matrix
         run: |
-          echo "::set-output name=matrix::`orgflow env:list --output=json --nameOnly`"
+          echo "matrix=`orgflow env:list --output=json --nameOnly`" >> $GITHUB_OUTPUT
 
   env-flowin:
     name: Flow in environment

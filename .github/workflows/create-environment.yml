@@ -10,11 +10,17 @@ on:
         description: "Name of environment to create:"
         required: true
       sandboxName:
-        description: "Name of the environment's sandbox:"
+        description: "Name of environment's sandbox:"
         required: true
       branchName:
         description: "Name of environment's Git branch:"
         required: true
+
+# This action uses GitHub's built in token authentication for Git repositories.  
+# Read more at https://docs.github.com/en/actions/security-guides/automatic-token-authentication.
+permissions:
+  # Ensure that OrgFlow can push the new branch back to the remote repository:
+  contents: write
 
 jobs:
   env-create:
@@ -34,6 +40,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
+          version: 1
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}

@@ -6,6 +6,12 @@ on:
   # This workflow is always manually executed.
   workflow_dispatch:
 
+# This action uses GitHub's built in token authentication for Git repositories.  
+# Read more at https://docs.github.com/en/actions/security-guides/automatic-token-authentication.
+permissions:
+  # Ensure that OrgFlow can push changes back to the remote repository:
+  contents: write
+
 jobs:
   stack-create:
     name: Create stack
@@ -13,7 +19,7 @@ jobs:
     # Run in OrgFlow container to avoid having to download and install:
     # NOTE: Normally we'd use the 'orgflow-actions/setup' action, but that action depends on the stack having already been created.
     container: 
-      image: orgflow/cli:latest
+      image: orgflow/cli:1.x
       env:
         ORGFLOW_ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.    
         ORGFLOW_LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
@@ -53,7 +59,7 @@ jobs:
       # Publish any diagnostic bundles as an artifact:
       # NOTE: Normally the 'orgflow-actions/setup' action would do this, but that action depends on the stack having already been created.
       - name: Publish diagnostic bundle
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: orgflow_diag_${{ github.job }}_${{ github.run_attempt }}
