@@ -12,6 +12,12 @@ on:
   #schedule:
   #  - cron: "0 1 * * *" # Runs nightly at 01:00 UTC.
   workflow_dispatch: # Can also be manually triggered, if needed.
+  
+# This action uses GitHub's built in token authentication for Git repositories.  
+# Read more at https://docs.github.com/en/actions/security-guides/automatic-token-authentication.
+permissions:
+  # Ensure that OrgFlow can push changes back to the remote repository:
+  contents: write
 
 jobs:
   create-matrix:
