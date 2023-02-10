@@ -9,6 +9,9 @@ on:
       environmentName:
         description: "Name of the environment to run tests in:"
         required: true
+      testClassesToRun:
+        description: "A commma separated list of test classes to run (omit to run all local tests in the org):"
+        required: false
 
 # This action uses GitHub's built in token authentication for Git repositories.  
 # Read more at https://docs.github.com/en/actions/security-guides/automatic-token-authentication.
@@ -41,10 +44,17 @@ jobs:
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
           ORGFLOW_ACCEPTEULA: "true"
+
+      # Conditionally build the argument to run a subset of tests:
+      - name: Build test classes arg
+        if: ${{ github.event.inputs.testClassesToRun != '' }}
+        id: test-classes-arg
+        run: |
+          echo "test-classes=--classes='${{ github.event.inputs.testClassesToRun }}'" >> $GITHUB_OUTPUT;
       
       # Run OrgFlow command to execute tests in Salesforce:
       - name: Run env:test
-        run: orgflow env:test --environment="${{ github.event.inputs.environmentName }}" --jUnitTo="junit.xml"
+        run: orgflow env:test --environment="${{ github.event.inputs.environmentName }}" --jUnitTo="junit.xml ${{ steps.test-classes-arg.outputs.test-classes }}"
 
       # Publish the test results using an action from the marketplace:
       - name: Publish test results
