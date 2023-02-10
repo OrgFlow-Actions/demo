@@ -54,7 +54,7 @@ jobs:
       
       # Run OrgFlow command to execute tests in Salesforce:
       - name: Run env:test
-        run: orgflow env:test --environment="${{ github.event.inputs.environmentName }}" --jUnitTo="junit.xml ${{ steps.test-classes-arg.outputs.test-classes }}"
+        run: orgflow env:test --environment="${{ github.event.inputs.environmentName }}" --jUnitTo="junit.xml" ${{ steps.test-classes-arg.outputs.test-classes }}
 
       # Publish the test results using an action from the marketplace:
       - name: Publish test results
