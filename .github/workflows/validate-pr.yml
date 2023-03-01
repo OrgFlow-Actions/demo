@@ -30,7 +30,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
-          version: 1
+          version: 2
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
@@ -45,7 +45,7 @@ jobs:
         id: find-target-environment
         run: |
           set -e
-          output=`orgflow env:list --output=json | jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r` 
+          output=`orgflow env:list --json | jq '[.[] | select(.git.branch == "${{ github.base_ref }}") | .name] | select(. | length > 0)[0]' -r` 
           echo "environment-name=$output" >> $GITHUB_OUTPUT;
 
       # Print a message if target branch does not correspond to an environment.
@@ -59,7 +59,7 @@ jobs:
         if: steps.find-target-environment.outputs.environment-name != ''
         id: env-flowout
         run: |
-          json=$(orgflow env:flowout --environment=${{ steps.find-target-environment.outputs.environment-name }} --useLocalRepo=$GITHUB_WORKSPACE --checkOnly --output=json --waitForLock=5)
+          json=$(orgflow env:flowout --environment=${{ steps.find-target-environment.outputs.environment-name }} --useLocalRepo=$GITHUB_WORKSPACE --checkOnly --json --waitForLock=5)
           echo "flow-out=$(echo $json | jq '. | del(.retrieve) | del(.result.attempts)' -c)" >> $GITHUB_OUTPUT
 
       # Post result as a comment on this PR:
