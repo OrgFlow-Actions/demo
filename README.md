@@ -114,17 +114,17 @@ If you'd like to merge the changes back into the `OFQA` sandbox, then you simply
 
 The **Commit Salesforce metadata changes for all environments** workflow shows an example of enumerating environments in your stack and performing some work (in this case an inbound flow) for a subset of them in parallel using a GitHub Actions matrix job in your workflow.
 
-You may have other jobs that you want to run against multiple environments only known at runtime. You can take advantage of the `env:list --output=json --nameOnly` command to retrieve all of the environment names in a stack and use a matrix strategy to run a job once for each environment. 
+You may have other jobs that you want to run against multiple environments only known at runtime. You can take advantage of the `env:list --json --nameOnly` command to retrieve all of the environment names in a stack and use a matrix strategy to run a job once for each environment. 
 
-On top of the `env:list` command, you can also use a tool called [jq](https://stedolan.github.io/jq/) to transform the output from `env:list --nameOnly --output=json` in various ways. `jq` offers a robust filtering syntax, for example if you only want to run your job on environments matching certain criteria. `jq` is pre-installed on GitHub-hosted runners, and it is also pre-installed in the official OrgFlow CLI Docker image.
+On top of the `env:list` command, you can also use a tool called [jq](https://stedolan.github.io/jq/) to transform the output from `env:list --nameOnly --json` in various ways. `jq` offers a robust filtering syntax, for example if you only want to run your job on environments matching certain criteria. `jq` is pre-installed on GitHub-hosted runners, and it is also pre-installed in the official OrgFlow CLI Docker image.
 
 Here are some examples of useful `jq` commands you can apply to the output of `env:list`:
 
-- Get an environment by name: `env:list --output=json | jq '[.[] | select(.name == "myEnvironmentName")] | select(. | length > 0)[0]' -c`
-- Get an environment by Git branch: `env:list --output=json | jq '[.[] | select(.git.branch == "myGitBranch")] | select(. | length > 0)[0]' -c`
-- Get the name of the production environment: `env:list --output=json | jq '[.[] | select(.org.production == true) | .name] | select(. | length > 0)[0]'`
+- Get an environment by name: `env:list --json | jq '[.[] | select(.name == "myEnvironmentName")] | select(. | length > 0)[0]' -c`
+- Get an environment by Git branch: `env:list --json | jq '[.[] | select(.git.branch == "myGitBranch")] | select(. | length > 0)[0]' -c`
+- Get the name of the production environment: `env:list --json | jq '[.[] | select(.org.production == true) | .name] | select(. | length > 0)[0]'`
 
-> TIP: You can use the [`env:tags:set`](https://docs.orgflow.io/reference/commands/env-tags-set.html) command to tag environments, and then use those tags to filter the environments returned by `env:list`. For example, to list only the environments tagged with `runNightlyApexTests`, you could do `env:list --withTags=runNightlyApexTests --output=json`.
+> TIP: You can use the [`env:tags:set`](https://docs.orgflow.io/reference/commands/env-tags-set.html) command to tag environments, and then use those tags to filter the environments returned by `env:list`. For example, to list only the environments tagged with `runNightlyApexTests`, you could do `env:list --withTags=runNightlyApexTests --json`.
 
 ## Next steps
 

@@ -38,7 +38,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
-          version: 1
+          version: 2
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
@@ -48,7 +48,7 @@ jobs:
       - name: Create matrix
         id: set-matrix
         run: |
-          echo "matrix=`orgflow env:list --output=json --nameOnly`" >> $GITHUB_OUTPUT
+          echo "matrix=`orgflow env:list --json --nameOnly`" >> $GITHUB_OUTPUT
 
   env-flowin:
     name: Flow in environment
@@ -64,7 +64,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
-          version: 1
+          version: 2
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}

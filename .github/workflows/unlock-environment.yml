@@ -29,7 +29,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
-          version: 1
+          version: 2
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
