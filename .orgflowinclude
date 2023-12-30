@@ -5,11 +5,11 @@
 # Please refer to https://docs.orgflow.io/reference/glossary/orgflow-include-file.html for details.
 
 #unpackaged/~/CustomObject
-#unpackaged/~/ApexClass
+unpackaged/~/ApexClass
 #unpackaged/~/ApexComponent
 #unpackaged/~/ApexPage
 #unpackaged/~/ApexTestSuite
-unpackaged/~/ApexTrigger
+#unpackaged/~/ApexTrigger
 #unpackaged/~/AuraDefinitionBundle
 #unpackaged/~/LightningComponentBundle
 #unpackaged/~/Scontrol
