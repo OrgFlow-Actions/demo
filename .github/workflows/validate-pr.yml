@@ -54,13 +54,14 @@ jobs:
         if: steps.find-target-environment.outputs.environment-name == ''
         run: echo "Target branch '${{ github.base_ref }}' does not correspond to an OrgFlow environment."
 
-      # Run OrgFlow command to do a check-only (validation) outbound flow of merge result to target:
+      # Run OrgFlow command to do a check-only (validation) outbound flow of merge result to target.
+      # The output of the env:flowout command is assigned to a variable called json, unrequired json properties are removed, and then the remaining JSON is assigned to an output variable to be used in the next step.
       - name: Run env:flowout
         if: steps.find-target-environment.outputs.environment-name != ''
         id: env-flowout
         run: |
           json=$(orgflow env:flowout --environment=${{ steps.find-target-environment.outputs.environment-name }} --useLocalRepo=$GITHUB_WORKSPACE --checkOnly --json --waitForLock=5)
-          echo "flow-out=$(echo $json | jq '. | del(.retrieve) | del(.result.attempts)' -c)" >> $GITHUB_OUTPUT
+          echo "flow-out=$(echo $json | jq '. | del(.retrieve) | del(.result.attempts) | del(.result.newChanges) | del(.result.reason) | del(.result.clobber)' -c)" >> $GITHUB_OUTPUT
 
       # Post result as a comment on this PR:
       - uses: orgflow-actions/result-to-comment@v1
