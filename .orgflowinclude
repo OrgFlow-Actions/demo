@@ -4,8 +4,7 @@
 
 # Please refer to https://docs.orgflow.io/reference/glossary/orgflow-include-file.html for details.
 
-unpackaged/~/CustomObject/Account
-unpackaged/~/CustomObject/Contact
+unpackaged/~/CustomObject
 unpackaged/~/ApexClass
 unpackaged/~/ApexComponent
 unpackaged/~/ApexPage
