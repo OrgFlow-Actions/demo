@@ -4,15 +4,16 @@
 
 # Please refer to https://docs.orgflow.io/reference/glossary/orgflow-include-file.html for details.
 
-#unpackaged/~/CustomObject
+unpackaged/~/CustomObject/Account
+unpackaged/~/CustomObject/Contact
 unpackaged/~/ApexClass
-#unpackaged/~/ApexComponent
-#unpackaged/~/ApexPage
-#unpackaged/~/ApexTestSuite
-#unpackaged/~/ApexTrigger
-#unpackaged/~/AuraDefinitionBundle
-#unpackaged/~/LightningComponentBundle
-#unpackaged/~/Scontrol
+unpackaged/~/ApexComponent
+unpackaged/~/ApexPage
+unpackaged/~/ApexTestSuite
+unpackaged/~/ApexTrigger
+unpackaged/~/AuraDefinitionBundle
+unpackaged/~/LightningComponentBundle
+unpackaged/~/Scontrol
 
 # Exclude things that are only applicable to a DevHub org:
 !unpackaged/~/CustomObject/ActiveScratchOrg
