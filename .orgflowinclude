@@ -4,7 +4,20 @@
 
 # Please refer to https://docs.orgflow.io/reference/glossary/orgflow-include-file.html for details.
 
+# Custom objects and their nested types:
 unpackaged/~/CustomObject
+unpackaged/~/BusinessProcess
+unpackaged/~/CompactLayout
+unpackaged/~/CustomField
+unpackaged/~/FieldSet
+unpackaged/~/Index
+unpackaged/~/ListView
+unpackaged/~/RecordType
+unpackaged/~/SharingReason
+unpackaged/~/ValidationRule
+unpackaged/~/WebLink
+
+# Development:
 unpackaged/~/ApexClass
 unpackaged/~/ApexComponent
 unpackaged/~/ApexPage
