@@ -48,7 +48,7 @@ jobs:
           git-password: ${{ secrets.GITHUB_TOKEN }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
-          ORGFLOW_ACCEPTEULA: "true"
+          ORGFLOW__ACCEPTEULA: "true"
 
       # Run OrgFlow command to create environment:
       - name: Run env:create

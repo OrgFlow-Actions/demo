@@ -36,7 +36,7 @@ jobs:
           git-password: ${{ secrets.GITHUB_TOKEN }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
-          ORGFLOW_ACCEPTEULA: "true"
+          ORGFLOW__ACCEPTEULA: "true"
 
       # Run OrgFlow command to flow in environment:
       # It's good practice to flow in before you flow out, to avoid loss of data in the Salesforce org:

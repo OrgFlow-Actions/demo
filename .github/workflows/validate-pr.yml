@@ -38,7 +38,7 @@ jobs:
           git-password: ${{ secrets.GITHUB_TOKEN }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
-          ORGFLOW_ACCEPTEULA: "true"
+          ORGFLOW__ACCEPTEULA: "true"
 
       # Find the environment that the target branch belongs to:
       - name: Find target environment

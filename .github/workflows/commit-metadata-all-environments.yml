@@ -42,7 +42,7 @@ jobs:
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
-          ORGFLOW_ACCEPTEULA: "true"
+          ORGFLOW__ACCEPTEULA: "true"
 
       # Use jq to transform the output from env:list into the format expected for a matrix strategy:
       - name: Create matrix
@@ -74,7 +74,7 @@ jobs:
           # Ensure artifact names are unique:
           diag-artifact-name: orgflow_diag_${{ github.job }}_${{ matrix.environmentName }}_${{ github.run_attempt }}
         env:
-          ORGFLOW_ACCEPTEULA: "true"
+          ORGFLOW__ACCEPTEULA: "true"
 
       # Run OrgFlow command:
       - name: Run env:flowin

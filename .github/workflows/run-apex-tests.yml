@@ -43,7 +43,7 @@ jobs:
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
-          ORGFLOW_ACCEPTEULA: "true"
+          ORGFLOW__ACCEPTEULA: "true"
 
       # Conditionally build the argument to run a subset of tests:
       - name: Build test classes arg
