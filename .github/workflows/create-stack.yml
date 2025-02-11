@@ -19,7 +19,7 @@ jobs:
     # Run in OrgFlow container to avoid having to download and install:
     # NOTE: Normally we'd use the 'orgflow-actions/setup' action, but that action depends on the stack having already been created.
     container: 
-      image: orgflow/cli:2.x
+      image: orgflow/cli:3.x
       env:
         ORGFLOW__ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.    
         ORGFLOW__LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}

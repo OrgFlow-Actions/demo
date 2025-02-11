@@ -12,6 +12,9 @@ on:
       sandboxName:
         description: "Name of environment's sandbox:"
         required: true
+      access:
+        description: "Name of the public group whose members can access the sandbox. This is only required if you are not using a pre-existing sandbox:"
+        required: false
       branchName:
         description: "Name of environment's Git branch:"
         required: true
@@ -40,7 +43,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v1
         with:
-          version: 2
+          version: 3
           license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
@@ -53,7 +56,7 @@ jobs:
       # Run OrgFlow command to create environment:
       - name: Run env:create
         run: |
-          orgflow env:create --environment="${{ github.event.inputs.environmentName }}" --sandboxName="${{ github.event.inputs.sandboxName }}" --branchName="${{ github.event.inputs.branchName }}" --useExistingSandbox --useExistingBranch --noConfirm --waitForLock=5
+          orgflow env:create --environment="${{ github.event.inputs.environmentName }}" --sandboxName="${{ github.event.inputs.sandboxName }}" --access="${{ github.event.inputs.access }}" --branchName="${{ github.event.inputs.branchName }}" --useExistingSandbox --useExistingBranch --noConfirm --waitForLock=5
 
       # Tag this environment so that the upstream merge workflow can filter based on this tag:
       - name: Run env:tags:set
