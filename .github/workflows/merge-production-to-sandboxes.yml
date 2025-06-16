@@ -60,7 +60,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v2.preview
         with:
-          version: 2
+          version: 3
           access-token: ${{ secrets.ORGFLOW_ACCESSTOKEN }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
@@ -89,7 +89,7 @@ jobs:
       - name: Install OrgFlow
         uses: orgflow-actions/setup@v2.preview
         with:
-          version: 2
+          version: 3
           access-token: ${{ secrets.ORGFLOW_ACCESSTOKEN }}
           salesforce-username: ${{ secrets.SALESFORCE_USERNAME }}
           salesforce-password: ${{ secrets.SALESFORCE_PASSWORD }}
