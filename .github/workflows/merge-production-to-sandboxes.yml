@@ -37,7 +37,7 @@ jobs:
 
       # Install and configure OrgFlow:
       - name: Install OrgFlow
-        uses: orgflow-actions/setup@v2.preview
+        uses: orgflow-actions/setup@v2
         with:
           version: 3
           access-token: ${{ secrets.ORGFLOW_ACCESSTOKEN }}
@@ -58,7 +58,7 @@ jobs:
     steps:
       # Install and configure OrgFlow:
       - name: Install OrgFlow
-        uses: orgflow-actions/setup@v2.preview
+        uses: orgflow-actions/setup@v2
         with:
           version: 3
           access-token: ${{ secrets.ORGFLOW_ACCESSTOKEN }}
@@ -87,7 +87,7 @@ jobs:
     steps:
       # Install and configure OrgFlow:
       - name: Install OrgFlow
-        uses: orgflow-actions/setup@v2.preview
+        uses: orgflow-actions/setup@v2
         with:
           version: 3
           access-token: ${{ secrets.ORGFLOW_ACCESSTOKEN }}
