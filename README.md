@@ -9,7 +9,7 @@ This repository can be used in two ways:
 
 In this repository you'll find a few sample workflows to quickly get you up and running with OrgFlow in GitHub Actions, but they are only a starting point. You will likely want to change things to suit your specific needs once you've got the hang of it. With some creativity, you will be able to use OrgFlow to build your own Salesforce DevOps pipeline and manage your Salesforce deployments from GitHub.
 
-NOTE: most of what is covered in this guide is also possible to achieve through the [OrgFlow Web App](https://www.orgflow.app). You may find it easier to use that instead. The purpose of this guide is to demonstrate how to integrate OrgFlow into your GitHub Actions, therefore we won't mention the OrgFlow Web App again. 
+> NOTE: Most of what is covered in this guide is also possible to achieve through the [OrgFlow Web App](https://www.orgflow.app). You may find it easier to use that instead. The purpose of this guide is to demonstrate how to integrate OrgFlow into your GitHub Actions, therefore we won't mention the OrgFlow Web App again. 
 
 Below is a guided tutorial on how you can quickly get up and running with your own repository, using this one as a template.
 
