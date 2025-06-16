@@ -23,14 +23,14 @@ jobs:
       - name: Verify secrets
         run: |
           if ["${{ secrets.ORGFLOW_STACKNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the Readme for more details." && exit 1; fi;
-          if ["${{ secrets.ORGFLOW_LICENSEKEY }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.ORGFLOW_ACCESSTOKEN }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_ACCESSTOKEN has not been set. See the Readme for more details." && exit 1; fi;
 
       # Install and configure OrgFlow:
       - name: Install OrgFlow
-        uses: orgflow-actions/setup@v1
+        uses: orgflow-actions/setup@v2.preview
         with:
           version: 3
-          license-key: ${{ secrets.ORGFLOW_LICENSEKEY }}
+          access-token: ${{ secrets.ORGFLOW_ACCESSTOKEN }}
           stack-name: ${{ secrets.ORGFLOW_STACKNAME }}
         env:
           ORGFLOW__ACCEPTEULA: "true"
