@@ -21,8 +21,8 @@ jobs:
     container: 
       image: orgflow/cli:3.x
       env:
-        ORGFLOW__ACCEPTEULA: true # If someone has a license key then they've already accepted the EULA.    
-        ORGFLOW__LICENSEKEY: ${{ secrets.ORGFLOW_LICENSEKEY }}
+        ORGFLOW__ACCEPTEULA: true # If someone has an access token then they've already accepted the EULA.    
+        ORGFLOW__ACCESSTOKEN: ${{ secrets.ORGFLOW_ACCESSTOKEN }}
         ORGFLOW__OUTPUTTEMPLATE_WARNING: "::warning title=OrgFlow Warning::$$msg$$"
         ORGFLOW__OUTPUTTEMPLATE_ERROR: "::error title=OrgFlow Error::$$msg$$"
 
@@ -32,7 +32,7 @@ jobs:
         run: |
           # echo "::notice title=ORGFLOW_STACKNAME::${{ secrets.ORGFLOW_STACKNAME }}"
           if ["${{ secrets.ORGFLOW_STACKNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_STACKNAME has not been set. See the Readme for more details." && exit 1; fi;
-          if ["${{ secrets.ORGFLOW_LICENSEKEY }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_LICENSEKEY has not been set. See the Readme for more details." && exit 1; fi;
+          if ["${{ secrets.ORGFLOW_ACCESSTOKEN }}" == ""]; then echo "::error title=Missing input value::Repository secret ORGFLOW_ACCESSTOKEN has not been set. See the Readme for more details." && exit 1; fi;
           if ["${{ secrets.SALESFORCE_USERNAME }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_USERNAME has not been set. See the Readme for more details." && exit 1; fi;
           if ["${{ secrets.SALESFORCE_PASSWORD }}" == ""]; then echo "::error title=Missing input value::Repository secret SALESFORCE_PASSWORD has not been set. See the Readme for more details." && exit 1; fi;
 
